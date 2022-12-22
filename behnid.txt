@@ -1,0 +1,86 @@
+index_page
+
+#error
+    //404_page
+    //500_page
+
+#about
+    //contact-us
+    //about-us
+    //faq
+    
+
+#Auth
+    //login
+    //logout
+    //register
+    //register-confirm
+    //reset-pass
+    //set-profile
+    //set-profile-two
+
+
+#blog
+    //all       
+    //single    (include comments)
+
+
+#chat
+    //my-contacts
+    //single(PV)
+    //contact-list
+
+
+#products
+    //single    (include comments)
+    //all
+    //reply
+
+
+#profile
+    //add-avatar
+    //add-free-request
+    //add-product-image
+    //add-product
+    //add-tickets
+    //all-products
+    //all-tickets
+    //all-requests
+    //edit-request-single
+    //edit-product-single
+    //become-seller
+        *legal-person*
+        *natural-person*
+    //change-details
+    //change-uniqe-details
+    //change-password
+    //index
+    //products-requests
+    //accepted-requests
+
+
+#requests
+    //all
+    //single    (include comments)
+    //accept
+
+
+#search
+    (filter && category && city && seller)
+
+
+#seller
+    //all
+    //single    (seller-page)
+
+
+#story
+    (like insta web)
+
+
+/////////////////// components /////////////
+    1_model (alert && error && warn)
+    2_footer
+    3_header (dynamic)
+    4_loading
+    5_user   (user details card)
