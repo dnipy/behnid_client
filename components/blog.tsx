@@ -127,7 +127,7 @@ export function MyProductOptions( props : {id : number, title : string , image :
             {
                 notif ? 
                 <div className=' mx-4  items-center px-6 py-3 rounded-b-xl bg-orange-400 flex justify-around'>
-                    <h1 className='text-xs cursor-pointer' onClick={()=>router.replace(`/profile/products-requests?id=${props.id}`)}>درخواست ها</h1>
+                    <h1 className='text-xs cursor-pointer' onClick={()=>router.replace(`/profile/single-product?id=${props.id}`)}>درخواست ها</h1>
                     <h1 className='text-xs cursor-pointer' onClick={()=>router.replace(`/profile/change-product?id=${props.id}`)}>تغییر</h1>
 
                 </div> : 

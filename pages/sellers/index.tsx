@@ -4,12 +4,11 @@ import { ErrorComponent } from "../../components/error";
 import Footer from "../../components/footer";
 import { LoadingComponent } from "../../components/loading";
 import Navbar from "../../components/Navbar";
-import { WarnComponent } from "../../components/warn";
 import useAxios from "../../hooks/useAxios";
 
 const Page : NextPage = ()  => {
   const router = useRouter()
-  const {error,loading,response} = useAxios(`/sellers/all?start=0&length=10`)
+  const {error,loading,response} = useAxios(`/sellers/all?start=1&length=10`)
   console.log({response})
 
   return (
