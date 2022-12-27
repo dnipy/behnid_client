@@ -3,11 +3,16 @@ import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import {store} from '../lib/store'
 import { AuthContext, authContextDefaults } from '../contexts/Auth'
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { socket } from '../clients/io'
 import {  AuthorizedApiRequest } from '../clients/axios'
 import { useAppSelector } from '../hooks/redux'
 import { useDispatch } from 'react-redux'
+import { changeModelShown } from '../lib/features/model.slice'
+import ReduxWrapper from '../contexts/ReduxWrapper'
+
+
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [id,setId] = useState<number | undefined>()
@@ -40,20 +45,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         
 
 
-
-  // * redux
-  const errorSelector = useAppSelector((state)=> state.error)
-  const loadingSelector = useAppSelector((state)=> state.loading)
-  const dispatch = useDispatch()
-
-
   
   return <>
   <div className='bg-gray-100 min-h-screen'>
     <Provider store={store}>
-      <AuthContext.Provider value={authContextDefaults} >
-        <Component {...pageProps} />
-      </AuthContext.Provider>
+      <ReduxWrapper>
+          <AuthContext.Provider value={authContextDefaults} >
+            <Component {...pageProps} />
+          </AuthContext.Provider>      
+      </ReduxWrapper>
     </Provider>
   </div>
   </>
