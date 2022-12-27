@@ -4,6 +4,7 @@ import { AuthorizedApiRequest } from "../../clients/axios";
 import ProfileCard from "../../components/ProfileCard";
 import Router, { useRouter } from "next/router";
 import { Model } from "../../components/Model";
+import { LoadingComponent } from "../../components/loading";
 
 
 const Page : NextPage = ()  => {
@@ -66,7 +67,7 @@ const Page : NextPage = ()  => {
 
 <div className="bg-gray-100 min-h-fit">
 
-      {loading ?   ' loading' : 
+      {loading ?   <LoadingComponent/>   : 
     <>
     {
         model ? 

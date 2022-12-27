@@ -2,7 +2,6 @@ import { NextPage } from "next";
 import React, { ReactNode, useContext, useEffect, useState } from 'react'
 import { ApiRequest, AuthorizedApiRequest } from "../../clients/axios";
 import Router from "next/router";
-import { AuthContext } from "../../contexts/Auth";
 import Link from "next/link";
 
 
@@ -23,11 +22,6 @@ const Page : NextPage = ()  => {
 //title  desc price send_area min_order max_order city customer_price prudocer_price pack_type delivery time weight image
 
 function FirstStep() {
-    // const {isUser} = useContext(AuthContext)
-    
-    // if (isUser()) {
-    //         Router.replace('/')
-    // }
   const [packtype,setPacktype] = React.useState<string>('vanet')
   const [categorie,setCategory] = React.useState<Array<any>>([])
   const [loading,setloading] = React.useState(true)
@@ -38,13 +32,15 @@ function FirstStep() {
   //forms
   const [title,setTitle] = useState('')
   const [describe,setDescribe] = useState('')
-  const [price,setPrice] = useState(0)
+  const [price,setPrice] = useState<string | number | readonly string[] | undefined>()
   const [sendArea,setSendArea] = useState('')
   const [minOrder,setMinOrder] = useState(1)
-  const [customerPrice,setCustomerPrice] = useState(0)
-  const [producerPrice,SetProducerPrice] = useState(0)
+  const [customerPrice,setCustomerPrice] = useState<string | number | readonly string[] | undefined>()
+  const [producerPrice,SetProducerPrice] = useState<string | number | readonly string[] | undefined>()
   const [weight,setWeight] = useState('')
   const [deliveryTime,setDeliveryTime] = useState('')
+  const [City,setCity] = React.useState<string>('تهران')
+  const [cities,setCities]= React.useState([])
 
 
   useEffect(()=>{
@@ -63,12 +59,32 @@ function FirstStep() {
   },[])
 
 
+  useEffect(()=>{
+    ApiRequest
+        .get('/categories/all-city')
+        .then((res) => {
+            console.log(res)
+            setCities(res.data);
+            console.log(City)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+        .finally(() => {
+            setloading(false);
+        });
+
+  },[])
+
   const handleChangepack = (e: React.ChangeEvent<HTMLSelectElement>) =>{
       console.log(packtype)
       setPacktype(e.target.value)
       console.log(packtype)
   }
 
+  const handleChangeCity = (e: React.ChangeEvent<HTMLSelectElement>) =>{
+    setCity(e.target.value)
+  }
 
   const handleSend = async()=>{
       setloading(true)
@@ -86,6 +102,19 @@ function FirstStep() {
         weight,
         deliveryTime,
         catName : cat,
+        City
+        
+    }
+
+    if (!body.title || !body.price || !body.sendArea || !body.minOrder || body.customerPrice || !body.producerPrice || !body.weight ){
+        setError("فیلد های دارای * اجباری هستند")
+        return
+    }
+
+
+    if (!body.catName) {
+        setError('لطفا دسته بندی را انتخاب کنید')
+        return
     }
     console.log(body)
 
@@ -200,7 +229,7 @@ function FirstStep() {
                         </div>
 
 
-                        <div className="mt-4 ">
+                        <div className="mt-4">
                                     <div>
                                             <label  className="text-right block">دسته بندی</label>
                                             <select value={cat} onChange={(e)=>{
@@ -215,6 +244,17 @@ function FirstStep() {
                                             </select>
                                     </div>
                                     
+                        </div>
+
+                        <div className="mt-4">
+                            <div>
+                                <label  className="text-right block pb-2">شهر</label>
+                                <select value={City} onChange={handleChangeCity} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
+                                        {cities.map((elm : any)=>(
+                                            <option value={elm.name} key={elm.id} >{elm.name}</option>
+                                            ))}
+                                </select>
+                            </div>
                         </div>
                         
                             <button onClick={handleSend} className="px-32 py-2 mx-4 mt-4 text-white bg-orange-400 rounded-lg hover:bg-orange-500">ادامه</button>

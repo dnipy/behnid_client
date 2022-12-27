@@ -86,6 +86,17 @@ function ChangeProduct() {
       deliveryTime : response.deliveryTime,
       catName : response.cat,
   }
+
+  if (!body.title || !body.price || !body.sendArea || !body.minOrder || body.customerPrice || !body.producerPrice || !body.weight ){
+        setError("فیلد های دارای * اجباری هستند")
+        return
+    }
+
+
+    if (!body.catName) {
+        setError('لطفا دسته بندی را انتخاب کنید')
+        return
+    }
   console.log(body)
 
   AuthorizedApiRequest

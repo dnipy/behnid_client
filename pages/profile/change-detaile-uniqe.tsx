@@ -88,7 +88,7 @@ function ChangeDetaile() {
                             <div className="grid grid-cols-5 py-2">
                                 <div className="px-4 py-2 font-semibold">نام کاربری</div>
                                 {/* <div className="px-4 py-2">{response?.profile?.name ? response.profile.name : '-'}</div> */}
-                                <input onChange={(e)=>setResponse({...response,name : e.target.value})} value={response?.name ? response?.name : ''} type='text' className='w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600 col-span-3 ' />
+                                <input onChange={(e)=>setResponse({...response,name : e.target.value})} value={response?.name ? response?.name : ''} type='text' className='w-1/2 px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600 col-span-3 ' />
                             </div>
 
 
@@ -103,11 +103,11 @@ function ChangeDetaile() {
 
 
                             
-                            <div className="grid grid-cols-5 py-2">
+                            {/* <div className="grid grid-cols-5 py-2">
                                 <div className="px-4 py-2 font-semibold">شماره تماس</div>
-                                {/* <div className="px-4 py-2">{response.phone ? response.phone : '-'}</div> */}
+                                <div className="px-4 py-2">{response.phone ? response.phone : '-'}</div>
                                 <input onChange={(e)=>setResponse({...response,phone : e.target.value})} type='number' value={response.phone ? response.phone : ''} className='w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600 col-span-3 ' />
-                            </div>
+                            </div> */}
 
 
                             <div className="grid grid-cols-5 py-2">
