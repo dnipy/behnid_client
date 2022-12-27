@@ -6,10 +6,11 @@ import { AuthContext, authContextDefaults } from '../contexts/Auth'
 import React, { useEffect, useState } from 'react'
 import { socket } from '../clients/io'
 import {  AuthorizedApiRequest } from '../clients/axios'
+import { useAppSelector } from '../hooks/redux'
+import { useDispatch } from 'react-redux'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [id,setId] = useState<number | undefined>()
-  
 
   const fetchData = () => {
     AuthorizedApiRequest
@@ -37,6 +38,14 @@ function MyApp({ Component, pageProps }: AppProps) {
           fetchData();
       }, [id]);
         
+
+
+
+  // * redux
+  const errorSelector = useAppSelector((state)=> state.error)
+  const loadingSelector = useAppSelector((state)=> state.loading)
+  const dispatch = useDispatch()
+
 
   
   return <>
