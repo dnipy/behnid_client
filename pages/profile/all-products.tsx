@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import Router, { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { ApiRequest, AuthorizedApiRequest } from "../../clients/axios";
-import {MyProduct, MyProductOptions} from "../../components/blog";
+import {MyProduct, MyProductOptions, Product} from "../../components/blog";
 import { ErrorComponent } from "../../components/error";
 import Footer from "../../components/footer";
 import { LoadingComponent } from "../../components/loading";
@@ -59,10 +59,17 @@ const Page : NextPage = ()  => {
       {error ? <ErrorComponent  details={'500'} /> : null}
       {response?.err ? 'ارور' :
 
-      <div dir="rtl" className="grid grid-cols-3 gap-4">
-        {loading == false ? response.map((elm :any)=>(
-          <MyProductOptions city={elm?.city?.name  ? elm.city.name : 'کل ایران'} author={elm.author.name}  id={elm.id} key={elm.id} title={elm.title} describe={elm.describe} likes={elm.likes} image={elm?.image ? `http://localhost:3001${elm.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png'} />
-          )) : null}
+      <div dir="rtl" className="flex flex-wrap min-h-screen  ">
+        {loading == false ? response.map((elm :any)=>{
+
+          if (elm?.isShown) {
+            return (
+              <Product price={elm?.price} city={elm?.city?.name  ? elm.city.name : 'ایران'} author={elm.author.name} authorID={elm.author.id}  id={elm.id} key={elm.id} title={elm.title} describe={elm.describe} freeDelivery={elm?.freeDelivery} image={elm?.image ? `https://behnid.com${elm.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png'} />
+            )
+          }
+          
+        
+        }) : null}
       </div>
 
         }

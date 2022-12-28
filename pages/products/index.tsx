@@ -56,7 +56,7 @@ const Page : NextPage = ()  => {
 
       <div dir="rtl" className="flex flex-wrap min-h-screen  ">
         {loading == false ? response.map((elm :any)=>(
-          <Product price={elm?.price} city={elm?.city?.name  ? elm.city.name : 'ایران'} author={elm.author.name} authorID={elm.author.id}  id={elm.id} key={elm.id} title={elm.title} describe={elm.describe} likes={elm.likes} image={elm?.image ? `https://behnid.com${elm.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png'} />
+          <Product price={elm?.price} city={elm?.city?.name  ? elm.city.name : 'ایران'} author={elm.author.name} authorID={elm.author.id}  id={elm.id} key={elm.id} title={elm.title} describe={elm.describe} freeDelivery={elm?.freeDelivery} image={elm?.image ? `https://behnid.com${elm.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png'} />
           )) : null}
       </div>
 

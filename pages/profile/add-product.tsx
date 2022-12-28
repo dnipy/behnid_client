@@ -25,7 +25,7 @@ function FirstStep() {
   const [packtype,setPacktype] = React.useState<string>('vanet')
   const [categorie,setCategory] = React.useState<Array<any>>([])
   const [loading,setloading] = React.useState(true)
-  const [cat,setCat] = React.useState('')
+  const [cat,setCat] = React.useState<string>('مواد غذایی')
   const [response,setResponse]= React.useState<any>('')
   const [error,setError] = React.useState('')
 
@@ -34,7 +34,7 @@ function FirstStep() {
   const [describe,setDescribe] = useState('')
   const [price,setPrice] = useState<string | number | readonly string[] | undefined>()
   const [sendArea,setSendArea] = useState('')
-  const [minOrder,setMinOrder] = useState(1)
+  const [minOrder,setMinOrder] = useState<string | number | readonly string[] | undefined>()
   const [customerPrice,setCustomerPrice] = useState<string | number | readonly string[] | undefined>()
   const [producerPrice,SetProducerPrice] = useState<string | number | readonly string[] | undefined>()
   const [weight,setWeight] = useState('')
@@ -105,8 +105,9 @@ function FirstStep() {
         City
         
     }
+    console.log(body)
 
-    if (!body.title || !body.price || !body.sendArea || !body.minOrder || body.customerPrice || !body.producerPrice || !body.weight ){
+    if (!body.title || !body.price || !body.sendArea || !body.minOrder || !body.customerPrice || !body.producerPrice || !body.weight ){
         setError("فیلد های دارای * اجباری هستند")
         return
     }
@@ -149,7 +150,7 @@ function FirstStep() {
                     {response ? <p  className="text-red-400 text-right">{response}</p>: null}
                     <div dir="rtl" className="mt-4">
                         <div>
-                            <label className=" text-right block" htmlFor="email">نام محصول</label>
+                            <label className=" text-right block" htmlFor="email">*نام محصول</label>
                                     <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" placeholder="رب گوجه چین چین"
                                         className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
                         </div>
@@ -160,14 +161,14 @@ function FirstStep() {
                         </div>
 
                         <div className="mt-4">
-                            <label  className="text-right block">قیمت به تومان</label>
+                            <label  className="text-right block">*قیمت به تومان</label>
                                     <input value={price} onChange={(e)=>setPrice(e.target.valueAsNumber)} type="number" placeholder="200000"
                                         className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
                                     
                         </div>
 
                         <div className="mt-4">
-                            <label className=" text-right block" htmlFor="email">محدوده ارسال</label>
+                            <label className=" text-right block" htmlFor="email">*محدوده ارسال</label>
                                     <input value={sendArea} onChange={(e)=>setSendArea(e.target.value)} type="text" placeholder="کرج و تهران"
                                         className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
                         </div>
@@ -188,7 +189,7 @@ function FirstStep() {
                                     
 
                                     <div>
-                                        <label  className="text-right block">حداقل فروش</label>
+                                        <label  className="text-right block">*حداقل فروش</label>
                                         <input value={minOrder} onChange={(e)=>setMinOrder(e.target.valueAsNumber)} type="number" placeholder="10"
                                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
                                     </div>
@@ -197,28 +198,28 @@ function FirstStep() {
 
                         <div className="mt-4 flex justify-between">
                                     <div>
-                                        <label  className="text-right block">قیمت فروشنده</label>
+                                        <label  className="text-right block">*قیمت فروشنده</label>
                                         <input value={producerPrice} onChange={(e)=>SetProducerPrice(e.target.valueAsNumber)} type="number" placeholder="20050"
                                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
                                     </div>
                                     
 
                                     <div>
-                                        <label  className="text-right block">قیمت خریدار</label>
+                                        <label  className="text-right block">*قیمت خریدار</label>
                                         <input value={customerPrice} onChange={(e)=>setCustomerPrice(e.target.valueAsNumber)} type="number" placeholder="21000"
                                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
                                     </div>
                         </div>
                         <div className="mt-4 flex justify-between">
                                     <div>
-                                        <label  className="text-right block">وزن به کیلوگرم</label>
+                                        <label  className="text-right block">*وزن به کیلوگرم</label>
                                         <input value={weight} onChange={(e)=>setWeight(e.target.value)} type="number" placeholder="2"
                                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
                                     </div>
                                     
                                 
                                     <div className="mx-1" style={{width : '14rem'}}>
-                                            <label  className="text-right block">نوع بسته بندی</label>
+                                            <label  className="text-right block">*نوع بسته بندی</label>
                                             <select value={packtype} onChange={handleChangepack} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
                                                 <option value='vanet' >وانت</option>
                                                 <option value='camiun'>کامیون</option>
@@ -231,7 +232,7 @@ function FirstStep() {
 
                         <div className="mt-4">
                                     <div>
-                                            <label  className="text-right block">دسته بندی</label>
+                                            <label  className="text-right block">*دسته بندی</label>
                                             <select value={cat} onChange={(e)=>{
                                                 setCat(e.target.value)
                                             }} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
@@ -248,7 +249,7 @@ function FirstStep() {
 
                         <div className="mt-4">
                             <div>
-                                <label  className="text-right block pb-2">شهر</label>
+                                <label  className="text-right block pb-2">*شهر</label>
                                 <select value={City} onChange={handleChangeCity} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
                                         {cities.map((elm : any)=>(
                                             <option value={elm.name} key={elm.id} >{elm.name}</option>

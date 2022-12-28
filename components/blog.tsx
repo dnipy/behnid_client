@@ -36,7 +36,7 @@ export default Blog
 
 
 
-export function Product( props : { authorID : string | number , price : number | string , id : number, title : string , image : string , likes : number , describe : string, author : string , city : string}) {
+export function Product( props : { authorID : string | number , price : number | string , id : number, title : string , image : string , freeDelivery : boolean , describe : string, author : string , city : string}) {
 
     const router = useRouter()
   return (
@@ -61,8 +61,8 @@ export function Product( props : { authorID : string | number , price : number |
                 </div>
 
                 <div className='w-1/3 border-r-2 text-center'>
-                    <p className='text-sm'>لایک</p>
-                    <p className='text-xs'>{props.likes}</p>
+                    <p className='text-sm'>ارسال با</p>
+                    <p className='text-xs'>{props.freeDelivery ? 'فروشنده' : 'خریدار'}</p>
                 </div>
 
                 <div className='w-1/3  text-center'>
