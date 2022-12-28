@@ -51,7 +51,8 @@ const Page : NextPage = ()  => {
     })
     .catch((err) => {
       setError(err);
-      router.replace('/500')
+      console.log({err})
+      // router.replace('/500')
 
     })
     .finally(() => {
