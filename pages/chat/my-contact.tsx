@@ -38,13 +38,13 @@ const Page : NextPage = ()  => {
     <>
         <div dir="rtl" className="w-full text-right max-w-screen-xl mx-auto ">
         <div className="relative rounded overflow-hidden border border-grey-light h-screen  flex  justify-center items-center bg-gray-100">
-            <div className=" p-4 bg-grey-lighter py-8">
-            <div className="bg-white mx-auto max-w-sm shadow-lg rounded-lg w-72 overflow-hidden">
+            <div className=" p-4 bg-grey-lighter py-8 ">
+            <div className="bg-white mx-auto max-w-sm h-[40rem]  shadow-lg rounded-lg w-[22rem] overflow-hidden">
                 <div className="sm:flex sm:items-center px-2 py-4">
                 <div className="flex-grow">
                     <h3 className="font-bold text-center px-2 py-3 leading-tight">مخاطبین</h3>
-                    <input type="text" placeholder="جستجو در مخاطبین "
-                    className="my-2 w-full text-sm bg-grey-light text-grey-darkest rounded h-10 p-3 focus:outline-none" />
+                    {/* <input type="text" placeholder="جستجو در مخاطبین "
+                    className="my-2 w-full text-sm bg-grey-light text-grey-darkest rounded h-10 p-3 focus:outline-none" /> */}
                     <div dir="rtl" className="w-full overflow-auto h-64">
                         {response?.contacts?.length > 0  ? (response.contacts as Array<any>).map(elm=>(
                             <ContactComponent name={elm?.contactName} id={elm?.id} key={elm?.id} />

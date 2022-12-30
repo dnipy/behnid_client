@@ -4,23 +4,27 @@ import Navbar from "../components/Navbar";
 import {  useAppSelector } from "../hooks/redux";
 import { useForm } from "react-hook-form";
 import Footer from "../components/footer";
-import useAxios from "../hooks/useAxios";
-import AddComment from "../components/addComment";
-import { City } from "../components/province";
-
+import StoryBar from "../components/storyBar";
+import Image from "next/image";
+import TopImage from "../components/index-page/TopImage";
+import icon from '../assets/icon.png'
+import KnowUs from "../components/index-page/KnowUs";
+import IndexProducts from "../components/index-page/IndexProducts";
+import IndexStoryBar from "../components/index-page/StoryBar";
+import IndexEvents from "../components/index-page/IndexEvents";
 
 const Page : NextPage = ()  => {
 
   return (
     <>
       <Navbar/>
-      <main className="flex justify-center ">
-        <div className="w-1/1 md:w-2/3 p-3 h-screen  ">
-      
-          <h1 className="text-3xl font-bold ">
-            page content
-          </h1>
-
+      <main dir="rtl" className="flex justify-center ">
+        <div className="w-full  min-h-screen  ">
+          <TopImage/>
+          <KnowUs/>
+          <IndexProducts/>
+          <IndexStoryBar/>
+          <IndexEvents/>
         </div>
       </main>
       <Footer/>

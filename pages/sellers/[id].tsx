@@ -9,6 +9,7 @@ import Navbar from "../../components/Navbar";
 import {Audio} from 'react-loader-spinner'
 import FreeRequest from "../../components/freeRequest";
 import { LoadingComponent } from "../../components/loading";
+import { MiladiToShamsi } from "../../utils/miladi_be_shamsi";
 
 
 const Page : NextPage = ()  => {
@@ -39,6 +40,8 @@ const Page : NextPage = ()  => {
         if (res.data.err) {
           setError(res.data.err)
           console.log(res.data.err)
+          router.replace('/404')
+
         } 
         else {
           setResponse(res.data);
@@ -47,7 +50,7 @@ const Page : NextPage = ()  => {
     })
     .catch((err) => {
       console.log(err)
-      router.replace('/500')
+      router.replace('/404')
     })
     .finally(() => {  
       setloading(false);
@@ -136,7 +139,10 @@ const Page : NextPage = ()  => {
 
       <div className="my-4">
         <h3 className="text-center text-xl pb-5">{response?.name}</h3>
-        <h3 className="text-center pt-1 text-md"> { response?.date ? (response?.date as string).slice(0,10) : '-'} <b>تاریخ</b> </h3>
+        <h3 className="text-center pt-1 text-md"> { response?.date ? 
+                        MiladiToShamsi( Number((response?.date as string).slice(0,4))  , Number((response?.date as string).slice(5,7))  , Number((response?.date as string).slice(8,10))  )  
+
+        : '-'} <b>تاریخ</b> </h3>
         <h3 className="text-center pt-1 text-md"> <b>شهر</b> : { response?.cityName  ? response.cityName   :  'تنظیم نشده'}  </h3>
         <h3 className="text-center pt-1 text-md"> <b>دسته بندی</b> : { response?.categorie  ? (response.categorie as Array<any>).at(0).name : 'تنظیم نشده'}  </h3>
 
@@ -155,9 +161,9 @@ const Page : NextPage = ()  => {
           <h3 className="bg-orange-400 text-center hover:bg-orange-500 text-white font-bold py-2 mb-5 mt-5 px-4 rounded-full">
               محصولات
           </h3>
-          <div dir="rtl" className="flex flex-wrap  ">
-            {response?.products ? response?.products.map((elm :any)=>(
-              <Product price={elm?.price} authorID={elm?.author?.id} city={elm?.city?.name  ? elm.city.name : 'کل ایران'} author={response?.name}  id={elm?.id} key={elm?.id} title={elm?.title} describe={elm?.describe} likes={elm?.likes} image={elm?.image ? `https://behnid.com${elm.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png'} />
+          <div dir="rtl" className="flex flex-wrap  gap-x-5 justify-center  ">
+              {response?.products ? response?.products.map((elm :any)=>(
+              <Product price={elm?.price} authorID={elm?.author?.id} city={elm?.city?.name  ? elm.city.name : 'کل ایران'} author={response?.name}  id={elm?.id} key={elm?.id} title={elm?.title} describe={elm?.describe} freeDelivery={elm?.freeDelivery} image={elm?.image ? `https://behnid.com${elm.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png'} />
               )) : <p className="text-center">محصولی موجود نیست</p>}
           </div>
 
@@ -171,7 +177,7 @@ const Page : NextPage = ()  => {
         </h3>
         <div dir="rtl" className="flex-row justify-around">
           {response?.freeRequests ? response?.freeRequests.map((elm :any)=>(
-            <FreeRequest  id={elm.id} quantity={elm.quantity as string} key={elm.id as number} name={elm?.name  ? elm?.name : '-'} describe={elm?.describe as string} authorName={elm?.Author?.name as string  || ''} catName={ elm.categorie.length > 0 ?  elm.categorie[0].name as string : 'نامشخص'} cityName={elm.city?.name as string} />
+            <FreeRequest  id={elm.id} quantity={elm.quantity as string} key={elm.id as number} name={elm?.name  ? elm?.name : '-'} describe={elm?.describe as string} authorName={elm?.name} catName={ elm.categorie.length > 0 ?  elm.categorie[0].name as string : 'نامشخص'} cityName={elm.city?.name as string} />
             )) : <p className="text-center">محصولی موجود نیست</p>}
         </div>
 

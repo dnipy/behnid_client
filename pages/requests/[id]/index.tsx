@@ -7,6 +7,7 @@ import Footer from "../../../components/footer";
 import { LoadingComponent } from "../../../components/loading";
 import Navbar from "../../../components/Navbar";
 import { WarnComponent } from "../../../components/warn";
+import { MiladiToShamsi } from "../../../utils/miladi_be_shamsi";
 
 const Page : NextPage = ()  => {
   const router = useRouter()
@@ -16,6 +17,7 @@ const Page : NextPage = ()  => {
   const [loading, setloading] = useState(true);
   const {id} = router.query
 
+  
 
   useEffect(()=>{
     if(!id){
@@ -55,6 +57,11 @@ const Page : NextPage = ()  => {
     });
   
 },[id])
+
+
+// 0-4 year
+// 5-7 month
+// 8-10 day
 
 
   return (
@@ -105,7 +112,7 @@ const Page : NextPage = ()  => {
           <span className="text-sm text-gray-500 ">{response?.Role == 'Seller' ? 'خریدار'  : 'فروشنده'}</span>
           <div className="flex mt-4 space-x-3 md:mt-6">
               {/* <a href="#" className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 ">ارسال پیام</a> */}
-              <p onClick={()=> router.replace(`/chat/new-chat?id=${response?.authorID}`)} className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-orange-400  rounded-lg hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-blue-300 ">ارسال پیام</p>
+              <p onClick={()=> router.replace(`/chat/new-chat?id=${response?.authorID}`)} className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-orange-400  rounded-lg hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-blue-300 cursor-pointer ">ارسال پیام</p>
           </div>
       </div>
 
@@ -121,7 +128,11 @@ const Page : NextPage = ()  => {
       <div className="my-4">
         <h3 className="text-center text-xl">{response?.name}</h3>
         <h3 className="text-center pt-2 text-md">{response?.quantity} تعداد</h3>
-        <h3 className="text-center pt-1 text-md"> { response?.date ? (response?.date as string).slice(0,10) : '-'} تاریخ </h3>
+        <h3 className="text-center pt-1 text-md"> { response?.date ?
+              // (response?.date as string).slice(8,10)  
+              MiladiToShamsi( Number((response?.date as string).slice(0,4))  , Number((response?.date as string).slice(5,7))  , Number((response?.date as string).slice(8,10))  )  
+        
+        : '-'} تاریخ </h3>
         <h3 className="text-center pt-1 text-md"> شهر : { response?.city?.name  ? response.city.name   :  'کل ایران'}  </h3>
         <h3 className="text-center pt-1 text-md"> دسته بندی : {(response.categorie as Array<any>)?.at(0)?.name  ? (response.categorie as Array<any>).at(0).name : 'تنظیم نشده'}  </h3>
 

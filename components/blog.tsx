@@ -43,12 +43,51 @@ export function Product( props : { authorID : string | number , price : number |
         <div dir='ltr' className="   w-[15rem] h-[20rem] bg-white hover:shadow-xl shadow-lg rounded-lg overflow-hidden text-right   mr-auto ml-auto  sm:mr-2 sm:ml-2 my-4">
             {/* <img className="w-full object-center" src={props.image ? props.image : 'https://archive.org/download/no-photo-available/no-photo-available.png'} alt="avatar"/> */}
             
-            <div className="h-[2rem]  text-left pl-4 pt-2 text-xs">
+            <div className="h-[2rem] cursor-pointer  text-left pl-4 pt-2 text-xs">
                 <p  onClick={()=>router.replace(`/sellers/${props.authorID}`)}>
                 @{props.author}
                 </p>
             </div>
             <div  onClick={()=>router.replace(`/products/${props.id}`)} className='h-[12rem]  ' style={{backgroundImage : `url(${props.image})`,  backgroundPosition: 'center',  backgroundSize: 'cover',  backgroundRepeat: 'no-repeat'  }}   >
+
+            </div>
+            <div className='text-sm font-bold text-center pt-2'>
+                {props.title}
+            </div>
+            <div className='h-[3rem] my-[0.5rem]  flex flex-row' >
+                <div className='w-1/3 border-r-2 text-center'>
+                    <p className='text-sm'>شهر</p>
+                    <p className='text-xs'>{props.city}</p>
+                </div>
+
+                <div className='w-1/3 border-r-2 text-center'>
+                    <p className='text-sm'>ارسال با</p>
+                    <p className='text-xs'>{props.freeDelivery ? 'فروشنده' : 'خریدار'}</p>
+                </div>
+
+                <div className='w-1/3  text-center'>
+                    <p  className='text-sm'>قیمت</p>
+                    <p className='text-xs'>{props.price}</p>
+                </div>
+
+            </div>
+        </div>  
+    )
+}
+
+export function MyProducts( props : { authorID : string | number , price : number | string , id : number, title : string , image : string , freeDelivery : boolean , describe : string, author : string , city : string}) {
+
+    const router = useRouter()
+  return (
+        <div dir='ltr' className="   w-[15rem] h-[20rem] bg-white hover:shadow-xl shadow-lg rounded-lg overflow-hidden text-right   mr-auto ml-auto  sm:mr-2 sm:ml-2 my-4">
+            {/* <img className="w-full object-center" src={props.image ? props.image : 'https://archive.org/download/no-photo-available/no-photo-available.png'} alt="avatar"/> */}
+            
+            <div className="h-[2rem]  text-left pl-4 pt-2 text-xs">
+                <p  onClick={()=>router.replace(`/sellers/${props.authorID}`)}>
+                @{props.author}
+                </p>
+            </div>
+            <div  onClick={()=>router.replace(`/profile/change-product?id=${props.id}`)} className='h-[12rem]  ' style={{backgroundImage : `url(${props.image})`,  backgroundPosition: 'center',  backgroundSize: 'cover',  backgroundRepeat: 'no-repeat'  }}   >
 
             </div>
             <div className='text-sm font-bold text-center pt-2'>

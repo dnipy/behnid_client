@@ -5,7 +5,7 @@ function FreeRequest(props : {id : number , quantity : string , name : string , 
   
   const router = useRouter()
   return (
-    <div dir='ltr' key={props.id} className="w-sm bg-white px-10 pt-6 h-64 my-5  pb-2 rounded-xl shadow-lg transform  text-right transition duration-500">
+    <div dir='ltr' key={props.id} className="w-sm bg-white px-10 pt-6 h-64 mr-auto ml-auto  sm:my-5  pb-2 rounded-xl shadow-lg transform  text-right transition duration-500">
    
       <h1 className="my-1 text-gray-800 text-2xl text-center font-bold cursor-pointer">...{props.name.slice(0, 13)}</h1>
       

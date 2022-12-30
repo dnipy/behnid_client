@@ -2,6 +2,14 @@
 
 
 
+// ? seller-all
+// ? imoji in chat
+// ? send msg to saved-contacts
+// ? storybar
+
+
+
+
 // ! Backend
 
 // ? upload image for sellers
@@ -27,8 +35,11 @@
 // ? see ticket respone                                                     ###done###
 // ? create new chat                                                        ###done###
 // ? fix web-sockets issus                                                  
-// ? see requests on products                                                                                         
+// ? see requests on products                                                                                                                                  
 // ? base64 config
 // ? index design 
 
 // ? add story                                                              ###phase two###
+
+
+

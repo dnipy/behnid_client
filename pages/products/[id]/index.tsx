@@ -6,6 +6,7 @@ import { ErrorComponent } from "../../../components/error";
 import { LoadingComponent } from "../../../components/loading";
 import Navbar from "../../../components/Navbar";
 import { WarnComponent } from "../../../components/warn";
+import { packTypeCheck } from "../../../utils/PackType";
 
 
 const Page : NextPage = ()  => {
@@ -115,7 +116,7 @@ return (
   <div className="py-4 border-b border-gray-200 flex items-center justify-between">
     <p className="text-base leading-4 text-gray-800 ssss:text-gray-300">نوع بسته بندی</p>
     <div className="flex items-center justify-center">
-      <p className="text-sm leading-none text-gray-600 ssss:text-gray-300 mr-3">{response?.packType}</p>
+      <p className="text-sm leading-none text-gray-600 ssss:text-gray-300 mr-3">{  packTypeCheck(response?.packType)}</p>
      
     </div>
   </div>

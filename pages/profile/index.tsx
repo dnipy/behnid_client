@@ -5,6 +5,7 @@ import ProfileCard from "../../components/ProfileCard";
 import Router, { useRouter } from "next/router";
 import { Model } from "../../components/Model";
 import { LoadingComponent } from "../../components/loading";
+import { MiladiToShamsi } from "../../utils/miladi_be_shamsi";
 
 
 const Page : NextPage = ()  => {
@@ -104,7 +105,14 @@ const Page : NextPage = ()  => {
                         </li>
                         <li className="flex items-center py-3">
                             <span>عضو از تاریخ</span>
-                            <span className="mr-auto">{(response?.date as string)?.slice(0,10)}</span>
+                            <span className="mr-auto">
+                            {
+                                response?.date 
+                                ? 
+                                  MiladiToShamsi( Number((response?.date as string).slice(0,4))  , Number((response?.date as string).slice(5,7))  , Number((response?.date as string).slice(8,10))  )  
+                                : 
+                                '-'
+                            }</span>
                         </li>
                     </ul>
                 </div>

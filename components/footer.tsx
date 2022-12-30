@@ -75,7 +75,7 @@ function Footer() {
       <div className="w-full md:w-4/12 px-4 mx-auto text-center">
         <div className="text-sm text-blueGray-500 font-semibold py-1">
           Copyright © <span id="get-current-year">2021</span> 
-          <a href="https://www.creative-tim.com?ref=njs-profile" className="text-blueGray-500 hover:text-blueGray-800"> by @dnipy</a>.
+          <a href="https://linkedin.com/in/dnipy" className="text-blueGray-500 hover:text-blueGray-800"> by @dnipy</a>.
         </div>
       </div>
     </div>

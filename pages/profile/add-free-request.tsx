@@ -13,6 +13,9 @@ const Page : NextPage = ()  => {
   const [categorie,setCategory] = React.useState<Array<any>>([])
   const [loading,setloading] = React.useState(true)
   const [cat,setCat] = React.useState('')
+  const [deliveryTime,setDeliveryTime] = useState('')
+  const [City,setCity] = React.useState<string>('تهران')
+  const [cities,setCities]= React.useState([])
   const [response,setResponse]= React.useState<any>('')
   const [error,setError] = React.useState('')
 
@@ -38,6 +41,26 @@ const Page : NextPage = ()  => {
   },[])
 
 
+  useEffect(()=>{
+    ApiRequest
+        .get('/categories/all-city')
+        .then((res) => {
+            console.log(res)
+            setCities(res.data);
+            console.log(City)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+        .finally(() => {
+            setloading(false);
+        });
+
+  },[])
+
+  const handleChangeCity = (e: React.ChangeEvent<HTMLSelectElement>) =>{
+    setCity(e.target.value)
+  }
 
 
   const handleSend = async()=>{
@@ -48,6 +71,7 @@ const Page : NextPage = ()  => {
         name : title,
         describe,
         catName : cat,
+        City 
     }
     console.log(body)
 
@@ -111,6 +135,17 @@ const Page : NextPage = ()  => {
                                             </select>
                                     </div>
                                     
+                        </div>
+
+                        <div className="mt-4">
+                            <div>
+                                <label  className="text-right block pb-2">*شهر</label>
+                                <select value={City} onChange={handleChangeCity} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
+                                        {cities.map((elm : any)=>(
+                                            <option value={elm.name} key={elm.id} >{elm.name}</option>
+                                            ))}
+                                </select>
+                            </div>
                         </div>
                     
                         <button onClick={handleSend} className="px-32 py-2 mx-4 mt-4 text-white bg-orange-400 rounded-lg hover:bg-orange-500">افزودن</button>

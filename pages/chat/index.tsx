@@ -3,6 +3,7 @@ import Router, { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { AuthorizedApiRequest } from "../../clients/axios";
 import { AuthContext } from "../../contexts/Auth";
+import { MiladiToShamsi } from "../../utils/miladi_be_shamsi";
 
 const Page : NextPage = ()  => {
   const [response, setResponse] = useState<Array<any>>([]);
@@ -80,7 +81,7 @@ const Page : NextPage = ()  => {
             </div>
           </div>
 
-          <ul className=" hidden lg:block lg:overflow-auto lg:h-[32rem]">
+          <ul className="  block overflow-auto h-[40rem]">
             <h2 className="my-2 mb-2 ml-2 text-lg text-center text-gray-600">پیام ها</h2>
             {response?.length != 0 && typeof(response) !== 'undefined' ? response.map(elm=>(
             <li key={elm?.id} >
@@ -93,7 +94,9 @@ const Page : NextPage = ()  => {
                 <div className="w-full pb-3">
                   <div className="flex  justify-between">
                     <span className="block mr-2  font-semibold text-gray-600">{elm?.userOne?.id != id ? elm?.userOne?.name : elm?.userTwo?.name}</span>
-                    <span className="block mr-2 text-sm text-gray-600">{elm?.message[0]?.date ? (elm?.message[0]?.date as string).slice(0,10) : null}</span>
+                    <span className="block mr-2 text-sm text-gray-600">{elm?.message[0]?.date ? 
+                        MiladiToShamsi( Number((elm?.message[0]?.date as string).slice(0,4))  , Number((elm?.message[0]?.date as string).slice(5,7))  , Number((elm?.message[0]?.date as string).slice(8,10))  )  
+                    : null}</span>
                   </div>
                   <span className="block mr-2  pr-4 text-right text-sm text-gray-600">{elm?.message[0]?.text ? (elm?.message[0]?.text as string).slice(0,20) : null}</span>
                 </div>
@@ -104,7 +107,7 @@ const Page : NextPage = ()  => {
           </ul>
         </div>
  
-        <div className="flex items-center justify-center text-center  w-full p-3 border-t border-gray-300">
+        <div className=" hidden  lg:flex items-center justify-center text-center  w-full p-3 border-t border-gray-300 ">
           <div>
 
             <p className="text-gray-600 my-5">

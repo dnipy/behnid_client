@@ -43,7 +43,7 @@ function Navbar() {
 
   return (
     <>
-    <nav className="bg-orange-400 shadow-sm  ">
+    <nav className="bg-orange-500 shadow-sm  ">
     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
         <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -68,6 +68,8 @@ function Navbar() {
             </div>
             <div className="hidden sm:ml-6 sm:block">
             <div className="flex space-x-4">
+            <p onClick={()=> router.replace('/')} className=" cursor-pointer text-gray-900 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">خانه</p>
+
                 <p onClick={()=> router.replace('/products')} className=" cursor-pointer text-gray-900 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">محصولات</p>
 
                 <p onClick={()=> router.replace('/requests')} className="cursor-pointer text-gray-900 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">درخواست ها</p>
@@ -98,7 +100,6 @@ function Navbar() {
                     null
                 }
                 <p onClick={()=> router.replace('/chat')} className="cursor-pointer text-gray-900 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">پیام ها</p>
-                <p onClick={()=> router.replace('/sellers')} className=" cursor-pointer text-gray-900 hover:bg-gray-900 hover:text-white px-3 py-2 rounded-md text-sm font-medium">فروشندگان</p>
 
             </div>
             </div>
@@ -178,11 +179,11 @@ function Navbar() {
     
     <div className="sm:hidden" id="mobile-menu">
         <div className="space-y-1 px-2 pt-2 pb-3">
-        <Link href="#" className="text-gray-900  text-center hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >محصولات</Link>
+        <p onClick={()=>router.replace('/products')} className="text-gray-900  text-center hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >محصولات</p>
 
-        <Link href="#" className="text-gray-900  text-center hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">درخواست ها</Link>
+        <p  onClick={()=>router.replace('/requests')} className="text-gray-900  text-center hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">درخواست ها</p>
 
-        <Link href="#" className="text-gray-900  text-center hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">پیام ها</Link>
+        <p  onClick={()=>router.replace('/chat')} className="text-gray-900  text-center hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">پیام ها</p>
 
         {/* <a href="#" className="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a> */}
         </div>

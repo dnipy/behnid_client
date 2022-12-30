@@ -40,7 +40,7 @@ const Page : NextPage = ()  => {
   return (
     <>
     <Navbar />
-    <main className="flex justify-center">
+    <main className="flex justify-center min">
       <div className="w-1/1 md:w-2/3 p-3">
 
 
@@ -48,9 +48,9 @@ const Page : NextPage = ()  => {
       {error ? <ErrorComponent  details={'500'} /> : null}
       {response?.err ? <ErrorComponent  details={response?.err} /> : null }
 
-      <div dir="rtl" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-screen my-20">
+      <div dir="rtl" className="flex flex-wrap gap-x-10 h-screen ">
         { typeof response?.err === 'undefined' ? (response as Array<any>).map( (elm : any)=>(
-            <FreeRequest  id={elm.id} quantity={elm.quantity as string} key={elm.id as number} name={elm?.name as string} describe={elm?.describe as string} authorName={elm?.Author?.name as string} catName={'نامشخص'} cityName={elm.city?.name as string} />
+            <FreeRequest  id={elm.id} quantity={elm.quantity as string} key={elm.id as number} name={elm?.name as string} describe={elm?.describe as string} authorName={elm?.Author?.name as string} catName={(elm?.categorie as Array<any>).at(0) ? (elm?.categorie as Array<any>).at(0)?.name  :   'نامشخص'} cityName={elm.city?.name as string} />
         ))
           : null
       }
