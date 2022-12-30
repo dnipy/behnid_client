@@ -23,6 +23,12 @@ const Page : NextPage = ()  => {
   //forms
   const [file,setFile]=useState<FileList | null >(null)
 
+  useEffect(()=>{
+      const data = localStorage.getItem('user-session')
+      if (!data) router.replace('/')
+  },[])
+
+
     useEffect(()=>{
         if (!id) return
         setIDr(Number(idr as number))

@@ -12,17 +12,17 @@ import { AuthContext } from "../../contexts/Auth";
 
  
 const Page : NextPage = ()  => {
-  // const {isUser} = useContext(AuthContext)
-    
-  // if (isUser()) {
-  //         Router.replace('/')
-  // }
   const router = useRouter()
  
   const [response, setResponse] = useState<any>([]);
   const [error, setError] = useState('');
   const [loading, setloading] = useState(true);
 
+
+  useEffect(()=>{
+      const data = localStorage.getItem('user-session')
+      if (!data) router.replace('/')
+  },[])
 
   useEffect(()=>{
     AuthorizedApiRequest

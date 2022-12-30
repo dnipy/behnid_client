@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Router, { useRouter } from 'next/router'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ApiRequest, AuthorizedApiRequest } from '../../../clients/axios';
 
 
@@ -10,6 +10,11 @@ function Login() {
     const [error, setError] = useState('');
     const [loading, setloading] = useState(true);
 
+    const router = useRouter();
+    useEffect(()=>{
+        const data = localStorage.getItem('user-session')
+        if (!data) router.replace('/')
+    },[])
 
     const sendHandle = async()=>{
         setResponse([])

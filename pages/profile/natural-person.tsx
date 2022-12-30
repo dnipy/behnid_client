@@ -5,18 +5,19 @@ import {useAuthorizedAxios} from "../../hooks/useAxios";
 import StepWizard from "react-step-wizard";
 import React, { ReactNode, useContext, useEffect, useState } from 'react'
 import { ApiRequest, AuthorizedApiRequest, AuthorizedApiRequestImage } from "../../clients/axios";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import ProfileCard from "../../components/ProfileCard";
 import { AuthContext } from "../../contexts/Auth";
 import Link from "next/link";
 
 
 const Page : NextPage = ()  => {
-    const {isUser} = useContext(AuthContext)
-    
-    if (isUser()) {
-            Router.replace('/')
-    }
+
+    const router = useRouter();
+    useEffect(()=>{
+        const data = localStorage.getItem('user-session')
+        if (!data) router.replace('/')
+    },[])
 
   return (
     <>

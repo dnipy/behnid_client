@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import React, { useContext, useEffect, useState } from "react";
 import { ApiRequest, AuthorizedApiRequest } from "../../clients/axios";
 import { AuthContext } from "../../contexts/Auth";
@@ -23,6 +23,11 @@ const Page : NextPage = ()  => {
   const [title,setTitle] = useState('')
   const [describe,setDescribe] = useState('')
  
+  const router = useRouter();
+  useEffect(()=>{
+      const data = localStorage.getItem('user-session')
+      if (!data) router.replace('/')
+  },[])
 
 
   useEffect(()=>{

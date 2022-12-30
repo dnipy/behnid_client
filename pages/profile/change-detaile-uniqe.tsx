@@ -4,16 +4,16 @@ import { AuthorizedApiRequest } from '../../clients/axios';
 import { AuthContext } from '../../contexts/Auth';
 
 function ChangeDetaile() {
-    const router = useRouter()
-    // const {isUser} = useContext(AuthContext)
-    
-    // if (isUser()) {
-    //         router.replace('/')
-    // }
     const [response, setResponse] = useState<any>([]);
     const [error, setError] = useState('');
     const [loading, setloading] = useState(true);
-  
+
+    const router = useRouter();
+    useEffect(()=>{
+        const data = localStorage.getItem('user-session')
+        if (!data) router.replace('/')
+    },[])
+
     const fetchData = () => {
         AuthorizedApiRequest
             .get('/profile/my-data')

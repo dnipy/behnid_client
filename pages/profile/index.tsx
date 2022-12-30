@@ -19,6 +19,17 @@ const Page : NextPage = ()  => {
   const [modelText,setModelText] = useState('')
 
 
+
+
+    useEffect(()=>{
+        const data = localStorage.getItem('user-session')
+        if (!data) router.replace('/')
+    },[])
+
+
+
+
+
   const fetchData = () => {
       AuthorizedApiRequest
           .get('/profile/my-data')

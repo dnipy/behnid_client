@@ -1,21 +1,23 @@
 import Link from 'next/link';
 import Router, { useRouter } from 'next/router'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ApiRequest, AuthorizedApiRequest } from '../../clients/axios';
 import { AuthContext } from '../../contexts/Auth';
 
 function Login() {
-    // const {isUser} = useContext(AuthContext)
-    
-    // if (isUser()) {
-    //         Router.replace('/')
-    // }
+
     const [fields,setFields] = useState({pass : '' , newPass : "" , newPassConfirm : ""})
     const [response, setResponse] = useState<any>([]);
     const [error, setError] = useState('');
     const [loading, setloading] = useState(true);
     const {login} = useContext(AuthContext)
 
+
+    const router = useRouter();
+    useEffect(()=>{
+        const data = localStorage.getItem('user-session')
+        if (!data) router.replace('/')
+    },[])
 
     const sendHandle = async()=>{
         setResponse([])

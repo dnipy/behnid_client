@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import React, { ReactNode, useContext, useEffect, useState } from 'react'
 import { ApiRequest, AuthorizedApiRequest } from "../../clients/axios";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import Link from "next/link";
 
 
@@ -42,6 +42,12 @@ function FirstStep() {
   const [City,setCity] = React.useState<string>('تهران')
   const [cities,setCities]= React.useState([])
 
+
+  const router = useRouter();
+  useEffect(()=>{
+      const data = localStorage.getItem('user-session')
+      if (!data) router.replace('/')
+  },[])
 
   useEffect(()=>{
         ApiRequest

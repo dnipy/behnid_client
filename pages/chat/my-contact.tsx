@@ -12,6 +12,12 @@ const Page : NextPage = ()  => {
     const [loading, setloading] = useState(true);
 
 
+
+    useEffect(()=>{
+        const data = localStorage.getItem('user-session')
+        if (!data) router.replace('/')
+    },[])
+
     useEffect(()=>{
         AuthorizedApiRequest
         .get(`/chats/my-contacts`)

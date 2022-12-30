@@ -4,12 +4,13 @@ import { ApiRequest, AuthorizedApiRequest } from '../../clients/axios';
 import { AuthContext } from '../../contexts/Auth';
 
 function ChangeProduct() {
-    const router = useRouter()
-    // const {isUser} = useContext(AuthContext)
+
+    const router = useRouter();
+    useEffect(()=>{
+        const data = localStorage.getItem('user-session')
+        if (!data) router.replace('/')
+    },[])
     
-    // if (isUser()) {
-    //         Router.replace('/')
-    // }
     const {id} = router.query
     const [comment,setComment] = useState('')
     const [response, setResponse] = useState<any>([]);

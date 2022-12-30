@@ -10,7 +10,7 @@ import { useAppSelector } from '../hooks/redux'
 import { useDispatch } from 'react-redux'
 import { changeModelShown } from '../lib/features/model.slice'
 import ReduxWrapper from '../contexts/ReduxWrapper'
-
+import Head from 'next/head'
 
 
 
@@ -47,6 +47,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   
   return <>
+  <Head>
+    <title>
+      behnid | بهنید
+    </title>
+  </Head>
   <div className='bg-gray-100 min-h-screen'>
     <Provider store={store}>
       <ReduxWrapper>

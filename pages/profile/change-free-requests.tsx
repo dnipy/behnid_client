@@ -22,6 +22,14 @@ const Page : NextPage = ()  => {
   const [describe,setDescribe] = useState('')
  
 
+
+  useEffect(()=>{
+      const data = localStorage.getItem('user-session')
+      if (!data) router.replace('/')
+  },[])
+
+
+
   useEffect(()=>{
     if(!id){
       return

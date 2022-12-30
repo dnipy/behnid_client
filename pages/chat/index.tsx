@@ -11,6 +11,14 @@ const Page : NextPage = ()  => {
   const [loading, setloading] = useState(true);
   const [id,setId] = useState<number | undefined>()
   const router = useRouter()
+  const NoImg = "https://behnid.com/uploads/chat_image_1672439444536.png"
+
+
+  useEffect(()=>{
+      const data = localStorage.getItem('user-session')
+      if (!data) router.replace('/')
+  },[])
+
 
   const fetchData = () => {
     AuthorizedApiRequest
@@ -90,7 +98,7 @@ const Page : NextPage = ()  => {
                 href={`/chat/${elm.id}`}
                 className={`flex items-center px-5 py-2 text-sm transition duration-150 ease-in-out border-b border-gray-300 cursor-pointer hover:bg-gray-100 focus:outline-none`}>
                 <img className="object-cover w-10 h-10 rounded-full"
-                  src={`https://behnid.com${elm?.userOne?.id != id ? elm?.userOne?.avatar : elm?.userTwo?.avatar}`} alt="username" />
+                  src={`https://behnid.com${elm?.userOne?.id != id ? `${ elm?.userOne?.avatar ? elm?.userOne?.avatar : '/uploads/chat_image_1672439444536.png' }` :  `${elm?.userTwo?.avatar ? elm?.userTwo?.avatar : '/uploads/chat_image_1672439444536.png'  }`  }`} alt="username" />
                 <div className="w-full pb-3">
                   <div className="flex  justify-between">
                     <span className="block mr-2  font-semibold text-gray-600">{elm?.userOne?.id != id ? elm?.userOne?.name : elm?.userTwo?.name}</span>

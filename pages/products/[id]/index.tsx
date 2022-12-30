@@ -128,8 +128,11 @@ return (
      
     </div>
   </div>
-  <button onClick={()=>router.replace(`/products/${response?.id}/reply`)} className="ssss:bg-white ssss:text-gray-900 ssss:hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700 focus:outline-none">
+  <button onClick={()=>router.replace(`/products/${response?.id}/reply`)} className="ssss:bg-white my-1 ssss:text-gray-900 ssss:hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700 focus:outline-none">
     سفارش
+  </button>
+  <button onClick={()=>router.replace(`/chat/new-chat?id=${response?.author?.id}`)} className="ssss:bg-white my-1 ssss:text-gray-900 ssss:hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-orange-600 text-base flex items-center justify-center leading-none text-white bg-orange-500 w-full py-4 hover:bg-orange-600 focus:outline-none">
+    پیام 
   </button>
   <div dir="rtl" className="text-right">
     <p className=" text-base lg:leading-tight pb-5 leading-normal text-gray-600 ssss:text-gray-300 mt-7">{ response?.describe }</p>

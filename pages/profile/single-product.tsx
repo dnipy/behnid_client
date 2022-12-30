@@ -12,6 +12,10 @@ function RecivedRequests() {
   const [error, setError] = useState('');
   const [loading, setloading] = useState(true);
 
+  useEffect(()=>{
+      const data = localStorage.getItem('user-session')
+      if (!data) router.replace('/')
+  },[])
 
   useEffect(()=>{
     if (!id) {

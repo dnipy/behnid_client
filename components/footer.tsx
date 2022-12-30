@@ -2,9 +2,11 @@ import React from 'react'
 import { BiUser } from 'react-icons/bi'
 import { AiFillCustomerService, AiFillInstagram, AiFillPhone, AiFillSafetyCertificate } from 'react-icons/ai'
 import useAxios from '../hooks/useAxios'
+import { useRouter } from 'next/router'
 
 function Footer() {
     const {response} = useAxios('/blog/last-four')
+    const router = useRouter()
 
   return (
     <div>
@@ -25,7 +27,7 @@ function Footer() {
             <AiFillPhone className='ml-auto mr-auto w-5 h-5 text-gray-800'/>
           </button>
 
-          <button className="bg-orange-400 text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+          <button  className="bg-orange-400 text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
             <AiFillInstagram className='ml-auto mr-auto w-5 h-5 text-gray-800'/>
           </button>
 
@@ -54,16 +56,16 @@ function Footer() {
             <span className="block uppercase text-blueGray-500 text-xl  font-semibold mb-4 pb-2 border-b border-b-orange-400 ">  صفحات استتیک</span>
             <ul className="list-unstyled">
               <li>
-                <a dir='rtl' className="text-gray-800 hover:text-orange-400 font-semibold block pb-2 text-sm" href="https://github.com/creativetimofficial/notus-js/blob/main/LICENSE.md?ref=njs-profile">تماس با ما</a>
+                <p onClick={()=>router.replace('/')} dir='rtl' className="text-gray-800 hover:text-orange-400 font-semibold block pb-2 text-sm" >تماس با ما</p>
               </li>
               <li>
-                <a dir='rtl' className="text-gray-800 hover:text-orange-400 font-semibold block pb-2 text-sm" href="https://creative-tim.com/terms?ref=njs-profile">سوالات متداول</a>
+                <p onClick={()=>router.replace('/')} dir='rtl' className="text-gray-800 hover:text-orange-400 font-semibold block pb-2 text-sm" >سوالات متداول</p>
               </li>
               <li>
-                <a dir='rtl' className="text-gray-800 hover:text-orange-400 font-semibold block pb-2 text-sm" href="https://creative-tim.com/privacy?ref=njs-profile">ارتباط با ما</a>
+                <p onClick={()=>router.replace('/')} dir='rtl' className="text-gray-800 hover:text-orange-400 font-semibold block pb-2 text-sm" >ارتباط با ما</p>
               </li>
               <li>
-                <a dir='rtl' className="text-gray-800 hover:text-orange-400 font-semibold block pb-2 text-sm" href="https://creative-tim.com/contact-us?ref=njs-profile">درگاه ایمن</a>
+                <p onClick={()=>router.replace('/')} dir='rtl' className="text-gray-800 hover:text-orange-400 font-semibold block pb-2 text-sm" >درگاه ایمن</p>
               </li>
             </ul>
           </div>

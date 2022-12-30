@@ -7,6 +7,8 @@ import { socket } from "../../clients/io";
 import { user_id } from "../../clients/localStorage";
 import EmojiPicker from "emoji-picker-react";
 import { MiladiToShamsi } from "../../utils/miladi_be_shamsi";
+import Image from "next/image";
+// import NoImage from "../../assets/NoImg.png"
 
 const Page : NextPage = ()  => {
   const router = useRouter()
@@ -15,6 +17,7 @@ const Page : NextPage = ()  => {
   const [error, setError] = useState('');
   const [loading, setloading] = useState(true);
   const [imojiOpen,setImojiOpen] = useState(false);
+  const [sendingMSG,setSendingMSG] = useState(false)
 
 
   const [chatDetail,setChatDetail] =useState<any>([]);
@@ -29,8 +32,13 @@ const Page : NextPage = ()  => {
   const div_ref = useRef<null | HTMLDivElement>(null)
     //forms
   const [file,setFile]=useState<FileList | null >(null)
+  const NoImg = "https://behnid.com/uploads/chat_image_1672439444536.png"
 
-
+  
+  useEffect(()=>{
+      const data = localStorage.getItem('user-session')
+      if (!data) router.replace('/')
+  },[])
 
 
   useEffect(()=>{
@@ -77,12 +85,14 @@ const Page : NextPage = ()  => {
     })
     .finally(() => {
       setloading(false);
-
     });
   },[])
 
 
 
+  useEffect(()=>{
+    bottomRef?.current?.scrollIntoView({behavior: 'smooth'})
+  },[chatDetail?.message])
 
 
  
@@ -94,21 +104,15 @@ const Page : NextPage = ()  => {
   })
 
   
-  socket.on('resive-message',(data)=>{
-    console.log(data)
-    bottomRef.current?.scrollIntoView({behavior: 'smooth'})
-    const newMessages = (chatDetail?.message as Array<any>)?.push ? (chatDetail?.message as Array<any>).push(data) : null
-    console.log(newMessages)
-    setChatDetail({
-      ...chatDetail,
-      message : newMessages,
-    })
-    console.log({emit_recived_data :data})
-  })
+
 
 
   const sendMessage = ()=>{
-    AuthorizedApiRequest
+    if (txt) {
+
+      setSendingMSG(true)
+      setImojiOpen(false)
+      AuthorizedApiRequest
       .post('/chats/new-message',
       {
         chatID : id,
@@ -116,23 +120,44 @@ const Page : NextPage = ()  => {
         reciverID : secondUser
       })
       .then((resp)=>{
-        if(resp?.data?.err){
+        console.log({resp})
+        if (resp?.data?.err) {
           console.log({emit_send_error:resp?.data?.e})
         }
         else {
-          setChatDetail(resp?.data);
-            socket.emit('send-message',(resp.data?.message as Array<any>).slice(-1)[0])
-            console.log({emit_send_message : (resp.data?.message as Array<any>).slice(-1)[0]})
-            bottomRef.current?.scrollIntoView({behavior: 'smooth'})
+          setChatDetail(resp.data)
+          socket.emit('send-message',(resp.data?.message as Array<any>).slice(-1)[0])
+          bottomRef?.current?.scrollIntoView({behavior: 'smooth'})
           
-          }
-          setTxt('')
+        }
+        setTxt('')
       })
       .catch((e)=>{
         console.log(e)
+      }).finally(()=>{
+        setSendingMSG(false)
       })
+    }
+    else {
+      return
+    }
   }  
 
+
+  socket.on('resive-message',(recived_data)=>{
+    console.log({recived_data})
+    const oldMessage = chatDetail.message as Array<any>
+    oldMessage?.push(recived_data)
+    // const NewArray = chatDetail?.message ?     : [recived_data]
+    // console.log(NewArray)
+    setChatDetail({
+      ...chatDetail,
+      message  : oldMessage 
+    })
+    bottomRef?.current?.scrollIntoView({behavior: 'smooth'})
+
+    // console.log({emit_recived_data :data})
+  })
 
   const handleSend = async()=>{
 
@@ -216,8 +241,8 @@ const Page : NextPage = ()  => {
                 href={`/chat/${elm.id}`}
                 className={` ${elm?.id == id ? 'bg-orange-400 hover:bg-orange-400' : null} flex items-center px-5  text-gray-900 py-2 text-sm transition duration-150 ease-in-out border-b border-gray-300 cursor-pointer hover:bg-gray-100 focus:outline-none`}>
                 <img  className="object-cover w-10 h-10 rounded-full"
-                  src={`https://behnid.com${elm?.userOne?.id != user_id ? elm?.userOne?.avatar : elm?.userTwo?.avatar}`} alt="username" />
-                <div className="w-full pb-3">
+                  src={`https://behnid.com${elm?.userOne?.id != user_id ? `${ elm?.userOne?.avatar ? elm?.userOne?.avatar : '/uploads/chat_image_1672439444536.png' }` :  `${elm?.userTwo?.avatar ? elm?.userTwo?.avatar : '/uploads/chat_image_1672439444536.png'  }`  }`} alt="username" />
+                  <div className="w-full pb-3">
                   <div className="flex  justify-between">
                     <span className="block mr-2  font-semibold text-gray-600">{elm?.userOne?.id != user_id ? elm?.userOne?.name : elm?.userTwo?.name}</span>
                     <span className="block mr-2 text-sm text-gray-600">{elm?.message[0]?.date ?                             
@@ -240,8 +265,8 @@ const Page : NextPage = ()  => {
             <>
             <div dir="rtl" className="relative flex items-center p-3 px-10 shadow-md bg-orange-400 text-gray-900">
               <img className="object-cover w-10 h-10 rounded-full shadow-lg"
-                  src={chatDetail?.userOne?.avatar ? `https://behnid.com${chatDetail?.userOne?.avatar}` :  "https://www.tasvirezendegi.com/wp-content/uploads/2016/10/1476795561-photos-profile.jpg"} alt="username" />
-                  <span className="block mr-2 font-bold text-gray-900">{chatDetail?.userOne?.id !== parseInt(user_id as string) ? chatDetail?.userOne?.name : chatDetail?.userTwo?.name }</span>
+                  src={chatDetail?.userOne?.id != user_id ? `https://behnid.com${chatDetail?.userOne?.avatar ? chatDetail?.userOne?.avatar : '/uploads/chat_image_1672439444536.png' }` :   `https://behnid.com${chatDetail?.userTwo?.avatar  ?  chatDetail?.userTwo?.avatar : '/uploads/chat_image_1672439444536.png' }` }  alt="username" />
+                  <span className="block mr-2 font-bold text-gray-900">{chatDetail?.userOne?.id !== Number(user_id as string) ? chatDetail?.userOne?.name : chatDetail?.userTwo?.name }</span>
               {
                 online.find(item=>item?.userId === secondUser )?.userId   ?
                   <span className="absolute w-3 h-3 bg-green-600 rounded-full right-10 top-3"></span>
@@ -322,7 +347,7 @@ const Page : NextPage = ()  => {
 
             <div className="flex fixed bottom-5 left-[10vw] lg:relative rounded-full items-center justify-between  w-4/5 p-3 border-1 mb-2 mr-auto ml-auto lg:left-0 shadow-xl   bg-orange-400">
               <button onClick={()=>setImojiOpen(!imojiOpen)}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-900" fill="none" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-900 hover:scale-105" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                     d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -330,7 +355,7 @@ const Page : NextPage = ()  => {
               </button>
               <button >
                 <label className="hover:cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24"
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-900 hover:scale-119" fill="none" viewBox="0 0 24 24"
                       stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                         d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
@@ -343,11 +368,14 @@ const Page : NextPage = ()  => {
               </button>
               {
                 imojiOpen ? 
-                  <div className="fixed bottom-10 left-10 sm:left-auto"   >
+                  <div className="fixed bottom-20 left-10 sm:left-auto"   >
                     <div className="flex justify-end pr-2" >
-                      <p onClick={()=>setImojiOpen(!imojiOpen)} className="relative text-lg text-center cursor-pointer  rounded-full w-1/12 bg-orange-400  pb-1 mb-1 shadow-md hover:shadow-lg" >x</p>
+                      <p onClick={()=>setImojiOpen(!imojiOpen)} className="relative text-lg text-center cursor-pointer  w-8 h-8 rounded-full  bg-orange-400  pb-1 mb-1 shadow-lg" >x</p>
                     </div>
-                    <EmojiPicker/>
+                    <EmojiPicker onEmojiClick={(emojiData)=>{
+                      const newLine = `${txt} ${emojiData.emoji}`
+                      setTxt(newLine)
+                    }}/>
                   </div>
                 :null
               }
@@ -359,14 +387,14 @@ const Page : NextPage = ()  => {
                 className="block w-full py-2 pl-4 mx-3 bg-gray-100 rounded-full outline-none focus:text-gray-700"
                 name="message" required />
               <button>
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-900" fill="none" viewBox="0 0 24 24"
+                {/* <svg xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                     d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                </svg>
+                </svg> */}
               </button>
-              <button type="submit" onClick={sendMessage}>
-                <svg className="w-5 h-5 text-gray-900 origin-center transform rotate-90" xmlns="http://www.w3.org/2000/svg"
+              <button type="submit" onClick={ sendingMSG ?  undefined : sendMessage}>
+                <svg className={`w-6 h-6 ${txt ? 'text-gray-900 hover:scale-105 rounded-full transition-all duration-150   ' : "opacity-50"} rotate-90`} xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20" fill="currentColor">
                   <path
                     d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />

@@ -7,6 +7,12 @@ function NewChat() {
     const {id} = router.query
 
     useEffect(()=>{
+        const data = localStorage.getItem('user-session')
+        if (!data) router.replace('/')
+    },[])
+
+
+    useEffect(()=>{
         if (!id) {
             return
         }

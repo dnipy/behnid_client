@@ -2,11 +2,11 @@
 
 
 
-// ? seller-all
-// ? imoji in chat
-// ? send msg to saved-contacts
-// ? storybar
-
+// ? route protection                                                   ### done ###
+// ? imoji in chat                                                      ### done ###
+// ? send msg to saved-contacts                                                     
+// ? follow part                                            
+// ? storybar                                                           ### static done ###
 
 
 

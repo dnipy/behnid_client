@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import Router from "next/router";
-import React, {useContext, useState } from "react";
+import Router, { useRouter } from "next/router";
+import React, {useContext, useEffect, useState } from "react";
 import {  AuthorizedApiRequestImage } from "../../clients/axios";
 import { AuthContext } from "../../contexts/Auth";
 
@@ -15,7 +15,12 @@ const Page : NextPage = ()  => {
 
   //forms
   const [file,setFile]=useState<FileList | null >(null)
+  const router = useRouter();
 
+  useEffect(()=>{
+    const data = localStorage.getItem('user-session')
+    if (!data) router.replace('/')
+},[])
 
 
   const handleSend = async()=>{
@@ -37,6 +42,7 @@ const Page : NextPage = ()  => {
             }
             else {
                 setResponse(res.data.msg);
+               router.replace('/profile') 
                
             }
         })
