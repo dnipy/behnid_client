@@ -2,7 +2,7 @@ import React from 'react'
 
 function ProfileCard(props : {title : string , describe : string , link : string}) {
   return (
-    <div className="flex justify-center w-64 mx-auto">
+    <div className="flex justify-center w-64 mx-auto hover:scale-110 transition-all duration-200 cursor-pointer">
     <div className="block rounded-lg mx-5 my-5 shadow-xl bg-white max-w-sm text-center">
       
       <div className="p-6">

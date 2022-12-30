@@ -40,7 +40,7 @@ export function Product( props : { authorID : string | number , price : number |
 
     const router = useRouter()
   return (
-        <div dir='ltr' className="   w-[15rem] h-[20rem] bg-white hover:shadow-xl shadow-lg rounded-lg overflow-hidden text-right   mr-auto ml-auto  sm:mr-2 sm:ml-2 my-4">
+        <div dir='ltr' className=" hover:scale-110 duration-200   w-[15rem] h-[20rem] bg-white hover:shadow-xl shadow-lg rounded-lg overflow-hidden text-right   mr-auto ml-auto  sm:mr-2 sm:ml-2 my-4">
             {/* <img className="w-full object-center" src={props.image ? props.image : 'https://archive.org/download/no-photo-available/no-photo-available.png'} alt="avatar"/> */}
             
             <div className="h-[2rem] cursor-pointer  text-left pl-4 pt-2 text-xs">

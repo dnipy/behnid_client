@@ -62,7 +62,7 @@ function IndexProducts() {
             <div className="inline-flex justify-center items-center w-full">
                 <hr className="my-8 w-full h-1 bg-gray-300 rounded border-0 ssss:bg-gray-700"/>
                     
-                        <div onClick={()=>router.replace('/products')} className="absolute left-1/2 px-4 bg-white border-2 border-orange-500 -translate-x-1/2 ssss:bg-gray-900 cursor-pointer">
+                        <div onClick={()=>router.replace('/products')} className="absolute left-1/2 px-4 bg-white border-2 border-orange-500 hover:rounded-full transition-all duration-300 hover:duration-300 hover:text-orange-500  -translate-x-1/2 ssss:bg-gray-900 cursor-pointer">
                             <div className='px-5 py-[0.4rem] '>
                                 نمایش بیشتر ...
                             </div>
