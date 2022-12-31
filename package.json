@@ -4,13 +4,21 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build -p 3000",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:local": "APP_ENV=local next build",
+    "build:dev": "APP_ENV=dev next build",
+    "build:prod": "APP_ENV=prod next build",
+    "deploy:local": "yarn build:local && pm2 start pm2.config.js --env local",
+    "deploy:dev": "yarn build:dev && pm2 start pm2.config.js --env dev",
+    "deploy:prod": "yarn build:prod && pm2 start pm2.config.js --env prod"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
+    "@svgr/webpack": "^6.5.1",
     "@types/react-redux": "^7.1.24",
+    "add": "^2.0.6",
     "axios": "^0.27.2",
     "emoji-picker-react": "^4.4.3",
     "next": "12.3.1",
@@ -22,7 +30,9 @@
     "react-loader-spinner": "^5.3.4",
     "react-redux": "^8.0.4",
     "react-step-wizard": "^5.3.11",
-    "socket.io-client": "^4.5.2"
+    "sharp": "^0.31.3",
+    "socket.io-client": "^4.5.2",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@types/node": "18.7.23",

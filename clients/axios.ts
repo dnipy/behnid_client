@@ -5,7 +5,7 @@ console.log({usersession})
 const ApiRequest = axios.create({
     baseURL: `${BACK_END}/api`,
     timeout: 15000,
-    headers: {'X-Custom-Header': 'foobar'},
+    headers: {},
 }); 
 
 process.env.BACK_END
