@@ -13,7 +13,7 @@ const Page : NextPage = ()  => {
   const {FirstTime} = router.query;
 
   if (FirstTime) {
-      alert('first time')
+    //   alert('first time')
       window.location.replace('/profile')
   }
 

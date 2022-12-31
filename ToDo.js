@@ -4,11 +4,12 @@
 
 // ? route protection                                                   ### done ###
 // ? imoji in chat                                                      ### done ###
+// ? contacts UI change                                                 ### done ###
 // ? storybar                                                           ### static done ###
-// ? send msg to saved-contacts                                                     
 // ? follow part                                            
+// ? change username
 // ? navigation buttons 
-// ? contacts UI change
+// ? send msg to saved-contacts                                                     
 
 
 
