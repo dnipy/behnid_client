@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AuthorizedApiRequest, AuthorizedApiRequestImage } from "../../clients/axios";
 import { LoadingComponent } from "../../components/loading";
 import { socket } from "../../clients/io";
-import { user_id } from "../../clients/localStorage";
+import { BACK_END, user_id } from "../../clients/localStorage";
 import EmojiPicker from "emoji-picker-react";
 import { MiladiToShamsi } from "../../utils/miladi_be_shamsi";
 import Image from "next/image";
@@ -32,7 +32,7 @@ const Page : NextPage = ()  => {
   const div_ref = useRef<null | HTMLDivElement>(null)
     //forms
   const [file,setFile]=useState<FileList | null >(null)
-  const NoImg = "https://behnid.com/uploads/chat_image_1672439444536.png"
+  const NoImg = `${BACK_END}/uploads/chat_image_1672439444536.png`
 
   
   useEffect(()=>{
@@ -241,7 +241,7 @@ const Page : NextPage = ()  => {
                 href={`/chat/${elm.id}`}
                 className={` ${elm?.id == id ? 'bg-orange-400 hover:bg-orange-400' : null} flex items-center px-5  text-gray-900 py-2 text-sm transition duration-150 ease-in-out border-b border-gray-300 cursor-pointer hover:bg-gray-100 focus:outline-none`}>
                 <img  className="object-cover w-10 h-10 rounded-full"
-                  src={`https://behnid.com${elm?.userOne?.id != user_id ? `${ elm?.userOne?.avatar ? elm?.userOne?.avatar : '/uploads/chat_image_1672439444536.png' }` :  `${elm?.userTwo?.avatar ? elm?.userTwo?.avatar : '/uploads/chat_image_1672439444536.png'  }`  }`} alt="username" />
+                  src={`${BACK_END}${elm?.userOne?.id != user_id ? `${ elm?.userOne?.avatar ? elm?.userOne?.avatar : '/uploads/chat_image_1672439444536.png' }` :  `${elm?.userTwo?.avatar ? elm?.userTwo?.avatar : '/uploads/chat_image_1672439444536.png'  }`  }`} alt="username" />
                   <div className="w-full pb-3">
                   <div className="flex  justify-between">
                     <span className="block mr-2  font-semibold text-gray-600">{elm?.userOne?.id != user_id ? elm?.userOne?.name : elm?.userTwo?.name}</span>
@@ -265,7 +265,7 @@ const Page : NextPage = ()  => {
             <>
             <div dir="rtl" className="relative flex items-center p-3 px-10 shadow-md bg-orange-400 text-gray-900">
               <img className="object-cover w-10 h-10 rounded-full shadow-lg"
-                  src={chatDetail?.userOne?.id != user_id ? `https://behnid.com${chatDetail?.userOne?.avatar ? chatDetail?.userOne?.avatar : '/uploads/chat_image_1672439444536.png' }` :   `https://behnid.com${chatDetail?.userTwo?.avatar  ?  chatDetail?.userTwo?.avatar : '/uploads/chat_image_1672439444536.png' }` }  alt="username" />
+                  src={chatDetail?.userOne?.id != user_id ? `${BACK_END}${chatDetail?.userOne?.avatar ? chatDetail?.userOne?.avatar : '/uploads/chat_image_1672439444536.png' }` :   `${BACK_END}${chatDetail?.userTwo?.avatar  ?  chatDetail?.userTwo?.avatar : '/uploads/chat_image_1672439444536.png' }` }  alt="username" />
                   <span className="block mr-2 font-bold text-gray-900">{chatDetail?.userOne?.id !== Number(user_id as string) ? chatDetail?.userOne?.name : chatDetail?.userTwo?.name }</span>
               {
                 online.find(item=>item?.userId === secondUser )?.userId   ?
@@ -296,7 +296,7 @@ const Page : NextPage = ()  => {
                       return (
                         <li key={elm?.id} className="flex justify-start">
                           <div className="relative max-w-xl px-4 py-2 text-gray-700 rounded shadow">
-                            <img src={`https://behnid.com${elm.image}`} className='max-w-56 max-h-56' alt="ikkasf" />
+                            <img src={`${BACK_END}${elm.image}`} className='max-w-56 max-h-56' alt="ikkasf" />
                             <span className="block">{elm?.text}</span>
                             <span className="text-xs">{(elm?.date as string)?.slice(11,16)}</span>
                           </div>
@@ -321,7 +321,7 @@ const Page : NextPage = ()  => {
                       return (
                         <li key={elm?.id} className="flex justify-end">
                           <div className="relative max-w-xl px-2 py-2 text-gray-700 bg-gray-100 rounded shadow ">
-                            <img src={`https://behnid.com${elm.image}`} className='max-w-56 max-h-56' alt="ikkasf" />
+                            <img src={`${BACK_END}${elm.image}`} className='max-w-56 max-h-56' alt="ikkasf" />
                             <span className="block">{elm?.text}</span>
                             <span className="text-xs">{(elm?.date as string)?.slice(11,16)}</span>
                           </div>

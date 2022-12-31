@@ -2,6 +2,7 @@ import { GetServerSideProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import {  ApiRequest, AuthorizedApiRequest } from "../../../clients/axios";
+import { BACK_END } from "../../../clients/localStorage";
 import { ErrorComponent } from "../../../components/error";
 import { LoadingComponent } from "../../../components/loading";
 import Navbar from "../../../components/Navbar";
@@ -88,11 +89,11 @@ return (
       <>
 
 <div className="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
-  <img className="w-full" alt="image of a girl posing" src={response?.image ? `https://behnid.com${response.image}` : "https://archive.org/download/no-photo-available/no-photo-available.png" } />
+  <img className="w-full" alt="image of a girl posing" src={response?.image ? `${BACK_END}${response.image}` : "https://archive.org/download/no-photo-available/no-photo-available.png" } />
   {/* <img className="mt-6 w-full" alt="image of a girl posing" src="https://i.ibb.co/qxkRXSq/component-image-two.png" /> */}
 </div>
 <div className="md:hidden">
-<img className="w-full" alt="image of a girl posing" src={response?.image ? `https://behnid.com${response.image}` : "https://archive.org/download/no-photo-available/no-photo-available.png" } />
+<img className="w-full" alt="image of a girl posing" src={response?.image ? `${BACK_END}${response.image}` : "https://archive.org/download/no-photo-available/no-photo-available.png" } />
 </div>
 <div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:mr-6 md:mt-0 text-right mt-6">
   <div className="border-b border-gray-200 pb-6">

@@ -7,6 +7,7 @@ import { OpenAndClose, OpenAndCloseCat, OpenAndCloseMob, OpenAndCloseNotif, setC
 import { BiUser, BiLogIn } from 'react-icons/bi'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { BACK_END } from '../clients/localStorage'
 
 function Navbar() {
     const {isUser} = useContext(AuthContext)
@@ -130,7 +131,7 @@ function Navbar() {
                     
                     {
                         response?.avatar  ? 
-                            <img className="h-8 w-8 rounded-full" src={response?.avatar ? `https://behnid.com${response.avatar}` : "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"} alt=""/>
+                            <img className="h-8 w-8 rounded-full" src={response?.avatar ? `${BACK_END}${response.avatar}` : "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"} alt=""/>
                             :
                             <BiUser className='w-8 h-8 text-gray-800 '  />
                             // onClick={()=>router.replace('/auth/login')}

@@ -6,6 +6,7 @@ import Router, { useRouter } from "next/router";
 import { Model } from "../../components/Model";
 import { LoadingComponent } from "../../components/loading";
 import { MiladiToShamsi } from "../../utils/miladi_be_shamsi";
+import { BACK_END } from "../../clients/localStorage";
 
 
 const Page : NextPage = ()  => {
@@ -100,7 +101,7 @@ const Page : NextPage = ()  => {
                 <div dir="rtl" className="bg-white p-3 border-t-4 border-orange-300">
                     <div className="image overflow-hidden">
                         <img className="h-auto w-full rounded-full mx-auto"
-                            src={response?.avatar ? `https://behnid.com${response.avatar}` : "https://archive.org/download/no-photo-available/no-photo-available.png"}
+                            src={response?.avatar ? `${BACK_END}${response.avatar}` : "https://archive.org/download/no-photo-available/no-photo-available.png"}
                             alt=""/>
                     </div>
                     <h1 className="text-gray-900 text-center font-bold text-xl leading-8 pb-2 my-1">{response?.name}@</h1>

@@ -17,6 +17,7 @@ import Head from 'next/head'
 function MyApp({ Component, pageProps }: AppProps) {
   const [id,setId] = useState<number | undefined>()
 
+  console.log({envURL : process.env.BACK_END})
   const fetchData = () => {
     AuthorizedApiRequest
         .get('/profile/my-data')

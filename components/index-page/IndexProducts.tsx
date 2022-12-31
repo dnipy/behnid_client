@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import { ApiRequest } from '../../clients/axios';
+import { BACK_END } from '../../clients/localStorage';
 import { Product } from '../blog';
 
 function IndexProducts() {
@@ -53,7 +54,7 @@ function IndexProducts() {
             {/* MIDDLE PART */}
             <div dir="rtl" className="flex flex-wrap justify-center  gap-x-5  ">
                 {loading == false ? response.map((elm :any)=>(
-                <Product price={elm?.price} city={elm?.city?.name  ? elm.city.name : 'ایران'} author={elm.author.name} authorID={elm.author.id}  id={elm.id} key={elm.id} title={elm.title} describe={elm.describe} freeDelivery={elm?.freeDelivery} image={elm?.image ? `https://behnid.com${elm.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png'} />
+                <Product price={elm?.price} city={elm?.city?.name  ? elm.city.name : 'ایران'} author={elm.author.name} authorID={elm.author.id}  id={elm.id} key={elm.id} title={elm.title} describe={elm.describe} freeDelivery={elm?.freeDelivery} image={elm?.image ? `${BACK_END}${elm.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png'} />
                 )) : null}
             </div>
 

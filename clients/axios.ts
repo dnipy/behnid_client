@@ -1,22 +1,23 @@
 import axios from 'axios'
-import { usersession } from './localStorage';
+import { usersession, BACK_END } from './localStorage';
 
 console.log({usersession})
 const ApiRequest = axios.create({
-    baseURL: 'https://behnid.com/api',
-    timeout: 10000,
-    headers: {'X-Custom-Header': 'foobar'}
+    baseURL: `${BACK_END}/api`,
+    timeout: 15000,
+    headers: {'X-Custom-Header': 'foobar'},
 }); 
 
+process.env.BACK_END
 
 const AuthorizedApiRequest = axios.create({
-    baseURL: 'https://behnid.com/api',
-    timeout: 10000,
+    baseURL: `${BACK_END}/api`,
+    timeout: 15000,
     headers: {'Authorization': `bearer ${usersession as string}`  }
 }); 
 
 const AuthorizedApiRequestImage = axios.create({
-    baseURL: 'https://behnid.com/api',
+    baseURL: `${BACK_END}/api`,
     timeout: 20000,
     headers: {'Authorization': `bearer ${usersession as string}` , "Content-Type" : "multipart/form-data" }
 });

@@ -10,6 +10,7 @@ import {Audio} from 'react-loader-spinner'
 import FreeRequest from "../../components/freeRequest";
 import { LoadingComponent } from "../../components/loading";
 import { MiladiToShamsi } from "../../utils/miladi_be_shamsi";
+import { BACK_END } from "../../clients/localStorage";
 
 
 const Page : NextPage = ()  => {
@@ -98,7 +99,7 @@ const Page : NextPage = ()  => {
 
       </div>
       <div className="flex flex-col items-center pb-2">
-          <img className="mb-3 p-2 w-24 h-24 rounded-full shadow-lg" src={ response?.avatar ? `https://behnid.com${response.avatar}` : "https://myket.ir/app-icon/prof.com.wtpic22_cfebf8bb-fa14-4277-8f23-d8183faf76bc.png"} alt="Bonnie image"/>
+          <img className="mb-3 p-2 w-24 h-24 rounded-full shadow-lg" src={ response?.avatar ? `${BACK_END}${response.avatar}` : "https://myket.ir/app-icon/prof.com.wtpic22_cfebf8bb-fa14-4277-8f23-d8183faf76bc.png"} alt="Bonnie image"/>
           <h5 className="mb-1 text-xl font-medium text-gray-900 ">{response?.Author?.name}</h5>
           <div className="flex  justify-around">
             
@@ -163,7 +164,7 @@ const Page : NextPage = ()  => {
           </h3>
           <div dir="rtl" className="flex flex-wrap  gap-x-5 justify-center  ">
               {response?.products ? response?.products.map((elm :any)=>(
-              <Product price={elm?.price} authorID={elm?.author?.id} city={elm?.city?.name  ? elm.city.name : 'کل ایران'} author={response?.name}  id={elm?.id} key={elm?.id} title={elm?.title} describe={elm?.describe} freeDelivery={elm?.freeDelivery} image={elm?.image ? `https://behnid.com${elm.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png'} />
+              <Product price={elm?.price} authorID={elm?.author?.id} city={elm?.city?.name  ? elm.city.name : 'کل ایران'} author={response?.name}  id={elm?.id} key={elm?.id} title={elm?.title} describe={elm?.describe} freeDelivery={elm?.freeDelivery} image={elm?.image ? `${BACK_END}${elm.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png'} />
               )) : <p className="text-center">محصولی موجود نیست</p>}
           </div>
 
