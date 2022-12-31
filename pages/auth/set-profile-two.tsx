@@ -32,7 +32,7 @@ function Login() {
                     console.log(res)
                     setResponse(res.data)
                     if(res.data.msg) {
-                        Router.replace('/profile')
+                        Router.replace('/profile?FirstTime=true')
                     }else {
                         setError(res.data?.err)
                     }

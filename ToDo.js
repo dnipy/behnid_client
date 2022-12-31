@@ -4,9 +4,11 @@
 
 // ? route protection                                                   ### done ###
 // ? imoji in chat                                                      ### done ###
+// ? storybar                                                           ### static done ###
 // ? send msg to saved-contacts                                                     
 // ? follow part                                            
-// ? storybar                                                           ### static done ###
+// ? navigation buttons 
+// ? contacts UI change
 
 
 
@@ -24,7 +26,7 @@
 // ? requests accept                                                        ###phase two### 
 // ? see and send message to users who accepted my-free-requests            ###phase two###
 // ? product request                                                        ###done###
-// ? route protection                                                       !!! fixme !!!
+// ? route protection                                                       ###done###
 // ? all-contacts                                                           ###done###
 // ? become seller                                                          ###done###
 // ? edit (products && free-requests)                                       ###done###

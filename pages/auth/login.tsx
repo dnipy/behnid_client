@@ -32,7 +32,7 @@ function Login() {
                     localStorage.setItem('user-session',JSON.stringify(res?.data?.accessToken))
                     login(res.data.accessToken)
                         setTimeout(() => {
-                            Router.replace('/profile')
+                            Router.replace('/profile?FirstTime=true')
                         }, 1000);
                     }
                     else {

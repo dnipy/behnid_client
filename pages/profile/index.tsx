@@ -10,7 +10,12 @@ import { MiladiToShamsi } from "../../utils/miladi_be_shamsi";
 
 const Page : NextPage = ()  => {
   const router = useRouter()
+  const {FirstTime} = router.query;
 
+  if (FirstTime) {
+      alert('first time')
+      window.location.replace('/profile')
+  }
 
   const [response, setResponse] = useState<any>([]);
   const [error, setError] = useState('');
