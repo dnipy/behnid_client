@@ -7,13 +7,13 @@ const nextConfig = withPWA({
       {
         protocol: 'https',
         hostname: 'behnid.com',
-        port: '',
+        port: '443',
         pathname: '/uploads/**',
       },
       {
         protocol: 'http',
         hostname: 'localhost',
-        port: '8080',
+        port: '3001',
         pathname: '/uploads/**',
       },
     ],
@@ -30,7 +30,8 @@ const nextConfig = withPWA({
     });
 
     return config;
-  }
+  },
+  // output: 'standalone',
 })
 
 module.exports = nextConfig
