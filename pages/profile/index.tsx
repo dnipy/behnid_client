@@ -102,7 +102,7 @@ const Page : NextPage = ()  => {
                     <div className="image overflow-hidden">
                         <img className="h-auto w-full rounded-full mx-auto"
                             src={response?.avatar ? `${BACK_END}${response.avatar}` : "https://archive.org/download/no-photo-available/no-photo-available.png"}
-                            alt=""/>
+                            alt="profile-pic"/>
                     </div>
                     <h1 className="text-gray-900 text-center font-bold text-xl leading-8 pb-2 my-1">{response?.name}@</h1>
                     <h3 className="text-gray-600 text-center font-lg text-semibold leading-6">{response?.Role == "Seller" ?  "فروشنده" : "خریدار"}</h3>

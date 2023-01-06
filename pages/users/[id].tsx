@@ -100,7 +100,7 @@ const Page : NextPage = ()  => {
 
       </div>
       <div className="flex flex-col items-center pb-2">
-          <img className="mb-3 p-2 w-24 h-24 rounded-full shadow-lg" src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" alt="Bonnie image"/>
+          <img className="mb-3 p-2 w-24 h-24 rounded-full shadow-lg" src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" alt="user image"/>
           <h5 className="mb-1 text-xl font-medium text-gray-900 ">@{response?.Author?.name}</h5>
           <span className="text-sm text-gray-500 ">{response?.Role == 'Seller' ? 'خریدار'  : 'فروشنده'}</span>
           <div className="flex mt-4 space-x-3 md:mt-6">

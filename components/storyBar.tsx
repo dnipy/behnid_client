@@ -25,7 +25,7 @@ export const StroyComponent = ()=>{
             <div className='rounded-full w-[4rem] h-[4rem] mr-auto flex justify-center items-center ml-auto mt-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 '>
                 <div className='rounded-full w-[3.6rem] h-[3.6rem]'>
 
-                <Image objectFit='cover'  src={NoImg} className='rounded-full w-[3.6rem] h-[3.6rem]'  />
+                <Image objectFit='cover' alt='no-image-picture'  src={NoImg} className='rounded-full w-[3.6rem] h-[3.6rem]'  />
                 </div>
             </div>
             <p className='text-center mt-1 text-white'>

@@ -11,7 +11,7 @@ function KnowUs() {
     <div className="w-64 md:w-1/3 mr-auto ml-auto  flex flex-wrap justify-center items-center">
         <div className='min-h-full mt-3 md:mt-0 flex items-center'>
           <div className="hover:scale-110 transition-all duration-150  ">
-            <Image    width='250px' height='250px'  src={icon}  />
+            <Image  alt='know-us'   width='250px' height='250px'  src={icon}  />
           </div>
         </div>
    

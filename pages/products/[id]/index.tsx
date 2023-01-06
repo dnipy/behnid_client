@@ -89,11 +89,11 @@ return (
       <>
 
 <div className="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
-  <img className="w-full" alt="image of a girl posing" src={response?.image ? `${BACK_END}${response.image}` : "https://archive.org/download/no-photo-available/no-photo-available.png" } />
+  <img className="w-full" alt="product-pic" src={response?.image ? `${BACK_END}${response.image}` : "https://archive.org/download/no-photo-available/no-photo-available.png" } />
   {/* <img className="mt-6 w-full" alt="image of a girl posing" src="https://i.ibb.co/qxkRXSq/component-image-two.png" /> */}
 </div>
 <div className="md:hidden">
-<img className="w-full" alt="image of a girl posing" src={response?.image ? `${BACK_END}${response.image}` : "https://archive.org/download/no-photo-available/no-photo-available.png" } />
+<img className="w-full" alt="product-pic" src={response?.image ? `${BACK_END}${response.image}` : "https://archive.org/download/no-photo-available/no-photo-available.png" } />
 </div>
 <div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:mr-6 md:mt-0 text-right mt-6">
   <div className="border-b border-gray-200 pb-6">
@@ -207,7 +207,7 @@ add-comment
   response?.comments ?( response?.comments as Array<any>).map(elm=>(
       <div key={elm?.id} dir="rtl" className="relative grid grid-cols-1 gap-4 p-4 mb-8 border rounded-lg bg-white shadow-sm">
                 <div className="relative flex gap-4">
-                    <img src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png" className="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="" loading="lazy"/>
+                    <img src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png" className="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="comment-author-pic" loading="lazy"/>
                     <div className="flex flex-col w-full">
                         <div className="flex flex-row justify-between">
                             <p className="relative text-xl whitespace-nowrap truncate overflow-hidden">{elm?.commentAuthor?.name}</p>

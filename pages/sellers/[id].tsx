@@ -99,7 +99,7 @@ const Page : NextPage = ()  => {
 
       </div>
       <div className="flex flex-col items-center pb-2">
-          <img className="mb-3 p-2 w-24 h-24 rounded-full shadow-lg" src={ response?.avatar ? `${BACK_END}${response.avatar}` : "https://myket.ir/app-icon/prof.com.wtpic22_cfebf8bb-fa14-4277-8f23-d8183faf76bc.png"} alt="Bonnie image"/>
+          <img className="mb-3 p-2 w-24 h-24 rounded-full shadow-lg" src={ response?.avatar ? `${BACK_END}${response.avatar}` : "https://myket.ir/app-icon/prof.com.wtpic22_cfebf8bb-fa14-4277-8f23-d8183faf76bc.png"} alt="user image"/>
           <h5 className="mb-1 text-xl font-medium text-gray-900 ">{response?.Author?.name}</h5>
           <div className="flex  justify-around">
             

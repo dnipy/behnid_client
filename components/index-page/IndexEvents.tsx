@@ -15,12 +15,12 @@ function IndexEvents() {
             </div>
             <div className='w-[400px] mr-auto ml-auto min-h-[10rem] pr-4 flex justify-center items-center' >
                 <div className='w-[80%] h-[7.5rem] bg-white flex items-center justify-center'>
-                    <Image src={logo} />
+                    <Image src={logo} alt="logo" />
                 </div>
             </div>    
         </div>
 
-        <Image src={Event} className="" />
+        <Image src={Event} className="" alt="logo-two" />
 
     </div>
   )
