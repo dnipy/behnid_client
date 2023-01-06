@@ -4,12 +4,14 @@ on:
     branches: [main]
 
 jobs:
-  deploy:
-    name: Deploy
+  release:
+    name: Build and deploy for new release
     runs-on: ubuntu-20.04
     steps:
-      - name: pull and build
+      - name: Checkout
         uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         run: |
           cd /var/www/behnid_client
           git pull origin main
