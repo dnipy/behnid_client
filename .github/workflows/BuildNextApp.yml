@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
         
       - name: Run Custom Script
-        working-directory: /var/www/behnid_client
+        working-directory: /var/www/behnid_client/
         run: |
           git pull origin main
           yarn install
