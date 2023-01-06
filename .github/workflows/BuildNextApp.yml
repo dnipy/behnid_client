@@ -10,11 +10,9 @@ jobs:
     steps:
       - name: pull and build
         uses: actions/checkout@v2
-        with:
-
-          script: |
-            cd /var/www/behnid_client
-            git pull origin main
-            yarn install
-            rm -rf .next
-            yarn run deploy
+        script: |
+          cd /var/www/behnid_client
+          git pull origin main
+          yarn install
+          rm -rf .next
+          yarn run deploy
