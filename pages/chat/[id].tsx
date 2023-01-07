@@ -7,6 +7,7 @@ import { socket } from "../../clients/io";
 import { BACK_END, user_id } from "../../clients/localStorage";
 import EmojiPicker from "emoji-picker-react";
 import { MiladiToShamsi } from "../../utils/miladi_be_shamsi";
+import { ReactMic } from 'react-mic';
 import Image from "next/image";
 // import NoImage from "../../assets/NoImg.png"
 

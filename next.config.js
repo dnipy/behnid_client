@@ -21,7 +21,7 @@ const nextConfig = withPWA({
   reactStrictMode: true,
   swcMinify: true,
   compiler : {
-    // removeConsole: true,
+    removeConsole: true,
   },
   webpack(config) {
     config.module.rules.push({
