@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthorizedApiRequest } from "../../clients/axios";
 import { AuthContext } from "../../contexts/Auth";
 import { BiUserPin,BiSend } from "react-icons/bi"
+import { BACK_END } from "../../clients/localStorage";
 
 const Page : NextPage = ()  => {
     const router = useRouter()
@@ -51,8 +52,8 @@ const Page : NextPage = ()  => {
                 <div className="flex-grow">
                     <h3 className="font-bold text-center px-2 py-3 leading-tight">مخاطبین</h3>
                     <div dir="rtl" className="w-full overflow-auto h-64">
-                        {response?.contacts?.length > 0  ? (response.contacts as Array<any>).map(elm=>(
-                            <ContactComponent name={elm?.contactName} id={elm?.id} key={elm?.id} />
+                        {response?.founded_users?.length > 0  ? (response.founded_users as Array<any>).map(elm=>(
+                            <ContactComponent name={elm?.name} avatar={elm?.avatar} phone={elm?.phone}  id={elm?.id} key={elm?.id} />
                         )) : 
                         <p className="text-center mt-auto mb-auto">
                           مخاطبی موجود نیست
@@ -78,23 +79,32 @@ export default Page
 
 
 
-const ContactComponent = (props : {name : string , id : number , phone? : string}) =>{
+const ContactComponent = (props : {name : string , avatar : string , id : number , phone : string}) =>{
   const router = useRouter()
     return (
-    <div key={props.id} className="flex cursor-pointer hover:text-orange-500 transition-all duration-200 hover:bg-gray-200  my-1  pb-3 rounded-xl">
-        <div className="w-8 h-10 text-center py-1 ">
-         <p className="text-3xl p-0 text-grey-dark">
-           {/* <BiUserPin className="pt-3 pr-2" /> */}
-         </p>
+    <div dir="ltr" key={props.id} className="flex cursor-pointer hover:text-orange-500 transition-all duration-200 hover:bg-gray-200  my-1   rounded-xl h-20">
+
+        
+        <div className="w-2/6  text-center py-1 flex justify-center items-center ">
+         <div className="w-14 h-14  rounded-full"  style={{backgroundImage :  props.avatar ? `url(${BACK_END}${props.avatar})` : `url(${BACK_END}/uploads/chat_image_1672439444536.png)` , backgroundSize : "cover"  }} >
+
+         </div> 
         </div>
-        <div className="w-4/5 h-10 py-3 px-1">
-            <p className="hover:text-blue-dark">{props.name}</p>
+
+        <div className="w-3/5  py-4  text-left">
+            <p className="hover:text-blue-dark font-semibold">@{props.name}</p>
+            <p className="hover:text-blue-dark">{props.phone}</p>
+
         </div>
-        <div className="w-1/5 h-10 text-right p-3">
-            <p className="text-sm text-grey-dark hover:scale-125 duration-200" onClick={()=>router.replace(`/chat/new-chat?id=${props.id}`)}>
-              <BiSend className="rotate-180 w-5 h-5 mt-1" />
+
+
+        <div className="w-1/5 text-right   flex justify-center items-center">
+            <p className="text-sm text-grey-dark hover:scale-125 duration-200" onClick={()=>router.replace(`/chat/new-chat-with-number?phoneNumber=${props.phone}`)}>
+              <BiSend className="w-5 h-5 " />
             </p>
         </div>
+        
+
     </div>
 
     )

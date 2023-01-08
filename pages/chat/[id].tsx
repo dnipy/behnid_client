@@ -7,9 +7,7 @@ import { socket } from "../../clients/io";
 import { BACK_END, user_id } from "../../clients/localStorage";
 import EmojiPicker from "emoji-picker-react";
 import { MiladiToShamsi } from "../../utils/miladi_be_shamsi";
-import { ReactMic } from 'react-mic';
-import Image from "next/image";
-// import NoImage from "../../assets/NoImg.png"
+
 
 const Page : NextPage = ()  => {
   const router = useRouter()
@@ -26,6 +24,7 @@ const Page : NextPage = ()  => {
   const [cloading , setCloading] = useState(true);
   const [online,setOnline] = useState<Array<any>>([])
   const [secondUser,setSecondUser] = useState<number | undefined>()
+  const [record,setRecord] = useState(false)
 
 
   const [txt,setTxt] = useState('')
@@ -35,6 +34,7 @@ const Page : NextPage = ()  => {
   const [file,setFile]=useState<FileList | null >(null)
   const NoImg = `${BACK_END}/uploads/chat_image_1672439444536.png`
 
+  
   
   useEffect(()=>{
       const data = localStorage.getItem('user-session')
@@ -203,6 +203,25 @@ const Page : NextPage = ()  => {
   }
 }
 
+function onData(recordedBlob : any) {
+  console.log('chunk of real-time data is: ', recordedBlob);
+}
+function onStop(recordedBlob : any) {
+  console.log('recordedBlob is: ', recordedBlob);
+}
+
+
+function stopRecording () {
+    setRecord(false);
+}
+function startRecording () {
+  setRecord(true);
+}
+
+useEffect(()=>{
+  setRecord(true)
+},[])
+
 
   return (
     <div  >
@@ -347,6 +366,7 @@ const Page : NextPage = ()  => {
             </div>
 
             <div className="flex fixed bottom-5 left-[10vw] lg:relative rounded-full items-center justify-between  w-4/5 p-3 border-1 mb-2 mr-auto ml-auto lg:left-0 shadow-xl   bg-orange-400">
+           
               <button onClick={()=>setImojiOpen(!imojiOpen)}>
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-900 hover:scale-105" fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -369,7 +389,7 @@ const Page : NextPage = ()  => {
               </button>
               {
                 imojiOpen ? 
-                  <div className="fixed bottom-20 left-10 sm:left-auto"   >
+                <div className="fixed bottom-20 left-10 sm:left-auto"   >
                     <div className="flex justify-end pr-2" >
                       <p onClick={()=>setImojiOpen(!imojiOpen)} className="relative text-lg text-center cursor-pointer  w-8 h-8 rounded-full  bg-orange-400  pb-1 mb-1 shadow-lg" >x</p>
                     </div>
@@ -388,10 +408,12 @@ const Page : NextPage = ()  => {
                 className="block w-full py-2 pl-4 mx-3 bg-gray-100 rounded-full outline-none focus:text-gray-700"
                 name="message" required />
               <button>
+            <button onClick={startRecording} type="button">Start</button>
+
                 {/* <svg xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24"
                   stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                    d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                  d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                 </svg> */}
               </button>
               <button type="submit" onClick={ sendingMSG ?  undefined : sendMessage}>
@@ -401,16 +423,17 @@ const Page : NextPage = ()  => {
                     d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
                 </svg>
               </button>
+              
             </div>
             </>
-              : <LoadingComponent/> }
+            : <LoadingComponent/> }
           </div>
         </div>
       </div>
-    </div>
-
-    </div>
-  )
-}  
-
-export default Page
+      </div>
+      
+      </div>
+      )
+    }  
+    
+    export default Page
