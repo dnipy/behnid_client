@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 const socket = io(`${process.env.NEXT_PUBLIC_SOCKET}`, {
   reconnectionDelayMax: 20000,
   // transports: ['websocket'],
-  path : "/new-socket"
+  path : "/new-socket/"
 });
 
 
