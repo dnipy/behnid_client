@@ -180,11 +180,11 @@ function Navbar() {
     
     <div className="sm:hidden" id="mobile-menu">
         <div className="space-y-1 px-2 pt-2 pb-3">
-        <p onClick={()=>router.replace('/products')} className="text-gray-900  text-center hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >محصولات</p>
+        <p onClick={()=>router.replace('/products')} className="text-gray-900 cursor-pointer text-center hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >محصولات</p>
 
-        <p  onClick={()=>router.replace('/requests')} className="text-gray-900  text-center hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">درخواست ها</p>
+        <p  onClick={()=>router.replace('/requests')} className="text-gray-900 cursor-pointer  text-center hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">درخواست ها</p>
 
-        <p  onClick={()=>router.replace('/chat')} className="text-gray-900  text-center hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">پیام ها</p>
+        <p  onClick={()=>router.replace('/chat')} className="text-gray-900 cursor-pointer  text-center hover:bg-gray-900 hover:text-white block px-3 py-2 rounded-md text-base font-medium">پیام ها</p>
 
         {/* <a href="#" className="text-gray-600 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a> */}
         </div>
