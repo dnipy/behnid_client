@@ -30,6 +30,7 @@ function Login() {
                 .then((res) => {
                     console.log(res)
                     if (res.data.msg){
+                        window.localStorage.setItem('password-reseted','yes')
                         router.replace('/auth/login')
                     }
                     else {
@@ -53,7 +54,7 @@ function Login() {
         <div  className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="px-8 py-6 mt-4 text-left bg-white shadow-lg">
                 <h3 className="text-2xl font-bold text-center">بازیابی پسورد</h3>
-                <form action="">
+                {/* <form action=""> */}
 
                     <div className="mt-4">
                             <div className='mb-3'>
@@ -72,7 +73,7 @@ function Login() {
 
                     </div>
                     
-                </form>
+                {/* </form> */}
             </div>
         </div>
 

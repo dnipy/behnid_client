@@ -3,13 +3,14 @@ import Link from "next/link";
 import Router, { useRouter } from "next/router";
 import React, {useContext, useEffect, useState } from "react";
 import {  AuthorizedApiRequestImage } from "../../clients/axios";
+import { LoadingComponent } from "../../components/loading";
 import { AuthContext } from "../../contexts/Auth";
 
 
 const Page : NextPage = ()  => {
 
     
-  const [loading,setloading] = React.useState(true)
+  const [loading,setloading] = React.useState(false)
   const [response,setResponse]= React.useState<any>('')
   const [error,setError] = React.useState('')
 
@@ -69,8 +70,11 @@ const Page : NextPage = ()  => {
             <h3 className="text-2xl font-bold text-center">افزودن تصویر محصول</h3>
                     {error ? <p  className="text-red-400 text-right">{error}</p>: null}
                     {response ? <p  className="text-green-400 text-right">{response}</p>: null}
+                    {loading ? <LoadingComponent/> :null}
 
-
+            {
+                !loading 
+                ? 
                 <div className="mt-4">
                         <div className="mb-4">
                           <div className="flex w-full p-12 items-center justify-center bg-grey-lighter">
@@ -87,7 +91,9 @@ const Page : NextPage = ()  => {
                         <button onClick={handleSend} className="px-32 py-2 mx-4 mt-4 text-white bg-orange-400 rounded-lg hover:bg-orange-500">افزودن</button>
                         <button  className="px-32 py-2 mx-4 mt-4 text-gray-500 rounded-lg hover:border border-gray-500  "><Link href='/'> بازگشت  </Link></button>
                 </div>
-                
+                :
+                null    
+            }
           
         </div>
     </div>

@@ -30,7 +30,7 @@ function Login() {
                     console.log(res.data)
                     setResponse(res.data)
                     localStorage.setItem('user-session',JSON.stringify(res?.data?.accessToken))
-                    login(res.data.accessToken)
+                    login(res.data.accessToken)                    
                         setTimeout(() => {
                             Router.replace('/profile?FirstTime=true')
                         }, 1000);

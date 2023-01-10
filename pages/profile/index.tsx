@@ -13,10 +13,19 @@ const Page : NextPage = ()  => {
   const router = useRouter()
   const {FirstTime} = router.query;
 
-  if (FirstTime) {
-    //   alert('first time')
-      window.location.replace('/profile')
-  }
+  useEffect(()=>{
+      if (FirstTime) {
+          //   alert('first time')
+          window.location.replace('/profile')
+      }
+  },[])
+
+    useEffect(()=>{
+        if (!FirstTime && window.localStorage.getItem('password-reseted') == 'yes') {
+          window.localStorage.removeItem('password-reseted')
+          window.location.replace('/profile/change-password')
+        }
+    },[])
 
   const [response, setResponse] = useState<any>([]);
   const [error, setError] = useState('');
@@ -258,11 +267,11 @@ const Page : NextPage = ()  => {
                             null
                         }
 
-                        {response?.sellerProfile?.sellerStatus == 'accepted' ? 
-                            <ProfileCard title="افزودن محصول"  describe="اضافه کردن محصول به فروشگاه خود" link="/profile/add-product"/>
+                        {/* {response?.sellerProfile?.sellerStatus == 'accepted' ? 
                             :
                             null
-                        }
+                        } */}
+                        <ProfileCard title="افزودن محصول"  describe="اضافه کردن محصول به فروشگاه خود" link="/profile/add-product"/>
 
                         {/* {response?.sellerProfile.sellerStatus == 'accepted' ? 
                             <ProfileCard title="عکس محصول"  describe="افزودن یا تغییر تصویر محصول" link="/profile/add-product"/> 
