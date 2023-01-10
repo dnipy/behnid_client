@@ -20,6 +20,7 @@ function Register() {
                     setResponse(res.data)
                   
                     if (res.data?.msg) {
+                        window.localStorage.setItem('phone-number',fields.phone)
                         Router.replace('/auth/register-confirm')
                     }
 

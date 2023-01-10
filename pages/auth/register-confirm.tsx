@@ -1,5 +1,5 @@
 import Router, { useRouter } from 'next/router'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ApiRequest } from '../../clients/axios';
 import { AuthContext } from '../../contexts/Auth';
 
@@ -9,6 +9,12 @@ function Login() {
     const [error, setError] = useState('');
     const [loading, setloading] = useState(true);
     const {login} = useContext(AuthContext)
+
+
+    useEffect(()=>{
+        console.log({phone : window.localStorage.getItem('phone-number')})
+        setFields({...fields,phone :  window.localStorage.getItem('phone-number') as string  })
+    },[])
 
 
     const sendHandle = async()=>{
@@ -53,16 +59,12 @@ function Login() {
                     <div className="mt-4">
                      {error ? <p className='text-red-800 text-right' >{error}</p> : null }
 
-                        <div>
-                            <label className="block" htmlFor="email">شماره تلفن</label>
-                                    <input type="text" placeholder="09120001234"
-                                       value={fields.phone}
-                                       onChange={(e)=>setFields({phone : e.target.value ,code : fields.code})}
-                                       className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
-                        </div>
+                      
                         <div className="my-3">
                             <label className="block">کد ۶ رقمی دریافت شده</label>
                                     <input type="number" placeholder="123456"
+                                      
+                                        maxLength={6}
                                         value={fields.code}
                                         onChange={(e)=>setFields({phone : fields.phone ,code : e.target.value})}
                                         className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>

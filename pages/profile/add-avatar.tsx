@@ -20,7 +20,7 @@ const Page : NextPage = ()  => {
   useEffect(()=>{
     const data = localStorage.getItem('user-session')
     if (!data) router.replace('/')
-},[])
+  },[])   
 
 
   const handleSend = async()=>{

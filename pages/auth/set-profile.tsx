@@ -1,6 +1,7 @@
 import Router, { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { ApiRequest, AuthorizedApiRequest } from '../../clients/axios';
+import { validateEmail } from '../../utils/email_validate';
 
 function Login() {
     const [fields,setFields] = useState({name : '' ,email : '',password : '',cpassword:''})
@@ -11,8 +12,16 @@ function Login() {
 
     
     
-    console.log(usersession)
+    // console.log(usersession)
+    
     const sendHandle = async()=>{
+            setError('')
+
+            if (!validateEmail(fields.email)) {
+                setError('فرمت ایمیل اشتباه است')
+                return
+            }
+
             if (fields.password === fields.cpassword){
 
                 let fData = {password : fields.password , name : fields.name , email : fields.email}

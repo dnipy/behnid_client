@@ -1,13 +1,50 @@
 import Link from 'next/link'
-import Router from 'next/router'
-import React, { useContext } from 'react'
-import { AuthContext } from '../../contexts/Auth'
+import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
+import { ApiRequest } from '../../clients/axios'
 
 function Login() {
-    const {isUser} = useContext(AuthContext)
+    const router = useRouter()
+    const [fields,setFields] = useState({phone : '' })
+    const [response, setResponse] = useState<any>([]);
+    const [error, setError] = useState('');
+    const [loading, setloading] = useState(true);
+
+    useEffect(()=>{
+        const data = localStorage.getItem('user-session')
+        if (data) router.replace('/')
+    },[])
+
+
+
+
     
-    if (isUser()) {
-            Router.replace('/profile')
+    const sendHandle = async()=>{
+
+            setError('')
+            let fData = {phone : fields.phone }
+            console.log({fData})
+            
+            await ApiRequest
+                .post('/auth/reset-password',fData)
+                .then((res) => {
+                    console.log(res)
+                    if (res.data.msg){
+                        router.replace('/auth/login')
+                    }
+                    else {
+                        setError(res?.data?.err)
+                    }
+
+                })
+                .catch((err) => {
+                    setError('500');
+                    console.log(err)
+                })
+                .finally(() => {
+                    setloading(false);
+                })
+
     }
     
   return (
@@ -19,14 +56,17 @@ function Login() {
                 <form action="">
 
                     <div className="mt-4">
-                        <div className='mb-3'>
-                            <label className="block" htmlFor="email">شماره تلفن</label>
-                                    <input type="text" placeholder="09120001234"
-                                        className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
-                        </div>
+                            <div className='mb-3'>
+                                <label className="block" htmlFor="email">شماره تلفن</label>
+                                        <input type="text" placeholder="09120001234"
+                                            onChange={(e)=>{
+                                                setFields({phone : e.target.value})
+                                            }}
+                                            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
+                            </div>
                         
                         
-                            <button className="px-32 py-2 mx-4 mt-4 text-white bg-orange-400 rounded-lg hover:bg-orange-500">بازیابی پسورد</button>
+                            <button onClick={sendHandle} className="px-32 py-2 mx-4 mt-4 text-white bg-orange-400 rounded-lg hover:bg-orange-500">بازیابی پسورد</button>
                             <button  className="px-32 py-2 mx-4 mt-4 text-gray-500 rounded-lg hover:border border-gray-500  "><Link href='/'> بازگشت  </Link></button>
                         
 

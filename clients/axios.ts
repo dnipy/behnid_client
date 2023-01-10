@@ -2,6 +2,7 @@ import axios from 'axios'
 import { usersession, BACK_END } from './localStorage';
 
 console.log({usersession})
+console.log({BACK_END})
 const ApiRequest = axios.create({
     baseURL: `${BACK_END}/api`,
     // baseURL: `http://localhost:3001/api`,
