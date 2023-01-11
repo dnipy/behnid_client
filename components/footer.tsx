@@ -53,7 +53,7 @@ function Footer() {
             </ul>
           </div>
           <div className="w-full lg:w-4/12 px-4 text-center">
-            <span className="block uppercase text-blueGray-500 text-xl  font-semibold mb-4 pb-2 border-b border-b-orange-400 ">  صفحات استتیک</span>
+            <span className="block uppercase text-blueGray-500 text-xl  font-semibold mb-4 pb-2 border-b border-b-orange-400 ">  صفحات ثابت</span>
             <ul className="list-unstyled">
               <li>
                 <p onClick={()=>router.replace('/')} dir='rtl' className="text-gray-800 hover:text-orange-400 font-semibold block pb-2 text-sm" >تماس با ما</p>
