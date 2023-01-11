@@ -20,7 +20,11 @@ function Login() {
     },[])
 
     const sendHandle = async()=>{
-        setResponse([])
+            setResponse([])
+            if (fields.newPass.length > 8) {
+                setError('پسورد نباید کمتر از 8 رقم باشد')
+                return
+            }
             if (fields.newPass === fields.newPassConfirm){
                 setError('')
                 

@@ -18,6 +18,7 @@ const Page : NextPage = ()  => {
   const [cities,setCities]= React.useState([])
   const [response,setResponse]= React.useState<any>('')
   const [error,setError] = React.useState('')
+  const [cityID,setCityId] = useState(1)
 
   //forms
   const [title,setTitle] = useState('')
@@ -64,7 +65,10 @@ const Page : NextPage = ()  => {
   },[])
 
   const handleChangeCity = (e: React.ChangeEvent<HTMLSelectElement>) =>{
-    setCity(e.target.value)
+    setCity(String(e.target.value))
+    setCityId(Number(e.target.value.split(',').at(1)))
+    console.log(City)
+    // console.log(e.target.value.split(',').at(1))
   }
 
 
@@ -76,7 +80,7 @@ const Page : NextPage = ()  => {
         name : title,
         describe,
         catName : cat,
-        City 
+        City : cityID
     }
     console.log(body)
 
@@ -125,10 +129,11 @@ const Page : NextPage = ()  => {
                                     
                       </div>
 
-                      <div className="mt-4 ">
+                      <div className="mt-4">
                                     <div>
-                                            <label  className="text-right block">دسته بندی</label>
+                                            <label  className="text-right block">*دسته بندی</label>
                                             <select value={cat} onChange={(e)=>{
+                                                console.log(e.target.value);
                                                 setCat(e.target.value)
                                             }} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
                                                 
@@ -145,14 +150,14 @@ const Page : NextPage = ()  => {
                         <div className="mt-4">
                             <div>
                                 <label  className="text-right block pb-2">*شهر</label>
-                                <select value={City} onChange={handleChangeCity} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
+                                <select  value={City} onChange={handleChangeCity} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
                                         {cities.map((elm : any)=>(
-                                            <option value={elm.name} key={elm.id} >{elm.name}</option>
-                                            ))}
+                                            <option  id={elm.id} value={[elm.name,elm.id]} key={elm.id} >{elm.name}</option>
+                                         ))}
                                 </select>
                             </div>
                         </div>
-                    
+                        
                         <button onClick={handleSend} className="px-32 py-2 mx-4 mt-4 text-white bg-orange-400 rounded-lg hover:bg-orange-500">افزودن</button>
                         <button  className="px-32 py-2 mx-4 mt-4 text-gray-500 rounded-lg hover:border border-gray-500  "><Link href='/'> بازگشت  </Link></button>
                 </div>

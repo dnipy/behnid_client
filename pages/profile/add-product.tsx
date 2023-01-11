@@ -39,7 +39,8 @@ function FirstStep() {
   const [producerPrice,SetProducerPrice] = useState<string | number | readonly string[] | undefined>()
   const [weight,setWeight] = useState('')
   const [deliveryTime,setDeliveryTime] = useState('')
-  const [City,setCity] = React.useState<string>('تهران')
+  const [City,setCity] = React.useState<string>('اسکو')
+  const [cityID,setCityId] = useState(1)
   const [cities,setCities]= React.useState([])
 
 
@@ -54,7 +55,7 @@ function FirstStep() {
             .get('/categories/all')
             .then((res) => {
                 setCategory(res.data);
-                console.log(categorie)
+                console.log(res.data)
             })
             .catch((err) => {
                 console.log(err)
@@ -89,7 +90,10 @@ function FirstStep() {
   }
 
   const handleChangeCity = (e: React.ChangeEvent<HTMLSelectElement>) =>{
-    setCity(e.target.value)
+    setCity(String(e.target.value))
+    setCityId(Number(e.target.value.split(',').at(1)))
+    console.log(City)
+    // console.log(e.target.value.split(',').at(1))
   }
 
   const handleSend = async()=>{
@@ -108,7 +112,7 @@ function FirstStep() {
         weight,
         deliveryTime,
         catName : cat,
-        City
+        City : cityID
         
     }
     console.log(body)
@@ -240,6 +244,7 @@ function FirstStep() {
                                     <div>
                                             <label  className="text-right block">*دسته بندی</label>
                                             <select value={cat} onChange={(e)=>{
+                                                console.log(e.target.value);
                                                 setCat(e.target.value)
                                             }} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
                                                 
@@ -256,10 +261,10 @@ function FirstStep() {
                         <div className="mt-4">
                             <div>
                                 <label  className="text-right block pb-2">*شهر</label>
-                                <select value={City} onChange={handleChangeCity} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
+                                <select  value={City} onChange={handleChangeCity} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
                                         {cities.map((elm : any)=>(
-                                            <option value={elm.name} key={elm.id} >{elm.name}</option>
-                                            ))}
+                                            <option  id={elm.id} value={[elm.name,elm.id]} key={elm.id} >{elm.name}</option>
+                                         ))}
                                 </select>
                             </div>
                         </div>
