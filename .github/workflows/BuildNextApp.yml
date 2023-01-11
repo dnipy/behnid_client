@@ -8,13 +8,14 @@ jobs:
     name: Build and deploy for new release
     runs-on: ubuntu-20.04
     steps:
-
-      - name: Checkout
-        uses: actions/checkout@v3
-        
-      - name: Run Custom Script
-        run: |
-          git pull origin main
-          yarn install
-          rm -rf .next
-          yarn run deploy
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+        run: git pull origin main
+        run: yarn install
+        run: rm -rf .next
+        run: yarn run deploy
+          
+          
+          
