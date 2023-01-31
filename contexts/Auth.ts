@@ -10,13 +10,16 @@ export interface AuthContextInterface {
 
 export const authContextDefaults: AuthContextInterface = {
     login : (str)=>  localStorage.setItem('user-session',str) ,
-    logout : ()=> useEffect(()=>{ localStorage.clear()},[]) ,
+    logout :()=> window.localStorage.clear() ,
     isUser : ()=>{
         const [user,setUser] = useState(false)
         useEffect(()=>{
             const usr = localStorage.getItem('user-session')
             if (usr) {
                 setUser(true)
+            }
+            else {
+                setUser(false)
             }
         },[])
         return user
