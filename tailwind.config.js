@@ -3,27 +3,24 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./features/**/*.{js,ts,jsx,tsx}",
+
   ],
   theme: {
-    extend: {},
-    // colors : {
-    //   "beh-orange" : "#F12B24",
-    //   "beh-gray" : "#616161",
-    //   "beh-green-light" : "#58E716",
-    //   "beh-green-dark" : "40A951",
-    //   "beh-red" : "#F12B24" 
-    // },
-    // screens : {
-    //   'xs' : "380px",
-    //   'sm': '576px',
-    //   'md' : "960px",
-    //   'lg' : '1280px',
-    //   'xl' : '1440px',
-    //   '2xl' : '1600px'
-    // }
+    colors : {
+      "beh-orange" : "#FF6B01",
+      "beh-gray" : "#616161",
+      "beh-gray-dark" : "#4E4E4E",
+      "beh-gray-light" : "#CDCDCD",
+      "beh-green-light" : "#6CB7A5",
+      "beh-green-super-light" : "#16DAAB",
+      "beh-gray-mid-ligth" : "#707070",
+      "beh-red" : "#FF0000",
+      "beh-yellow" : "#E9CB2D",
+      "beh-bg" : "#F1F1F1", 
+      "beh-text-gray" : "#959595",
+      "white" : "#ffffff",
+      "black" : "#000000"
+    },
   },
-  
-  plugins: [
-    // require('@tailwindcss/forms'),
-  ],
 }

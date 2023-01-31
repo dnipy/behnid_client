@@ -16,6 +16,12 @@ const nextConfig = withPWA({
         port: '3001',
         pathname: '/uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'api.behnid.com',
+        port: '443',
+        pathname: '/uploads/**',
+      },
     ],
   },
   reactStrictMode: true,
