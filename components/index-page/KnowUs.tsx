@@ -4,7 +4,7 @@ import icon from '../../assets/icon.png'
 
 function KnowUs() {
   return (
-    <div className="w-[95%] min-h-[400px] bg-orange-500 mr-auto ml-auto rounded-lg my-3 flex flex-wrap">
+    <div className="w-[95%] min-h-[400px] bg-beh-orange mr-auto ml-auto rounded-lg my-3 flex flex-wrap">
 
 
 

@@ -16,19 +16,16 @@ function IndexStoryBar() {
               <StroyComponent/>
               <StroyComponent/> */}
             </div>
-            <div className='bg-[#2C2C2C] h-16 w-full'>
-
-                </div>
+            <div className='bg-[#2C2C2C] h-16 w-full'></div>
             <div className="absolute inline-flex justify-center items-center w-full">
-                
-                <hr className="w-full h-1 bg-orange-500 rounded border-0 "/>
-                    
-                        <div className="absolute left-1/2 px-12 py-2 rounded-full bg-white border-4 border-orange-500 -translate-x-1/2 ssss:bg-gray-900 ">
-                            <div className='px-3 py-[0.4rem] text-sm lg:text-lg lg:px-5 font-bold text center text-orange-500 '>
-                                رویداد های اخیر
-                            </div>
-                        </div>
-             </div>
+
+
+            <div className="absolute left-1/2 px-12 py-2 rounded-full bg-white border-4 border-beh-orange -translate-x-1/2 ssss:bg-gray-900 ">
+                <div className='px-3 py-[0.4rem] text-sm lg:text-lg lg:px-5 font-bold text-center text-beh-orange '>
+                    رویداد های اخیر
+                </div>
+            </div>
+            </div>
             </>
         )
     

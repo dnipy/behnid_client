@@ -9,7 +9,7 @@ function TopImage() {
               {/* <Image src={IndexImg} /> */}
               <div className="bg-black w-2/3 min-h-[30%] sm:min-h-[20%]  opacity-60 ">
               </div>
-              <div className="text-center absolute text-orange-500 cursor-pointer text-4xl pb-2 w-2/3  font-bold">
+              <div className="text-center absolute text-beh-orange cursor-pointer text-4xl pb-2 w-2/3  font-bold">
                 <h1>
                   <span className="text-white px-2">
                   اینجا
