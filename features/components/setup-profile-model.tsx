@@ -50,8 +50,10 @@ export const SetupProfileComponent = (props : { handleClose :  React.Dispatch<Re
                   })
   
         }
+        else {
+          setError('پسورد و تایید پسورد باید یکسان باشد')
+        }
         setloading(false)
-        setError('پسورد و تایید پسورد باید یکسان باشد')
       }
   
   
