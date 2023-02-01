@@ -16,10 +16,10 @@ const Page : NextPage = ()  => {
       <br />
       <br />
       <div dir="rtl" className="mx-auto max-w-6xl px-2 sm:px-6 lg:px-8">
+          {/* <FreeRequestComponent />
           <FreeRequestComponent />
           <FreeRequestComponent />
-          <FreeRequestComponent />
-          <FreeRequestComponent />
+          <FreeRequestComponent /> */}
       </div>
     </>
   )
