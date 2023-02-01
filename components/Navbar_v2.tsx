@@ -27,7 +27,7 @@ function Navbar_v2() {
         <div className='h-[70px] flex flex-row justify-between md:justify-center items-center mb-1 gap-1 '>
 
           {/* Image-part  */}
-          <div className='basis:1/2  md:basis-1/5 flex justify-center items-center'>
+          <div className='basis:1/2  md:basis-1/5 flex justify-center items-center cursor-pointer' onClick={()=> router.push('/')}>
               <Image  src={Logo} height='160' width='160' layout='fixed' alt='بهنید' />
           </div> 
 

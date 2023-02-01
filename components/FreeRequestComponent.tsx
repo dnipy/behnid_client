@@ -1,21 +1,26 @@
 import React from 'react'
+import { BACK_END } from '../clients/localStorage'
 
-function FreeRequestComponent() {
+function FreeRequestComponent( props : {title : string , id : number , username : string , recive_location : string , date : string , describe : string , avatar : string | null}) {
   return (
-    <div className=" my-5 min-w-sm max-w-7xl bg-white rounded-xl shadow-2xl gap-3 flex flex-row p-2 ">
+    <div key={props.id} className=" hover:scale-105 transition-all duration-100 cursor-auto my-5 min-w-sm max-w-7xl bg-white rounded-xl shadow-2xl gap-3 flex flex-col lg:flex-row p-2 ">
             {/* IMAGE_PART */}
-            <div className="basis-2/12">
+            <div className="basis-2/12 flex justify-center">
+              {props.avatar ? 
+              <img src={`${BACK_END}${props.avatar}`} className="bg-beh-orange rounded-xl max-h-[180px] h-full w-[180px]" alt={`${props.username} تصویر`} />
+              :
               <div className="bg-beh-orange rounded-xl max-h-[180px] h-full w-[180px]" />
+            }
             </div>
 
             {/* DESCRIBE_PART */}
             <div className="basis-9/12 flex flex-col gap-3  ">
 
               <div className="font-bold text-xl">
-                <h1 >
+                <h1 className='px-5' >
 
                   <span className=' col-span-1 hover:cursor-pointer text-beh-orange'>
-                  &nbsp;  محمود احمدی نژاد
+                   {props.username}
                   </span>
 
                   <span className=' col-span-1  '>
@@ -23,7 +28,7 @@ function FreeRequestComponent() {
                   </span>
 
                   <span className='col-span-1 text-beh-orange'>
-                  &nbsp;  سه تن رب
+                  &nbsp;  {props.title}
                   </span>
 
                   <span className=' col-span-1  '>
@@ -33,31 +38,31 @@ function FreeRequestComponent() {
                 </h1>
               </div>
 
-              <div className="flex flex-row gap-2 justify-between">
+              <div className="flex flex-col lg:flex-row gap-2 justify-between">
                 <div className="basis h-full ">
                   <div>
-                    <span className=' col-span-1 hover:cursor-pointer text-beh-gray-mid-ligth'>
+                    <span className=' col-span-1 text-beh-gray-mid-ligth'>
                     &nbsp;  محل تحویل : &nbsp;
                     </span>
 
-                    <span className=' col-span-1  '>
-                      کرج
+                    <span className=' col-span-1  hover:cursor-pointer  '>
+                      {props.recive_location}
                     </span>
                   </div>
 
 
                   <div  className="pt-3">
-                    <span className=' col-span-1 hover:cursor-pointer text-beh-gray-mid-ligth'>
-                    &nbsp; تا تاریخ  &nbsp;
+                    <span className=' col-span-1  text-beh-gray-mid-ligth'>
+                    &nbsp; تا تاریخ : &nbsp;
                     </span>
 
                     <span className=' col-span-1  '>
-                      23 / 10 /1402
+                      {props.date ?  props.date : 'نامشخص'}
                     </span>
                   </div>
                 </div>
 
-                <div className="basis">
+                <div className="basis px-5">
                   <h3 className="px-12 py-3 rounded-lg text-xl text-center text-white font-bold bg-beh-green-light cursor-pointer hover:">
                     شروع گفت و گو
                   </h3>
@@ -69,9 +74,9 @@ function FreeRequestComponent() {
               <div>
                 <h1>
                   <span className=' col-span-1  text-beh-gray-mid-ligth'>
-                    &nbsp;  توضیحات : &nbsp;
+                    توضیحات : &nbsp;
                   </span>
-                  چندین خط توضیحات مفید و مختصر جهت روشن کردن خواسته خود برای فروشندگان
+                  {props.describe}
                 </h1>
               </div>
 
