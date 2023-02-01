@@ -1,11 +1,11 @@
 import React from 'react'
-import IndexImg from "../../assets/IndexImg.png"
+import header from "../../assets/header.jpg"
 
 
 
 function TopImage() {
   return (
-    <div className="flex justify-center items-center " style={{backgroundImage : `url(${IndexImg.src})` ,width : "100%" , height : "461px" }}>
+    <div className="flex justify-center items-center " style={{backgroundImage : `url(${header.src})` ,width : "100%" , height : "461px" }}>
               {/* <Image src={IndexImg} /> */}
               <div className="bg-black w-2/3 min-h-[30%] sm:min-h-[20%]  opacity-60 ">
               </div>
