@@ -8,9 +8,9 @@ import Navbar_v2 from "../components/Navbar_v2";
 const Page : NextPage = ()  => {
   return (
     <>
-      <WarnComponent/>
+      {/* <WarnComponent/>
       <SuccesComponent/>
-      <ErrorComponent/>
+      <ErrorComponent/> */}
       <Navbar_v2 />
       <br />
       <br />
