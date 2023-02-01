@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
 import { AuthorizedApiRequest, AuthorizedApiRequestImage } from "../../clients/axios";
+import { BACK_END } from "../../clients/localStorage";
 import ErrorComponent from "../../components/alerts/error";
 import SuccesComponent from "../../components/alerts/succes";
 
-export const SetupProfileComponent = (props : { handleClose :  React.Dispatch<React.SetStateAction<boolean | null>> }) => {
-    const [fields,setFields] = useState({name : '' , lastname : '' , pass : '' , pass_confirm : '' })
+export const SetupProfileComponent = (props : { handleClose :  React.Dispatch<React.SetStateAction<boolean | null>> , avatar : string | null }) => {
+    const [fields,setFields] = useState({name : '' , lastname : '' , password : '' , pass_confirm : '' })
     const [error, setError] = useState('');
     const [succes,setSucces] = useState('')
     const [loading , setloading] = useState(false);
@@ -27,7 +28,7 @@ export const SetupProfileComponent = (props : { handleClose :  React.Dispatch<Re
     const sendHandle = async()=>{
       setError('')
       setloading(true)
-      if (fields.pass == fields.pass_confirm) {
+      if (fields.password == fields.pass_confirm) {
         let fData = fields
         console.log({fData})
         await AuthorizedApiRequest
@@ -105,12 +106,14 @@ export const SetupProfileComponent = (props : { handleClose :  React.Dispatch<Re
                   <div className='flex justify-around h-full gap-2 p-1' >
                     <div onClick={onButtonClick} className="h-[80%] basis-1/6 cursor-pointer bg-beh-orange flex items-center rounded-md">
                       <div className="rotate-90 " >
+                      
                       <input type='file' onChange={onImageChange} accept="image/png, image/gif, image/jpeg"  id='file' ref={inputFile} style={{display: 'none'}}/>
-                        <h1 className='font-semibold text-white text-lg' >انتخاب</h1>
+                        <h1 className='font-semibold text-white text-lg' >{props.avatar ? "تغییر" : "انتخاب"}</h1>
                       </div>
                     </div>
                     <div  className="h-[80%] basis-5/6 bg-beh-gray-light rounded-md flex justify-center">
                       <div>
+                        {props.avatar ? <img width='170px' height='170px' src={`${BACK_END}${props.avatar}`} /> : null}
                         {/* {selectedImage ? <div className='absolute w-[170px] text-center bg-beh-red font-semibold text-white cursor-pointer' onClick={()=>setSelectedImage(null)}>حذف</div> : null} */}
                         {selectedImage ? <div className={`absolute w-[170px] ${loading ? 'cursor-default' : 'cursor-pointer'} text-center bg-beh-green-light font-semibold text-white `} onClick={ loading ? undefined : sendImageHandle}>{loading ? 'صبر کنید' : 'تایید'}</div> : null}
                         {selectedImage ?  <img width='170px' height='170px' src={URL.createObjectURL(selectedImage)} /> : null}
@@ -140,13 +143,13 @@ export const SetupProfileComponent = (props : { handleClose :  React.Dispatch<Re
                   </div>
                   
                   <div className='mx-auto'>
-                    <input  value={fields.pass} onChange={(e)=>setFields({...fields,pass : e.target.value})} type='text' placeholder='رمز عبور' className=' placeholder:font-semibold placeholder:text-white border-b-2 border-beh-gray rounded-md bg-beh-gray min-w-[260px] h-[50px] flex items-center text-center'/>
+                    <input  value={fields.password} onChange={(e)=>setFields({...fields,password : e.target.value})} type='text' placeholder='رمز عبور' className=' placeholder:font-semibold placeholder:text-white border-b-2 border-beh-gray rounded-md bg-beh-gray min-w-[260px] h-[50px] flex items-center text-center'/>
                   </div>
               </div>
   
               <div className='flex flex-row flex-wrap w-full mt-5 justify-between gap-x-2 gap-y-3'>
                   <div className='mx-auto w-[80%] md:w-[94%]'>
-                    <div  onClick={policyChecked && fields.pass.length >= 8  &&  !loading ? sendHandle : undefined} className={`placeholder:font-semibold   border-b-2 border-beh-gray rounded-md ${policyChecked && fields.pass.length >= 8 ? 'cursor-pointer bg-beh-green-light text-white ' : 'text-beh-gray-dark bg-beh-gray-light'}  w-[100%] h-[50px] flex justify-center items-center text-center`}>
+                    <div  onClick={policyChecked && fields.password.length >= 8  &&  !loading ? sendHandle : undefined} className={`placeholder:font-semibold   border-b-2 border-beh-gray rounded-md ${policyChecked && fields.password.length >= 8 ? 'cursor-pointer bg-beh-green-light text-white ' : 'text-beh-gray-dark bg-beh-gray-light'}  w-[100%] h-[50px] flex justify-center items-center text-center`}>
                       <h1>تایید</h1>
                     </div>
                   </div>

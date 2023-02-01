@@ -18,6 +18,7 @@ import { SetupProfileComponent } from '../features/components/setup-profile-mode
 function MyApp({ Component, pageProps }: AppProps) {
   const [id,setId] = useState<number | undefined>()
   const [setupDone,setSetupDone] = useState<boolean | null>(null)
+  const [myAvatar , setMyAvatar] = useState< string | null>(null)
 
   // console.log({envURL : process.env.BACK_END})
   const fetchData = () => {
@@ -26,6 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         .then((res) => {
             setId(res.data?.data?.id);
             console.log({my_data  : res.data})
+            setMyAvatar(res.data?.data?.avatar as string | null)
             if (res.data?.data?.phone  && !res.data?.password_seted){
                 setSetupDone(false)
             }
@@ -61,7 +63,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <ReduxWrapper>
           <AuthContext.Provider value={authContextDefaults} >
-            {setupDone == false ? <SetupProfileComponent handleClose={setSetupDone} /> : null}
+            {setupDone == false ? <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} /> : null}
             <Component {...pageProps} />
           </AuthContext.Provider>      
       </ReduxWrapper>
