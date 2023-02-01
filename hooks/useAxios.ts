@@ -29,7 +29,7 @@ const useAxios = (route : string,token?:string) => {
     }, []);
 
 
-    return { response, error, loading };
+    return { response, error, loading , setError };
 };
 
 export const useAuthorizedAxios = (route : string) => {
