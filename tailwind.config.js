@@ -19,6 +19,9 @@ module.exports = {
       "beh-yellow" : "#E9CB2D",
       "beh-bg" : "#F1F1F1", 
       "beh-text-gray" : "#959595",
+      "linar-purple" : "#CC01FF",
+      "linar-orange" : "#FF6B01",
+      "linar-blue" : "#4200FF",
       "white" : "#ffffff",
       "black" : "#000000"
     },

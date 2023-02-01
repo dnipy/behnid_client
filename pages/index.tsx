@@ -13,6 +13,8 @@ import IndexProducts from "../components/index-page/IndexProducts";
 import IndexStoryBar from "../components/index-page/StoryBar";
 import IndexEvents from "../components/index-page/IndexEvents";
 import Navbar_v2 from "../components/Navbar_v2";
+import Comment from "../components/comments";
+import { BACK_END } from "../clients/localStorage";
 
 const Page : NextPage = ()  => {
 
