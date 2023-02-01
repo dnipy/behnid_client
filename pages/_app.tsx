@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         .then((res) => {
             setId(res.data?.data?.id);
             console.log({my_data  : res.data})
-            if (res.data?.phone  && !res.data?.password_seted){
+            if (res.data?.data?.phone  && !res.data?.password_seted){
                 setSetupDone(false)
             }
           })
