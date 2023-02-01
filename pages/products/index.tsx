@@ -9,6 +9,7 @@ import { ErrorComponent } from "../../components/error";
 import Footer from "../../components/footer";
 import { LoadingComponent } from "../../components/loading";
 import Navbar from "../../components/Navbar";
+import Navbar_v2 from "../../components/Navbar_v2";
 import { WarnComponent } from "../../components/warn";
 
   
@@ -47,7 +48,7 @@ const Page : NextPage = ()  => {
 
   return (
     <>
-    <Navbar />
+    <Navbar_v2 />
     <main className="flex justify-center">
       <div className="w-1/1 md:w-2/3 p-3">
 

@@ -1,78 +1,93 @@
 import { NextPage } from "next";
-import React, { ReactNode, useContext, useEffect, useState } from 'react'
-import { ApiRequest, AuthorizedApiRequest } from "../../clients/axios";
-import Router, { useRouter } from "next/router";
-import Link from "next/link";
+import { useRouter } from "next/router";
+import React, {useEffect, useState } from 'react'
+import { AuthorizedApiRequest, AuthorizedApiRequestImage } from "../../clients/axios";
+import ErrorComponent from "../../components/alerts/error";
+import SuccesComponent from "../../components/alerts/succes";
+import { CategoryPickerModel } from "../../features/components/category_picker";
+import { CityPickerModel } from "../../features/components/city-picker";
+import { MultiCityPickerModel } from "../../features/components/MultiCityPicker";
+import { LastComponent } from "../../features/pages/add-products/final-step";
+import { StepFiveComponent } from "../../features/pages/add-products/step-five";
+import { StepFourComponent } from "../../features/pages/add-products/step-four";
+import { StepOneComponent } from "../../features/pages/add-products/step-one";
+import { StepThreeComponent } from "../../features/pages/add-products/step-three";
+import { StepTwoComponent } from "../../features/pages/add-products/step-two";
+import { I_add_products } from "../../types/add-products";
+
+
+
 
 
 const Page : NextPage = ()  => {
-
-  return (
-    <>
-        <div className="">
-             <FirstStep  />
-        </div>
-    </>
-  )
-}  
-
-
-
-
-//title  desc price send_area min_order max_order city customer_price prudocer_price pack_type delivery time weight image
-
-function FirstStep() {
-  const [packtype,setPacktype] = React.useState<string>('vanet')
-  const [categorie,setCategory] = React.useState<Array<any>>([])
-  const [loading,setloading] = React.useState(true)
-  const [cat,setCat] = React.useState<string>('مواد غذایی')
-  const [response,setResponse]= React.useState<any>('')
-  const [error,setError] = React.useState('')
-
-  //forms
-  const [title,setTitle] = useState('')
-  const [describe,setDescribe] = useState('')
-  const [price,setPrice] = useState<string | number | readonly string[] | undefined>()
-  const [sendArea,setSendArea] = useState('')
-  const [minOrder,setMinOrder] = useState<string | number | readonly string[] | undefined>()
-  const [customerPrice,setCustomerPrice] = useState<string | number | readonly string[] | undefined>()
-  const [producerPrice,SetProducerPrice] = useState<string | number | readonly string[] | undefined>()
-  const [weight,setWeight] = useState('')
-  const [deliveryTime,setDeliveryTime] = useState('')
-  const [City,setCity] = React.useState<string>('اسکو')
-  const [cityID,setCityId] = useState(1)
-  const [cities,setCities]= React.useState([])
+    const [loading,setloading] = React.useState(true)
+    const [error,setError] = React.useState('')
+    const [succes,setSucces] = React.useState('')
+    const [step,setStep] = useState(1)
+    const [fields,setFields] = useState<I_add_products>({
+        title : '',
+        describe : '',
+        price : undefined,
+        packType : '',
+        minOrder : undefined,
+        customerPrice : undefined,
+        producerPrice : undefined,
+        weight : undefined,
+        deliveryTime : '',
+        keyword_list : [],
+        cat_id : 1,
+        cat_name : '',
+        city_id : 1,
+        offPercent : undefined,
+        offCount : undefined,
+        freeDelivery : false,
+        sendArea_list : [],
+        unit : 1,
+        add_story : false,
+        quantity : undefined,
+        send_from : undefined,
+        showCityPicker : false,
+        selectedCityName : '' ,
+        showMultiCityPicker : false,
+        showCatPicker : false,
+        selectedImage_1 : null,
+        selectedImage_2 : null,
+        selectedImage_3 : null,
+    })
+    
 
 
   const router = useRouter();
   useEffect(()=>{
       const data = localStorage.getItem('user-session')
-      if (!data) router.replace('/')
-  },[])
-
-  useEffect(()=>{
-        ApiRequest
-            .get('/categories/all')
-            .then((res) => {
-                setCategory(res.data);
-                console.log(res.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-            .finally(() => {
-                setloading(false);
-            });
+      if (!data) router.push('/')
   },[])
 
 
-  useEffect(()=>{
-    ApiRequest
-        .get('/categories/all-city')
+  const sendImageHandle =async (id : number) => {
+    setloading(true)
+    const body = new FormData()
+
+        
+        
+        fields.selectedImage_1 ? body.append('product_1',fields.selectedImage_1 as Blob) : null
+        fields.selectedImage_2 ? body.append('product_2',fields.selectedImage_2 as Blob) : null 
+        fields.selectedImage_2 ? body.append('product_3',fields.selectedImage_3 as Blob) : null 
+
+    
+        AuthorizedApiRequestImage 
+        .post(`/media/photo/product?productID=${id}`,body)
         .then((res) => {
             console.log(res)
-            setCities(res.data);
-            console.log(City)
+            if (res.data.err) {
+                setError(res.data.err)
+            }
+            else {
+                setSucces(String(res.data.msg));
+                setTimeout(() => {
+                    router.replace('/products')
+                }, 1000);
+            }
         })
         .catch((err) => {
             console.log(err)
@@ -80,64 +95,32 @@ function FirstStep() {
         .finally(() => {
             setloading(false);
         });
-
-  },[])
-
-  const handleChangepack = (e: React.ChangeEvent<HTMLSelectElement>) =>{
-      console.log(packtype)
-      setPacktype(e.target.value)
-      console.log(packtype)
   }
-
-  const handleChangeCity = (e: React.ChangeEvent<HTMLSelectElement>) =>{
-    setCity(String(e.target.value))
-    setCityId(Number(e.target.value.split(',').at(1)))
-    console.log(City)
-    // console.log(e.target.value.split(',').at(1))
-  }
+  
 
   const handleSend = async()=>{
       setloading(true)
       setError('')
-      setResponse('')
-      const body = {
-        title,
-        describe,
-        price,
-        sendArea,
-        packType : packtype,
-        minOrder,
-        customerPrice,
-        producerPrice,
-        weight,
-        deliveryTime,
-        catName : cat,
-        City : cityID
-        
-    }
-    console.log(body)
+      const body = fields
+      console.log(body)
 
-    if (!body.title || !body.price || !body.sendArea || !body.minOrder || !body.customerPrice || !body.producerPrice || !body.weight ){
+    if (!body.cat_id  || !body.producerPrice || !body.price || !body.customerPrice || body.describe.length < 30 || !body.title ){
         setError("فیلد های دارای * اجباری هستند")
         return
     }
 
-
-    if (!body.catName) {
-        setError('لطفا دسته بندی را انتخاب کنید')
-        return
-    }
     console.log(body)
 
     AuthorizedApiRequest
     .post('/products/add',body)
     .then((res) => {
+        console.log({res})
         if (res.data.err) {
             setError(res.data.err)
         }
         else {
-            setResponse(res.data.msg);
-            Router.push(`/profile/add-product-images?id=${res.data.id}`)
+            let product_id = res.data.id
+            sendImageHandle(Number(product_id)).catch(()=>setError('محصول بدون تصویر اضافه شد'))
         }
     })
     .catch((err) => {
@@ -150,143 +133,62 @@ function FirstStep() {
 
 
   return (
-    <div>
-
-        <div  className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="px-8 py-6 mt-4 text-left bg-white shadow-lg my-16">
-                <h3 className="text-2xl font-bold text-center">افزودن محصول</h3>
-                {/* <form > */}
-                    {error ? <p  className="text-red-400 text-right">{error}</p>: null}
-                    {response ? <p  className="text-red-400 text-right">{response}</p>: null}
-                    <div dir="rtl" className="mt-4">
-                        <div>
-                            <label className=" text-right block" htmlFor="email">*نام محصول</label>
-                                    <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" placeholder="رب گوجه چین چین"
-                                        className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
-                        </div>
-                        <div className="mt-4">
-                            <label  className="text-right block">توضیحات</label>
-                                    <textarea value={describe} onChange={(e)=>setDescribe(e.target.value)} className="resize-y w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"></textarea>
-                                    
-                        </div>
-
-                        <div className="mt-4">
-                            <label  className="text-right block">*قیمت به تومان</label>
-                                    <input value={price} onChange={(e)=>setPrice(e.target.valueAsNumber)} type="number" placeholder="200000"
-                                        className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
-                                    
-                        </div>
-
-                        <div className="mt-4">
-                            <label className=" text-right block" htmlFor="email">*محدوده ارسال</label>
-                                    <input value={sendArea} onChange={(e)=>setSendArea(e.target.value)} type="text" placeholder="کرج و تهران"
-                                        className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
-                        </div>
-
-
-                        <div className="mt-4">
-                            <label className=" text-right block" htmlFor="email">زمان ارسال</label>
-                                    <input value={deliveryTime} onChange={(e)=>setDeliveryTime(e.target.value)} type="text" placeholder="دو روز کاری"
-                                        className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
-                        </div>
-
-                        <div className="mt-4 flex justify-between">
-                                    <div>
-                                        <label  className="text-right block">حداکثر فروش</label>
-                                        <input  type="number" placeholder="10000"
-                                            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
-                                    </div>
-                                    
-
-                                    <div>
-                                        <label  className="text-right block">*حداقل فروش</label>
-                                        <input value={minOrder} onChange={(e)=>setMinOrder(e.target.valueAsNumber)} type="number" placeholder="10"
-                                            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
-                                    </div>
-                        </div>
-
-
-                        <div className="mt-4 flex justify-between">
-                                    <div>
-                                        <label  className="text-right block">*قیمت فروشنده</label>
-                                        <input value={producerPrice} onChange={(e)=>SetProducerPrice(e.target.valueAsNumber)} type="number" placeholder="20050"
-                                            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
-                                    </div>
-                                    
-
-                                    <div>
-                                        <label  className="text-right block">*قیمت خریدار</label>
-                                        <input value={customerPrice} onChange={(e)=>setCustomerPrice(e.target.valueAsNumber)} type="number" placeholder="21000"
-                                            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
-                                    </div>
-                        </div>
-                        <div className="mt-4 flex justify-between">
-                                    <div>
-                                        <label  className="text-right block">*وزن به کیلوگرم</label>
-                                        <input value={weight} onChange={(e)=>setWeight(e.target.value)} type="number" placeholder="2"
-                                            className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600"/>
-                                    </div>
-                                    
-                                
-                                    <div className="mx-1" style={{width : '14rem'}}>
-                                            <label  className="text-right block">*نوع بسته بندی</label>
-                                            <select value={packtype} onChange={handleChangepack} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
-                                                <option value='vanet' >وانت</option>
-                                                <option value='camiun'>کامیون</option>
-                                                <option value='kg'>کیلویی</option>
-                                            </select>
-                 
-                                    </div>
-                        </div>
-
-
-                        <div className="mt-4">
-                                    <div>
-                                            <label  className="text-right block">*دسته بندی</label>
-                                            <select value={cat} onChange={(e)=>{
-                                                console.log(e.target.value);
-                                                setCat(e.target.value)
-                                            }} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
-                                                
-                                                {categorie.map((elm : any)=>(
-                                                    <option value={elm.name} key={elm.id} >{elm.name}</option>
-                                                ))}
-                                                
-                                               
-                                            </select>
-                                    </div>
-                                    
-                        </div>
-
-                        <div className="mt-4">
-                            <div>
-                                <label  className="text-right block pb-2">*شهر</label>
-                                <select  value={City} onChange={handleChangeCity} className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-orange-600">
-                                        {cities.map((elm : any)=>(
-                                            <option  id={elm.id} value={[elm.name,elm.id]} key={elm.id} >{elm.name}</option>
-                                         ))}
-                                </select>
-                            </div>
-                        </div>
-                        
-                            <button onClick={handleSend} className="px-32 py-2 mx-4 mt-4 text-white bg-orange-400 rounded-lg hover:bg-orange-500">ادامه</button>
-                            <button  className="px-32 py-2 mx-4 mt-4 text-gray-500 rounded-lg hover:border border-gray-500  "><Link href='/'> بازگشت</Link></button>
-                        
-                       
-                    </div>
-                    
-                {/* </form> */}
+      <>
+      {error ? <ErrorComponent handle={setError} message={error} /> : null}
+      {succes ? <SuccesComponent handle={setSucces} message={succes} /> : null}
+    {fields.showCityPicker ? <CityPickerModel fildes={fields} setFileds={setFields} /> : null}
+    {fields.showMultiCityPicker ? <MultiCityPickerModel fildes={fields} setFileds={setFields} /> : null}
+    {fields.showCatPicker ? <CategoryPickerModel fildes={fields} setFileds={setFields} /> : null}
+    <div dir="rtl" className="bg-beh-bg w-full block h-full" >
+        <div className="bg-beh-orange font-bold  top-0 text-white text-lg w-full h-[60px] px-10 pt-[11px]">
+            <h1> { step != 6 ? 'اضافه کردن محصول' : "پروفایل محصول" } </h1>
+        </div>
+        <div className=" py-[60px]  flex justify-center" >
+            <div className="w-[370px] ">
+                {step == 1 ? <StepOneComponent step={step} setStep={setStep} fildes={fields} setFileds={setFields } /> : null}
+                {step == 2 ? <StepTwoComponent step={step} setStep={setStep} fildes={fields} setFileds={setFields} /> : null}
+                {step == 3 ? <StepThreeComponent step={step} setStep={setStep} fildes={fields} setFileds={setFields} /> : null}
+                {step == 4 ? <StepFourComponent step={step} setStep={setStep} fildes={fields} setFileds={setFields} /> : null}
+                {step == 5 ? <StepFiveComponent send={handleSend} step={step} setStep={setStep} fildes={fields} setFileds={setFields} /> : null}
+                {step == 6 ? <LastComponent step={step} setStep={setStep} fildes={fields} setFileds={setFields} /> : null}
             </div>
         </div>
 
+        {
+            step == 6 
+            ? 
+                null
+                : 
+                <div className="block">
+
+                <div className="h-[70px] w-full  flex justify-center">
+                    <div className="w-[370px] flex justify-around items-center h-full">
+                        <div>
+                            <h1 className={`font-bold text-lg ${step < 5 ? 'text-black cursor-pointer' : 'text-beh-gray-light cursor-not-allowed'} `} onClick={step < 5 ? ()=>setStep(step+1) : undefined}>بعدی</h1>
+                        </div>
+                        <div >
+                            <div dir="ltr" className="flex items-center justify-center gap-2">
+                                <div className={`w-5 h-5 ${step == 1 ? 'bg-beh-orange' : 'bg-beh-gray cursor-pointer'} `}  onClick={step !=1 ? ()=>setStep(1) : undefined} ></div>
+                                <div className={`w-5 h-5 ${step == 2 ? 'bg-beh-orange' : 'bg-beh-gray cursor-pointer'}`}  onClick={step !=2 ? ()=>setStep(2) : undefined} ></div>
+                                <div className={`w-5 h-5 ${step == 3 ? 'bg-beh-orange' : 'bg-beh-gray cursor-pointer'}`}  onClick={step !=3 ? ()=>setStep(3) : undefined} ></div>
+                                <div className={`w-5 h-5 ${step == 4 ? 'bg-beh-orange' : 'bg-beh-gray cursor-pointer'}`}  onClick={step !=4 ? ()=>setStep(4) : undefined} ></div>
+                                <div className={`w-5 h-5 ${step == 5 ? 'bg-beh-orange' : 'bg-beh-gray cursor-pointer'}`}  onClick={step !=5 ? ()=>setStep(5) : undefined} ></div>
+
+                            </div>
+                        </div>
+                        <div>
+                            <h1 className={`font-bold text-lg ${step > 1 ? 'text-black cursor-pointer' : 'text-beh-gray-light cursor-not-allowed'} `} onClick={step > 1 ? ()=>setStep(step-1) : undefined}>قبلی</h1>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        }
     </div>
+    </>
   )
 }
 
 
 
-
-
-
-
 export default Page
+

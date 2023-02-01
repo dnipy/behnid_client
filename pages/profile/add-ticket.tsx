@@ -5,11 +5,7 @@ import { ApiRequest, AuthorizedApiRequest } from '../../clients/axios';
 import { AuthContext } from '../../contexts/Auth';
 
 function Login() {
-    // const {isUser} = useContext(AuthContext)
-    
-    // if (isUser()) {
-    //         Router.replace('/')
-    // }
+
     const [fields,setFields] = useState({message : ''})
     const [response, setResponse] = useState<any>([]);
     const [error, setError] = useState('');
