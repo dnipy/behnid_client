@@ -52,21 +52,21 @@ function FreeRequestsGroup() {
 
         {response && page == 1 ?  
             (response as Array<any>).slice(0,3).map((elm)=>(
-                <FreeRequestComponent id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
+                <FreeRequestComponent key={elm?.id} id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
             ))
         : null}
 
 
         {response && page == 2 ?  
                 (response as Array<any>).slice(2,3).map((elm)=>(
-                    <FreeRequestComponent id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
+                    <FreeRequestComponent key={elm?.id} id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
                 ))
         : null}
 
 
         {response && page == 3 ?  
                 (response as Array<any>).slice(5,3).map((elm)=>(
-                    <FreeRequestComponent id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
+                    <FreeRequestComponent key={elm?.id} id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
                 ))
         : null}
 
