@@ -1,22 +1,18 @@
 import { NextPage } from "next";
 import { useDispatch } from "react-redux";
-import Navbar from "../components/Navbar";
-import {  useAppSelector } from "../hooks/redux";
-import { useForm } from "react-hook-form";
+import { useAppSelector } from "../hooks/redux";
 import Footer from "../components/footer";
-import StoryBar from "../components/storyBar";
-import Image from "next/image";
 import TopImage from "../components/index-page/TopImage";
-import icon from '../assets/icon.png'
 import KnowUs from "../components/index-page/KnowUs";
 import IndexProducts from "../components/index-page/IndexProducts";
 import IndexStoryBar from "../components/index-page/StoryBar";
 import IndexEvents from "../components/index-page/IndexEvents";
 import Navbar_v2 from "../components/Navbar_v2";
-import Comment from "../components/comments";
-import { BACK_END } from "../clients/localStorage";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/Auth";
 
 const Page : NextPage = ()  => {
+  const {isUser} = useContext(AuthContext)
 
   return (
     <>
@@ -26,7 +22,9 @@ const Page : NextPage = ()  => {
           <TopImage/>
           <KnowUs/>
           <IndexProducts/>
-          <IndexStoryBar/>
+          {
+          isUser() ? <IndexStoryBar/> : null
+          }
           <IndexEvents/>
         </div>
       </main>
