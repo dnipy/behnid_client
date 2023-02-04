@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { ApiRequest } from '../../clients/axios';
 import { BACK_END } from '../../clients/localStorage';
 import ErrorComponent from '../alerts/error';
-import { Product } from '../blog';
+import { MiniProduct } from '../products/mini-product';
 
 function IndexProducts() {
 
@@ -55,15 +55,18 @@ function IndexProducts() {
 
 
             {/* MIDDLE PART */}
-            <div dir="rtl" className="flex flex-wrap justify-center  gap-x-5  ">
-                {loading == false ? response.map((elm :any)=>(
-                  <Product price={elm?.price} city={elm?.city?.name  ? elm.city.name : 'ایران'} author={elm.author.name} authorID={elm.author.id}  id={elm.id} key={elm.id} title={elm.title} describe={elm.describe} freeDelivery={elm?.freeDelivery} image={elm?.image ? `${BACK_END}${elm.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png'} />
-                )) : null}
+            <div dir="rtl" className="flex flex-wrap justify-center  gap-x-5 gap-y-6 ">
+                {/* {loading == false ? response.map((elm :any)=>(
+                  <MiniProduct  />
+                )) : null} */}
+                <MiniProduct avatar={null} name={null} />
+                <MiniProduct avatar={null} name={null} />
+                <MiniProduct avatar={null} name={null} />
             </div>
 
 
             {/* BOTTOM PART */}
-            <div className="inline-flex justify-center items-center w-full">
+            <div className="inline-flex justify-center items-center w-full mt-4">
                 <hr className="my-8 w-full h-1 bg-gray-300 rounded border-0 ssss:bg-gray-700"/>
                     
                         <div onClick={()=>router.replace('/products')} className="absolute left-1/2 px-4 bg-white border-2 border-beh-orange hover:rounded-full transition-all duration-100 hover:duration-300 hover:text-orange-500  -translate-x-1/2 ssss:bg-gray-900 cursor-pointer">

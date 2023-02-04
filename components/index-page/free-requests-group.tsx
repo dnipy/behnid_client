@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { ApiRequest } from '../../clients/axios';
 import FreeRequestComponent from '../FreeRequestComponent';
 
+
 function FreeRequestsGroup() {
     const router = useRouter()
 
@@ -32,7 +33,7 @@ function FreeRequestsGroup() {
   
   
   return (
-    <div className="basis-full lg:basis-3/4 ">
+    <div className="basis-full order-2 lg:order-1 lg:basis-3/5 px-5 ">
 
         <div className='w-full text-right py-3  '>
                 <h1 className='px-5 flex ' >
@@ -91,7 +92,10 @@ function FreeRequestsGroup() {
                             </h1>
                         </div>
                     </div>
+                    
         </div>
+
+
 
     </div>
   )

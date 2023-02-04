@@ -5,6 +5,8 @@ import Event from '../../assets/EventImage.jpg'
 import logo from '../../assets/logo.png'
 import FreeRequestComponent from '../FreeRequestComponent'
 import FreeRequestsGroup from './free-requests-group'
+import radar from '../../assets/radar.gif'
+
 
 function IndexEvents() {
     const router = useRouter()
@@ -24,12 +26,34 @@ function IndexEvents() {
             </div>    
         </div>
 
-        <div  className='flex  gap-5 flex-wrap w-full min-h-[10rem] items-center  mt-4 mb-10'>
-            <div className='basis-0 lg:basis-1/4'>
-
-            </div>
-
+        <div  className='flex flex-row  gap-5 flex-wrap w-full min-h-[10rem] items-center  py-10 mt-4 mb-10 bg-white'>
            <FreeRequestsGroup />
+           
+           
+           
+            <div className='basis-full order-1 lg:order-2 lg:basis-2/6 h-full mt-5 '>
+                <div className='w-full'>
+
+                    <img src={radar.src} alt="" className='mx-auto' />
+                    <div className='mt-10 h-[300px]'>
+                        <h1 className=' col-span-1 text-4xl text-beh-gray-dark  font-bold     '>
+                            &nbsp;  چیزی نیاز داری؟  &nbsp;
+                        </h1>
+                        <h6 className='px-5 py-3 text-lg font-semibold'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius modi id consequuntur quisquam temporibus quis facilis eos dicta molestias, nam animi blanditiis, quas explicabo nemo. Reiciendis reprehenderit voluptatum omnis. Numquam.
+                        </h6>
+
+                        <div className='flex justify-end px-10 lg:px-0'>
+                            <div className=' rounded-lg w-[160px] h-[50px] cursor-pointer  bg-black text-beh-orange font-bold text-3xl'>
+                                <h1 className='text-center'>
+                                    پیام بزار
+                                </h1>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
 
         <Image src={Event} className="" alt="logo-two" />
