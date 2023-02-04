@@ -181,6 +181,7 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
 
   const sendHandle = async()=>{
     setError('')
+    setloading(true)
     let fData = {phone : fields.phone ,password : fields.pass}
     console.log({fData})
     await ApiRequest
@@ -210,6 +211,17 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
         })
 
 }
+
+  const sendActive = ()=>{
+    if (loading) {
+      return true
+    }
+    if (fields.pass.length < 8 || fields.phone.length != 11){
+      return true
+    }
+
+    return false
+  } 
 
 
 
@@ -252,7 +264,7 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
                 </span>
               </label>
 
-              <button disabled={loading} onClick={sendHandle} className={`px-10 py-2 rounded-full text-lg font-bold text-white  ${loading ? 'bg-beh-gray-dark'  : 'bg-beh-orange'} mt-1`} >ورود به حساب</button>
+              <button disabled={sendActive()} onClick={sendHandle} className={`px-10 py-2 rounded-full text-lg font-bold text-white  ${loading ? 'bg-beh-gray-dark'  : 'bg-beh-orange'} mt-1`} >ورود به حساب</button>
               <div className='mt-1 text-white text-md px-3   '>
                 <h1 >
 
