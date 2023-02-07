@@ -24,7 +24,7 @@ const nextConfig = withPWA({
       },
     ],
   },
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   compiler : {
     removeConsole: true,
