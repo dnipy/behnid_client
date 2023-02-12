@@ -23,7 +23,7 @@ function Comment(props : {name : string , text : string , avatar : string | null
     </div>
     <div className=' p-5 text-black text-lg bg-beh-gray-light w-full min-h-[50px] h-auto'>
         <h1>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam tempore in fugit ratione recusandae cum, molestiae distinctio saepe. Atque nobis ipsa quis iusto minima non placeat, expedita laboriosam quibusdam illo!
+            {props.text}
         </h1>
     </div>
     </div>
