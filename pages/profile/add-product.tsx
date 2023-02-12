@@ -134,8 +134,8 @@ const Page : NextPage = ()  => {
 
   return (
       <>
-      {error ? <ErrorComponent handle={setError} message={error} /> : null}
-      {succes ? <SuccesComponent handle={setSucces} message={succes} /> : null}
+    {error ? <ErrorComponent handle={setError} message={error} /> : null}
+    {succes ? <SuccesComponent handle={setSucces} message={succes} /> : null}
     {fields.showCityPicker ? <CityPickerModel fildes={fields} setFileds={setFields} /> : null}
     {fields.showMultiCityPicker ? <MultiCityPickerModel fildes={fields} setFileds={setFields} /> : null}
     {fields.showCatPicker ? <CategoryPickerModel fildes={fields} setFileds={setFields} /> : null}
