@@ -235,7 +235,7 @@ export default function SingleSeller () {
             <div className="my-20">
                 {
                   (response.comments as Array<any>).map(elm=>(
-                    <Comment text={elm?.message} name={elm?.commentAuthor?.profile?.name} avatar={elm?.commentAuthor?.avatar} />
+                    <Comment key={elm?.commentAuthor?.profile?.id} text={elm?.message} name={elm?.commentAuthor?.profile?.name} avatar={elm?.commentAuthor?.avatar} />
                   ))
                 }
             </div>
