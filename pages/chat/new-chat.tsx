@@ -20,7 +20,7 @@ function NewChat() {
         else {
             console.log({id})
             AuthorizedApiRequest
-                .post('/chats/newChat',{userID : id})
+                .post('/chats/newChat',{userID : Number(id)})
                 .then((res) => {
                     console.log({res})
                     if (res.data.err) {
