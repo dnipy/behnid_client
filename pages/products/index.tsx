@@ -8,9 +8,8 @@ import {Product} from "../../components/blog";
 import { ErrorComponent } from "../../components/error";
 import Footer from "../../components/footer";
 import { LoadingComponent } from "../../components/loading";
-import Navbar from "../../components/Navbar";
 import Navbar_v2 from "../../components/Navbar_v2";
-import { WarnComponent } from "../../components/warn";
+import { MiniProduct } from "../../components/products/mini-product";
 
   
 const Page : NextPage = ()  => {
@@ -23,7 +22,7 @@ const Page : NextPage = ()  => {
 
   useEffect(()=>{
     ApiRequest
-    .get(`/products/all?start=1&length=9`)
+    .get(`/products/all?start=1&length=20`)
     .then((res) => {
       if (res.data.err) {
         setError('ارور')
@@ -50,18 +49,20 @@ const Page : NextPage = ()  => {
     <>
     <Navbar_v2 />
     <main className="flex justify-center">
-      <div className="w-1/1 md:w-2/3 p-3">
+      <div className="w-1/1 md:w-3/4 my-10 p-3">
 
 
       {loading ? <LoadingComponent/> : null}
       {error ? <ErrorComponent  details={'500'} /> : null}
       {response?.err ? 'ارور' :
 
-      <div dir="rtl" className="flex flex-wrap min-h-screen gap-x-5 justify-center  ">
-        {loading == false ? response.map((elm :any)=>(
-          <Product price={elm?.price} city={elm?.city?.name  ? elm.city.name : 'ایران'} author={elm.author.name} authorID={elm.author.id}  id={elm.id} key={elm.id} title={elm.title} describe={elm.describe} freeDelivery={elm?.freeDelivery} image={elm?.image ? `${BACK_END}${elm.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png'} />
-          )) : <Audio color='#fb923c' />}
-      </div>
+          <div dir="rtl" className="flex flex-wrap justify-center gap-x-1 gap-y-2">
+                        
+          {loading == false ? response.map((elm :any)=>(
+            <MiniProduct AuthorId={elm?.authorID} id={elm?.id} key={elm?.id} image={elm?.image} freeDelivery={elm?.freeDelivery} unitName={elm?.unitName} sendFrom={elm?.city?.name} minOrder={elm?.minOrder} pricePerUnit={elm?.price} responseTime={'1'} DeliveryTime={elm?.deliveryTime}  avatar={elm?.author?.user?.avatar} name={elm?.author?.user?.profile?.name} title={elm?.title}  />
+          )) : null}
+
+          </div>
 
         }
       </div>

@@ -5,8 +5,10 @@ import { ApiRequest } from "../../clients/axios";
 import { ErrorComponent } from "../../components/error";
 import Footer from "../../components/footer";
 import FreeRequest from "../../components/freeRequest";
+import FreeRequestComponent from "../../components/FreeRequestComponent";
 import {LoadingComponent} from "../../components/loading";
 import Navbar from "../../components/Navbar";
+import Navbar_v2 from "../../components/Navbar_v2";
 
 const Page : NextPage = ()  => {
   const router = useRouter()
@@ -14,6 +16,7 @@ const Page : NextPage = ()  => {
   const [response, setResponse] = useState<any>([]);
   const [error, setError] = useState('');
   const [loading, setloading] = useState(true);
+  const [page , setPage] = useState(1)
 
 
   useEffect(()=>{
@@ -21,10 +24,11 @@ const Page : NextPage = ()  => {
     .get(`/requests/all?start=1&length=9`)
     .then((res) => {
       setResponse(res.data);
+      console.log(res.data)
     })
     .catch((err) => {
-      setError(err);
-      router.replace('/500')
+      setError('ارور همگام دریافت نیاز ها');
+      
 
     })
     .finally(() => {
@@ -34,34 +38,36 @@ const Page : NextPage = ()  => {
 },[])
 
 
-
   console.log(response)
 
   return (
     <>
-    <Navbar />
-    <main className="flex justify-center min">
-      <div className="w-1/1 md:w-2/3 p-3">
+    <Navbar_v2 />
+    <main className="flex justify-center">
+      <div className="w-1/1 md:w-3/4 my-10 p-3">
 
 
       {loading ? <LoadingComponent/> : null}
       {error ? <ErrorComponent  details={'500'} /> : null}
-      {response?.err ? <ErrorComponent  details={response?.err} /> : null }
+      {response?.err ? 'ارور' :
 
-      <div dir="rtl" className="flex flex-wrap gap-x-10 h-screen ">
-        { typeof response?.err === 'undefined' ? (response as Array<any>).map( (elm : any)=>(
-            <FreeRequest  id={elm.id} quantity={elm.quantity as string} key={elm.id as number} name={elm?.name as string} describe={elm?.describe as string} authorName={elm?.Author?.name as string} catName={(elm?.categorie as Array<any>).at(0) ? (elm?.categorie as Array<any>).at(0)?.name  :   'نامشخص'} cityName={elm.city?.name as string} />
+          <div dir="rtl" className="flex flex-wrap justify-center gap-x-1 gap-y-2">
+                        
+                        { !loading && response ?  
+        (response as Array<any>).map((elm)=>(
+            <FreeRequestComponent  key={elm?.id} id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
         ))
-          : null
-      }
-      </div>
+      : null}
 
+          </div>
+
+        }
       </div>
     </main>
     <Footer/>
-
   </>
   )
 }  
 
 export default Page
+
