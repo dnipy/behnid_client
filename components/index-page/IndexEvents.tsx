@@ -13,7 +13,7 @@ function IndexEvents() {
   return (
     <div className='mt-20 w-[90%] mr-auto ml-auto'>
         
-        <div onClick={()=> router.replace('/auth/register')} className='flex  cursor-pointer flex-wrap w-full min-h-[10rem] items-center bg-[#525252] mt-4 mb-10'>
+        <div  className='flex  cursor-pointer flex-wrap w-full min-h-[10rem] items-center bg-[#525252] mt-4 mb-10'>
             <div  className='w-[600px] text-center lg:text-right text-4xl lg:py-0 py-5  pr-10 font-bold text-white'>
                 <h1 className='text-center lg:text-right'>
                 ثبت نام کن و 10% تخفیف بگیر !!!
@@ -40,12 +40,13 @@ function IndexEvents() {
                             &nbsp;  چیزی نیاز داری؟  &nbsp;
                         </h1>
                         <h6 className='px-5 py-3 text-lg font-semibold'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius modi id consequuntur quisquam temporibus quis facilis eos dicta molestias, nam animi blanditiis, quas explicabo nemo. Reiciendis reprehenderit voluptatum omnis. Numquam.
-                        </h6>
 
-                        <div className='flex justify-end px-10 lg:px-0'>
-                            <div className=' rounded-lg w-[160px] h-[50px] cursor-pointer  bg-black text-beh-orange font-bold text-3xl'>
-                                <h1 className='text-center'>
+                        به نید با تجربه 16 ساله افتخار همکاری با شرکت های بزرگ در حوزه ی موادغذایی ،شوینده ،بهداشتی و نوشیدنی را دارد.
+ همچنین افتخار ارتباط با بیش از 4000 کسب و کار ، خریدار و فروشنده عمده در کارنامه خود را دارد                        </h6>
+
+                        <div className='flex mt-2 justify-end px-10 lg:px-0'>
+                            <div className=' rounded-lg w-[160px] h-[50px] cursor-pointer  bg-beh-gray-dark text-beh-orange font-bold text-2xl'>
+                                <h1 className='text-center pt-1'>
                                     پیام بزار
                                 </h1>
                             </div>

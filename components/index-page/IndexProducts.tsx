@@ -17,7 +17,7 @@ function IndexProducts() {
   
     useEffect(()=>{
       ApiRequest
-      .get(`/products/all?start=1&length=4`)
+      .get(`/products/all?start=1&length=3`)
       .then((res) => {
         if (res.data.err) {
           setError('ارور')
@@ -56,12 +56,11 @@ function IndexProducts() {
 
             {/* MIDDLE PART */}
             <div dir="rtl" className="flex flex-wrap justify-center  gap-x-5 gap-y-6 ">
-                {/* {loading == false ? response.map((elm :any)=>(
-                  <MiniProduct  />
-                )) : null} */}
-                <MiniProduct avatar={null} name={null} />
-                <MiniProduct avatar={null} name={null} />
-                <MiniProduct avatar={null} name={null} />
+              
+                {loading == false ? response.map((elm :any)=>(
+                  <MiniProduct AuthorId={elm?.authorID} id={elm?.id} key={elm?.id} image={elm?.image} freeDelivery={elm?.freeDelivery} unitName={elm?.unitName} sendFrom={elm?.city?.name} minOrder={elm?.minOrder} pricePerUnit={elm?.price} responseTime={'1'} DeliveryTime={elm?.deliveryTime}  avatar={elm?.author?.user?.avatar} name={elm?.author?.user?.profile?.name} title={elm?.title}  />
+                )) : null}
+              
             </div>
 
 

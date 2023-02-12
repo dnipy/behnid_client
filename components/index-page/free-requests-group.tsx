@@ -38,15 +38,15 @@ function FreeRequestsGroup() {
         <div className='w-full text-right py-3  '>
                 <h1 className='px-5 flex ' >
 
-                  <span className=' col-span-1 text-5xl text-beh-gray-dark  font-bold border-l-4 border-l-beh-gray-dark  '>
+                  <span className=' col-span-1 text-3xl md:text-5xl text-beh-gray-dark  md:font-bold border-l-4 border-l-beh-gray-dark  '>
                     &nbsp;  تامین کن!&nbsp;
                   </span>
 
 
 
 
-                  <span className=' col-span-1 hover:cursor-pointer text-xl mt-4 font-semibold text-beh-orange'>
-                  &nbsp; &nbsp; نیاز جامعه رو پیدا کن و تامین کننده شو 
+                  <span className=' col-span-1 hover:cursor-pointer px-2 text-xl mt-10 md:mt-4 font-semibold text-beh-orange'>
+                   نیاز جامعه رو پیدا کن و تامین کننده شو 
                   </span>                
                 </h1>
         </div>
@@ -73,7 +73,7 @@ function FreeRequestsGroup() {
 
         <div className='mt-5 flex justify-center items-center'>
                     <div className='w-60 h-6  flex flex-row justify-between'>
-                        <div  onClick={page < 3 && page !=3 ? ()=>setPage(page+1) : undefined} className={ `${page != 3 ? 'text-beh-gray' : 'to-beh-gray-light'}  `}>
+                        <div  onClick={page < 3 && page !=3 ? ()=>setPage(page+1) : undefined} className={ `${page != 3 ? 'text-beh-gray' : 'to-beh-gray-light'} cursor-pointer  `}>
                             <h1 className={` ${page !=3 ? 'text-beh-gray-dark' : 'text-beh-gray-light' } `}>
                             بعدی
                             </h1>
@@ -86,7 +86,7 @@ function FreeRequestsGroup() {
 
                         </div>
 
-                        <div className={``} onClick={page > 1 && page != 1 ? ()=>setPage(page-1) : undefined}>
+                        <div className={`cursor-pointer`} onClick={page > 1 && page != 1 ? ()=>setPage(page-1) : undefined}>
                             <h1 className={` ${page !=1 ? 'text-beh-gray-dark' : 'text-beh-gray-light' } `}>
                             قبلی
                             </h1>
