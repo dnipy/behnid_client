@@ -25,24 +25,21 @@ function MyApp({ Component, pageProps }: AppProps) {
     AuthorizedApiRequest
         .get('/profile/my-data')
         .then((res) => {
-            setId(res.data?.data?.id);
-            console.log({my_data  : res.data})
             setMyAvatar(res.data?.data?.avatar as string | null)
             if (res.data?.data?.phone  && !res.data?.password_seted){
                 setSetupDone(false)
             }
+            if (res.data?.data?.id) {
+              socket.connect().emit("new-user-add",res.data?.data?.id)
+              setId(res.data?.data?.id);
+
+            }
+            setTimeout(() => {
+              console.log('fetched id ==> '+res.data?.data?.id)
+              localStorage.setItem('user-id',JSON.stringify(res.data?.data?.id))
+              console.log({my_data  : res.data})  
+            }, 500);
           })
-        .then(
-          ()=>{
-            console.log(id)
-            setTimeout(()=>{
-              if (id){
-                socket.connect().emit("new-user-add",id)
-                localStorage.setItem('user-id',JSON.stringify(id))
-              }
-            },1000)
-          }
-        )
         .catch((err) => {
             console.log(err);
             
