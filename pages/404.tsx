@@ -6,9 +6,6 @@ import Navbar from "../components/Navbar";
  
 const Page : NextPage = ()  => {
 
-
-
-
   return (
     <FourOFour></FourOFour>
   )

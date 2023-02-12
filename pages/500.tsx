@@ -5,10 +5,6 @@ import Navbar from "../components/Navbar";
 
  
 const Page : NextPage = ()  => {
-
-
-
-
   return (
    <FiveOO />
   )
