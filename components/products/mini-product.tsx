@@ -1,7 +1,28 @@
 import { BACK_END } from "../../clients/localStorage"
 import {BsSpeedometer} from 'react-icons/bs'
+import NoPerson from '../../assets/NoPerson.png'
+import { useRouter } from "next/router"
 
-export const MiniProduct = (props : {avatar : string | null , name : string | null})=>{
+
+interface I_MiniProduct {
+    id : number ,
+    AuthorId : string | number ,
+    title : string,
+    name : string ,
+    avatar : string | null ,
+    image : string | null ,
+    unitName : string ,
+    minOrder : number ,
+    sendFrom : string ,
+    DeliveryTime : string ,
+    pricePerUnit : number ,
+    freeDelivery : boolean ,
+    responseTime : string | null ,
+}
+
+
+export const MiniProduct = (props : I_MiniProduct)=>{
+    const router = useRouter()
     return (
         <div className="flex flex-col items-center h-[450px] w-[350px] mx-auto hover:scale-105 transition-all duration-100 ">
 
@@ -12,7 +33,8 @@ export const MiniProduct = (props : {avatar : string | null , name : string | nu
                     ?
                     <img className='w-[90px] h-[90px] rounded-full' width={90} height={90} src={`${BACK_END}${props.avatar}`} />
                     :
-                    <div className='h-[90px] w-[90px] bg-beh-gray rounded-full'></div>
+                    // <div className='h-[90px] w-[90px] bg-beh-gray rounded-full'></div>
+                    <img className='w-[90px] h-[90px] rounded-full' width={90} height={90} src={NoPerson.src} />
                 }
             </div> 
 
@@ -24,7 +46,7 @@ export const MiniProduct = (props : {avatar : string | null , name : string | nu
                 </h1>
 
                 <h1 className='text-center  font-bold text-lg text-white'>
-                    {props.name ? props.name : 'محصول بدون نام'}
+                    {props.title ? props.title : 'محصول بدون نام'}
                 </h1>
             </div>
 
@@ -35,35 +57,40 @@ export const MiniProduct = (props : {avatar : string | null , name : string | nu
                             <div className=" text-center ">
                                 <h1>حداقل سفارش</h1>
                                 <div className="w-[120px] h-[20px] rounded-md bg-beh-orange" >
-                                    <h1 className="text-white font-bold" >2 واحد </h1>                                    
+                                    <h1 className="text-white font-bold" >{props.minOrder} {props.unitName} </h1>                                    
                                 </div>
                             </div>
 
                             <div className=" text-center">
                                 <h1>محل بارگیری</h1>
                                 <div className="w-[120px] h-[20px] rounded-md bg-beh-orange" >
-                                <h1 className="text-white font-bold" >کرج</h1>                                    
+                                <h1 className="text-white font-bold" >{props.sendFrom}</h1>                                    
                                 </div>
                             </div>
 
                             <div className=" text-center">
                                 <h1>مدت زمان ارسال</h1>
                                 <div className="w-[120px] h-[20px] rounded-md bg-beh-orange" >
-                                    <h1 className="text-white font-bold" >1 روز </h1>                                    
+                                    <h1 className="text-white font-bold" >{props.DeliveryTime} روز </h1>                                    
                                 </div>
                             </div>
 
                             <div className=" text-center">
-                                <h1>قیمت هر واحد</h1>
+                                <h1>قیمت هر {props.unitName}</h1>
                                 <div className="w-[120px] h-[20px] rounded-md bg-beh-orange" >
-                                    <h1 className="text-white font-bold" >2,000,000</h1>                                    
+                                    <h1 className="text-white font-bold" >{props.pricePerUnit}</h1>                                    
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div className="border-4 border-beh-gray-light w-[200px] h-[200px] rounded-md">
-                        <div className="bg-beh-gray-dark w-full h-full" ></div>
+                        {
+                            props.image ? 
+                            <img className='w-full h-full rounded-md' width={90} height={90} src={`${BACK_END}${props.image}`} />
+                            :
+                            <div className="bg-beh-gray-dark w-full h-full" ></div>
+                        }
                     </div>
                 </div>    
 
@@ -78,7 +105,8 @@ export const MiniProduct = (props : {avatar : string | null , name : string | nu
 
                        <div>
                             <h1 className="text-white">
-                                ارسال رایگان
+                                {props.freeDelivery ? 'حمل رایگان' : 'حمل با مشتری'}
+                                
                             </h1>
                        </div>
                     </div>
@@ -96,7 +124,7 @@ export const MiniProduct = (props : {avatar : string | null , name : string | nu
                        </div>
                        <div>
                             <h1 className="text-beh-orange">
-                               1 دقیقه
+                               1 روز
                             </h1>
                        </div>
                     </div>
@@ -111,7 +139,7 @@ export const MiniProduct = (props : {avatar : string | null , name : string | nu
                     </div>
 
                     <div className="w-[200px] h-[40px] ">
-                        <div className="cursor-pointer  hover:scale-105 w-[185px] h-[40px] rounded-md bg-beh-green-super-light mx-auto my-auto flex justify-center items-center" >
+                        <div onClick={()=> router.push(`/chat/new-chat?id=${props.AuthorId}`)} className="cursor-pointer  hover:scale-105 w-[185px] h-[40px] rounded-md bg-beh-green-super-light mx-auto my-auto flex justify-center items-center" >
                             <h1 className="text-white font-bold text-xl" >شروع گفت و گو</h1>                                    
                         </div>
                     </div>

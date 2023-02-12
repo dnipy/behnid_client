@@ -22,7 +22,7 @@ export const StepOneComponent = (props : {step : number , setStep : React.Dispat
                     </h1>
                 </div>
 
-                <input value={fildes.cat_name} onClick={()=>setFileds({...fildes,showCatPicker : true})} type="text"  placeholder="مواد غذایی > نوشیدنی > دلستر" className="w-full text-center my-3 h-12 rounded-md flex items-center justify-center bg-beh-gray-light placeholder:text-beh-gray placeholder:text-lg placeholder:font-semibold" />
+                <input value={fildes.cat_name} onClick={()=>setFileds({...fildes,showCatPicker : true})} type="text"  placeholder="مواد غذایی > نوشیدنی > دلستر" className="w-full cursor-pointer text-center my-3 h-12 rounded-md flex items-center justify-center bg-beh-gray-light placeholder:text-beh-gray placeholder:text-lg placeholder:font-semibold" />
 
 
 

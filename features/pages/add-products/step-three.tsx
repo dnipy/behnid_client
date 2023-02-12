@@ -47,7 +47,7 @@ export const StepThreeComponent = (props : {step : number , setStep : React.Disp
 
                 <div className="my-3">    
                     <h1 className="text-black text-lg  font-semibold text-center">محل بارگیری</h1>
-                    <input type="number" onClick={()=>setFileds({...fildes,showCityPicker : true})}  placeholder={fildes.selectedCityName ? fildes.selectedCityName : 'انتخاب شهر'} className="w-full text-center  h-12 rounded-md flex items-center justify-center bg-beh-orange placeholder:text-white placeholder:text-lg placeholder:font-semibold" />
+                    <input type="number" onClick={()=>setFileds({...fildes,showCityPicker : true})}  placeholder={fildes.selectedCityName ? fildes.selectedCityName : 'انتخاب شهر'} className="w-full cursor-pointer text-center  h-12 rounded-md flex items-center justify-center bg-beh-orange placeholder:text-white placeholder:text-lg placeholder:font-semibold" />
                 </div>
 
 
