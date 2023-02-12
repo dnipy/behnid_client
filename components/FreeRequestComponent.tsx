@@ -3,11 +3,11 @@ import { BACK_END } from '../clients/localStorage'
 
 function FreeRequestComponent( props : {title : string , id : number , username : string , recive_location : string , date : string , describe : string , avatar : string | null}) {
   return (
-    <div key={props.id} className=" hover:scale-105 transition-all duration-100 cursor-auto my-5 min-w-sm max-w-7xl bg-white rounded-xl shadow-2xl gap-3 flex flex-col lg:flex-row p-2 ">
+    <div key={props.id} className=" hover:scale-105 transition-all duration-100 cursor-auto my-5 min-w-sm w-full max-w-7xl bg-white rounded-xl shadow-2xl gap-3 flex flex-col lg:flex-row p-2 ">
             {/* IMAGE_PART */}
             <div className="basis-2/12 flex justify-center">
               {props.avatar ? 
-              <img src={`${BACK_END}${props.avatar}`} className="bg-beh-orange rounded-xl max-h-[180px] h-full w-[180px]" alt={`${props.username} تصویر`} />
+              <img src={`${BACK_END}${props.avatar}`} className="bg-beh-orange rounded-xl max-h-[180px] h-full w-[180px]" alt={`تصویر ${props.username} `} />
               :
               <div className="bg-beh-orange rounded-xl max-h-[180px] h-full w-[180px]" />
             }
@@ -21,6 +21,14 @@ function FreeRequestComponent( props : {title : string , id : number , username 
 
                   <span className=' col-span-1 hover:cursor-pointer text-beh-orange'>
                    {props.username}
+                  </span>
+
+                  <span className=' col-span-1  '>
+                    &nbsp;  از
+                  </span>
+
+                  <span className='col-span-1 text-beh-orange'>
+                  &nbsp;  {props.recive_location ? props.recive_location : 'شهر نامشخص'}
                   </span>
 
                   <span className=' col-span-1  '>
@@ -63,7 +71,7 @@ function FreeRequestComponent( props : {title : string , id : number , username 
                 </div>
 
                 <div className="basis px-5">
-                  <h3 className="px-12 py-3 rounded-lg text-xl text-center text-white font-bold bg-beh-green-light cursor-pointer hover:">
+                  <h3 className="px-8 py-3 rounded-lg text-xl text-center text-white font-bold bg-beh-green-light cursor-pointer hover:">
                     شروع گفت و گو
                   </h3>
                 </div>
