@@ -6,6 +6,7 @@ import { AuthContext } from '../contexts/Auth'
 import { useRouter } from 'next/router'
 import { ApiRequest } from '../clients/axios'
 import ErrorComponent from './alerts/error'
+import { FiXCircle } from 'react-icons/fi'
 
 function Navbar_v2() {
   const {isUser} = useContext(AuthContext)
@@ -160,7 +161,7 @@ const LogedInComponent = ()=>{
             تنظیمات پروفایل
           </div>
         </div>
-        <div className="basis-1/3 flex justify-center items-center" onClick={()=>localStorage.clear()}>
+        <div className="basis-1/3 flex justify-center items-center cursor-pointer" onClick={()=>router.push('/profile')}>
           <BiUser className='w-11 h-11 ' />
         </div>
 
@@ -242,6 +243,10 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
       <div className='fixed flex w-screen h-screen justify-center items-center'>
           <div dir='rtl' className='w-full  lg:w-1/2  mx-auto h-[60vh] items-center flex justify-center'>
             <div>
+
+            <div className='absolute scale-125 -mt-5 bg-beh-red p-[0.1rem] rounded-full cursor-pointer ' onClick={()=> props.handleLogin(false)}>
+                <FiXCircle />
+              </div>
 
               <div className=" flex flex-row gap-2 w-full  p-4 h-[100px]">
                 <div className="basis-9/12">
@@ -378,7 +383,7 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
       <>
     {error ? <ErrorComponent message={error} handle={setError} /> : null}
     
-    <div className='fixed w-screen h-screen backdrop-blur-sm bg-white/20 z-40 ' >
+    <div  className='fixed w-screen h-screen backdrop-blur-sm bg-white/20 z-40 ' >
       {/* BACKGROUND_PART */}
       <div className='fixed flex w-screen h-screen justify-center items-center'>
         <div dir='rtl' className='w-full h-[60vh] flex flex-row'>
@@ -388,9 +393,12 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
       </div>
 
       {/* CENTER_DATA_PART */}
-      <div className='fixed flex w-screen h-screen justify-center items-center'>
+      <div className='fixed  flex w-screen h-screen justify-center items-center'>
           <div dir='rtl' className='w-full  lg:w-1/2  mx-auto h-[60vh] items-center flex justify-center'>
             <div>
+              <div className='absolute scale-125 -mt-5 bg-beh-red p-[0.1rem] rounded-full cursor-pointer ' onClick={()=> props.handleRegister(false)}>
+                <FiXCircle />
+              </div>
 
               <div className=" flex flex-row gap-2 w-full  p-4 h-[100px]">
                 <div className="basis-9/12">
@@ -419,7 +427,7 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
                   &nbsp;  حساب کاربری دارم
                   </span>
 
-                  <span className=' col-span-1 hover:cursor-pointer text-beh-orange' onClick={()=>{
+                  <span className=' col-span-1 hover:cursor-pointer text-beh-gray-dark lg:text-beh-orange' onClick={()=>{
                     props.handleLogin(true)
                     props.handleRegister(false)
                   }

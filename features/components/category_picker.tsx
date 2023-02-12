@@ -31,7 +31,7 @@ export const CategoryPickerModel = (props : { fildes : I_add_products , setFiled
                             </div>
 
                             <div>
-                                <h1 onClick={()=>setFileds({...fildes , cat_id: 1 ,showCatPicker : false})} className="pl-7 text-xl font-bold text-beh-orange">
+                                <h1 onClick={()=>setFileds({...fildes  ,showCatPicker : false})} className="pl-7 cursor-pointer text-xl font-bold text-beh-orange">
                                     انصراف
                                 </h1>
                             </div>
@@ -70,8 +70,8 @@ export const CategoryPickerModel = (props : { fildes : I_add_products , setFiled
                                             setOpenedSubCat(0)
                                         }
                                         
-                                        
-                                        }} className="w-[90%] hover:text-beh-orange text-beh-gray duration-100 mx-auto rounded-md h-10 my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-5">
+
+                                        }} className="w-[90%] cursor-pointer hover:text-beh-orange text-beh-gray duration-100 mx-auto rounded-md h-10 my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-5">
                                         <div>
                                             <h1 className="font-bold text-lg ">
                                                 {elm.name}
@@ -83,11 +83,11 @@ export const CategoryPickerModel = (props : { fildes : I_add_products , setFiled
                                     </div>
                                     {openedSubCat == elm.id 
                                         ? 
-                                            <div dir="rtl" onClick={()=>setOpenedCat(elm.id)} className="w-[70%]  hover:text-beh-orange duration-100 mx-auto rounded-md my-2  px-5  ">
+                                            <div dir="rtl" className="w-[70%] cursor-pointer  hover:text-beh-orange duration-100 mx-auto rounded-md my-2  px-5  ">
                                                 {
                                                     elm.subCategories.map(sub_cat=>(
                                                             <>
-                                                            <div key={sub_cat.id} onClick={()=>setOpenedSubCat(sub_cat.id)} className="w-[90%] hover:text-beh-orange text-beh-gray duration-100 mx-auto rounded-md h-10 my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-5">
+                                                            <div key={sub_cat.id} onClick={()=>setOpenedCat(sub_cat.id)} className="w-[90%] hover:text-beh-orange text-beh-gray duration-100 mx-auto rounded-md h-10 my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-5">
                                                                 <div>
                                                                     <h1 className="text-center">
                                                                         {sub_cat.name}
@@ -102,8 +102,9 @@ export const CategoryPickerModel = (props : { fildes : I_add_products , setFiled
                                                                     openedCat == sub_cat.id 
                                                                         ?
                                                                             sub_cat.categories.map(cat =>(
-                                                                                <div key={cat.id} onClick={()=>setFileds({...fildes,cat_id : cat.id, cat_name : cat.name , showCatPicker : false})} className="w-[80%] hover:text-beh-orange text-beh-gray duration-100 mx-auto rounded-md h-10 my-2 bg-beh-gray-light flex justify-center items-center px-5  gap-5">
-                                                                                    <h1 className="text-center">
+                                                                                <div key={cat.id} onClick={()=>{setFileds({...fildes,cat_id : cat.id, cat_name : cat.name , showCatPicker : false})
+                                                                                  console.log(fildes)} } className="w-[80%] cursor-pointer hover:text-beh-orange text-beh-gray duration-100 mx-auto rounded-md h-10 my-2 bg-beh-gray-light flex justify-center items-center px-5  gap-5">
+                                                                                    <h1 className="text-center cursor-pointer">
                                                                                         {cat.name}
                                                                                     </h1>
                                                                                 </div>
