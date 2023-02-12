@@ -29,15 +29,19 @@ export const MultiCityPickerModel = (props : { fildes : I_add_products , setFile
                             </div>
 
                             <div>
-                                <h1 onClick={()=>setFileds({...fildes , city_id : 1})} className="pl-7 text-xl font-bold text-beh-orange">
+                                <h1 onClick={()=>setFileds({...fildes , showMultiCityPicker : false , sendArea_list : []})} className="pl-7 cursor-pointer text-xl font-bold text-beh-orange">
                                     انصراف
                                 </h1>
                             </div>
 
                         </div>
 
-                        <div className="my-2 h-[50px]">
-
+                        <div className="my-2 h-[70px] p-2 overflow-y-auto flex gap-x-6 gap-y-4 flex-wrap">
+                            {fildes.sendArea_list.map(elm=>(
+                                <div key={elm.id} onClick={()=>setFileds({...fildes , sendArea_list : fildes.sendArea_list.filter(item=>item.name != elm.name)})} className="border-2 border-beh-orange rounded-full text-beh-orange h-8 cursor-pointer px-3">
+                                    {elm.name}
+                                </div>
+                            ))}
                         </div>
                         
                         <div className="my-2 h-[65px] flex justify-center items-center w-full">
@@ -116,12 +120,12 @@ export const MultiCityPickerModel = (props : { fildes : I_add_products , setFile
                         {/* BUTTON_PART */}
                         <div className="flex justify-around h-[60px] my-2 gap-5 items-center">
 
-                            <div onClick={()=>setFileds({...fildes,showMultiCityPicker : false})} className="w-1/2 py-3 mr-3 rounded-md bg-beh-orange flex justify-center items-center ">
+                            <div onClick={()=>setFileds({...fildes,showMultiCityPicker : false , sendArea_list : []})} className=" cursor-pointer w-1/2 py-3 mr-3 rounded-md bg-beh-orange flex justify-center items-center ">
                                 <h1 className="text-xl font-bold text-white">
                                     انصراف
                                 </h1>
                             </div>
-                            <div onClick={()=>setFileds({...fildes,showMultiCityPicker : false})} className="w-1/2 py-3 ml-3 rounded-md bg-beh-green-super-light flex justify-center items-center ">
+                            <div onClick={()=>setFileds({...fildes,showMultiCityPicker : false})} className=" cursor-pointer w-1/2 py-3 ml-3 rounded-md bg-beh-green-super-light flex justify-center items-center ">
                                 <h1 className="text-xl font-bold text-white">
                                     تایید
                                 </h1>                            

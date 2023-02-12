@@ -29,7 +29,7 @@ export const CityPickerModel = (props : { fildes : I_add_products , setFileds :R
                             </div>
 
                             <div>
-                                <h1 onClick={()=>setFileds({...fildes , city_id : 1})} className="pl-7 text-xl font-bold text-beh-orange">
+                                <h1 onClick={()=>setFileds({...fildes , city_id : 1 , showCityPicker : false})} className="pl-7 cursor-pointer text-xl font-bold text-beh-orange">
                                     انصراف
                                 </h1>
                             </div>
