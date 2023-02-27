@@ -8,12 +8,17 @@ import IndexProducts from "../components/index-page/IndexProducts";
 import IndexStoryBar from "../components/index-page/StoryBar";
 import IndexEvents from "../components/index-page/IndexEvents";
 import Navbar_v2 from "../components/Navbar_v2";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../contexts/Auth";
+import { useRouter } from "next/router";
 
 const Page : NextPage = ()  => {
-  const {isUser} = useContext(AuthContext)
-
+  // const {isUser} = useContext(AuthContext)
+  const router = useRouter()
+  useEffect(()=>{
+    const data = localStorage.getItem('user-session')
+    if (data) router.replace('/chat')
+},[])
   return (
     <>
       <Navbar_v2/>
@@ -21,11 +26,11 @@ const Page : NextPage = ()  => {
         <div className="w-full lg:max-w-7xl  min-h-screen  ">
           <TopImage/>
           <KnowUs/>
-          <IndexProducts/>
-          {
+          {/* <IndexProducts/> */}
+          {/* {
           isUser() ? <IndexStoryBar/> : null
-          }
-          <IndexEvents/>
+          } */}
+          {/* <IndexEvents/> */}
         </div>
       </main>
       <Footer/>

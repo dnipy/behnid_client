@@ -4,7 +4,7 @@ export function Model( props : {text : string , click : ()=>void}) {
   return (
       <div className='z-50 w-screen h-screen fixed flex justify-center items-center bg-gray-50 opacity-90 '>
 
-    <div id="small-modal"  className=" overflow-y-auto overflow-x-hidden  top-0 right-0 left-0  p-4   md:inset-0 h-modal md:h-full">
+    <div id="small-modal"  className=" overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray overflow-x-hidden  top-0 right-0 left-0  p-4   md:inset-0 h-modal md:h-full">
     <div className="relative w-full max-w-md  md:h-auto shadow-lg">
 
         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">

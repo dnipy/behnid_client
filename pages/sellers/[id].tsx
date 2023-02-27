@@ -19,8 +19,8 @@ export default function SingleSeller () {
   const [error, setError] = useState('');
   const [loading, setloading] = useState(true);
   const [comment, setComment ] = useState('')
-  const {id} = router.query
   const messagesEndRef = useRef<null | HTMLDivElement>(null)
+  const {id} = router.query
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -235,7 +235,7 @@ export default function SingleSeller () {
             <div className="my-20">
                 {
                   (response.comments as Array<any>).map(elm=>(
-                    <Comment text={elm?.message} name={elm?.commentAuthor?.profile?.name} avatar={elm?.commentAuthor?.avatar} />
+                    <Comment key={elm?.id} text={elm?.message} name={elm?.commentAuthor?.profile?.name} avatar={elm?.commentAuthor?.avatar} />
                   ))
                 }
             </div>

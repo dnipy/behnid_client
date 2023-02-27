@@ -30,7 +30,13 @@ const Page : NextPage = ()  => {
 
 
           <div className="bg-beh-bg flex flex-row mx-auto gap-10 px-2 min-w-[350px]  ">          
-            <ChatDetailes shouldBeOpened={false} />
+            <div className={`h-[90vh] md:h-[80vh]  hidden lg:block mt-[12vh]  lg:basis-2/3   mx-auto  bg-white rounded-3xl`}>
+              <div className="w-full h-full flex justify-center items-center">
+                <div>
+                  <h1 className="text-xl text-beh-gray-mid-ligth cursor-default font-[400]">انتخاب گفت و گو</h1>
+                </div>
+              </div>
+            </div>
 
 
             <AllChats shouldBeOpened={true} />

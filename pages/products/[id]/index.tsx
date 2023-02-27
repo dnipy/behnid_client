@@ -1,22 +1,77 @@
-import { GetServerSideProps, NextPage } from "next";
+import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {  ApiRequest, AuthorizedApiRequest } from "../../../clients/axios";
 import { BACK_END } from "../../../clients/localStorage";
-import { ErrorComponent } from "../../../components/error";
+import NoPerson from '../../../assets/NoPerson.png'
+import NoImg from '../../../assets/NoImg.png'
+import ErrorComponent from "../../../components/alerts/error";
 import { LoadingComponent } from "../../../components/loading";
-import Navbar from "../../../components/Navbar";
-import { WarnComponent } from "../../../components/warn";
+import { City, commentsForProductsComments, keywordForProducts, OFF, packType, Product, ProductStatus, sellerProfile, Unit, User } from "../../../types/async-prisma-types";
 import { packTypeCheck } from "../../../utils/PackType";
+import Comment from "../../../components/comments";
+
+
+
+
+type SingleProduct = Product & {
+  comments: {
+    commentAuthor: {
+      avatar: string;
+      name: string;
+      id: number;
+      profile: {
+          name: string;
+          address: string;
+      };
+    };
+    date: Date;
+    message: string;
+    repliedComments: commentsForProductsComments[];
+  }[];
+
+  categorie: {
+    name: string;
+    subCategory: {
+        name: string;
+        mainCatName: string;
+    };
+  };
+  author: sellerProfile & {
+    user: User & {
+        profile: {
+            name: string;
+            family: string;
+        };
+    };
+}
+  city: City;
+  keywords: keywordForProducts[];
+  off: OFF[];
+  packType: packType;
+  productStatus: ProductStatus;
+  sendArea: City[];
+  unit: Unit;
+}
+
 
 
 const Page : NextPage = ()  => {
   const router = useRouter()
   const {id} = router.query
   const [comment,setComment] = useState('')
-  const [response, setResponse] = useState<any>([]);
+  const [response, setResponse] = useState<null | SingleProduct>(null);
   const [error, setError] = useState('');
+  const [unit, setUnit] = useState('')
   const [loading, setloading] = useState(true);
+  const messagesEndRef = useRef<null | HTMLDivElement>(null)
+
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+
 
 
   useEffect(()=>{
@@ -24,11 +79,11 @@ const Page : NextPage = ()  => {
       return
     }
     setError('')
-    setResponse([])
+    setResponse(null)
     setloading(true)
     ApiRequest
     .get(`/products/single?id=${id}`)
-    .then((res) => {
+    .then((res ) => {
 
       if (res.data.err) {
         setError(res.data.err)
@@ -37,11 +92,12 @@ const Page : NextPage = ()  => {
       else {
         setResponse(res.data);
         console.log(res.data)
+        setUnit(res.data?.unit?.name!)
       }
     })
     .catch((err) => {
       setError(err);
-      router.replace('/500')
+      // router.replace('/404')
     })
     .finally(() => {
       setloading(false);
@@ -52,189 +108,385 @@ const Page : NextPage = ()  => {
 
 
   const addComment = async()=>{ 
+    if (comment.length < 15) {
+      setError('نظر کوتاه است')
+      return
+    }
+    setloading(true)
+    
     await AuthorizedApiRequest.post('/comments/onProduct', {
       productID : id,
       message : comment
     }).then(res=>{
-      if (res.data.msg) {
-        console.log(res.data.msg)
+      if (res.data?.err ) {
+        setError(res.data?.err)
       }
-      else{
+      else {
         console.log(res.data)
+        setResponse({...response!, comments : [res.data , ...response?.comments!]})
+        setComment('')
+        scrollToBottom()
       }
     }).catch(e=>{
-      console.log(e)
-      router.replace('/500')
+      setError('خطا در ارتباط با سرور')
+    })
+    .finally(()=>{
+      setloading(false)
     })
   }
 
 
 return (
     <> 
-    <Navbar />
-    <main dir="rtl" className="flex justify-center text-right">
-      <div className="w-1/1 md:w-2/3 p-3">
+      {loading && <LoadingComponent/>}
+      {error && <ErrorComponent  message={error} handle={setError} />}
+      <main dir="rtl" className="flex justify-center">
+        <div className="w-full lg:max-w-7xl ">
+          {/* TOP_PART */}
+          <TopPart main={response?.categorie?.subCategory?.mainCatName} sub={response?.categorie?.subCategory?.name} cat={response?.categorie?.name} title={response?.title ? response?.title : ''} />
 
-      {loading ? <LoadingComponent/>: 
-      <>
+          {/* PAGE_START */}
+          <div>
+            {/* GRAY_BG_PART */}
+            <div className="relative w-full ">
+              <div className="absolute w-full z-[0] h-[970px] md:h-[850px] lg:h-[450px] bg-beh-gray">
+              </div>
+            </div>
 
-      {response?.err ? <ErrorComponent  details={response?.err} /> : null }
 
-      <div className="my-10">
+            {/* PAGE_CONTENT */}
+            <div className="relative z-10 w-full min-w-[340px]">
+              <div>
+
+                {/* TOP_PART */}
+                <div className="w-full flex flex-wrap ">
+                      <div className="w-full lg:w-[33.333%] lg:min-w-[380px] pl-3 pr-3 lg:pr-0 py-3 ">
+
+                        {/* RIGHT_PART */}
+                        <div className=" flex justify-center lg:justify-start flex-wrap gap-1">
+                          <div className="w-[80%]  order-2 sm:order-1 md:w-[240px] h-[120px] flex justify-center items-center bg-beh-orange">
+                            <div className="text-white text-center text-lg">
+                              <h1 className="font-bold">
+                                فروشگاه {response?.author?.shopName  ? response?.author?.shopName : 'بدون نام'}
+                              </h1>
+                              <h1 className="text-lg">
+                                {response?.author?.user?.profile?.name} {response?.author?.user?.profile?.family}
+                              </h1>
+                            </div>
+                          </div>
+                          <div className="w-[120px] order-1 sm:order-2 h-[120px] flex justify-center items-center ">
+                                <div className="w-[95px] h-[95px] rounded-full flex justify-center items-center bg-gradient-to-bl from-linar-purple via-linar-orange to-linar-blue">
+                                    <img src={NoPerson.src} alt={`فروشگاه${response?.author?.shopName}`} className='w-[90px] h-[90px] rounded-full' />
+                                </div>
+                          </div>
+                        </div>
+                        
+                        <div className="w-full    text-white text-sm order-2 sm:order-1 text-center lg:px-4  lg:text-right h-[80px] flex justify-center items-center mt-1 ">
+                          
+                            <div className="w-full">                              
+                              <div>
+                                <h1>امتیاز فروشگاه : 5</h1>
+                              </div>
+                              <div>
+                                <h1>مدت پاسخگویی : نامشخص</h1>
+                              </div>
+                            </div>
+                        </div>
 
 
-      <div dir="rtl" className="md:flex  items-start justify-center py-12 2xl:px-20 md:px-6 px-4">
-
-      {error ? <ErrorComponent  details={'error'} /> :
-      <>
-
-<div className="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
-  <img className="w-full" alt="product-pic" src={response?.image ? `${BACK_END}${response.image}` : "https://archive.org/download/no-photo-available/no-photo-available.png" } />
-  {/* <img className="mt-6 w-full" alt="image of a girl posing" src="https://i.ibb.co/qxkRXSq/component-image-two.png" /> */}
-</div>
-<div className="md:hidden">
-<img className="w-full" alt="product-pic" src={response?.image ? `${BACK_END}${response.image}` : "https://archive.org/download/no-photo-available/no-photo-available.png" } />
-</div>
-<div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:mr-6 md:mt-0 text-right mt-6">
-  <div className="border-b border-gray-200 pb-6">
-    <p className="text-sm leading-none text-gray-600 ssss:text-gray-300 ">{response?.author?.name }</p>
-    <h1 className="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-800 ssss:text-white mt-2">{ response?.title }</h1>
-  </div>
-  <div className="py-4 border-b border-gray-200 flex items-center justify-between">
-    <p className="text-base leading-4 text-gray-800 ssss:text-gray-300">حداقل سفارش</p>
-    <div className="flex items-center justify-center">
-      <p className="text-sm leading-none text-gray-600 ssss:text-gray-300">{ response?.minOrder } </p>
-    </div>
-  </div>
-  <div className="py-4 border-b border-gray-200 flex items-center justify-between">
-    <p className="text-base leading-4 text-gray-800 ssss:text-gray-300">قیمت</p>
-    <div className="flex items-center justify-center">
-      <p className="text-sm leading-none text-gray-600 ssss:text-gray-300 mr-3">{response?.price} تومان </p>
-     
-    </div>
-  </div>
-
-  <div className="py-4 border-b border-gray-200 flex items-center justify-between">
-    <p className="text-base leading-4 text-gray-800 ssss:text-gray-300">نوع بسته بندی</p>
-    <div className="flex items-center justify-center">
-      <p className="text-sm leading-none text-gray-600 ssss:text-gray-300 mr-3">{  packTypeCheck(response?.packType)}</p>
-     
-    </div>
-  </div>
-
-  <div className="py-4 border-b border-gray-200 flex items-center justify-between">
-    <p className="text-base leading-4 text-gray-800 ssss:text-gray-300">دسته بندی</p>
-    <div className="flex items-center justify-center">
-      <p className="text-sm leading-none text-gray-600 ssss:text-gray-300 mr-3">{response?.categorie?.at(0) ?  response?.categorie?.at(0).name : '-'}</p>
-     
-    </div>
-  </div>
-  <button onClick={()=>router.replace(`/products/${response?.id}/reply`)} className="ssss:bg-white my-1 ssss:text-gray-900 ssss:hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-base flex items-center justify-center leading-none text-white bg-gray-800 w-full py-4 hover:bg-gray-700 focus:outline-none">
-    سفارش
-  </button>
-  <button onClick={()=>router.replace(`/chat/new-chat?id=${response?.author?.id}`)} className="ssss:bg-white my-1 ssss:text-gray-900 ssss:hover:bg-gray-100  focus:ring-2 focus:ring-offset-2 focus:ring-orange-600 text-base flex items-center justify-center leading-none text-white bg-orange-500 w-full py-4 hover:bg-orange-600 focus:outline-none">
-    پیام 
-  </button>
-  <div dir="rtl" className="text-right">
-    <p className=" text-base lg:leading-tight pb-5 leading-normal text-gray-600 ssss:text-gray-300 mt-7">{ response?.describe }</p>
-
-    <p className=" text-base lg:leading-tight pb-5 leading-normal text-gray-600 ssss:text-gray-300 mt-7">  <b> تحویل در </b>: { response?.deliveryTime }</p>
-    <p className=" text-base lg:leading-tight pb-5 leading-normal text-gray-600 ssss:text-gray-300 mt-7"> <b> قیمت خریدار </b>: { response?.customerPrice } تومان </p>
-    <p className=" text-base lg:leading-tight pb-5 leading-normal text-gray-600 ssss:text-gray-300 mt-7">  <b> قیمت فروشنده </b> : { response?.producerPrice } تومان</p>
-    <p className=" text-base lg:leading-tight pb-5 leading-normal text-gray-600 ssss:text-gray-300 mt-7"> <b> محدوده ارسال </b> : { response?.sendArea }</p>
-    <p className=" text-base lg:leading-tight pb-5 leading-normal text-gray-600 ssss:text-gray-300 mt-7"> <b> وزن </b> : { response?.weight }</p>
-
- 
-  </div>
+                        <div className="w-full    text-white text-sm order-2 sm:order-1 text-center lg:px-4  lg:text-right flex justify-center items-center mt-1 ">
+                          
+                          <div className="w-[340px] h-[340px] bg-beh-gray shadow-xl flex justify-center items-center rounded-md border-2 border-beh-gray-light">                              
+                            <img src={response?.image ? `${BACK_END}${response.image}` : NoImg.src} className='w-[330px] rounded-md h-[330px]'  alt="" />
+                          </div>
+                      </div>
+                      </div>
+                      
 
 
 
+                      {/* LEFT_PART */}
+                      <div className="w-full lg:w-[63%] p-3  h-full">
+                        <div className="w-full">
+                          {/* FOUR_PART */}
+                          <div>
+                            {/* WHITE_BG */}
+                            <div className="relative mt-5 z-5 w-full">
+                              <div className="absolute mx-auto w-full h-16 bg-white"></div>  
+                            </div>
+
+                            {/* CONTENT_PART */}
+                            <div className="relative">
+                              <div className="absolute mx-auto mt-5 w-full h-16  gap-3 flex flex-row">
+                                  <div className="basis-1/2 lg:basis-1/4 flex justify-center ">
+                                      <div>
+                                      <h1 className="text-center">
+                                        حداقل سفارش
+                                      </h1>
+                                      <div className="min-w-[150px] mt-1 h-[40px] text-white bg-beh-orange flex justify-center items-center rounded-xl">
+                                          <h1> {response?.minOrder}  {unit}</h1>
+                                        </div>
+                                      </div>
+
+                                    <div>
+                                    </div>
+                                  </div>
+
+                                  <div className="basis-1/2 lg:basis-1/4 flex justify-center ">
+                                      <div>
+                                        <h1 className="text-center">
+                                            محل بارگیری
+                                        </h1>
+                                        <div className="w-[150px] mt-1 text-white h-[40px] bg-beh-orange flex justify-center items-center rounded-xl">
+                                          <h1>{response?.city?.name ? response?.city?.name : 'نامشخص'}</h1>
+                                        </div>
+                                      </div>
+
+                                    <div>
+                                    </div>
+                                  </div>
+
+                                  <div className="hidden lg:basis-1/4 lg:flex justify-center ">
+                                      <div>
+                                        <h1 className="text-center">
+                                          زمان ارسال
+                                        </h1>
+                                        <div className="w-[150px] text-white mt-1 h-[40px] bg-beh-orange flex justify-center items-center rounded-xl">
+                                            <h1>{response?.deliveryTime ? response.deliveryTime : '1'} روز</h1>
+                                        </div>
+                                      </div>
+
+                                    <div>
+                                    </div>
+                                  </div>
+
+                                  <div className="hidden lg:basis-1/4 lg:flex justify-center ">
+                                      <div>
+                                      <h1 className="text-center">
+                                          قیمت هر ( {unit} )
+                                      </h1>
+                                      <div className="w-[150px]  text-white mt-1 h-[40px] bg-beh-orange flex justify-center items-center rounded-xl">
+                                          <h1>{response?.price ? `${response?.price} تومان` : 'توافقی'}</h1>
+                                        </div>
+                                      </div>
+
+                                    <div>
+                                    </div>
+                                  </div>
+                              </div>  
+                            </div>
+                          </div>
+
+                          {/* TWO_PART */}
+                          <div>
+                            {/* WHITE_BG */}
+                            <div className="relative lg:hidden z-5 w-full">
+                              <div className="absolute top-36 mx-auto w-full h-16 bg-white"></div>  
+                            </div>
+
+                            {/* CONTENT_PART */}
+                            <div className="relative lg:hidden">
+                              <div className="absolute top-[8.5rem]  mx-auto mt-5 w-full h-16  gap-3 flex flex-row">
+                                  <div className="flex basis-1/2 lg:basis-1/4 lg:hidden justify-center ">
+                                  <div>
+                                          <h1 className="text-center">
+                                            زمان ارسال
+                                          </h1>
+                                          <div className="w-[150px] text-white mt-1 h-[40px] bg-beh-orange flex justify-center items-center rounded-xl">
+                                              <h1>{response?.deliveryTime ? response.deliveryTime : '1'} روز</h1>
+                                          </div>
+                                        </div>
+                                    <div>
+                                    </div>
+                                  </div>
+
+                                  <div className="flex basis-1/2 lg:basis-1/4 lg:hidden justify-center ">
+                                  <div>
+                                        <h1 className="text-center">
+                                            قیمت هر ( {unit} )
+                                        </h1>
+                                        <div className="w-[150px]  text-white mt-1 h-[40px] bg-beh-orange flex justify-center items-center rounded-xl">
+                                            <h1>{response?.price ? `${response?.price} تومان` : 'توافقی'}</h1>
+                                          </div>
+                                        </div>
+
+                                    <div>
+                                    </div>
+                                  </div>
+                              </div>  
+                            </div>
+                          </div>
+                          
+                          {/* INFO_PART */}
+                          <div>
+                            {/* CONTENT_PART */}
+                            <div className="relative  ">
+                              <div className="absolute  top-[15.5rem] lg:top-[5.5rem]  mx-auto mt-5 w-full  flex-wrap   gap-3 flex flex-row">
+                                  
+                                <div className=" px-8 w-full flex justify-center flex-wrap lg:justify-end items-center gap-3">
+                                    <div className="order-2 lg:order-1  ">
+                                        <div className="min-w-[140px] cursor-pointer px-10 h-[40px] bg-beh-orange rounded-xl text-center text-white flex justify-center items-center">
+                                          <h1>
+                                            مشاهده محدوده ارسال
+                                          </h1>
+                                        </div>
+                                    </div>
 
 
+                                    <div className="text-center order-1 lg:order-2 ">
+                                      <h1 className="text-beh-gray-dark lg:text-white ">
+                                        قیمت مصرف کننده
+                                      </h1>
+                                      <h1 className="text-beh-orange font-bold">
+                                        {response?.customerPrice ? response?.customerPrice : '0'}
+                                      </h1>
+                                      
+                                      <h1 className="pt-1 text-beh-gray-dark lg:text-white ">
+                                        قیمت فروشنده
+                                      </h1>
+                                      <h1 className="text-beh-orange font-bold">
+                                        {response?.producerPrice ? response.producerPrice : '0'}
+                                      </h1>
+                                    </div>
+                                </div>
+                              </div>  
+                            </div>
+                          </div>
 
 
+                          {/* DESCRIBE_PART */}
+                          <div>
+                            {/* CONTENT_PART */}
+                            <div className="relative  ">
+                              <div className="absolute  top-[27.5rem] sm:top-[23.5rem] lg:top-[12.5rem]  mx-auto mt-5 w-full  flex-wrap   gap-3 flex flex-row">
+                                  <div className="w-[90%] mx-auto">
+                                      <h1 className="text-beh-orange  text-2xl">
+                                          توضیحات فروشنده
+                                      </h1>
 
+                                      <h1 className="my-3 h-28 lg:text-white">
+                                          {response?.describe}
+                                      </h1>
 
+                                      <div onClick={()=> router.push(`/chat/new-chat?id=${response?.author?.userID}`)} className="w-full  text-2xl my-2 cursor-pointer font-bold bg-beh-green-super-light flex justify-center items-center text-white h-16 rounded-xl">
+                                        <h1>
+                                          شروع گفت و گو
+                                        </h1>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
 
+                         
+                        </div>
 
-</div>
-</>
-}
-</div>
-
-<div className="inline-flex justify-center items-center w-full">
-    <hr className="my-8 w-64 h-1 bg-gray-200 rounded border-0 ssss:bg-gray-700"/>
-    <div className="absolute left-1/2 px-4 bg-white -translate-x-1/2 ssss:bg-gray-900">
-        <svg aria-hidden="true" className="w-5 h-5 text-gray-700 ssss:text-gray-300" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" fill="currentColor"/></svg>
-    </div>
-</div>
-
-
-
-{/* 
-add-comment
-*/}
-
-
-
-{/* {error ? null : 
-<div className="flex  items-center justify-center h-64 shadow-lg  mx-8 my-10">
-        <div className="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
-                <h2 dir='rtl' className="px-3 pt-3 pb-2 text-gray-800  text-right text-lg">افزودن نظر</h2>
-            <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full md:w-full px-3 mb-2 mt-2">
-                    <textarea className="bg-gray-50 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white" name="body" dir='rtl' placeholder='نظر شما ...؟'  value={comment} onChange={(e)=>setComment(e.target.value)} required></textarea>
+                        
+                      </div>
+                      
                 </div>
-                <div dir='rtl' className="w-full md:w-full flex items-start  pt-3 px-3">
 
-                     <div className="-ml-1">
-                        <button onClick={addComment}  type='submit'  className="bg-orange-500 text-white font-medium py-1 px-4 border  rounded-lg tracking-wide mr-1 hover:bg-orange-500" > افزودن نظر </button>
-                    </div>
-                    <div className="flex items-end w-1/2 text-gray-700 pt-2 px-2 mr-auto">
-                        <p className="text-xs md:text-sm pt-px">نظر شما قابل تغییر نمیباشد</p>
-                        <svg fill="none" className="w-5 h-5 text-gray-600 mr-1" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/> 
+
+
+
+
+              </div>
+            </div>
+          </div>
+
+          <div className="my-10 relative mt-[44rem] lg:mt-10">
+                <div className='basis-3/5 px-8 w-full' >
+                <label className="relative block w-full">
+                  <input type="text" value={comment} onChange={(e)=>setComment(e.target.value)} className='h-[100px]  w-full bg-[#636363] rounded-sm px-10 text-beh-gray-light text-3xl font-bold  placeholder:text-beh-gray-light placeholder:text-3xl ' placeholder='اینجا بنویس...' dir='rtl'/>
+                    <div className="absolute inset-y-0 left-8 pt-4 cursor-pointer "  onClick={addComment}>
+                      <span className="w-24 h-12 flex justify-center items-center bg-beh-yellow">
+                        <span>
+
+                        <svg className="h-6 w-6 fill-white" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
+                            height="30" viewBox="0 0 30 30">
+                            <path
+                                d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z">
+                            </path>
                         </svg>
+                        </span>
+                      </span>
+                      <span className="text-lg text-white text-center pr-6">
+                        ارسال
+                      </span>
                     </div>
-                    
-                </div>
+                  </label>
+              </div>
+            </div>
+            
+            <div ref={messagesEndRef} />
+            <div className="my-20">
+                {
+                  response?.comments.map(elm=>(
+                    <Comment key={elm.commentAuthor?.id} text={elm?.message} name={elm?.commentAuthor?.profile?.name} avatar={elm?.commentAuthor?.avatar} />
+                  ))
+                }
             </div>
         </div>
-    </div>
-} */}
-
-{
-  response?.comments ?( response?.comments as Array<any>).map(elm=>(
-      <div key={elm?.id} dir="rtl" className="relative grid grid-cols-1 gap-4 p-4 mb-8 border rounded-lg bg-white shadow-sm">
-                <div className="relative flex gap-4">
-                    <img src="https://icons.iconarchive.com/icons/diversity-avatars/avatars/256/charlie-chaplin-icon.png" className="relative rounded-lg -top-8 -mb-4 bg-white border h-20 w-20" alt="comment-author-pic" loading="lazy"/>
-                    <div className="flex flex-col w-full">
-                        <div className="flex flex-row justify-between">
-                            <p className="relative text-xl whitespace-nowrap truncate overflow-hidden">{elm?.commentAuthor?.name}</p>
-                            <a className="text-gray-500 text-xl" href="#"><i className="fa-solid fa-trash"></i></a>
-                        </div>
-                        <p className="text-gray-400 text-sm">{ (elm?.date as string).slice(0,10) }</p>
-                    </div>
-                </div>
-                <p className="-mt-4 px-10 text-gray-500">{elm?.message}</p>
-      </div>  
-  )   ) 
-  : <p className="text-center">نظری موجود نیست</p>
-}
-
-
-
-      </div>
-      
-      </>
-}
-      </div>
-    </main>
-    {/* <Footer/> */}
-  </>
+      </main>
+    </>
   )
 }  
 
+
+
+const TopPart = (props : {main : string | undefined , sub : string | undefined , cat : string | undefined , title : string}) => {
+    return (
+      <>
+        <div className=" my-8 flex flex-row gap-3  w-full">
+
+        <div className="basis-full lg:basis-2/3 px-2">
+        <h1 className="text-xl ">
+            <span className="text-beh-orange px-2">
+              {props.main}&nbsp;  
+            </span>
+
+            <span>
+              {'>'}
+            </span>
+
+
+            <span className="text-beh-orange px-1">
+              {props.sub}&nbsp; 
+            </span>
+
+            <span>
+            {'>'}
+            </span>
+
+
+            <span className="text-beh-orange px-1">
+              {props.cat}&nbsp; 
+            </span>
+
+            <span>
+            {'>'}
+            </span>
+
+
+
+            <span className="text-beh-orange px-1">
+              {props.title}&nbsp; 
+            </span>
+          
+          </h1>
+        </div>
+
+        <div className="hidden  lg:basis-1/3 lg:flex h-full justify-center items-center">
+            <div className="w-[200px] cursor-pointer flex items-center text-center justify-center h-[35px] bg-beh-red text-white rounded-md">
+              <h1 >
+                گزارش تخلف این محصول
+              </h1>
+            </div>
+        </div>
+        </div>
+      </>
+    )
+}
 
 
 export default Page

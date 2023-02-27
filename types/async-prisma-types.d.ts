@@ -473,22 +473,24 @@
    * Model message
    * 
    */
-  export type message = {
+   export type message = {
     id: number
     chatID: number
-    senderId: number
+    date: Date
+    text: string | null
+    hasSeen: boolean
     recieverId: number
-    messageType: ChatType
+    senderId: number
     image: string | null
     voice: string | null
-    pdf: string | null
-    text: string | null
-    replyedTo: number | null
-    date: Date
-    hasSeen: boolean
     liked: boolean
+    pdf: string | null
+    file_orginal_name: string | null
+    file_size: string | null
     productId: number | null
+    replyedTo: number | null
     requestId: number | null
+    messageType: ChatType
   }
   
   /**

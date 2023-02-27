@@ -17,7 +17,7 @@ export const MultiCityPickerModel = (props : { fildes : I_add_products , setFile
     
             {/* CENTER_DATA_PART */}
             <div className='fixed flex w-screen h-screen justify-center items-center'>
-                <div dir='rtl' className='w-[380px]  md:w-[600px] min-w-[370px]  mx-auto h-[70vh]  bg-white rounded-3xl overflow-y-auto  '>
+                <div dir='rtl' className='w-[380px]  md:w-[600px] min-w-[370px]  mx-auto h-[70vh]  bg-white rounded-3xl overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray  '>
                     <div>
                         <div className="flex justify-between h-[60px] my-2 gap-5 items-center">
 
@@ -36,7 +36,7 @@ export const MultiCityPickerModel = (props : { fildes : I_add_products , setFile
 
                         </div>
 
-                        <div className="my-2 h-[70px] p-2 overflow-y-auto flex gap-x-6 gap-y-4 flex-wrap">
+                        <div className="my-2 h-[70px] p-2 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray flex gap-x-6 gap-y-4 flex-wrap">
                             {fildes.sendArea_list.map(elm=>(
                                 <div key={elm.id} onClick={()=>setFileds({...fildes , sendArea_list : fildes.sendArea_list.filter(item=>item.name != elm.name)})} className="border-2 border-beh-orange rounded-full text-beh-orange h-8 cursor-pointer px-3">
                                     {elm.name}
@@ -61,7 +61,7 @@ export const MultiCityPickerModel = (props : { fildes : I_add_products , setFile
 
 
                         {/* CITY_SELECT_PART */}
-                        <div dir="ltr" className="w-full my-1 overflow-y-auto h-[45vh] border-b-2 border-beh-gray-light">
+                        <div dir="ltr" className="w-full my-1 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray h-[45vh] border-b-2 border-beh-gray-light">
                             {WholeCountry.map(elm=>(
                                 <>
                                     <div key={elm.id} dir="rtl" onClick={()=>{

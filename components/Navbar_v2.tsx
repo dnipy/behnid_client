@@ -34,7 +34,7 @@ function Navbar_v2() {
 
           {/* search-part  */}
           <div className='hidden md:block md:basis-3/5 px-8' >
-            <label className="relative block">
+            {/* <label className="relative block">
               <input type="text" className='h-[50px] w-full bg-beh-gray-light rounded-sm px-10 placeholder:text-beh-gray-dark placeholder:text-lg ' placeholder='جست و جو ...!' dir='rtl'/>
                 <span className="absolute inset-y-0 right-3 flex items-center pl-3" >
                     <svg className="h-5 w-5 fill-beh-gray-dark" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
@@ -44,8 +44,8 @@ function Navbar_v2() {
                         </path>
                     </svg>
                 </span>
-              </label>
-          </div>
+              </label> */}
+          </div> 
 
           {/* component-part */}
           <div className='basis:1/2  md:basis h-[50px]  flex justify-center items-center'>
@@ -62,7 +62,7 @@ function Navbar_v2() {
         </div>
 
         {/* BOTTOM_PART  */}
-        <div className=' hidden sm:block text-md '>
+        {/* <div className=' hidden sm:block text-md '>
 
           <div className='flex flex-row  text-beh-gray px-[6.75rem]'>
 
@@ -88,7 +88,8 @@ function Navbar_v2() {
 
           </div>
 
-        </div>
+        </div> */}
+
       </div>
     </nav>
     </>
@@ -154,11 +155,12 @@ const LogedInComponent = ()=>{
     {/* TOP_PART_COMPONENT  */}
     <div className='flex flex-row  items-center ' >
         <div className="basis-2/3">
-          <div className=' text-center font-semibold cursor-pointer'  onClick={()=>{
+          <div className=' text-center hover:text-beh-red font-semibold cursor-pointer'  onClick={()=>{
             logout()
             window.location.replace('/')
             }}> 
-            تنظیمات پروفایل
+            {/* تنظیمات پروفایل */}
+            &nbsp;  خروج &nbsp; 
           </div>
         </div>
         <div className="basis-1/3 flex justify-center items-center cursor-pointer" onClick={()=>router.push('/profile')}>
@@ -195,7 +197,7 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
               login(res.data.accessToken)                   
                 setTimeout(() => {
                     props.handleLogin(false)
-                    window.location.replace('/')
+                    window.location.replace('/chat')
                 }, 1000);
             }
             else {
@@ -350,7 +352,7 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
             setTimeout(()=>{
               props.handleLogin(false)
               props.handleRegister(false)
-              window.location.replace('/')
+              window.location.replace('/chat')
             },1500)
         }
         else {

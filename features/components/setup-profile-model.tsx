@@ -98,7 +98,7 @@ export const SetupProfileComponent = (props : { handleClose :  React.Dispatch<Re
       
       <div className='fixed w-screen h-screen backdrop-blur-sm bg-white/20 z-40 ' >
         <div className="h-[90vh] w-10/12  mx-auto mt-[5vh] flex justify-center items-center">
-          <div className='min-w-[370px] lg:w-[600px] h-full bg-white overflow-y-auto shadow-2xl ' >
+          <div className='min-w-[370px] lg:w-[600px] h-full bg-white overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray shadow-2xl ' >
             <div className="bg-beh-gray-dark w-full h-[280px]  pt-10">
               <div className="flex w-full  h-[220px] justify-center">
                 <div className="max-w-sm  h-full">

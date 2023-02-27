@@ -47,13 +47,13 @@ const Page : NextPage = ()  => {
 
   return (
     <>
+    {loading ? <LoadingComponent/> : null}
+    {error ? <ErrorComponent  details={'500'} /> : null}
     <Navbar_v2 />
-    <main className="flex justify-center">
+    <main className="flex justify-center min-h-screen">
       <div className="w-1/1 md:w-3/4 my-10 p-3">
 
 
-      {loading ? <LoadingComponent/> : null}
-      {error ? <ErrorComponent  details={'500'} /> : null}
       {response?.err ? 'ارور' :
 
           <div dir="rtl" className="flex flex-wrap justify-center gap-x-1 gap-y-2">

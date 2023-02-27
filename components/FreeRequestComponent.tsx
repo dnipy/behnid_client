@@ -5,9 +5,9 @@ function FreeRequestComponent( props : {title : string , id : number , username 
   return (
     <div key={props.id} className=" hover:scale-105 transition-all duration-100 cursor-auto my-5 min-w-sm w-full max-w-7xl bg-white rounded-xl shadow-2xl gap-3 flex flex-col lg:flex-row p-2 ">
             {/* IMAGE_PART */}
-            <div className="basis-2/12 flex justify-center">
+            <div className="basis-3/12 flex justify-center">
               {props.avatar ? 
-              <img src={`${BACK_END}${props.avatar}`} className="bg-beh-orange rounded-xl max-h-[180px] h-full w-[180px]" alt={`تصویر ${props.username} `} />
+              <img src={`${BACK_END}${props.avatar}`} className="bg-beh-orange rounded-xl h-[180px]  w-[180px]" alt={`تصویر ${props.username} `} />
               :
               <div className="bg-beh-orange rounded-xl max-h-[180px] h-full w-[180px]" />
             }
@@ -91,9 +91,9 @@ function FreeRequestComponent( props : {title : string , id : number , username 
             </div>
 
             {/* OFFER_PART */}
-            <div className="basis-1/12">
+            {/* <div className="basis-1/12">
 
-            </div>
+            </div> */}
 
           </div>
     )

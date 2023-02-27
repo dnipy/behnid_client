@@ -19,7 +19,7 @@ export const CategoryPickerModel = (props : { fildes : I_add_products , setFiled
     
             {/* CENTER_DATA_PART */}
             <div className='fixed flex w-screen h-screen justify-center items-center'>
-                <div dir='rtl' className='w-[380px]  md:w-[600px] min-w-[370px]  mx-auto h-[70vh]  bg-white rounded-3xl overflow-y-auto  '>
+                <div dir='rtl' className='w-[380px]  md:w-[600px] min-w-[370px]  mx-auto h-[70vh]  bg-white rounded-3xl overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray  '>
                     <div>
                         <div className="flex justify-between h-[60px] my-2 gap-5 items-center">
 
@@ -59,7 +59,7 @@ export const CategoryPickerModel = (props : { fildes : I_add_products , setFiled
 
 
                         {/* CITY_SELECT_PART */}
-                        <div dir="ltr" className="w-full my-1 overflow-y-auto h-[45vh] border-b-2 border-beh-gray-light">
+                        <div dir="ltr" className="w-full my-1 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray h-[45vh] border-b-2 border-beh-gray-light">
                             {WholeCategories.map(elm=>(
                                 <>
                                     <div key={elm.id} dir="rtl" onClick={()=>{

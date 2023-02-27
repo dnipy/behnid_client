@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import { AuthorizedApiRequest } from '../../clients/axios'
+import { LoadingComponent } from '../../components/loading'
 
 function NewChat() {
     const router = useRouter()
@@ -23,9 +24,9 @@ function NewChat() {
                 .post('/chats/newChat',{userID : Number(id)})
                 .then((res) => {
                     console.log({res})
-                    if (res.data.err) {
-                        console.log(res.data.err)
-                        // router.replace('/404')
+                    if (res.data.err || res.data.e) {
+                        console.log(res.data.err || res.data.e)
+                        // router.replace('/500')
                     }
                     else {
                         if (res.data?.id) {
@@ -48,7 +49,7 @@ function NewChat() {
 
   return (
     <div className='w-screen h-screen flex justify-center items-center bg-gray-100'>
-        
+        <LoadingComponent />
     </div>
   )
 }

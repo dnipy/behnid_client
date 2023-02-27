@@ -133,7 +133,7 @@ export const MiniProduct = (props : I_MiniProduct)=>{
 
                 <div className="w-[330px] mx-auto h-[40px] rounded-l-md mt-1  flex flex-row gap-5 " >
                     <div className="w-[150px]">
-                        <div className="cursor-pointer hover:scale-105 duration-100 w-[125px] h-[40px] rounded-md bg-beh-yellow mx-auto my-auto flex justify-center items-center" >
+                        <div onClick={()=> router.push(`/products/${props.id}`)} className="cursor-pointer hover:scale-105 duration-100 w-[125px] h-[40px] rounded-md bg-beh-yellow mx-auto my-auto flex justify-center items-center" >
                             <h1 className="text-beh-gray-dark font-bold text-xl" >نمای کامل</h1>                                    
                         </div>
                     </div>

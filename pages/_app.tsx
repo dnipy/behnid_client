@@ -6,12 +6,13 @@ import { AuthContext, authContextDefaults } from '../contexts/Auth'
 import React, { useEffect, useState } from 'react'
 import { socket } from '../clients/io'
 import {  AuthorizedApiRequest } from '../clients/axios'
-import { useAppSelector } from '../hooks/redux'
-import { useDispatch } from 'react-redux'
-import { changeModelShown } from '../lib/features/model.slice'
+
 import ReduxWrapper from '../contexts/ReduxWrapper'
 import Head from 'next/head'
 import { SetupProfileComponent } from '../features/components/setup-profile-model'
+import { SocketContext } from '../contexts/socket'
+
+
 
 
 
@@ -19,6 +20,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [id,setId] = useState<number | undefined>()
   const [setupDone,setSetupDone] = useState<boolean | null>(null)
   const [myAvatar , setMyAvatar] = useState< string | null>(null)
+  const [isConnected, setIsConnected] = useState(socket.connected);
+  
+
 
   // console.log({envURL : process.env.BACK_END})
   const fetchData = () => {
@@ -35,9 +39,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
             }
             setTimeout(() => {
-              console.log('fetched id ==> '+res.data?.data?.id)
+              // console.log('fetched id ==> '+res.data?.data?.id)
               localStorage.setItem('user-id',JSON.stringify(res.data?.data?.id))
-              console.log({my_data  : res.data})  
+              // console.log({my_data  : res.data})  
             }, 500);
           })
         .catch((err) => {
@@ -50,18 +54,55 @@ function MyApp({ Component, pageProps }: AppProps) {
           fetchData();
       }, [id]);
 
+
+      useEffect(() => {
+        if (!id) return
+        else {
+          
+
+          socket.on('connect', () => {
+            console.log('connect')
+            socket.emit('new-user-add',id)
+            setIsConnected(true);
+          }) 
+    
+    
+    
+          socket.on('disconnect', () => {
+            setIsConnected(false);
+          });
+    
+          socket.on('get-users', (data) => {
+            console.log({active_users : data})
+          });
+    
+          return () => {
+            socket.off('connect');
+            socket.off('disconnect');
+            socket.off('get-users');
+          };
+        }
+        }, [id]);
+    
+        useEffect(() => {
+            console.log({__app : isConnected , socket : socket.connected})
+        }, [isConnected])
+        
+
   return <>
   <Head>
     <title>
       behnid | بهنید
     </title>
   </Head>
-  <div className='bg-beh-bg min-h-screen'>
+  <div className='bg-beh-bg min-h-screen '>
     <Provider store={store}>
       <ReduxWrapper>
           <AuthContext.Provider value={authContextDefaults} >
-            {setupDone == false ? <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} /> : null}
-            <Component {...pageProps} />
+            <SocketContext.Provider value={isConnected} >
+              {setupDone == false ? <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} /> : null}
+              <Component {...pageProps} />
+            </SocketContext.Provider>
           </AuthContext.Provider>      
       </ReduxWrapper>
     </Provider>

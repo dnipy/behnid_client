@@ -38,9 +38,39 @@ const Page : NextPage = ()  => {
   };
 
   const onImageChange= (e: React.ChangeEvent<HTMLInputElement>)=>{
+    setloading(true)
+    setError('')
+    const body = new FormData()
+
+
     if ( e.target.files &&  e.target?.files?.length > 0) {
       console.log(e.target.files)
       setSelectedImage(e.target.files[0])
+
+      body.append('profile_image',e.target.files[0] as Blob)
+        console.log(e.target.files[0])
+    
+        AuthorizedApiRequestImage 
+        .post('/media/photo/avatar',body)
+        .then((res) => {
+            console.log(res)
+            if (res.data.err) {
+                setError(res.data.err)
+            }
+            else {
+              setSucced('تصویر با موفقیت ثبت شد')
+            }
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+        .finally(() => {
+            setloading(false);
+        });
+    }
+    else {
+      setError('فایل انتخاب کنید')
+      setloading(false)
     }
   }
 
@@ -73,6 +103,7 @@ const Page : NextPage = ()  => {
 
       }else {
           setError('فایل انتخاب کنید')
+          setloading(false)
       }
     }
 
@@ -272,10 +303,10 @@ const Page : NextPage = ()  => {
 
                               <div  className="h-[80%] basis-5/6 bg-white shadow-lg rounded-md flex justify-center">
                                 <div>
-                                  {response.avatar ? <img width='170px' height='170px' src={`${BACK_END}${response.avatar}`} /> : null}
-                                  {selectedImage ? <div className='absolute w-[170px] text-center bg-beh-red font-semibold text-white cursor-pointer' onClick={()=>setSelectedImage(null)}>حذف</div> : null}
-                                  {selectedImage ? <div className={`absolute w-[170px] ${loading ? 'cursor-default' : 'cursor-pointer'} text-center bg-beh-green-light font-semibold text-white `} onClick={ loading ? undefined : sendImageHandle}>{loading ? 'صبر کنید' : 'تایید'}</div> : null}
-                                  {selectedImage ?  <img width='170px' height='170px' src={URL.createObjectURL(selectedImage)} /> : null}
+                                  {response.avatar && !selectedImage  ? <img className="w-[170px] h-[170px]" src={`${BACK_END}${response.avatar}`} /> : null}
+                                  {/* {selectedImage ? <div className='absolute w-[170px] text-center bg-beh-red font-semibold text-white cursor-pointer' onClick={()=>setSelectedImage(null)}>حذف</div> : null} */}
+                                  {/* {selectedImage ? <div className={`absolute w-[170px] ${loading ? 'cursor-default' : 'cursor-pointer'} text-center bg-beh-green-light font-semibold text-white `} onClick={ loading ? undefined : sendImageHandle}>{loading ? 'صبر کنید' : 'تایید'}</div> : null} */}
+                                  {selectedImage ?  <img className="w-[170px] h-[170px]" src={URL.createObjectURL(selectedImage)} /> : null}
                                 </div>
                               </div>
                               <div onClick={onButtonClick} className="h-[80%] basis-1/6 cursor-pointer bg-beh-green-light flex items-center rounded-md">
@@ -579,11 +610,47 @@ const AccuntSeting = (props : { state? : boolean , handle :(value: React.SetStat
 
 const DeactiveSeting = (props : { state? : boolean , handle :(value: React.SetStateAction<boolean>) => void})=>{
   const [pass,setPass] = useState('')
+  const [error,setError] = useState('')
+  const [response,setResponse] = useState('')
+  const [loading,setLoading] = useState(false)
+  const router = useRouter()
+  
   const Submit = async ()=>{
-
+    setError('')
+    setResponse('')
+    if (pass.length < 8) {
+      setError('پسورد نباید کمتر از 8 رقم باشد')
+      return
+    }
+    else {
+      setLoading(true)
+      await AuthorizedApiRequest
+        .post('/auth/deactive',{password : pass})
+          .then((resp)=>{
+            if (resp.data?.err){
+              setError(resp.data.err)
+            }
+            if (resp.data?.msg) {
+              setResponse(resp.data?.msg)
+              setTimeout(() => {
+                window.localStorage.clear()
+                router.push('/')
+              }, 500);
+            }
+          })
+          .catch((err)=>{
+            setError('ارور در ارتباط با سرور')
+          })
+          .finally(()=>{
+            setLoading(false)
+          })
+    }
   }
   return(
     <>
+    {error && <ErrorComponent handle={setError} message={error} />}
+    {response && <SuccesComponent handle={setResponse} message={response} /> }
+    {loading && <LoadingComponent />}
     <div className='fixed w-screen h-screen backdrop-blur-md bg-white/20 z-40 ' >
       <div className="flex h-screen  justify-center items-center z-50">
           <div className="w-[330px] " >
@@ -601,7 +668,7 @@ const DeactiveSeting = (props : { state? : boolean , handle :(value: React.SetSt
               </div>
 
               <div className="my-10 px-16">
-                  <div onClick={pass.length > 7 ? Submit : undefined} className="w-full text-xl text-center px-4 h-16 bg-beh-gray cursor-pointer hover:bg-beh-green-light hover:shadow-xl duration-100 flex items-center justify-center shadow-md">
+                  <div onClick={ Submit } className="w-full text-xl text-center px-4 h-16 bg-beh-gray cursor-pointer hover:bg-beh-green-light hover:shadow-xl duration-100 flex items-center justify-center shadow-md">
                     <h1 className="text-center text-2xl font-bold text-white">تایید</h1>
                   </div>
               </div>
@@ -615,11 +682,56 @@ const DeactiveSeting = (props : { state? : boolean , handle :(value: React.SetSt
 
 const ChangePassSeting = (props : { state? : boolean , handle :(value: React.SetStateAction<boolean>) => void})=>{
   const [fields,setFields] = useState({pass_1 : '' , pass_2 : '', pass_3 : ''})
-  const Submit = async ()=>{
+  const [error,setError] = useState('')
+  const [response,setResponse] = useState('')
+  const [loading,setLoading] = useState(false)
+  
 
-  }
+  const Submit = async()=>{
+    setError('')
+    setResponse('')
+    if (fields.pass_2.length < 8) {
+        setError('پسورد نباید کمتر از 8 رقم باشد')
+        return
+    }
+    if (fields.pass_2 === fields.pass_3){
+        setError('')
+        setLoading(true)
+
+        let fData = {password : fields.pass_1 , newPassword : fields.pass_2 }
+        console.log({fData})
+        await AuthorizedApiRequest
+        .post('/auth/change-password',fData)
+        .then((res) => {
+            console.log(res)
+            if (res.data?.err){
+                setError(res.data.err)
+            }
+            if (res.data?.msg) {
+              setResponse(res.data?.msg)
+              props.handle(false)
+            }
+        })
+        .catch((err) => {
+            setError(err?.response?.data?.err);
+        })
+        .finally(() => {
+            setLoading(false);
+        })
+        
+    }
+    else {
+        setError('پسورد جدید و تکرار آن باید مساوی باشد')
+        console.log(fields.pass_2,fields.pass_3)
+    }
+}
   return(
     <>
+    {error && <ErrorComponent handle={setError} message={error} />}
+    {response && <SuccesComponent handle={setResponse} message={response} /> }
+    {loading && <LoadingComponent />}
+
+
     <div className='fixed w-screen h-screen backdrop-blur-md bg-white/20 z-40 ' >
       <div className="flex h-screen  justify-center items-center z-50">
           <div className="w-[330px] " >
@@ -644,7 +756,7 @@ const ChangePassSeting = (props : { state? : boolean , handle :(value: React.Set
               </div>
 
               <div className="my-10 px-16">
-                  <div onClick={fields.pass_1.length > 8 && fields.pass_2 == fields.pass_3 ? Submit : undefined} className="w-full text-xl text-center px-4 h-16 bg-beh-gray cursor-pointer hover:bg-beh-green-light hover:shadow-xl duration-100 flex items-center justify-center shadow-md">
+                  <div onClick={Submit} className="w-full text-xl text-center px-4 h-16 bg-beh-gray cursor-pointer hover:bg-beh-green-light hover:shadow-xl duration-100 flex items-center justify-center shadow-md">
                     <h1 className="text-center text-2xl font-bold text-white">تایید</h1>
                   </div>
               </div>
