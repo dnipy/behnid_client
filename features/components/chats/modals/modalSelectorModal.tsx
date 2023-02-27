@@ -121,6 +121,7 @@ export const ModelSelector = (props : { shouldBeOpened : boolean , sendHandle : 
 
         {
             model.remittanceSendOpen && 
+
             <div className="relative">
                 <div className={`z-[25]  h-[90vh] md:h-[80vh] w-full absolute ${props.shouldBeOpened ? 'basis-5/6 lg:basis-2/3' : 'hidden lg:block  lg:basis-2/3'}   mx-auto   backdrop-blur-sm bg-white/20 z-40  rounded-3xl`}>
                     <div className="flex h-[79vh]  justify-center items-center">                         
@@ -205,17 +206,32 @@ export const ModelSelector = (props : { shouldBeOpened : boolean , sendHandle : 
                             </div>
                         </div>
                             <div className="w-[90%] h-[90px]  my-auto flex justify-around items-center">
-                                <div onClick={()=>setModels({...model , imageSendOpen : true})} className="cursor-pointer  hover:bg-beh-text-gray  w-[70px] h-[70px] rounded-full bg-beh-gray flex justify-center items-center">
+                                <div onClick={()=>{
+                                    setModels({...model , imageSendOpen : true})
+                                    setTimeout(() => {
+                                        onButtonClickImage()
+                                    }, 200);
+                                }} className="cursor-pointer  hover:bg-beh-text-gray  w-[70px] h-[70px] rounded-full bg-beh-gray flex justify-center items-center">
                                     <div>
                                         <BiPhotoAlbum className="w-10 h-10 fill-white" />
                                     </div>
                                 </div>
-                                <div onClick={()=>setModels({...model , remittanceSendOpen : true})} className="cursor-pointer  hover:bg-beh-text-gray  w-[70px] h-[70px] rounded-full bg-beh-gray flex justify-center items-center">
+                                <div onClick={()=>{
+                                    setModels({...model , remittanceSendOpen : true})
+                                    setTimeout(() => {
+                                        onButtonClickRemmitance()
+                                    }, 200);
+                                }} className="cursor-pointer  hover:bg-beh-text-gray  w-[70px] h-[70px] rounded-full bg-beh-gray flex justify-center items-center">
                                     <div>
                                         <BiDollar className="w-10 h-10 fill-white" />
                                     </div>
                                 </div>
-                                <div onClick={()=>setModels({...model , pdfSendOpen : true})} className="cursor-pointer  hover:bg-beh-text-gray  w-[70px] h-[70px] rounded-full bg-beh-gray flex justify-center items-center">
+                                <div onClick={()=>{
+                                    setModels({...model , pdfSendOpen : true})
+                                    setTimeout(() => {
+                                        onButtonClickPdf()
+                                    }, 200);
+                                    }} className="cursor-pointer  hover:bg-beh-text-gray  w-[70px] h-[70px] rounded-full bg-beh-gray flex justify-center items-center">
                                     <div>
                                         <MdPictureAsPdf className="w-10 h-10 fill-white" />
                                     </div>
