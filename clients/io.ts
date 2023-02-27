@@ -1,11 +1,11 @@
 import { io } from "socket.io-client";
 
 const socket = io(`${process.env.NEXT_PUBLIC_SOCKET}`, {
-  // reconnectionDelayMax: 20000,
-  // transports: ['websocket'],
+  reconnection : true,
+  reconnectionDelayMax: 2000,
   path : "/new-socket/",
   transports: ['websocket'],
-  upgrade: false
+  upgrade: false,
 });
 
 
@@ -14,4 +14,4 @@ const socket = io(`${process.env.NEXT_PUBLIC_SOCKET}`, {
 // });
 
 
-export {socket}   
+export {socket}      

@@ -10,7 +10,7 @@ function SuccesComponent(props : {message? : string , handle :(value: React.SetS
         <div dir='rtl' className=''>
             <h1 className='font-bold'>موفق</h1>
             <h6 className='text-lg'>
-              {props.message ? props.message : 'اطلاعات با موفقیت ثبت شد'}
+              {props.message && typeof(props.message) == 'string' ? props.message : 'اطلاعات با موفقیت ثبت شد'}
             </h6>
             
         </div>

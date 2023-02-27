@@ -10,7 +10,7 @@ function ErrorComponent(props : {message? : string , handle :(value: React.SetSt
         <div dir='rtl' className=''>
             <h1 className='font-bold'>خطا</h1>
             <h6 className='text-lg'>
-              {props.message ? props.message : 'اطلاعاتی از سرور یافت نشد'}
+              {props.message && typeof(props.message) === 'string' ? props.message : 'اطلاعاتی از سرور یافت نشد'}
               
             </h6>
             
