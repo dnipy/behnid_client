@@ -35,7 +35,7 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
         .get(`/chats/my-contacts`)
         .then((res) => {
           if (res.data.err) {
-            setError('ارور')
+            setError(res.data.err)
           }
           else {
             setResponse(res.data as ContactListResponse);
@@ -64,7 +64,7 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
     
             {/* CENTER_DATA_PART */}
             <div className='fixed flex w-full lg:max-w-7xl ml-5 md:mx-auto   h-[90vh] justify-center items-center'>
-                <div dir='rtl' className='w-[340px]  md:w-[600px]  min-w-[370px]  mx-auto  h-[80vh] border-4 border-beh-gray  bg-white rounded-3xl overflow-y-auto  scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray  '>
+                <div dir='rtl' className='w-[300px]  md:w-[600px]  min-w-[325px]  mx-auto  h-[80vh] border-4 border-beh-gray  bg-white rounded-3xl overflow-y-auto  scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray  '>
                     <div>
                         <div className="flex justify-between h-[60px] my-2 gap-5 items-center">
 
