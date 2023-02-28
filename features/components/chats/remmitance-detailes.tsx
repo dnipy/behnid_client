@@ -31,7 +31,7 @@ function RemmitanceDetailes(props : {shouldBeOpened : boolean}) {
 
 //* STATES
 
-  const [fields,setFields] = useState<ChatDetailesFields>({imageInput : null , pdf : null , remittance : null , textInput : '' ,remmitanceText : '' , replyedTo : null , sendLoading : false , imageText : ''})
+  const [fields,setFields] = useState<ChatDetailesFields>({ isImageRemmitance : false , isPdfRemmitance : false , imageInput : null , pdf : null , remittance : null , textInput : '' ,remmitanceText : '' , replyedTo : null , sendLoading : false , imageText : ''})
   const [models,setModels] = useState<ChatDetailesModels>({ messageId : null , showUpdateMessage : false , modalSelectorOpen : false , FileSelectOpen : false , imageSendOpen : false , pdfSendOpen : false , locationSendOpen : false ,remittanceSendOpen : false , userProfileOpen : false , userAvatarOpen : false  , ShowImage : false , ShowImageSrc : '',fullPic : false , fullPicSrc : ""})
 
   const [loading,setloading] = useState(false)

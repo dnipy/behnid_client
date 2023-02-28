@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "redeploy": "next build && pm2 delete nextjs && pm2 start npm --name nextjs -i 1 -- run start -- -p 3000",
-    "deploy": "next build && pm2 start npm --name nextjs -i 1 -- run start -- -p 3000"
+    "redeploy": "rm -rf ./.nextjs && yarn &&  next build && pm2 start npm --name nextjs -i 1 -- run start -- -p 3000",
+    "deploy": " pm2 delete nextjs && pm2 start npm --name nextjs -i 1 -- run start -- -p 3000 "
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
