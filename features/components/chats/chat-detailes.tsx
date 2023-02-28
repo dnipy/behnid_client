@@ -21,6 +21,7 @@ import { socket } from '../../../clients/io'
 import { SocketContext } from '../../../contexts/socket'
 import { UserPdfMessageComponent } from './messages/UserPdfMessage'
 import { SecondUserPdfMessageComponent } from './messages/SecondUserPdfMessage'
+import Compressor from 'compressorjs'
 
 
 
@@ -31,7 +32,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
 
 //* STATES
 
-  const [fields,setFields] = useState<ChatDetailesFields>({imageInput : null , pdf : null , remittance : null , textInput : '' ,remmitanceText : '' , replyedTo : null , sendLoading : false , imageText : ''})
+  const [fields,setFields] = useState<ChatDetailesFields>({ isImageRemmitance : false , isPdfRemmitance : false , imageInput : null , pdf : null , remittance : null , textInput : '' ,remmitanceText : '' , replyedTo : null , sendLoading : false , imageText : ''})
   const [models,setModels] = useState<ChatDetailesModels>({ messageId : null , showUpdateMessage : false , modalSelectorOpen : false , FileSelectOpen : false , imageSendOpen : false , pdfSendOpen : false , locationSendOpen : false ,remittanceSendOpen : false , userProfileOpen : false , userAvatarOpen : false  , ShowImage : false , ShowImageSrc : '',fullPic : false , fullPicSrc : ""})
 
   const [loading,setloading] = useState(false)
@@ -214,7 +215,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
 
 
   // * Done 
-  const DeleteMessage = (message_id : number)=>{
+  const DeleteMessage = (message_id : number) =>{
     setFields({...fields,sendLoading : true })
     const fbody = {
       msgID : message_id, 
@@ -282,7 +283,9 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
   }
 
   // * Done 
-  const SendImage = ()=>{
+  const SendImageUnCompressed = ()=>{
+
+    
       const fbody = new FormData()
   
       if (fields.imageInput){
@@ -317,6 +320,61 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
     }
   }
 
+
+  // * Done (with commpress)
+  const SendImage = ()=>{
+
+    if (fields.imageInput){
+      
+      setFields({...fields,sendLoading : true , textInput : '' , replyedTo : null , pdf : null , imageInput : null})
+
+
+      const image = fields.imageInput;
+      new Compressor(image,{
+        quality : 0.5,
+        success: (compressedResult) => {
+          // setSelectedImage(compressedResult) 
+          console.log({
+            orginal : fields.imageInput ,
+            compressedResult
+          })
+          const fbody = new FormData()
+          fbody.append('chat_image',compressedResult)
+          fbody.append('caption', fields.imageText)
+          fbody.append('chatID', String(id) )
+          fbody.append('reciverID', String(userTwoID) )
+          fields.isImageRemmitance && fbody.append('isRemmitance', 'yes'  )
+
+          fields.replyedTo && fbody.append('replyedTo', String(fields.replyedTo) )
+    
+          setFields({...fields,sendLoading : true , textInput : '' , replyedTo : null , pdf : null , imageInput : null})
+        
+          AuthorizedApiRequestImage
+          .post('/chats/new-img-message',fbody)
+            .then((resp)=>{
+              // console.log(resp)
+              setResponse({...response! , message : [...response?.message! , resp.data]})
+            })
+            .catch((err)=>{
+              console.log(err)
+            })
+            .finally(()=>{
+              setFields({...fields,sendLoading : false , textInput : '' , imageInput : null , isImageRemmitance : false});
+              setModels({...models , imageSendOpen : false , modalSelectorOpen : false})
+              setTimeout(() => {
+                scrollToBottom()
+              }, 500);
+            })
+        },
+      })
+
+
+  }
+  else {
+    setError('عکسی انتخاب نشده')
+  }
+}
+
   // * Done 
   const SendPdf = ()=>{
     const fbody = new FormData()
@@ -329,6 +387,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
       fbody.append('chatID', String(id) )
       fbody.append('reciverID', String(userTwoID) )
       fields.replyedTo && fbody.append('replyedTo', String(fields.replyedTo) )
+      fields.isPdfRemmitance && fbody.append('isRemmitance', 'yes'  )
 
       setFields({...fields,sendLoading : true , textInput : '' , replyedTo : null , pdf : null})
     
@@ -344,7 +403,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
           }
         })
         .finally(()=>{
-          setFields({...fields,sendLoading : false , textInput : '',pdf : null});
+          setFields({...fields,sendLoading : false , textInput : '',pdf : null , isPdfRemmitance : false});
           setModels({...models , pdfSendOpen : false , modalSelectorOpen : false})
           setloading(false)
           setTimeout(() => {
@@ -537,16 +596,15 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                     <div  className="h-[66vh] md:h-[56vh]  px-10 w-full min-w-[340px]   overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray    flex flex-row gap-4">
                       <div className='w-full    flex-col flex gap-1 '>
                         {
-                          response?.message.map(elm=>{
+                          response?.message?.map(elm=>{
                               const { senderId } = elm
-                              console.log(elm)
                               // TEXT_I_SENT
                               if (senderId == myId  ) {
 
                                 
-                                if (elm.pdf && elm.messageType == 'message' && !elm.image) {
+                                if (elm.pdf ) {
                                   return (
-                                    <UserPdfMessageComponent  id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.pdf} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                    <UserPdfMessageComponent isRemmitance={elm?.messageType == 'remittance' ? true : false}  id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.pdf} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
                                   )
                                 }
 
@@ -583,7 +641,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                                   )
                                 }
                                 
-                                if (elm.pdf && elm.messageType == 'message') {
+                                if (elm.pdf ) {
                                   return (
                                     <SecondUserPdfMessageComponent  id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.pdf} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
                                   )
@@ -611,6 +669,24 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                     {/* INPUTS_PART */}
                     <div className="h-[10vh] w-full min-w-[340px] rounded-2xl  flex flex-row gap-4">
 
+                     
+
+
+                      <div className='basis-11/12 h-full flex justify-center items-center'>
+                        <div className='w-[90%] sm:w-[95%] h-10 flex '>
+                          
+                          <div onClick={!fields.sendLoading ? SendText : undefined} className='basis-3/12 cursor-pointer md:w-2/12 bg-beh-green-light h-full flex rounded-r-lg shadow-lg justify-center text-white items-center'>
+                            <h1>
+                              ارسال
+                            </h1>
+                          </div>
+
+                          <input value={fields.textInput} onChange={(e)=>setFields({...fields , textInput : e.target.value})} placeholder='اینجا بنویس ...' className='w-9/12 placeholder:text-md text-right px-3 md:w-10/12 h-full flex justify-center border-l-2 rounded-l-lg  border-y-2 border-beh-gray items-center   text-beh-gray  text-xl'/>
+                       
+                         
+                        </div>
+                      </div>
+
                       <div className='basis-1/12 flex  px-2 justify-center items-center'>
                           
                           <div className='w-[6.5vh] h-[6.5vh] flex justify-center items-center'>
@@ -619,20 +695,6 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                               </div>    
                             </div>
                       
-                      </div>
-
-
-                      <div className='basis-11/12 h-full flex justify-center items-center'>
-                        <div className='w-[90%] sm:w-[95%] h-10 flex '>
-
-                          <input value={fields.textInput} onChange={(e)=>setFields({...fields , textInput : e.target.value})} placeholder='اینجا بنویس ...' className='w-9/12 placeholder:text-md text-right px-3 md:w-10/12 h-full flex justify-center border-r-2 rounded-r-lg  border-y-2 border-beh-gray items-center   text-beh-gray  text-xl'/>
-                       
-                          <div onClick={!fields.sendLoading ? SendText : undefined} className='basis-3/12 cursor-pointer md:w-2/12 bg-beh-green-light h-full flex rounded-l-lg shadow-lg justify-center text-white items-center'>
-                            <h1>
-                              ارسال
-                            </h1>
-                          </div>
-                        </div>
                       </div>
 
                       

@@ -21,10 +21,12 @@ export type ChatDetailes = Chats & {
 export interface ChatDetailesFields {
     textInput : string ;
     imageInput : File | null;
+    isImageRemmitance : boolean;
     imageText : string;
     remmitanceText : string;
     remittance : File | null;
     pdf : File | null ;
+    isPdfRemmitance : boolean;
     replyedTo : number | null;
     sendLoading : boolean
 }

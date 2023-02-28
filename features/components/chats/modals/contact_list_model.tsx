@@ -9,9 +9,18 @@ import { I_add_products } from "../../../../types/add-products"
 import { Contacts, User } from "../../../../types/async-prisma-types"
 
 
+// type ContactListResponse = {
+//     contacts : Contacts[];
+//     founded_users : (User & {
+//         profile: {
+//             name: string;
+//             family: string;
+//         };
+//     })[]
+// }
+
 type ContactListResponse = {
-    contacts : Contacts[];
-    founded_users : (User & {
+    users : (User & {
         profile: {
             name: string;
             family: string;
@@ -70,7 +79,6 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
 
                             <div>
                                 <h1 className="pr-7 text-xl font-bold text-beh-text-gray">
-                                    {/* شهر انتخاب شده */}
                                     مخاطبین
                                 </h1>
                             </div>
@@ -83,7 +91,7 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
 
                         </div>
 
-                        <div className="my-4 w-[83%] shadow-lg mx-auto h-[50px] flex justify-center items-center">
+                        {/* <div className="my-4 w-[83%] shadow-lg mx-auto h-[50px] flex justify-center items-center">
                             <div  onClick={()=>setCreateUserOpen(true)} className="w-full h-full gap-x-2 cursor-pointer bg-beh-gray flex justify-center items-center">
                                 <div className="text-[#FFC499]">
                                     <FiUsers className="w-6 h-6" />
@@ -92,7 +100,7 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
                                     <h1 className="text-[#FFC499]">افزودن مخاطب</h1>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         
                         <div className="my-2  h-[65px] flex justify-center items-center w-full">
                             <label className="relative block w-10/12">
@@ -111,10 +119,13 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
 
 
                         {/* CITY_SELECT_PART */}
-                        <div dir="ltr" className="w-full my-1 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray h-[45vh] border-b-2 border-beh-gray-light">
-                            { response?.founded_users && response.founded_users.map(elm=>(
+                        <div dir="ltr" className="w-full my-1 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray h-[50vh] ">
+                            {/* { response?.founded_users && response.founded_users.map(elm=>( */}
+
+                            { response?.users && response?.users?.map(elm=>(
+
                                 <>
-                                    <div key={elm.id} dir="rtl" onClick={()=>router.push(`/chat/new-chat?id=${elm.id}`)}  className=" cursor-pointer w-[90%] hover:text-beh-orange text-beh-gray duration-100 mx-auto rounded-md h-14 hover:h-16 my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-5">
+                                    <div key={elm.id} dir="rtl" onClick={()=>router.push(`/chat/new-chat?id=${elm.id}`)}  className=" cursor-pointer w-[90%] hover:bg-beh-orange hover:text-white hover:fill-white text-beh-gray duration-100 mx-auto rounded-md h-14 hover:h-16 my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-5">
                                         <div>
                                             <h1 className="text-lg ">
                                             {elm.profile?.name && elm.profile.name} &nbsp; {elm.profile?.family && elm.profile.family}
@@ -231,17 +242,19 @@ const CreateNewUserModel = (props : { createUserOpen : boolean , setCreateUserOp
                     {/* BUTTON_PART */}
                     <div className="flex justify-around h-[60px] my-2 gap-5 items-center">
 
-                        <div onClick={()=>props.setCreateUserOpen(false)} className="w-1/2 py-3 mr-3 rounded-md bg-beh-orange flex justify-center items-center ">
-                            <h1 className="text-xl font-bold text-white">
-                                انصراف
-                            </h1>
-                        </div>
-                        <div onClick={fields.phone.length == 11 && fields.name.length > 1 ? SendHandle : undefined} className={`w-1/2 py-3 ml-3 rounded-md   ${fields.phone.length == 11 && fields.name.length > 1 ? 'bg-beh-green-super-light cursor-pointer' : 'bg-beh-gray-mid-ligth cursor-not-allowed'}  flex justify-center items-center `}>
+
+                        <div onClick={fields.phone.length == 11 && fields.name.length > 1 ? SendHandle : undefined} className={`w-1/2 py-3 mr-3 rounded-md   ${fields.phone.length == 11 && fields.name.length > 1 ? 'bg-beh-green-super-light cursor-pointer' : ' bg-[#3aac91] cursor-not-allowed'}  flex justify-center items-center `}>
                             <h1 className="text-xl font-bold text-white">
                                 تایید
                             </h1>                            
                         </div>
 
+
+                        <div onClick={()=>props.setCreateUserOpen(false)} className="w-1/2 py-3 ml-3 cursor-pointer rounded-md bg-beh-red flex justify-center items-center ">
+                            <h1 className="text-xl font-bold text-white">
+                                انصراف
+                            </h1>
+                        </div>
                     </div>
                 
 

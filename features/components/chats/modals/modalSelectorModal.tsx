@@ -106,7 +106,18 @@ export const ModelSelector = (props : { shouldBeOpened : boolean , sendHandle : 
                                 <input type='file' onChange={onImageChange} accept="image/png, image/gif, image/jpeg"  id='file' ref={inputFileImage} style={{display: 'none'}}/>
                             </div> }
 
-                            <div className="w-full p-2 h-[100px]  mt-10 flex justify-around items-center">
+                            <div className="my-3 w-full flex justify-start gap-3 px-4">
+                                <div className="pt-1">
+                                    <input className="accent-beh-green-light w-5 h-5" type="checkbox" checked={fields.isImageRemmitance} onChange={()=>setFields({...fields , isImageRemmitance : !fields.isImageRemmitance})} />
+                                </div>
+                                <div>
+                                    <h1 className={fields.isImageRemmitance ? 'text-beh-green-light' : 'text-white'}>
+                                        حواله تصویر
+                                    </h1>
+                                </div>
+                            </div>
+
+                            <div className="w-full p-2 h-[100px]   flex justify-around items-center">
                                 <div onClick={sendImage} className={`w-[15%] h-[70px] rounded-xl ${fields.imageInput ? 'bg-beh-orange cursor-pointer' : 'bg-beh-orange/70 cursor-not-allowed' }   flex justify-center items-center`}>
                                     <BiSend className="w-7 h-7 fill-white" />
                                 </div>
@@ -121,7 +132,6 @@ export const ModelSelector = (props : { shouldBeOpened : boolean , sendHandle : 
 
         {
             model.remittanceSendOpen && 
-
             <div className="relative">
                 <div className={`z-[25]  h-[90vh] md:h-[80vh] w-full absolute ${props.shouldBeOpened ? 'basis-5/6 lg:basis-2/3' : 'hidden lg:block  lg:basis-2/3'}   mx-auto   backdrop-blur-sm bg-white/20 z-40  rounded-3xl`}>
                     <div className="flex h-[79vh]  justify-center items-center">                         
@@ -164,6 +174,7 @@ export const ModelSelector = (props : { shouldBeOpened : boolean , sendHandle : 
                                     <MdClose className="w-6 h-6 fill-white" />
                                 </div>
                             </div>
+
                             <h1 className="text-center text-lg text-white ">PDF</h1>
 
 
@@ -183,11 +194,22 @@ export const ModelSelector = (props : { shouldBeOpened : boolean , sendHandle : 
                             </div>
                             }   
 
-
-                            <div onClick={SendPdf} className={`w-[90%] mx-auto p-2 h-[60px] rounded-xl  ${fields.pdf ? 'bg-beh-orange cursor-pointer' : 'bg-beh-orange/70 cursor-not-allowed' }   mt-10 flex justify-center items-center`}>
+                            <div onClick={SendPdf} className={`w-[90%] mx-auto p-2 h-[60px] rounded-xl  ${fields.pdf ? 'bg-beh-orange cursor-pointer' : 'bg-beh-orange/70 cursor-not-allowed' }  mt-10  flex justify-center items-center`}>
                                 <h1 className="text-white text-xl text-center">
                                     ارسال
                                 </h1>
+                            </div>
+
+
+                            <div className="my-3 w-full flex justify-start gap-3 px-5">
+                                <div className="pt-1">
+                                    <input className="accent-beh-green-light w-5 h-5" type="checkbox" checked={fields.isPdfRemmitance} onChange={()=>setFields({...fields , isPdfRemmitance : !fields.isPdfRemmitance})} />
+                                </div>
+                                <div>
+                                    <h1 className={fields.isPdfRemmitance ? 'text-beh-green-light' : 'text-white'}>
+                                        حواله pdf
+                                    </h1>
+                                </div>
                             </div>
 
                         </div>
@@ -216,7 +238,7 @@ export const ModelSelector = (props : { shouldBeOpened : boolean , sendHandle : 
                                         <BiPhotoAlbum className="w-10 h-10 fill-white" />
                                     </div>
                                 </div>
-                                <div onClick={()=>{
+                                {/* <div onClick={()=>{
                                     setModels({...model , remittanceSendOpen : true})
                                     setTimeout(() => {
                                         onButtonClickRemmitance()
@@ -225,7 +247,7 @@ export const ModelSelector = (props : { shouldBeOpened : boolean , sendHandle : 
                                     <div>
                                         <BiDollar className="w-10 h-10 fill-white" />
                                     </div>
-                                </div>
+                                </div> */}
                                 <div onClick={()=>{
                                     setModels({...model , pdfSendOpen : true})
                                     setTimeout(() => {

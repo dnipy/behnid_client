@@ -72,7 +72,7 @@ function Remmitances(props : {shouldBeOpened : boolean}) {
                 ?
                   <>
                       {response.map(elm =>(
-                          <RemmitanceListComponent messageId={elm.id} detaile={`${elm.text!.slice(0,20)}...`} lastdate={elm.date} src={elm.image!}  key={elm.id} username={`${elm.sender.profile.name!} ${elm.sender.profile.family!}`}  chatid={elm.chatID} useravatar={elm.sender.avatar ? `${BACK_END}${elm.sender.avatar}` : NoPerson.src}  />
+                          <RemmitanceListComponent pdf={elm.pdf ? elm.pdf : null} messageId={elm.id} detaile={`${elm.text!.slice(0,20)}...`} lastdate={elm.date} img={elm.image ? elm.image : null}  key={elm.id} username={`${elm.sender.profile.name!} ${elm.sender.profile.family!}`}  chatid={elm.chatID} useravatar={elm.sender.avatar ? `${BACK_END}${elm.sender.avatar}` : NoPerson.src}  />
                       ))}
                   </>
                   : 

@@ -23,7 +23,7 @@ export const UserRemmitanceMessageComponent = ( props : { id: number , text : st
 
                               <div className='basis-full px-2  flex-row gap-2 md:px-5  h-full flex w-full flex-wrap text-right justify-center items-center'>
                                 
-                                <div className={` ${props.text ? ' h-auto md:w-[130px] md:h-auto flex justify-center items-center' : 'hidden'} mt-5  `}>
+                                <div className={`  h-auto md:w-[130px] md:h-auto flex justify-center items-center' mt-5  `}>
                                     <img onClick={()=>props.setModel({...props.models , fullPic : true , fullPicSrc : props.src })} className='w-[290px] cursor-pointer h-auto rounded-md sm:rounded-none md:w-[120px] md:h-[120px]' src={BACK_END+props.src}/>
                                 </div>
                                 

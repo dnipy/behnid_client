@@ -1,9 +1,10 @@
 import { useRouter } from "next/router"
+import { MdPictureAsPdf } from "react-icons/md"
 import { BACK_END } from "../../../clients/localStorage"
 import { message } from "../../../types/async-prisma-types"
 import { MiladiToShamsi } from "../../../utils/miladi_be_shamsi"
 
-export const RemmitanceListComponent = (props : { messageId: string | number,  detaile : string ,src : string  , username : string , chatid : number , useravatar : string ,lastdate :Date})=>{
+export const RemmitanceListComponent = (props : { pdf : string | null , messageId: string | number,  detaile : string ,img : string | null  , username : string , chatid : number , useravatar : string ,lastdate :Date})=>{
   const router = useRouter()
   const {id} = router.query
   const GY = Number(props.lastdate.toString().slice(0,4))
@@ -20,9 +21,14 @@ export const RemmitanceListComponent = (props : { messageId: string | number,  d
                 
                   
                 <>
-                  <div className="w-[70px] h-[70px]  bg-beh-gray"> 
-                    <img className="w-[70px] h-[70px]  " src={BACK_END+props.src} />
-          
+                  <div className="w-[70px] h-[70px]  bg-beh-gray flex justify-center items-center"> 
+                  {
+                    props.img ? 
+                    <img className="w-[70px] h-[70px]  " src={BACK_END+props.img} />
+                      : 
+                      <MdPictureAsPdf className="w-14 h-14 fill-white" />
+
+                  }
                   </div>
                 </>
                 

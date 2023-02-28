@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import { ApiRequest } from '../clients/axios'
 import ErrorComponent from './alerts/error'
 import { FiXCircle } from 'react-icons/fi'
+import SuccesComponent from './alerts/succes'
 
 function Navbar_v2() {
   const {isUser} = useContext(AuthContext)
@@ -129,7 +130,7 @@ const NotLogedInComponent = (props : {stateLogin : boolean , stateRegister : Boo
           props.handleRegister(true)
           props.handleLogin(false)
         }}>
-          &nbsp;  ثبتنام  
+          &nbsp;  ثبت نام  
        
         </span>
 
@@ -177,6 +178,7 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
   const [ShowPass,setShowPass] = useState(false)
   const [fields,setFields] = useState({phone : '' , pass : ''})
   const [error, setError] = useState('');
+  const [succes,setSucces]= useState('');
   const [loading, setloading] = useState(false);
   const {login} = useContext(AuthContext)
   const router = useRouter()
@@ -194,7 +196,8 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
             if (!res.data.err){
             console.log(res.data)
             localStorage.setItem('user-session',JSON.stringify(res?.data?.accessToken))
-              login(res.data.accessToken)                   
+              login(res.data.accessToken)   
+                setSucces('ورود موفق')                
                 setTimeout(() => {
                     props.handleLogin(false)
                     window.location.replace('/chat')
@@ -231,13 +234,14 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
   return (
     <>
     {error ? <ErrorComponent message={error} handle={setError} /> : null}
+    {succes && <SuccesComponent handle={setSucces} message={succes} />}
     
     <div className='fixed w-screen h-screen backdrop-blur-sm bg-white/20 z-40 ' >
       {/* BACKGROUND_PART */}
       <div className='fixed flex w-screen h-screen justify-center items-center'>
-        <div dir='rtl' className='w-full h-[60vh] flex flex-row'>
-               <div className="basis-[54%] h-[60vh] bg-beh-gray-dark"></div>
-               <div className="basis-[46%] h-[60vh] bg-beh-orange"></div>
+        <div dir='rtl' className='w-full min-h-[350px] h-[60vh] flex flex-row'>
+               <div className="basis-[54%] min-h-[350px] h-[60vh] bg-beh-gray-dark"></div>
+               <div className="basis-[46%] min-h-[350px] h-[60vh] bg-beh-orange"></div>
         </div>
       </div>
 
@@ -276,15 +280,15 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
                 <h1 >
 
                   <span className=' col-span-1'>
-                  &nbsp;  ثبتنام نکرده ام
+                  &nbsp;  ثبت نام نکرده ام
                   </span>
 
-                  <span className=' col-span-1 hover:cursor-pointer text-beh-orange' onClick={()=>{
+                  <span className=' col-span-1 hover:cursor-pointer text-beh-orange ' onClick={()=>{
                     props.handleRegister(true)
                     props.handleLogin(false)
                   }
                   }>
-                    &nbsp;  (ثبتنام)
+                    &nbsp;  (ثبت نام)
                 
                   </span>
 
@@ -308,6 +312,7 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
   const [CodeSent,setCodeSent] = useState(false)
   const [fields,setFields] = useState({phone : '' , code : ''})
   const [error, setError] = useState('');
+  const [succes,setSucces]= useState('');
   const [loading, setloading] = useState(false);
   const {login} = useContext(AuthContext)
   const router = useRouter()
@@ -348,12 +353,12 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
         if (res.data.accessToken){
             localStorage.setItem('user-session',JSON.stringify(res.data?.accessToken))
             login(res.data?.accessToken)
-            
+            setSucces('ورود موفق')                
             setTimeout(()=>{
               props.handleLogin(false)
               props.handleRegister(false)
               window.location.replace('/chat')
-            },1500)
+            },1000)
         }
         else {
             setError('ارور در تایید کد')
@@ -384,13 +389,14 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
     return (
       <>
     {error ? <ErrorComponent message={error} handle={setError} /> : null}
+    {succes && <SuccesComponent handle={setSucces} message={succes} />}
     
     <div  className='fixed w-screen h-screen backdrop-blur-sm bg-white/20 z-40 ' >
       {/* BACKGROUND_PART */}
       <div className='fixed flex w-screen h-screen justify-center items-center'>
-        <div dir='rtl' className='w-full h-[60vh] flex flex-row'>
-               <div className="basis-[54%] h-[60vh] bg-beh-gray-dark"></div>
-               <div className="basis-[46%] h-[60vh] bg-beh-orange"></div>
+        <div dir='rtl' className='w-full min-h-[380px]  h-[60vh] flex flex-row'>
+               <div className="basis-[54%] min-h-[380px] h-[60vh] bg-beh-gray-dark"></div>
+               <div className="basis-[46%] min-h-[380px] h-[60vh] bg-beh-orange"></div>
         </div>
       </div>
 
@@ -404,7 +410,7 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
 
               <div className=" flex flex-row gap-2 w-full  p-4 h-[100px]">
                 <div className="basis-9/12">
-                  <h1 className='font-bold text-2xl text-white'>ثبتنام</h1>
+                  <h1 className='font-bold text-2xl text-white'>ثبت نام</h1>
                   <h6 className='font-semibold text-sm pt-1  text-white'>شماره تماس جهت ارسال کد </h6>
                 </div>
                 <div className='basis-3/12 flex flex-row justify-center items-center' >
@@ -417,11 +423,11 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
               <input disabled={CodeSent} value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value})} type="number" className='h-[50px] w-full rounded-lg px-8 my-2 placeholder:text-beh-gray-light placeholder:text-lg placeholder:font-semibold placeholder:text-left ' placeholder='09121210598' dir='rtl'/>               
               
               <label className="relative block">
-                <input disabled={!CodeSent} value={fields.code} onChange={(e)=>setFields({...fields,code : e.target.value})}   className='h-[50px] w-full rounded-lg px-11 my-2 placeholder:text-beh-gray-light placeholder:text-lg placeholder:font-semibold placeholder:text-right  ' placeholder='کد دریافت شده' dir='rtl'/>
+                <input type='number' disabled={!CodeSent} value={fields.code} onChange={(e)=>setFields({...fields,code : e.target.value})}   className='h-[50px] w-full rounded-lg px-11 my-2 placeholder:text-beh-gray-light placeholder:text-lg placeholder:font-semibold placeholder:text-right  ' placeholder='کد دریافت شده' dir='rtl'/>
                 
               </label>
 
-              <button disabled={loading} onClick={sendHandle} className={`px-10 py-2 rounded-full text-lg font-bold text-white  mt-1 ${loading ? 'bg-beh-gray-dark'  : 'bg-beh-orange'} `} >{CodeSent ? 'تایید کد' : 'ارسال کد'}</button>
+              <button disabled={loading} onClick={fields.phone.length == 11 ? sendHandle : ()=>setError('شماره وارد شده باید 11 رقم باشد')} className={`px-10 py-2 rounded-full text-lg font-bold text-white  mt-1 ${loading ? 'bg-beh-gray-dark'  : 'bg-beh-orange'} `} >{CodeSent ? 'تایید کد' : 'ارسال کد'}</button>
               <div className='mt-1 text-white text-md px-3   '>
                 <h1 >
 
