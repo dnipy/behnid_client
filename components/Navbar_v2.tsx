@@ -269,7 +269,14 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
               <input value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value})} type="number" className='h-[50px] w-full rounded-lg px-8 my-2 placeholder:text-beh-gray-light placeholder:text-lg placeholder:font-semibold placeholder:text-left ' placeholder='09121210598' dir='rtl'/>               
               
               <label className="relative block">
-                <input value={fields.pass} onChange={(e)=>setFields({...fields,pass : e.target.value})} type={ShowPass ? "text" : "password"}  className='h-[50px] w-full rounded-lg px-11 my-2 placeholder:text-beh-gray-light placeholder:text-lg placeholder:font-semibold placeholder:text-left  ' placeholder='رمز عبور' dir='rtl'/>
+                <input value={fields.pass} onChange={(e)=>{
+                  let value = e.target.value
+                  value = value.replace(/[^A-Za-z0-9!@#\$%\^\&*\)\(+=._-]/ig, '')
+
+                  setFields({...fields,pass : value})
+
+                }
+                } type={ShowPass ? "text" : "password"}  className='h-[50px] w-full rounded-lg px-11 my-2 placeholder:text-beh-gray-light placeholder:text-lg placeholder:font-semibold placeholder:text-left  ' placeholder='رمز عبور' dir='rtl'/>
                 <span className="absolute inset-y-0 left-1 flex items-center pl-3 cursor-pointer " onClick={()=>setShowPass(!ShowPass)} >
                     <BiShow className={` ${ShowPass ? 'text-black' : "text-beh-gray-light"} w-6 h-6`} />
                 </span>

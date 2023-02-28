@@ -176,11 +176,23 @@ export const SetupProfileComponent = (props : { handleClose :  React.Dispatch<Re
   
               <div className='flex flex-row flex-wrap mt-3 justify-around gap-x-2 gap-y-3'>
                   <div className='mx-auto order-2 md:order-1'>
-                    <input  value={fields.pass_confirm} onChange={(e)=>setFields({...fields,pass_confirm : e.target.value})} type='text' placeholder='تکرار رمز' className='text-white placeholder:font-semibold placeholder:text-white border-b-2 border-beh-gray rounded-md bg-beh-gray min-w-[260px] h-[50px] flex items-center text-center'/>
+                    <input  value={fields.pass_confirm} onChange={(e)=>{
+                      let value = e.target.value
+                      value = value.replace(/[^A-Za-z0-9!@#\$%\^\&*\)\(+=._-]/ig, '')
+                      
+                      setFields({...fields,pass_confirm : value})
+                    }
+                    } type='text' placeholder='تکرار رمز' className='text-white placeholder:font-semibold placeholder:text-white border-b-2 border-beh-gray rounded-md bg-beh-gray min-w-[260px] h-[50px] flex items-center text-center'/>
                   </div>
                   
                   <div className='mx-auto order-1  md:order-2'>
-                    <input  value={fields.password} onChange={(e)=>setFields({...fields,password : e.target.value})} type='text' placeholder='رمز عبور' className='text-white placeholder:font-semibold placeholder:text-white border-b-2 border-beh-gray rounded-md bg-beh-gray min-w-[260px] h-[50px] flex items-center text-center'/>
+                    <input  value={fields.password} onChange={(e)=>{
+                      let value = e.target.value
+                      value = value.replace(/[^A-Za-z0-9!@#\$%\^\&*\)\(+=._-]/ig, '')
+                      
+                      setFields({...fields,password : value})
+                    }
+                    } type='text' placeholder='رمز عبور' className='text-white placeholder:font-semibold placeholder:text-white border-b-2 border-beh-gray rounded-md bg-beh-gray min-w-[260px] h-[50px] flex items-center text-center'/>
                   </div>
               </div>
   

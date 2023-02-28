@@ -604,26 +604,26 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                                 
                                 if (elm.pdf ) {
                                   return (
-                                    <UserPdfMessageComponent isRemmitance={elm?.messageType == 'remittance' ? true : false}  id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.pdf} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                    <UserPdfMessageComponent date={elm.date} isRemmitance={elm?.messageType == 'remittance' ? true : false}  id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.pdf} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
                                   )
                                 }
 
                                 if (elm.image && elm.messageType == 'message') {
                                   return (
-                                    <UserImageMessageComponent  fields={fields} setFields={setFields} id={elm.id} liked={elm.liked} LikeMessage={LikeMessage} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                    <UserImageMessageComponent date={elm.date} fields={fields} setFields={setFields} id={elm.id} liked={elm.liked} LikeMessage={LikeMessage} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
                                   )
                                 }
                                 
                                 if (elm.image && elm.messageType == 'remittance') {
                                   return (
-                                    <UserRemmitanceMessageComponent id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                    <UserRemmitanceMessageComponent date={elm.date} id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
                                   )
                                 }
 
 
                                 else {
                                   return(
-                                    <UserMessageComponent  id={elm.id}  fields={fields} setFields={setFields} models={models} setModel={setModels}  key={elm.id} liked={elm.liked} text={elm.text!} />
+                                    <UserMessageComponent date={elm.date}  id={elm.id}  fields={fields} setFields={setFields} models={models} setModel={setModels}  key={elm.id} liked={elm.liked} text={elm.text!} />
                                     )
                                 }
                               }
@@ -632,22 +632,22 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                               else  {
                                 if (elm.image && elm.messageType == 'message') {
                                   return (
-                                    <SecondUserImageMessageComponent id={elm.id}  LikeMessage={LikeMessage} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} liked={elm.liked} />
+                                    <SecondUserImageMessageComponent date={elm.date} id={elm.id}  LikeMessage={LikeMessage} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} liked={elm.liked} />
                                   )
                                 }
                                 if (elm.image && elm.messageType == 'remittance') {
                                   return (
-                                    <SecondUserRemmitanceMessageComponent id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                    <SecondUserRemmitanceMessageComponent date={elm.date} id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
                                   )
                                 }
                                 
                                 if (elm.pdf ) {
                                   return (
-                                    <SecondUserPdfMessageComponent  id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.pdf} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                    <SecondUserPdfMessageComponent date={elm.date}  id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.pdf} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
                                   )
                                 }
                                 return(
-                                    <SecondUserMessageComponent liked={elm.liked} id={elm.id} like={LikeMessage}  key={elm.id} text={elm.text!}  /> 
+                                    <SecondUserMessageComponent date={elm.date} liked={elm.liked} id={elm.id} like={LikeMessage}  key={elm.id} text={elm.text!}  /> 
                                   )
                               }
 
@@ -675,7 +675,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                       <div className='basis-11/12 h-full flex justify-center items-center'>
                         <div className='w-[90%] sm:w-[95%] h-10 flex '>
                           
-                          <div onClick={!fields.sendLoading ? SendText : undefined} className='basis-3/12 cursor-pointer md:w-2/12 bg-beh-green-light h-full flex rounded-r-lg shadow-lg justify-center text-white items-center'>
+                          <div onClick={!fields.sendLoading && fields.textInput ? SendText : undefined} className='basis-3/12 cursor-pointer md:w-2/12 bg-beh-green-light h-full flex rounded-r-lg shadow-lg justify-center text-white items-center'>
                             <h1>
                               ارسال
                             </h1>

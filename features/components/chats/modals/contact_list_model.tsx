@@ -33,7 +33,7 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
     const [response, setResponse] = useState< ContactListResponse  | null >(null);
     const [loading, setloading] = useState(true);
     const [error,setError] = useState('')
-    const [fields,setFields] = useState({phone : '' , name : ''})
+    const [fields,setFields] = useState({phone : '' , name : '',search : ''})
     const [createUserOpen , setCreateUserOpen] = useState(false)
     const router = useRouter()
     const { setFileds } = props
@@ -104,7 +104,9 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
                         
                         <div className="my-2  h-[65px] flex justify-center items-center w-full">
                             <label className="relative block w-10/12">
-                                <input type="text" className='h-[60px] w-full bg-beh-gray-light rounded-sm px-10 placeholder:text-beh-gray-dark placeholder:text-lg ' placeholder='جست و جو در مخاطب ها' dir='rtl'/>
+                                <input value={fields.search} onChange={(e)=>{
+                                    setFields({...fields , search : e.target.value})
+                                }} type="number" className='h-[60px] w-full bg-beh-gray-light rounded-sm px-10 placeholder:text-beh-gray-dark placeholder:text-lg ' placeholder='جست و جو در مخاطب ها' dir='rtl'/>
                                 <span className="absolute inset-y-0 right-3 flex items-center pl-3" >
                                     <svg className="h-5 w-5 fill-beh-gray-dark" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
                                         height="30" viewBox="0 0 30 30">
@@ -122,7 +124,9 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
                         <div dir="ltr" className="w-full my-1 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray h-[50vh] ">
                             {/* { response?.founded_users && response.founded_users.map(elm=>( */}
 
-                            { response?.users && response?.users?.map(elm=>(
+                            { response?.users && response?.users.filter(elm=>{
+                                return elm.phone.indexOf(fields.search!) !== -1
+                            }).map(elm=>(
 
                                 <>
                                     <div key={elm.id} dir="rtl" onClick={()=>router.push(`/chat/new-chat?id=${elm.id}`)}  className=" cursor-pointer w-[90%] hover:bg-beh-orange hover:text-white hover:fill-white text-beh-gray duration-100 mx-auto rounded-md h-14 hover:h-16 my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-5">

@@ -5,7 +5,7 @@ import { BACK_END } from "../../../../clients/localStorage"
 import { useState } from "react"
 
 
-export const SecondUserRemmitanceMessageComponent = ( props : { id: number , text : string , does_seen?:boolean , replyedTO? : number , src : string ,  models : ChatDetailesModels , setModel  :React.Dispatch<React.SetStateAction<ChatDetailesModels>> ,liked : boolean ,LikeMessage: (message_id: number) => void    })=>{
+export const SecondUserRemmitanceMessageComponent = ( props : { date : Date , id: number , text : string , does_seen?:boolean , replyedTO? : number , src : string ,  models : ChatDetailesModels , setModel  :React.Dispatch<React.SetStateAction<ChatDetailesModels>> ,liked : boolean ,LikeMessage: (message_id: number) => void    })=>{
   const [liked , setliked] = useState(props.liked)
     
   return (
@@ -34,7 +34,7 @@ export const SecondUserRemmitanceMessageComponent = ( props : { id: number , tex
                                     </h1>
                                 </div>
   
-                                <div className={` ${props.text ? ' h-auto md:w-[130px] md:h-auto flex justify-center items-center' : 'hidden'} mt-5  `}>
+                                <div className={`  h-auto md:w-[130px] md:h-auto flex justify-center items-center' mt-5  `}>
                                     <img onClick={()=>props.setModel({...props.models , fullPic : true , fullPicSrc : props.src })} className='w-[290px] h-[300px] cursor-pointer rounded-md sm:rounded-none md:w-[120px] md:h-[120px]' src={BACK_END+props.src}/>
                                 </div>
                                 

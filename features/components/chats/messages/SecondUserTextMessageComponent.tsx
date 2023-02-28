@@ -1,8 +1,9 @@
+import moment from "moment"
 import { useState } from "react"
 import { BiHeart } from "react-icons/bi"
 import { BsHeartFill } from "react-icons/bs"
 
-export const SecondUserMessageComponent = (props : {text : string , liked : boolean , replyedTO? : number , id : number , like : (message_id: number) => void})=>{
+export const SecondUserMessageComponent = (props : { date : Date, text : string , liked : boolean , replyedTO? : number , id : number , like : (message_id: number) => void})=>{
     const [liked , setliked] = useState(props.liked)
     return (
                           <div className="w-full my-3">
@@ -25,6 +26,11 @@ export const SecondUserMessageComponent = (props : {text : string , liked : bool
                                     </h1>
                                   </div>
                                 </div>
+                                <div dir="ltr" className={`${props.text ? ' w-[70%] ' : ' w-[50%]'} flex justify-end px-1 items-center`}>
+                                  <h1>
+                                    {moment(props.date).locale(moment.locale('fa')).fromNow()}  
+                                  </h1>    
+                            </div>
                             </div>
     )
   }

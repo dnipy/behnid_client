@@ -3,9 +3,10 @@ import NoPerson from "../../../../assets/NoPerson.png"
 import { BACK_END } from "../../../../clients/localStorage"
 import { BsHeartFill } from "react-icons/bs"
 import { useState } from "react"
+import moment from "moment"
 
 
-export const SecondUserImageMessageComponent = (props : { id : number , text : string , replyedTO? : number , src : string , models : ChatDetailesModels , setModel  :React.Dispatch<React.SetStateAction<ChatDetailesModels>> , liked : boolean , LikeMessage: (message_id: number) => void     })=>{
+export const SecondUserImageMessageComponent = (props : { date :Date , id : number , text : string , replyedTO? : number , src : string , models : ChatDetailesModels , setModel  :React.Dispatch<React.SetStateAction<ChatDetailesModels>> , liked : boolean , LikeMessage: (message_id: number) => void     })=>{
   const [liked , setliked] = useState(props.liked)
     
   return (
@@ -40,6 +41,12 @@ export const SecondUserImageMessageComponent = (props : { id : number , text : s
   
           </div>
           
+        </div>
+
+        <div dir="ltr" className={`${props.text ? 'w-[70%]' : 'w-auto'} flex justify-end px-1 items-center`}>
+              <h1>
+                {moment(props.date).locale(moment.locale('fa')).fromNow()}  
+              </h1>    
         </div>
       </div>
   

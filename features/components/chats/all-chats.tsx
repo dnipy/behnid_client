@@ -1,15 +1,16 @@
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { AuthorizedApiRequest } from '../../../clients/axios';
 import { BACK_END } from '../../../clients/localStorage';
 import ErrorComponent from '../../../components/alerts/error';
 import { Chats, message, Profile, User } from '../../../types/async-prisma-types';
 import { MessageListComponent } from './MessageListComponents';
 import NoPeron from '../../../assets/NoPerson.png'
-import { BiDollar, BiHome, BiNotification, BiUser } from 'react-icons/bi';
+import { BiDollar, BiHome, BiLogOut, BiNotification, BiUser } from 'react-icons/bi';
 import { ContactPickerModel } from './modals/contact_list_model';
 import { MdNotifications } from 'react-icons/md';
 import Remmitances from './remmitances';
+import { AuthContext } from '../../../contexts/Auth';
 
 type responeType = Chats & {
   message: message[];
@@ -31,6 +32,7 @@ function AllChats(props : {shouldBeOpened : boolean}) {
     const [remmitance,setRemmitance] = useState(false)
     const [chatType,setChatType] = useState(1)
     const router = useRouter()
+    const {logout} = useContext(AuthContext)
     const NoImg = `${BACK_END}/uploads/chat_image_1672439444536.png`
   
   
@@ -73,7 +75,14 @@ function AllChats(props : {shouldBeOpened : boolean}) {
      <div className={`h-[92vh]  ${props.shouldBeOpened ? 'basis-5/6 lg:basis-1/3' : 'hidden lg:block lg:basis-1/3'}  mx-auto  `}>
         <div className='h-[70px] w-full my-2 gap-1 justify-center items-center  flex flex-row'>
             <div className='w-2/12 cursor-pointer flex justify-center items-center'>
-              <BiHome className='w-8 h-8 fill-beh-orange' onClick={()=>router.push('/')} />
+              {/* <BiHome className='w-8 h-8 fill-beh-orange' onClick={()=>router.push('/')} /> */}
+              <BiLogOut className='w-8 rotate-180 h-8 fill-beh-orange' onClick={()=>{
+                setloading(true)
+                logout()
+                window.location.replace('/')
+                setloading(false)
+              }} />
+
             </div>
 
             <div  className='w-4/12 flex justify-center items-center'>
@@ -161,7 +170,7 @@ function AllChats(props : {shouldBeOpened : boolean}) {
 
                         if (user_id == userTwoId) {
                           reciver = userOne
-                        }
+                        } 
 
                         return reciver.profile.name?.indexOf(chatListInput!) !== -1 
 

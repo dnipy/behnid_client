@@ -3,9 +3,10 @@ import { BsCheckAll, BsHeartFill } from "react-icons/bs"
 import { ChatDetailesModels } from "../../../../types/chat-datailes"
 import { BACK_END } from "../../../../clients/localStorage"
 import { useState } from "react"
+import moment from "moment"
 
 
-export const UserRemmitanceMessageComponent = ( props : { id: number , text : string , does_seen?:boolean , replyedTO? : number , src : string ,  models : ChatDetailesModels , setModel  :React.Dispatch<React.SetStateAction<ChatDetailesModels>> ,liked : boolean ,LikeMessage: (message_id: number) => void    })=>{
+export const UserRemmitanceMessageComponent = ( props : { date : Date, id: number , text : string , does_seen?:boolean , replyedTO? : number , src : string ,  models : ChatDetailesModels , setModel  :React.Dispatch<React.SetStateAction<ChatDetailesModels>> ,liked : boolean ,LikeMessage: (message_id: number) => void    })=>{
   const [liked , setliked] = useState(props.liked)
     
   return (
@@ -55,6 +56,12 @@ export const UserRemmitanceMessageComponent = ( props : { id: number , text : st
                                   </div>
                               </div>
                               
+                            </div>
+
+                            <div dir="ltr" className={`${props.text ? 'sm:w-[70%] w-[70%]' : 'w-[300px] md:w-[150px]' } flex justify-start px-1 items-center`}>
+                                <h1>
+                                  {moment(props.date).locale(moment.locale('fa')).fromNow()}  
+                                </h1>    
                             </div>
                           </div>
   
