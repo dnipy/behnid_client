@@ -6,7 +6,7 @@ import { AuthContext, authContextDefaults } from '../contexts/Auth'
 import React, { useEffect, useState } from 'react'
 import { socket } from '../clients/io'
 import {  AuthorizedApiRequest } from '../clients/axios'
-
+import Script from 'next/script'
 import ReduxWrapper from '../contexts/ReduxWrapper'
 import Head from 'next/head'
 import { SetupProfileComponent } from '../features/components/setup-profile-model'
@@ -101,6 +101,19 @@ function MyApp({ Component, pageProps }: AppProps) {
           <AuthContext.Provider value={authContextDefaults} >
             <SocketContext.Provider value={isConnected} >
               {setupDone == false ? <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} /> : null}
+              <Script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB0519LXH" ></Script>
+              <Script
+                id='google-analytics'
+                strategy='lazyOnload'
+              >
+                {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'G-TSB0519LXH');
+                `}
+              </Script>
               <Component {...pageProps} />
             </SocketContext.Provider>
           </AuthContext.Provider>      
