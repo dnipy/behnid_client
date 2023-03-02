@@ -22,19 +22,19 @@ function Footer() {
                   با ثبتنام در پلتفرم ایمن بهنید تمام معاملات سنگین خود را راحت کنید
                 </h5>
                 <div className="mt-6 lg:mb-0 mb-6">
-                  <button className="bg-orange-400  text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                  <button name='redirect-buttons' className="bg-orange-400  text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
                     <AiFillCustomerService className='ml-auto mr-auto w-5 h-5 text-gray-800'/>
                   </button>
 
-                  <button className="bg-orange-400 text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                  <button name='redirect-buttons' className="bg-orange-400 text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
                     <AiFillPhone className='ml-auto mr-auto w-5 h-5 text-gray-800'/>
                   </button>
 
-                  <button  className="bg-orange-400 text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                  <button name='redirect-buttons'  className="bg-orange-400 text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
                     <AiFillInstagram className='ml-auto mr-auto w-5 h-5 text-gray-800'/>
                   </button>
 
-                  <button className="bg-orange-400 text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
+                  <button name='redirect-buttons' className="bg-orange-400 text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2" type="button">
                     <AiFillSafetyCertificate className='ml-auto mr-auto w-5 h-5 text-gray-800'/>
                   </button>
                     
