@@ -41,6 +41,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
 
   const [myId,setmyId] = useState<number | null >(null)
   const [userTwoID,setUserTwoID] = useState<number | null>(null)
+  const [loadDone,setLoadDone] = useState(false)
   // const online = useContext(SocketContext)
   const [online ,setOnline] = useState(false)
 
@@ -66,6 +67,49 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
       scrollToBottom()
     },500)
   },[response?.message])
+
+
+
+  useEffect(()=>{
+    // 
+    if (!id) return
+    if (!setLoadDone) return
+    else {
+      setloading(true)
+      console.log(id)
+        AuthorizedApiRequest
+        .get(`/chats/seen-message?chatID=${id}`)
+        .then((res) => {
+          if (res.data?.err) {
+            setError(res.data.err)
+            console.log(res.data.err)
+          }
+          if (res.data.e) {
+            router.push('/chat')
+          }
+          
+          else {  
+            let newMessages = response?.message?.map(elm=>{
+              if (elm.recieverId == myId) {
+                elm.hasSeen == true
+              }
+              return elm
+            })
+
+            setResponse({...response! , message  : newMessages!})
+
+          }
+        })
+        .catch((err) => {
+          setError(err);
+          console.log({err})
+        })
+        .finally(() => {
+          setloading(false)
+        });
+      
+    }
+  },[id, setLoadDone])
 
   // ? fetch chat-messages from /api/chats/chat-messages?chatID=${id}
   useEffect(()=>{
@@ -93,7 +137,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
             
             setmyId(Number(user_id))
             setUserTwoID(Number(user_two))
-
+            setLoadDone(true)
 
             //SCROLL_TO_BOTTOM
             setTimeout(()=>{
@@ -151,6 +195,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
     AuthorizedApiRequest
       .post('/chats/new-message',fbody)
         .then((resp)=>{
+          console.log(resp.data)
           setResponse({...response! , message : [...response?.message! , resp.data]})
         })
         .catch((err)=>{
@@ -604,26 +649,26 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                                 
                                 if (elm.pdf ) {
                                   return (
-                                    <UserPdfMessageComponent date={elm.date} isRemmitance={elm?.messageType == 'remittance' ? true : false}  id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.pdf} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                    <UserPdfMessageComponent date={elm.date} isRemmitance={elm?.messageType == 'remittance' ? true : false}  id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} does_seen={elm.hasSeen} models={models} setModel={setModels} src={elm.pdf} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
                                   )
                                 }
 
                                 if (elm.image && elm.messageType == 'message') {
                                   return (
-                                    <UserImageMessageComponent date={elm.date} fields={fields} setFields={setFields} id={elm.id} liked={elm.liked} LikeMessage={LikeMessage} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                    <UserImageMessageComponent date={elm.date} fields={fields} setFields={setFields} id={elm.id} liked={elm.liked} LikeMessage={LikeMessage} models={models} setModel={setModels} src={elm.image}  does_seen={elm.hasSeen} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
                                   )
                                 }
                                 
                                 if (elm.image && elm.messageType == 'remittance') {
                                   return (
-                                    <UserRemmitanceMessageComponent date={elm.date} id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                    <UserRemmitanceMessageComponent date={elm.date} id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} does_seen={elm.hasSeen} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
                                   )
                                 }
 
 
                                 else {
                                   return(
-                                    <UserMessageComponent date={elm.date}  id={elm.id}  fields={fields} setFields={setFields} models={models} setModel={setModels}  key={elm.id} liked={elm.liked} text={elm.text!} />
+                                    <UserMessageComponent date={elm.date}  id={elm.id}  fields={fields} setFields={setFields} models={models} setModel={setModels}  key={elm.id} liked={elm.liked} does_seen={elm.hasSeen} text={elm.text!} />
                                     )
                                 }
                               }

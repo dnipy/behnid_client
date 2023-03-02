@@ -14,7 +14,7 @@ export const SecondUserImageMessageComponent = (props : { date :Date , id : numb
         <div onDoubleClick={()=>{
           props.LikeMessage(props.id)
           setliked(!liked)
-        }} className={`  ${props.text ? 'w-[70%]' : 'w-auto'}  rounded-md sm:rounded-none  float-left  bg-beh-green-light flex flex-row gap-2 `} >
+        }} className={` ${props.text ? 'sm:w-[70%] w-[70%]' : 'md:w-[50%] w-[70%] h-auto' }  rounded-md sm:rounded-none  float-left  bg-beh-green-light flex flex-row gap-2 `} >
                             
         {liked &&
           <div className="relative  my-2">

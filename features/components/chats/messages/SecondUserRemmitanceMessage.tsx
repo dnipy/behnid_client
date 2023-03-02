@@ -3,6 +3,7 @@ import { BsCheckAll, BsHeartFill } from "react-icons/bs"
 import { ChatDetailesModels } from "../../../../types/chat-datailes"
 import { BACK_END } from "../../../../clients/localStorage"
 import { useState } from "react"
+import moment from "moment"
 
 
 export const SecondUserRemmitanceMessageComponent = ( props : { date : Date , id: number , text : string , does_seen?:boolean , replyedTO? : number , src : string ,  models : ChatDetailesModels , setModel  :React.Dispatch<React.SetStateAction<ChatDetailesModels>> ,liked : boolean ,LikeMessage: (message_id: number) => void    })=>{
@@ -14,7 +15,7 @@ export const SecondUserRemmitanceMessageComponent = ( props : { date : Date , id
                             <div onDoubleClick={()=>{
                                   props.LikeMessage(props.id)
                                   setliked(!liked)
-                                }} className={` ${props.text ? 'sm:w-[70%] w-[70%]' : 'w-[330px] md:w-[150px]' }  rounded-md sm:rounded-none  min-h-[70px]  float-left bg-beh-green-light `}>
+                                }} className={` ${props.text ? 'sm:w-[70%] w-[70%]' : 'md:w-[50%] w-[70%] h-auto' }  rounded-md sm:rounded-none  min-h-[70px]  float-left bg-beh-green-light `}>
                               
                             {liked &&
                                   
@@ -27,15 +28,18 @@ export const SecondUserRemmitanceMessageComponent = ( props : { date : Date , id
                               <div className='basis-full px-2  flex-row gap-2 md:px-5  h-full flex w-full flex-wrap text-right justify-center items-center'>
                                 
 
-                                
+                               {
+                                 props.text &&
                                 <div className='max-w-[70%] w-full h-auto'>
                                     <h1 className='text-white text-lg w-full py-3'>
                                         {props.text}
                                     </h1>
                                 </div>
+                               } 
+
   
-                                <div className={`  h-auto md:w-[130px] md:h-auto flex justify-center items-center' mt-5  `}>
-                                    <img onClick={()=>props.setModel({...props.models , fullPic : true , fullPicSrc : props.src })} className='w-[290px] h-[300px] cursor-pointer rounded-md sm:rounded-none md:w-[120px] md:h-[120px]' src={BACK_END+props.src}/>
+                                <div className={`  h-auto w-[130px] md:h-auto flex justify-center items-center' mt-5  `}>
+                                    <img onClick={()=>props.setModel({...props.models , fullPic : true , fullPicSrc : props.src })} className='w-[290px] h-auto cursor-pointer rounded-md sm:rounded-none md:w-[120px] md:h-[120px]' src={BACK_END+props.src}/>
                                 </div>
                                 
                                 <div className='w-full  bottom-4 my-2  flex justify-start items-center'>
@@ -57,6 +61,11 @@ export const SecondUserRemmitanceMessageComponent = ( props : { date : Date , id
                                   </div>
                               </div>
                               
+                            </div>
+                            <div dir="ltr" className={`${props.text ? 'w-[70%]' : 'w-auto'} flex justify-end px-1 items-center`}>
+                                  <h1>
+                                    {moment(props.date).locale(moment.locale('fa')).fromNow()}  
+                                  </h1>    
                             </div>
                           </div>
   
