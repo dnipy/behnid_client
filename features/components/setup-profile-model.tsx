@@ -146,10 +146,10 @@ export const SetupProfileComponent = (props : { handleClose :  React.Dispatch<Re
                     </div>
                     <div  className="h-[80%] basis-5/6 bg-beh-gray-light rounded-md flex justify-center items-center">
                       <div>
-                        {props.avatar ? <img width='170px' height='170px' src={`${BACK_END}${props.avatar}`} /> : null}
+                        {props.avatar && !selectedImage ? <img width='170px' height='170px' className="w-[170px] h-[170px]" src={`${BACK_END}${props.avatar}`} /> : null}
                         {/* {selectedImage ? <div className='absolute w-[170px] text-center bg-beh-red font-semibold text-white cursor-pointer' onClick={()=>setSelectedImage(null)}>حذف</div> : null} */}
                         {/* {selectedImage ? <div className={`absolute w-[170px] ${loading ? 'cursor-default' : 'cursor-pointer'} text-center bg-beh-green-light font-semibold text-white `} onClick={ loading ? undefined : sendImageHandle}>{loading ? 'صبر کنید' : 'تایید'}</div> : null} */}
-                        {selectedImage ?  <img onClick={onButtonClick} width='170px' height='170px' src={URL.createObjectURL(selectedImage)} /> : null}
+                        {selectedImage ?  <img onClick={onButtonClick} width='170px' height='170px' className="w-[170px] h-[170px]" src={URL.createObjectURL(selectedImage)} /> : null}
                         {!props.avatar && !selectedImage ? <h1> انتخاب تصویر </h1> : null}
                       </div>
                     </div>
