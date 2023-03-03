@@ -117,8 +117,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ReduxWrapper>
           <AuthContext.Provider value={authContextDefaults} >
             <SocketContext.Provider value={isConnected} >
-              {/* {setupDone == false ? <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} /> : null} */}
-              <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} />
+              {setupDone == false ? <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} /> : null}
+              {/* <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} /> */}
               <Script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB0519LXH" ></Script>
               <Script
                 id='google-analytics'
