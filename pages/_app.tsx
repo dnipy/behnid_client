@@ -89,6 +89,23 @@ function MyApp({ Component, pageProps }: AppProps) {
         }, [isConnected])
         
 
+        useEffect(() => {
+          if("serviceWorker" in navigator) {
+            console.log('exists')
+
+            console.log('load event')
+            navigator.serviceWorker.register("/workers/push-notif.js").then(
+                function (registration) {
+                  console.log("Service Worker registration successful with scope: ", registration.scope);
+                },
+                function (err) {
+                  console.log("Service Worker registration failed: ", err);
+                }
+              );
+       
+          }
+        }, [])
+
   return <>
   <Head>
     <title>
@@ -100,7 +117,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ReduxWrapper>
           <AuthContext.Provider value={authContextDefaults} >
             <SocketContext.Provider value={isConnected} >
-              {setupDone == false ? <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} /> : null}
+              {/* {setupDone == false ? <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} /> : null} */}
+              <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} />
               <Script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB0519LXH" ></Script>
               <Script
                 id='google-analytics'
