@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { BiImage, BiPlus, BiSend, BiUser } from 'react-icons/bi'
 import { AuthorizedApiRequest, AuthorizedApiRequestImage } from '../../../clients/axios'
@@ -68,49 +68,6 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
     },500)
   },[response?.message])
 
-
-
-  useEffect(()=>{
-    // 
-    if (!id) return
-    if (!setLoadDone) return
-    else {
-      setloading(true)
-      console.log(id)
-        AuthorizedApiRequest
-        .get(`/chats/seen-message?chatID=${id}`)
-        .then((res) => {
-          if (res.data?.err) {
-            setError(res.data.err)
-            console.log(res.data.err)
-          }
-          if (res.data.e) {
-            router.push('/chat')
-          }
-          
-          else {  
-            let newMessages = response?.message?.map(elm=>{
-              if (elm.recieverId == myId) {
-                elm.hasSeen == true
-              }
-              return elm
-            })
-
-            setResponse({...response! , message  : newMessages!})
-
-          }
-        })
-        .catch((err) => {
-          setError(err);
-          console.log({err})
-        })
-        .finally(() => {
-          setloading(false)
-        });
-      
-    }
-  },[id, setLoadDone])
-
   // ? fetch chat-messages from /api/chats/chat-messages?chatID=${id}
   useEffect(()=>{
     if (!id) return
@@ -157,6 +114,70 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
     }
 
   },[id])
+
+
+  useLayoutEffect(()=>{
+    // 
+    if (!id) return
+    if (!setLoadDone) return
+    else {
+      setloading(true)
+      console.log(id)
+        AuthorizedApiRequest
+        .get(`/chats/seen-message?chatID=${id}`)
+        .then((res) => {
+          if (res.data?.err) {
+            setError(res.data.err)
+            console.log(res.data.err)
+          }
+          if (res.data.e) {
+            router.push('/chat')
+          }
+          
+          else {              
+            if (response?.message) {
+
+              let newMessages = response?.message?.map(elm=>{
+                if (elm.recieverId == myId) {
+                  elm.hasSeen == true
+                }
+                return elm
+              })
+
+            setResponse({...response , message  : newMessages})
+            // console.log(newMessages)
+          }
+          else {
+            // console.log('not seen this time')
+            setTimeout(() => {
+              if (response?.message) {
+
+                let newMessages = response?.message?.map(elm=>{
+                  if (elm.recieverId == myId) {
+                    elm.hasSeen == true
+                  }
+                  return elm
+                })
+  
+              setResponse({...response , message  : newMessages})
+              console.log(newMessages)
+              }
+              // console.log('done at second time')  
+            }, 1000);
+          }
+
+          }
+        })
+        .catch((err) => {
+          setError(err);
+          console.log({err})
+        })
+        .finally(() => {
+          setloading(false)
+        });
+      
+    }
+  },[id, setLoadDone])
 
 
 
@@ -404,7 +425,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
               console.log(err)
             })
             .finally(()=>{
-              setFields({...fields,sendLoading : false , textInput : '' , imageInput : null , isImageRemmitance : false});
+              setFields({...fields,sendLoading : false , textInput : '' , imageInput : null , isImageRemmitance : false , imageText :''});
               setModels({...models , imageSendOpen : false , modalSelectorOpen : false})
               setTimeout(() => {
                 scrollToBottom()
@@ -518,7 +539,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
 
   const DeleteText = ()=>{
     DeleteMessage(models.messageId!)
-}
+  }
 
   return (
     <>

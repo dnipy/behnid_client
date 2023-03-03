@@ -3,7 +3,7 @@ import NoPerson from "../../../../assets/NoPerson.png"
 import { BACK_END } from "../../../../clients/localStorage"
 import { BsHeartFill } from "react-icons/bs"
 import { useState } from "react"
-import moment from "moment"
+import moment from "moment-jalaali"
 
 
 export const SecondUserImageMessageComponent = (props : { date :Date , id : number , text : string , replyedTO? : number , src : string , models : ChatDetailesModels , setModel  :React.Dispatch<React.SetStateAction<ChatDetailesModels>> , liked : boolean , LikeMessage: (message_id: number) => void     })=>{
@@ -36,16 +36,19 @@ export const SecondUserImageMessageComponent = (props : { date :Date , id : numb
   
   
             <div className=' mt-2 order-1  h-auto lg:order-2 w-[130px] md:h-auto flex justify-center items-center '>
-                <img onClick={()=>props.setModel({...props.models , fullPic : true , fullPicSrc : props.src })} className='w-[290px] h-auto rounded-md sm:rounded-none cursor-pointer md:w-[120px] md:h-[120px]' src={ BACK_END + props.src}/>
+                <img  alt={props.text ? props.text : 'تصویر ارسال شده'} onClick={()=>props.setModel({...props.models , fullPic : true , fullPicSrc : props.src })} className='w-[290px] h-auto rounded-md sm:rounded-none cursor-pointer md:w-[120px] md:h-[120px]' src={ BACK_END + props.src}/>
             </div>
   
           </div>
           
         </div>
 
-        <div dir="ltr" className={`${props.text ? 'w-[70%]' : 'w-auto'} flex justify-end px-1 items-center`}>
+        <div dir="rtl" className={`${props.text ? 'w-[70%]' : 'w-auto'} float-left  flex justify-start px-1 items-center`}>
               <h1>
+                <>
+                {moment.loadPersian({usePersianDigits : true})}
                 {moment(props.date).locale(moment.locale('fa')).fromNow()}  
+                </>
               </h1>    
         </div>
       </div>

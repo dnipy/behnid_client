@@ -4,7 +4,7 @@ import { ChatDetailesModels } from "../../../../types/chat-datailes"
 import { BACK_END } from "../../../../clients/localStorage"
 import { useState } from "react"
 import { MdPictureAsPdf } from "react-icons/md"
-import moment from "moment"
+import moment from "moment-jalaali"
 
 
 export const SecondUserPdfMessageComponent = ( props : { date : Date, id: number , text : string , does_seen?:boolean , replyedTO? : number , src : string ,  models : ChatDetailesModels , setModel  :React.Dispatch<React.SetStateAction<ChatDetailesModels>> ,liked : boolean ,LikeMessage: (message_id: number) => void    })=>{
@@ -63,11 +63,14 @@ export const SecondUserPdfMessageComponent = ( props : { date : Date, id: number
                               </div>
                               
                             </div>
-                            <div dir="ltr" className={`${props.text ? ' w-[70%] ' : ' w-[50%]'} flex justify-end px-1 items-center`}>
-                                  <h1>
-                                    {moment(props.date).locale(moment.locale('fa')).fromNow()}  
-                                  </h1>    
-                            </div>
+                            <div dir="rtl" className={`${props.text ? 'w-[70%]' : 'w-auto'} float-left  flex justify-start px-1 items-center`}>
+                                <h1>
+                                  <>
+                                  {moment.loadPersian({usePersianDigits : true})}
+                                  {moment(props.date).locale(moment.locale('fa')).fromNow()}  
+                                  </>
+                                </h1>    
+                          </div>
                           </div>
   
     )

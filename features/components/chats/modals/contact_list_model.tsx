@@ -129,17 +129,17 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
                             }).map(elm=>(
 
                                 <>
-                                    <div key={elm.id} dir="rtl" onClick={()=>router.push(`/chat/new-chat?id=${elm.id}`)}  className=" cursor-pointer w-[90%] hover:bg-beh-orange hover:text-white hover:fill-white text-beh-gray duration-100 mx-auto rounded-md h-14 hover:h-16 my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-5">
-                                        <div>
+                                    <div key={elm.id} dir="rtl" onClick={()=>router.push(`/chat/new-chat?id=${elm.id}`)}  className=" cursor-pointer w-[90%] hover:bg-beh-orange hover:text-white hover:fill-white text-beh-gray duration-100 mx-auto rounded-md min-h-14 h-auto hover:h-16 my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-y-5 gap-x-2">
+                                        <div className="max-w-[100px]">
                                             <h1 className="text-lg ">
                                             {elm.profile?.name && elm.profile.name} &nbsp; {elm.profile?.family && elm.profile.family}
                                             </h1>
                                         </div>
-                                        <div className="flex flex-row gap-2">
+                                        <div className="flex flex-row gap-1">
                                             <h1 className="text-sm ">
                                                 {elm.phone.slice(0,4)}-{elm.phone.slice(4,7)}-{elm.phone.slice(7,11)}
                                             </h1>
-                                            <BiPhone className="w-6 h-6" />
+                                            <BiPhone className="w-5 h-5" />
                                         </div>
                                     </div>
                    

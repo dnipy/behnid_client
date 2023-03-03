@@ -3,7 +3,7 @@ import { BsCheckAll, BsHeartFill } from "react-icons/bs"
 import { ChatDetailesModels } from "../../../../types/chat-datailes"
 import { BACK_END } from "../../../../clients/localStorage"
 import { useState } from "react"
-import moment from "moment"
+import moment from "moment-jalaali"
 
 
 export const UserRemmitanceMessageComponent = ( props : { date : Date, id: number , text : string , does_seen?:boolean , replyedTO? : number , src : string ,  models : ChatDetailesModels , setModel  :React.Dispatch<React.SetStateAction<ChatDetailesModels>> ,liked : boolean ,LikeMessage: (message_id: number) => void    })=>{
@@ -25,7 +25,7 @@ export const UserRemmitanceMessageComponent = ( props : { date : Date, id: numbe
                               <div className='basis-full px-2  flex-row gap-2 md:px-5  h-full flex w-full flex-wrap text-right justify-center items-center'>
                                 
                                 <div className={`  h-auto md:w-[130px] md:h-auto flex justify-center items-center' mt-5  `}>
-                                    <img onClick={()=>props.setModel({...props.models , fullPic : true , fullPicSrc : props.src })} className='w-[290px] cursor-pointer h-auto rounded-md sm:rounded-none md:w-[120px] md:h-[120px]' src={BACK_END+props.src}/>
+                                    <img alt={props.text ? props.text : 'تصویر ارسال شده'} onClick={()=>props.setModel({...props.models , fullPic : true , fullPicSrc : props.src })} className='w-[290px] cursor-pointer h-auto rounded-md sm:rounded-none md:w-[120px] md:h-[120px]' src={BACK_END+props.src}/>
                                 </div>
                                 
                                 <div className='max-w-[90%] md:max-w-[70%] w-full h-auto'>
@@ -58,11 +58,15 @@ export const UserRemmitanceMessageComponent = ( props : { date : Date, id: numbe
                               
                             </div>
 
-                            <div dir="ltr" className={`${props.text ? 'sm:w-[70%] w-[70%]' : 'w-[300px] md:w-[150px]' } flex justify-start px-1 items-center`}>
-                                <h1>
-                                  {moment(props.date).locale(moment.locale('fa')).fromNow()}  
-                                </h1>    
+                            <div dir="rtl" className='w-[70%]   flex justify-end px-1 items-center'>
+                              <h1>
+                                <>
+                                {moment.loadPersian({usePersianDigits : true})}
+                                { moment(props.date).locale(moment.locale('fa')).fromNow()}  
+                                </>
+                              </h1>    
                             </div>
+
                           </div>
   
     )

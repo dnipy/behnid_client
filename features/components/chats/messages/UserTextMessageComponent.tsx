@@ -2,7 +2,7 @@ import { useState } from "react"
 import { BiCheck } from "react-icons/bi"
 import { BsCheckAll, BsHeartFill } from "react-icons/bs"
 import { ChatDetailesFields, ChatDetailesModels } from "../../../../types/chat-datailes"
-import moment from 'moment'
+import moment from 'moment-jalaali'
 
 export const UserMessageComponent = ( props : { date :Date ,id : number , models : ChatDetailesModels , setModel  :React.Dispatch<React.SetStateAction<ChatDetailesModels>> ,fields: ChatDetailesFields , setFields : React.Dispatch<React.SetStateAction<ChatDetailesFields>>, text : string , does_seen?:boolean , replyedTO? : number , liked : boolean  })=>{
   const [liked , setliked] = useState(props.liked)
@@ -35,9 +35,12 @@ export const UserMessageComponent = ( props : { date :Date ,id : number , models
               
           </div>
         </div>
-          <div dir="ltr" className='w-[70%]  flex justify-start px-1 items-center'>
+          <div dir="rtl" className='w-[70%]   flex justify-end px-1 items-center'>
             <h1>
-              {moment(props.date).locale(moment.locale('fa')).fromNow()}  
+              <>
+              {moment.loadPersian({usePersianDigits : true})}
+              { moment(props.date).locale(moment.locale('fa')).fromNow()}  
+              </>
             </h1>    
           </div>
       </div>
