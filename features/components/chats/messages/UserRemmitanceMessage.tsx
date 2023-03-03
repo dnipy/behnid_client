@@ -12,7 +12,7 @@ export const UserRemmitanceMessageComponent = ( props : { date : Date, id: numbe
   return (
                           <div className="w-full  my-3 ">
                             
-                            <div className={` ${props.text ? 'sm:w-[70%] w-[70%]' : 'w-[300px] md:w-[150px]' }  rounded-md sm:rounded-none  min-h-[70px]  bg-beh-gray `}>
+                            <div className={` ${props.text ? 'sm:w-[70%] w-[70%]' : 'w-[200px] md:w-[150px]' }  rounded-md sm:rounded-none  min-h-[70px]  bg-beh-gray `}>
                               
                             {liked &&
                                   
@@ -58,7 +58,7 @@ export const UserRemmitanceMessageComponent = ( props : { date : Date, id: numbe
                               
                             </div>
 
-                            <div dir="rtl" className='w-[70%]   flex justify-end px-1 items-center'>
+                            <div dir="rtl" className={` ${props.text ? 'sm:w-[70%] w-[70%]' : 'w-[200px] md:w-[150px]' }  flex justify-end px-1 items-center`}>
                               <h1>
                                 <>
                                 {moment.loadPersian({usePersianDigits : true})}

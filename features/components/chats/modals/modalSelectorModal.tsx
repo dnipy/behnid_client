@@ -94,7 +94,7 @@ export const ModelSelector = (props : { shouldBeOpened : boolean , sendHandle : 
                         <div className="w-[330px] h-[500px] flex flex-col items-center justify-center bg-beh-gray-dark rounded-3xl ">
                             
                             <div className="relative">
-                                <div onClick={onModelCloseImage} className="absolute w-8 h-8 bg-beh-orange shadow-xl cursor-pointer rounded-full -top-[60px]  -right-[152px] flex justify-center items-center ">
+                                <div onClick={onModelCloseImage} className="absolute w-8 h-8 bg-beh-orange shadow-xl cursor-pointer rounded-full -top-[10px]  -right-[152px] flex justify-center items-center ">
                                     <MdClose className="w-6 h-6 fill-white" />
                                 </div>
                             </div>
@@ -170,7 +170,7 @@ export const ModelSelector = (props : { shouldBeOpened : boolean , sendHandle : 
                         <div className="w-[330px] h-[300px] flex flex-col items-center justify-center bg-beh-gray-dark rounded-3xl ">
                             
                             <div className="relative">
-                                <div onClick={onModelClosePdf} className="absolute w-8 h-8 bg-beh-orange shadow-xl cursor-pointer rounded-full -top-[75px]  -right-[152px] flex justify-center items-center ">
+                                <div onClick={onModelClosePdf} className="absolute w-8 h-8 bg-beh-orange shadow-xl cursor-pointer rounded-full -top-[20px]  -right-[152px] flex justify-center items-center ">
                                     <MdClose className="w-6 h-6 fill-white" />
                                 </div>
                             </div>

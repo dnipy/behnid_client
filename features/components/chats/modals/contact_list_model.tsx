@@ -106,7 +106,7 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
                             <label className="relative block w-10/12">
                                 <input value={fields.search} onChange={(e)=>{
                                     setFields({...fields , search : e.target.value})
-                                }} type="number" className='h-[60px] w-full bg-beh-gray-light rounded-sm px-10 placeholder:text-beh-gray-dark placeholder:text-lg ' placeholder='جست و جو در مخاطب ها' dir='rtl'/>
+                                }} type="number" className='h-[60px] w-full bg-beh-gray-light rounded-sm px-10 placeholder:text-beh-gray-dark placeholder:text-lg ' placeholder='جست و جو با شماره' dir='rtl'/>
                                 <span className="absolute inset-y-0 right-3 flex items-center pl-3" >
                                     <svg className="h-5 w-5 fill-beh-gray-dark" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30"
                                         height="30" viewBox="0 0 30 30">
@@ -129,8 +129,8 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
                             }).map(elm=>(
 
                                 <>
-                                    <div key={elm.id} dir="rtl" onClick={()=>router.push(`/chat/new-chat?id=${elm.id}`)}  className=" cursor-pointer w-[90%] hover:bg-beh-orange hover:text-white hover:fill-white text-beh-gray duration-100 mx-auto rounded-md min-h-14 h-auto hover:h-16 my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-y-5 gap-x-2">
-                                        <div className="max-w-[100px]">
+                                    <div key={elm.id} dir="rtl" onClick={()=>router.push(`/chat/new-chat?id=${elm.id}`)}  className=" cursor-pointer w-[90%] hover:bg-beh-orange hover:text-white hover:fill-white text-beh-gray duration-100 mx-auto rounded-md  h-auto min-h-[4rem] my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-y-5 gap-x-2">
+                                        <div className="max-w-[100px] lg:max-w-[150px]">
                                             <h1 className="text-lg ">
                                             {elm.profile?.name && elm.profile.name} &nbsp; {elm.profile?.family && elm.profile.family}
                                             </h1>

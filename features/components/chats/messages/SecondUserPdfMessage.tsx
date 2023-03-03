@@ -16,7 +16,7 @@ export const SecondUserPdfMessageComponent = ( props : { date : Date, id: number
                             <div onDoubleClick={()=>{
                                   props.LikeMessage(props.id)
                                   setliked(!liked)
-                                }} className={` ${props.src ? 'sm:w-[150px] w-[70%]' : 'w-[300px] md:w-[150px]' } rounded-md sm:rounded-none  min-h-[70px]  float-left bg-beh-green-light `}>
+                                }} className={` ${props.src ? 'sm:w-[150px] w-[70%]' : 'w-[200px] md:w-[150px]' } rounded-md sm:rounded-none  min-h-[70px]  float-left bg-beh-green-light `}>
                               
                             {liked &&
                                   
@@ -63,7 +63,7 @@ export const SecondUserPdfMessageComponent = ( props : { date : Date, id: number
                               </div>
                               
                             </div>
-                            <div dir="rtl" className={`${props.text ? 'w-[70%]' : 'w-auto'} float-left  flex justify-start px-1 items-center`}>
+                            <div dir="rtl" className={` ${props.src ? 'sm:w-[150px] w-[70%]' : 'w-[200px] md:w-[150px]' }  float-left  flex justify-start px-1 items-center`}>
                                 <h1>
                                   <>
                                   {moment.loadPersian({usePersianDigits : true})}

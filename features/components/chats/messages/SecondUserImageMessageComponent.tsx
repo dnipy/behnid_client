@@ -43,7 +43,7 @@ export const SecondUserImageMessageComponent = (props : { date :Date , id : numb
           
         </div>
 
-        <div dir="rtl" className={`${props.text ? 'w-[70%]' : 'w-auto'} float-left  flex justify-start px-1 items-center`}>
+        <div dir="rtl" className={`$ ${props.text ? 'sm:w-[70%] w-[70%]' : 'md:w-[50%] w-[70%] h-auto' } float-left  flex justify-start px-1 items-center`}>
               <h1>
                 <>
                 {moment.loadPersian({usePersianDigits : true})}

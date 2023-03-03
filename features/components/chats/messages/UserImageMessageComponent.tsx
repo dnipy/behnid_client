@@ -42,7 +42,7 @@ export const UserImageMessageComponent = ( props : { date : Date,  fields: ChatD
                               
                             </div>
 
-                            <div dir="rtl" className='w-[70%]   flex justify-end px-1 items-center'>
+                            <div dir="rtl" className={`${props.text ? ' w-[70%] ' : ' w-[50%]'}   flex justify-end px-1 items-center`} >
                               <h1>
                                 <>
                                 {moment.loadPersian({usePersianDigits : true})}

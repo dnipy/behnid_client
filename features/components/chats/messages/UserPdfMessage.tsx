@@ -66,7 +66,7 @@ export const UserPdfMessageComponent = ( props : { date : Date , isRemmitance : 
                               </div>
 
                             </div>
-                            <div dir="rtl" className='w-[70%]   flex justify-end px-1 items-center'>
+                            <div dir="rtl" className={` ${props.src ? 'sm:w-[150px] w-[70%]' : 'w-[200px] md:w-[150px]' }   flex justify-end px-1 items-center`} >
                               <h1>
                                 <>
                                 {moment.loadPersian({usePersianDigits : true})}
