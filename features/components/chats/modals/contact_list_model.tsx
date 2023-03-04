@@ -132,7 +132,7 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
                                     <div key={elm.id} dir="rtl" onClick={()=>router.push(`/chat/new-chat?id=${elm.id}`)}  className=" cursor-pointer w-[90%] hover:bg-beh-orange hover:text-white hover:fill-white text-beh-gray duration-100 mx-auto rounded-md  h-auto min-h-[4rem] my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-y-5 gap-x-2">
                                         <div className="max-w-[100px] lg:max-w-[150px]">
                                             <h1 className="text-lg ">
-                                            {elm.profile?.name && elm.profile.name} &nbsp; {elm.profile?.family && elm.profile.family}
+                                            {elm.profile?.name ? elm.profile.name : 'کاربر'} &nbsp; {elm.profile?.family ? elm.profile.family : 'بدون نام'}
                                             </h1>
                                         </div>
                                         <div className="flex flex-row gap-1">

@@ -38,8 +38,8 @@ export const UserMessageComponent = ( props : { date :Date ,id : number , models
           <div dir="rtl" className='w-[70%]   flex justify-end px-1 items-center'>
             <h1>
               <>
-              {moment.loadPersian({usePersianDigits : true})}
-              { moment(props.date).locale(moment.locale('fa')).fromNow()}  
+              {moment?.loadPersian({usePersianDigits : true})}
+              { moment(props.date)?.locale(moment?.locale('fa'))?.fromNow()}  
               </>
             </h1>    
           </div>

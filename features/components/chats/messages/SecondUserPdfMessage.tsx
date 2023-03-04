@@ -66,8 +66,8 @@ export const SecondUserPdfMessageComponent = ( props : { date : Date, id: number
                             <div dir="rtl" className={` ${props.src ? 'sm:w-[150px] w-[70%]' : 'w-[200px] md:w-[150px]' }  float-left  flex justify-start px-1 items-center`}>
                                 <h1>
                                   <>
-                                  {moment.loadPersian({usePersianDigits : true})}
-                                  {moment(props.date).locale(moment.locale('fa')).fromNow()}  
+                                  {moment?.loadPersian({usePersianDigits : true})}
+                                  {moment(props.date)?.locale(moment?.locale('fa'))?.fromNow()}  
                                   </>
                                 </h1>    
                           </div>

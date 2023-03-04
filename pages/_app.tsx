@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 import {store} from '../lib/store'
 import { AuthContext, authContextDefaults } from '../contexts/Auth'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { socket } from '../clients/io'
 import {  AuthorizedApiRequest } from '../clients/axios'
 import Script from 'next/script'
@@ -89,22 +89,22 @@ function MyApp({ Component, pageProps }: AppProps) {
         }, [isConnected])
         
 
-        useEffect(() => {
-          if("serviceWorker" in navigator) {
-            console.log('exists')
+        // useLayoutEffect(() => {
+        //   if("serviceWorker" in navigator) {
+        //     console.log('exists')
 
-            console.log('load event')
-            navigator.serviceWorker.register("/workers/push-notif.js").then(
-                function (registration) {
-                  console.log("Service Worker registration successful with scope: ", registration.scope);
-                },
-                function (err) {
-                  console.log("Service Worker registration failed: ", err);
-                }
-              );
+        //     console.log('load event')
+        //     navigator.serviceWorker.register("/workers/push-notif.js").then(
+        //         function (registration) {
+        //           console.log("Service Worker registration successful with scope: ", registration.scope);
+        //         },
+        //         function (err) {
+        //           console.log("Service Worker registration failed: ", err);
+        //         }
+        //       );
        
-          }
-        }, [])
+        //   }
+        // }, [])
 
   return <>
   <Head>

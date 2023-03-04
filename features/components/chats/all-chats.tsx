@@ -163,7 +163,7 @@ function AllChats(props : {shouldBeOpened : boolean}) {
             <div className="w-full flex flex-col items-center h-[55vh] mt-2 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray">
                 { !loading && response
                 ?
-                      response.filter((elm : responeType)=>{
+                      response?.filter((elm : responeType)=>{
                         const {  userOne , userTwo , userTwoId } = elm
                         const user_id = Number(localStorage.getItem('user-id'))
                         let reciver = userTwo
@@ -172,9 +172,9 @@ function AllChats(props : {shouldBeOpened : boolean}) {
                           reciver = userOne
                         } 
 
-                        return reciver.profile.name?.indexOf(chatListInput!) !== -1 
+                        return reciver?.profile?.name?.indexOf(chatListInput!) !== -1 
 
-                    }).map((elm : responeType)=>{
+                    })?.map((elm : responeType)=>{
                         const { id , userOne , userTwo , userOneId , userTwoId , message } = elm
                         const user_id = Number(localStorage.getItem('user-id'))
                         let reciver = userTwo
@@ -183,7 +183,7 @@ function AllChats(props : {shouldBeOpened : boolean}) {
                           reciver = userOne
                         }
                       
-                        return <MessageListComponent myId={user_id} lastMessageSender={message.at(0)?.senderId} lastdate={message.at(0)?.date ? String(message.at(0)?.date) : null } key={id} username={`${reciver.profile.name!} ${reciver.profile.family!}`} messageList={message} chatid={id} useravatar={reciver.avatar ? `${BACK_END}${reciver.avatar}` : NoPeron.src}  />
+                        return <MessageListComponent myId={user_id} lastMessageSender={message?.at(0)?.senderId} lastdate={message?.at(0)?.date ? String(message?.at(0)?.date) : null } key={id} username={`${ reciver?.profile?.name ?  reciver?.profile?.name : 'کاربر'} ${reciver?.profile?.family ? reciver?.profile?.family : 'بدون نام'}`} messageList={message} chatid={id} useravatar={reciver.avatar ? `${BACK_END}${reciver.avatar}` : NoPeron.src}  />
                     }) 
                   : 
                     <AllChatNoMessageFound />

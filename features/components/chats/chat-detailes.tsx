@@ -613,7 +613,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                                       {/* CONTACT_NAME */}
                                       <h1 >
                                         {
-                                          response?.userTwoId != myId ? `${response?.userTwo?.profile?.name} ${response?.userTwo?.profile?.family}` :  `${response?.userOne?.profile?.name} ${response?.userOne?.profile?.family}`
+                                          response?.userTwoId != myId ? `${response?.userTwo?.profile?.name ? response?.userTwo?.profile?.name : 'کاربر'} ${response?.userTwo?.profile?.family ? response?.userTwo?.profile?.family : 'بدون نام'}` :  `${response?.userOne?.profile?.name ? response?.userOne?.profile?.name : 'کاربر'} ${response?.userOne?.profile?.family ? response?.userOne?.profile?.family : 'بدون نام'}`
                                         }
                                         <br />
                                         <span className='text-sm'>  

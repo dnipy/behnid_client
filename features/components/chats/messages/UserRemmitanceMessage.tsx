@@ -61,8 +61,8 @@ export const UserRemmitanceMessageComponent = ( props : { date : Date, id: numbe
                             <div dir="rtl" className={` ${props.text ? 'sm:w-[70%] w-[70%]' : 'w-[200px] md:w-[150px]' }  flex justify-end px-1 items-center`}>
                               <h1>
                                 <>
-                                {moment.loadPersian({usePersianDigits : true})}
-                                { moment(props.date).locale(moment.locale('fa')).fromNow()}  
+                                {moment?.loadPersian({usePersianDigits : true})}
+                                { moment(props.date)?.locale(moment?.locale('fa'))?.fromNow()}  
                                 </>
                               </h1>    
                             </div>

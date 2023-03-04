@@ -29,8 +29,8 @@ export const SecondUserMessageComponent = (props : { date : Date, text : string 
                                 <div dir="rtl" className={`${props.text ? 'w-[70%]' : 'w-auto'} float-left  flex justify-start px-1 items-center`}>
                                     <h1>
                                       <>
-                                      {moment.loadPersian({usePersianDigits : true})}
-                                      {moment(props.date).locale(moment.locale('fa')).fromNow()}  
+                                      {moment?.loadPersian({usePersianDigits : true})}
+                                      {moment(props.date)?.locale(moment?.locale('fa'))?.fromNow()}  
                                       </>
                                     </h1>    
                               </div>

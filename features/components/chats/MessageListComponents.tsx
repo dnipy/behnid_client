@@ -29,14 +29,14 @@ export const MessageListComponent = (props : {myId : number ,lastMessageSender :
   
   
   
-          <div className="flex justify-end items-center text-right w-full h-full px-2 ">
+          <div className="flex justify-start items-center text-right w-full h-full px-2 ">
             <div>
-              <h1 className="font-bold text-lg px-1">
+              <h1 className="font-bold text-right  text-lg px-1">
                 {props.username}
               </h1>
   
               <h2 className="px-1">
-                {props.messageList.at(0)?.text  ? `${props.messageList.at(0)?.text?.slice(0,14)}...`: props.messageList.length > 0 ? 'برای مشاهده فایل کلیک کنید' : 'پیامی موجود نیست'}
+                {props.messageList.at(0)?.text  ? `${props.messageList.at(0)?.text?.slice(0,14)}...`: props.messageList.length > 0 ? ' مشاهده فایل' : 'پیامی موجود نیست'}
               </h2>
 
             </div>
