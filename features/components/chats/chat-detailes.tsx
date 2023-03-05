@@ -75,6 +75,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
     else {
       setloading(true)
       console.log(id)
+      setTimeout(() => {
         AuthorizedApiRequest
         .get(`/chats/chat-messages?chatID=${id}`)
         .then((res) => {
@@ -105,12 +106,14 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
           }
         })
         .catch((err) => {
-          setError(err);
+          setError('خطا');
           console.log({err})
         })
         .finally(() => {
           setloading(false)
         });
+      }, 100);
+       
 
     }
 
