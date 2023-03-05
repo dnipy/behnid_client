@@ -22,6 +22,7 @@ import { SocketContext } from '../../../contexts/socket'
 import { UserPdfMessageComponent } from './messages/UserPdfMessage'
 import { SecondUserPdfMessageComponent } from './messages/SecondUserPdfMessage'
 import Compressor from 'compressorjs'
+import { message } from '../../../types/async-prisma-types'
 
 
 
@@ -40,7 +41,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
   const [response, setResponse] = useState<ChatDetailes | null>(null);
 
   const [myId,setmyId] = useState<number | null >(null)
-  const [userTwoID,setUserTwoID] = useState<number | null>(null)
+  const [ userTwoID,setUserTwoID] = useState<number | null>(null)
   const [loadDone,setLoadDone] = useState(false)
   // const online = useContext(SocketContext)
   const [online ,setOnline] = useState(false)
@@ -110,19 +111,19 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
         .finally(() => {
           setloading(false)
         });
-      
+
     }
 
   },[id])
 
-
+  // seen messages
   useLayoutEffect(()=>{
     // 
     if (!id) return
-    if (!setLoadDone) return
+    if (!loadDone) return
     else {
       setloading(true)
-      console.log(id)
+      // console.log(id)
         AuthorizedApiRequest
         .get(`/chats/seen-message?chatID=${id}`)
         .then((res) => {
@@ -142,11 +143,12 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                   elm.hasSeen == true
                 }
                 return elm
-              })
+              }) 
 
             setResponse({...response , message  : newMessages})
+            // socket.emit('seen-message',{recieverId : userTwoID , chatID : Number(id) , senderID : myId})
             // console.log(newMessages)
-          }
+            }
           else {
             // console.log('not seen this time')
             setTimeout(() => {
@@ -160,7 +162,8 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                 })
   
               setResponse({...response , message  : newMessages})
-              console.log(newMessages)
+              // socket.emit('seen-message',{recieverId : userTwoID , chatID : id , senderId : myId})
+              // console.log(newMessages)
               }
               // console.log('done at second time')  
             }, 1000);
@@ -177,29 +180,54 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
         });
       
     }
-  },[id, setLoadDone])
+  },[id, loadDone])
 
 
 
+  //  SOCKET EFFECT
+  useEffect(() => {
+    if (!myId) return
 
-  // useEffect(() => {
-  //   if (!myId) return
+    else {
+      socket.on('connect', () => { 
+        setOnline(true)
+      })
+      socket.on('disconnect',()=>{
+        setOnline(false)
+      })
+      socket.on('resive-message',(data)=>{
+        // console.log('new-recived-msg  == '+ data)
+        if (data && response?.message) {
+          let NewMessages = []
+          response?.message?.forEach((elm)=>{
+            NewMessages.push(elm)
+          })
+          NewMessages.push(data)
+          // NewMessages[NewMessages.length + 1]= data
+          // console.log(NewMessages)
+          NewMessages.forEach(elm=>{
+            // console.log(elm)
+            if (elm.recieverId == myId) {
+              elm.hasSeen == true
+              // console.log(elm)
+            }
+          }) 
 
-  //   else {
-  //     socket.on('connect', () => { 
-  //       setOnline(true)
-  //     })
-  //     socket.on('disconnect',()=>{
-  //       setOnline(false)
-  //     })
+          setResponse({...response! , message : NewMessages})        
+        }
+        else if (data && !response?.message ){
+          setResponse({...response! , message : [data]})
+        }
+      })
 
-  //     return () => {
-  //       socket.off('connect');
-  //       socket.off('disconnect');
-  //     };
-  //   }
+      return () => {
+        socket.off('connect');
+        socket.off('disconnect');
+        socket.off('resive-message')
+      };
+    }
     
-  // }, [myId])
+  }, [myId,socket,response?.message])
   
 
 // ? FUNCTIONS
@@ -216,8 +244,18 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
     AuthorizedApiRequest
       .post('/chats/new-message',fbody)
         .then((resp)=>{
-          console.log(resp.data)
-          setResponse({...response! , message : [...response?.message! , resp.data]})
+          if (!resp.data?.err) {
+            console.log(resp.data)
+            setResponse({...response! , message : [...response?.message! , resp.data]})
+            const socketData = {
+              recieverId : userTwoID,
+              message  : resp.data
+            }
+            socket.emit('send-message',socketData)
+          }
+          else {
+            setError(resp.data?.err)
+          }
         })
         .catch((err)=>{
           console.log(err)
@@ -419,7 +457,17 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
           .post('/chats/new-img-message',fbody)
             .then((resp)=>{
               // console.log(resp)
-              setResponse({...response! , message : [...response?.message! , resp.data]})
+              if (!resp.data?.err) {
+                setResponse({...response! , message : [...response?.message! , resp.data]})
+                const socketData = {
+                  recieverId : userTwoID,
+                  message  : resp.data
+                }
+                socket.emit('send-message',socketData)
+              }
+              else {
+                setError(resp.data?.err)
+              }
             })
             .catch((err)=>{
               console.log(err)
@@ -460,7 +508,18 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
       AuthorizedApiRequestImage
       .post('/chats/new-pdf-message',fbody)
         .then((resp)=>{
-          setResponse({...response! , message : [...response?.message! , resp.data]})
+          // setResponse({...response! , message : [...response?.message! , resp.data]})
+          if (!resp.data?.err) {
+            setResponse({...response! , message : [...response?.message! , resp.data]})
+            const socketData = {
+              recieverId : userTwoID,
+              message  : resp.data
+            }
+            socket.emit('send-message',socketData)
+          }
+          else {
+            setError(resp.data?.err)
+          }
         })
         .catch((err)=>{
           console.log(err)
@@ -500,7 +559,18 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
       AuthorizedApiRequestImage
       .post('/chats/new-remittance-message',fbody)
         .then((resp)=>{
-          setResponse({...response! , message : [...response?.message! , resp.data]})
+          // setResponse({...response! , message : [...response?.message! , resp.data]})
+          if (!resp.data?.err) {
+            setResponse({...response! , message : [...response?.message! , resp.data]})
+            const socketData = {
+              recieverId : userTwoID,
+              message  : resp.data
+            }
+            socket.emit('send-message',socketData)
+          }
+          else {
+            setError(resp.data?.err)
+          }
         })
         .catch((err)=>{
           console.log(err)

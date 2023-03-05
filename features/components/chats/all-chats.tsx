@@ -11,6 +11,7 @@ import { ContactPickerModel } from './modals/contact_list_model';
 import { MdNotifications } from 'react-icons/md';
 import Remmitances from './remmitances';
 import { AuthContext } from '../../../contexts/Auth';
+import { socket } from '../../../clients/io';
 
 type responeType = Chats & {
   message: message[];
@@ -24,7 +25,8 @@ type responeType = Chats & {
 
 function AllChats(props : {shouldBeOpened : boolean}) {
 
-    const [response, setResponse] = useState<Array<any>>([]);
+    const [response, setResponse] = useState<responeType[]>([]); 
+    const [myId,setmyId] = useState<number | null >(null)
     const [loading, setloading] = useState(true);
     const [error, setError] = useState('');
     const [userPickerModal,setUserPickerModal] = useState(false)
@@ -50,7 +52,7 @@ function AllChats(props : {shouldBeOpened : boolean}) {
           setError('ارور')
         }
         else {
-          setResponse(res.data as Array<any>);
+          setResponse(res.data as responeType[]);
           console.log(res.data)
         }
       })
@@ -65,6 +67,52 @@ function AllChats(props : {shouldBeOpened : boolean}) {
     },[])
 
     
+    // # SOCKETS //
+    // useEffect(() => {
+    //   if (!socket) return
+  
+    //   else {
+    //     // console.log('id here')
+    //     // socket.on('connect', () => { 
+    //     //   setOnline(true)
+    //     // })
+    //     // socket.on('disconnect',()=>{
+    //     //   setOnline(false)
+    //     // })
+    //     socket.on('update-seen-state',(data)=>{
+    //       const { chatID } = data
+    //       console.log('update-seen-state  == '+ data)
+    //       let newResp = response?.map(elm=>{
+    //         // elm?.message?.map(elm=>{
+    //         //   if (elm.recieverId == myId) {
+    //         //     elm.hasSeen == true
+    //         //   }
+    //         //   return elm
+    //         // })
+    //         const myid = window.localStorage.getItem('user-id')
+    //         if (!myid) router.push('/')
+
+    //         if (elm.id == chatID) {
+    //           elm.message.forEach((msg)=>{
+    //             if (msg.recieverId == Number(myid)) {
+    //               msg.hasSeen == true
+    //             }
+    //             return msg
+    //           })
+    //         }
+    //         return elm
+    //       })
+    //       setResponse(newResp)
+    //     })
+  
+    //     return () => {
+    //       // socket.off('connect');
+    //       // socket.off('disconnect');
+    //       socket.off('update-seen-state')
+    //     };
+    //   }
+      
+    // }, [socket])
 
   return (
     <>
