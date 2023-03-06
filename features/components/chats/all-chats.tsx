@@ -12,6 +12,8 @@ import { MdNotifications } from 'react-icons/md';
 import Remmitances from './remmitances';
 import { AuthContext } from '../../../contexts/Auth';
 import { socket } from '../../../clients/io';
+import { BsPersonFill } from 'react-icons/bs';
+import { AiFillProfile } from 'react-icons/ai';
 
 type responeType = Chats & {
   message: message[];
@@ -136,7 +138,8 @@ function AllChats(props : {shouldBeOpened : boolean}) {
             <div  className='w-4/12 flex justify-center items-center'>
               <div onClick={()=>setUserPickerModal(true)} className='w-full cursor-pointer h-[40px] shadow-xl justify-center bg-beh-gray flex gap-1 items-center'>
                   <div>
-                    <BiUser className='w-5 h-5 fill-[#FFC499]' />
+                    {/* <BiUser className='w-5 h-5 fill-[#FFC499]' /> */}
+                    <AiFillProfile className='w-5 h-5 fill-[#FFC499]' />
                   </div>
 
                   <div >
@@ -158,7 +161,7 @@ function AllChats(props : {shouldBeOpened : boolean}) {
             </div>
 
 
-            <div className='w-3/12 flex justify-center items-center'>
+            {/* <div className='w-3/12 flex justify-center items-center'>
               <div className='w-full h-[40px] justify-center cursor-not-allowed shadow-xl bg-beh-gray flex gap-1 items-center'>
                   <div>
                     <MdNotifications className='w-5 h-5 fill-beh-yellow' />
@@ -166,6 +169,20 @@ function AllChats(props : {shouldBeOpened : boolean}) {
 
                   <div >
                     <h1 className='text-beh-yellow'>اعلان</h1>
+                  </div>
+              </div>
+            </div> */}
+
+
+
+            <div onClick={()=>router.push('/profile')} className='w-3/12 flex justify-center items-center'>
+              <div className='w-full h-[40px] justify-center cursor-pointer shadow-xl bg-beh-gray flex gap-1 items-center'>
+                  <div>
+                    <BsPersonFill className='w-5 h-5 fill-beh-yellow' />
+                  </div>
+
+                  <div >
+                    <h1 className='text-beh-yellow'>پروفایل</h1>
                   </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, {  useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
-import { BiImage, BiPlus, BiSend, BiUser } from 'react-icons/bi'
+import { BiPlus, BiUser } from 'react-icons/bi'
 import { AuthorizedApiRequest, AuthorizedApiRequestImage } from '../../../clients/axios'
 import { BACK_END } from '../../../clients/localStorage'
 import NoPerson from "../../../assets/NoPerson.png"
@@ -18,7 +18,6 @@ import { SecondUserRemmitanceMessageComponent } from './messages/SecondUserRemmi
 import { MdClose } from 'react-icons/md'
 import { FullPic } from './modals/FullPicModal'
 import { socket } from '../../../clients/io'
-import { SocketContext } from '../../../contexts/socket'
 import { UserPdfMessageComponent } from './messages/UserPdfMessage'
 import { SecondUserPdfMessageComponent } from './messages/SecondUserPdfMessage'
 import Compressor from 'compressorjs'
@@ -39,6 +38,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
   const [loading,setloading] = useState(false)
   const [error,setError] = useState('')
   const [response, setResponse] = useState<ChatDetailes | null>(null);
+  const [olderMessages,setOlderMessages] = useState<ChatDetailes | null>(null);
 
   const [myId,setmyId] = useState<number | null >(null)
   const [ userTwoID,setUserTwoID] = useState<number | null>(null)
@@ -47,8 +47,16 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
   const [online ,setOnline] = useState(false)
 
   const divref = useRef<any>()
+  const beforeOlderRef = useRef<any>()
+
   const router = useRouter()
   const {id} = router.query
+
+  const messageForFetch = 10;
+  const [ fetchTime , setFetchTime ] = useState(1)
+  const [olderLoading,setOlderLoading] = useState(false)
+  const [endOfMessages,setEndOfMessages] = useState(false)
+
 
   const scrollToBottom = () => {
     divref.current?.scrollIntoView({ behavior: "smooth" })
@@ -77,7 +85,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
       console.log(id)
       setTimeout(() => {
         AuthorizedApiRequest
-        .get(`/chats/chat-messages?chatID=${id}`)
+        .get(`/chats/chat-messages?chatID=${id}&start=${1}&length=${messageForFetch}`)
         .then((res) => {
           if (res.data?.err) {
             setError(res.data.err)
@@ -87,8 +95,9 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
             router.push('/chat')
           }
           else {  
-          
-            setResponse(res.data as ChatDetailes);
+            const ReverseMessages = res.data as ChatDetailes
+            const NewMessages = ReverseMessages?.message?.reverse()
+            setResponse({...ReverseMessages , message : NewMessages});
             console.log({chatMessages : res.data})
             
             const user_id = Number(localStorage.getItem('user-id'))
@@ -118,6 +127,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
     }
 
   },[id])
+  
 
   // seen messages
   useLayoutEffect(()=>{
@@ -234,6 +244,61 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
   
 
 // ? FUNCTIONS
+  const scrollToBeforeTopRef = ()=>{
+    beforeOlderRef.current?.scrollIntoView({ behavior: "instant" })
+  }
+
+
+  const LoadMessages = async () =>{
+      setFetchTime(fetchTime + 1)
+      setOlderLoading(true)
+      console.log(id)
+      setTimeout(() => {
+        AuthorizedApiRequest
+        .get(`/chats/chat-messages?chatID=${id}&start=${fetchTime * 10 + 1}&length=${10}`)
+        .then((res) => {
+          if (res.data?.err) {
+            setError(res.data.err)
+            console.log(res.data.err)
+          }
+          if (res.data.e) {
+            router.push('/chat')
+          }
+          else {  
+            // 
+            const ReverseMessages = res.data as ChatDetailes
+            const NewMessages : message[] = []
+
+            if(ReverseMessages?.message?.length == 0) {
+              setEndOfMessages(true)
+            }
+            else {
+              ReverseMessages?.message?.reverse()?.forEach(elm=>{
+                NewMessages.push(elm)
+              })
+              olderMessages?.message?.map((elm)=>{
+                NewMessages.push(elm)
+              })
+              setOlderMessages({...ReverseMessages , message : NewMessages});
+          }
+
+          }
+        })
+        .catch((err) => {
+          setError('خطا در لود پیام ها');
+          console.log({err})
+        })
+        .finally(() => {
+          setOlderLoading(false)
+        });
+      }, 100);
+       
+
+    
+
+  }
+
+
 
   // * DONE
   const SendText = ()=>{
@@ -734,6 +799,80 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                     {/* MESSAGES_PART */}
                     <div  className="h-[66vh] md:h-[56vh]  px-10 w-full min-w-[340px]   overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray    flex flex-row gap-4">
                       <div className='w-full    flex-col flex gap-1 '>
+                        <div  className='text-center  mb-2'>
+                          {olderLoading ? 
+                            <h1>در حال بارگیری</h1>  
+                            :
+                              endOfMessages 
+                              ?
+                              <h1>پیامی موجود نیست</h1> 
+                              :
+                              <h1 onClick={LoadMessages}>
+                                پیام های قبلی
+                              </h1>
+                        }
+                         
+                        </div>
+                      {
+                        olderMessages?.message &&  olderMessages?.message?.map(elm=>{
+                              const { senderId } = elm
+                              // TEXT_I_SENT
+                              if (senderId == myId  ) {
+
+                                
+                                if (elm.pdf ) {
+                                  return (
+                                    <UserPdfMessageComponent date={elm.date} isRemmitance={elm?.messageType == 'remittance' ? true : false}  id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} does_seen={elm.hasSeen} models={models} setModel={setModels} src={elm.pdf} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                  )
+                                }
+
+                                if (elm.image && elm.messageType == 'message') {
+                                  return (
+                                    <UserImageMessageComponent date={elm.date} fields={fields} setFields={setFields} id={elm.id} liked={elm.liked} LikeMessage={LikeMessage} models={models} setModel={setModels} src={elm.image}  does_seen={elm.hasSeen} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                  )
+                                }
+                                
+                                if (elm.image && elm.messageType == 'remittance') {
+                                  return (
+                                    <UserRemmitanceMessageComponent date={elm.date} id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} does_seen={elm.hasSeen} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                  )
+                                }
+
+
+                                else {
+                                  return(
+                                    <UserMessageComponent date={elm.date}  id={elm.id}  fields={fields} setFields={setFields} models={models} setModel={setModels}  key={elm.id} liked={elm.liked} does_seen={elm.hasSeen} text={elm.text!} />
+                                    )
+                                }
+                              }
+
+                              // TEXT_USER_SENT
+                              else  {
+                                if (elm.image && elm.messageType == 'message') {
+                                  return (
+                                    <SecondUserImageMessageComponent date={elm.date} id={elm.id}  LikeMessage={LikeMessage} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} liked={elm.liked} />
+                                  )
+                                }
+                                if (elm.image && elm.messageType == 'remittance') {
+                                  return (
+                                    <SecondUserRemmitanceMessageComponent date={elm.date} id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.image} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                  )
+                                }
+                                
+                                if (elm.pdf ) {
+                                  return (
+                                    <SecondUserPdfMessageComponent date={elm.date}  id={elm.id} LikeMessage={LikeMessage} liked={elm.liked} models={models} setModel={setModels} src={elm.pdf} text={elm.text ? elm.text : ''} replyedTO={elm.replyedTo ? elm.replyedTo : undefined} key={elm.id} />
+                                  )
+                                }
+                                return(
+                                    <SecondUserMessageComponent date={elm.date} liked={elm.liked} id={elm.id} like={LikeMessage}  key={elm.id} text={elm.text!}  /> 
+                                  )
+                              }
+
+
+                          })
+                        }
+                        <div ref={beforeOlderRef} ></div>
                         {
                           response?.message?.map(elm=>{
                               const { senderId } = elm

@@ -274,7 +274,7 @@ const Page : NextPage = ()  => {
         {city.isOpened && <CityPickerModelForProfile handleSubmit={updateCity} fields={city} setFields={setCity}   /> }
 
 
-        <main dir="rtl" className="flex justify-center bg-white  ">
+        <main dir="rtl" className="flex justify-center min-h-screen bg-white  ">
 
           <div className="w-full lg:max-w-7xl absolute z-[6] ">
               <div className="flex justify-center items-center rounded-b-[300px] md:rounded-b-[200px] w-full h-[451px] bg-beh-bg z-10 " ></div>
@@ -324,7 +324,7 @@ const Page : NextPage = ()  => {
                             setResponse({...response , profile : {  ...response?.profile , name : e.target.value}})
                             setTopChanged(true)
                           }}
-                           type='text' placeholder='نام' className=' placeholder:font-semibold placeholder:text-white border-b-4 border-beh-gray rounded-md bg-beh-orange min-w-[260px] h-[50px] flex items-center text-center'/>
+                           type='text' placeholder='نام' className=' placeholder:font-semibold placeholder:text-white border-b-4 border-beh-gray rounded-md bg-beh-orange/60 focus:bg-beh-orange min-w-[260px] h-[50px] flex items-center text-center'/>
                         </div>
             
             
@@ -333,11 +333,11 @@ const Page : NextPage = ()  => {
                               <input  value={response?.profile?.family} onChange={(e)=>{
                             setResponse({...response , profile : {  ...response?.profile , family : e.target.value}})
                             setTopChanged(true)
-                          }} type='text' placeholder='نام خانوادگی' className=' placeholder:font-semibold placeholder:text-white border-b-2 border-beh-gray rounded-md bg-beh-orange min-w-[260px] h-[50px] flex items-center text-center'/>                 
+                          }} type='text' placeholder='نام خانوادگی' className=' placeholder:font-semibold placeholder:text-white border-b-2 border-beh-gray rounded-md bg-beh-orange/60 focus:bg-beh-orange min-w-[260px] h-[50px] flex items-center text-center'/>                 
                             </div>
             
                             <div className='mx-auto'>
-                              <input  value={response?.phone}  type='text'  placeholder='شماره تماس' className=' placeholder:font-semibold placeholder:text-white border-b-2 border-beh-gray rounded-md bg-beh-gray min-w-[260px] h-[50px] flex items-center text-white text-center'/>
+                              <input  value={response?.phone}  type='text'  placeholder='شماره تماس' className=' placeholder:font-semibold placeholder:text-white border-b-2 cursor-default border-beh-gray rounded-md bg-beh-gray min-w-[260px] h-[50px] flex items-center text-white text-center'/>
                             </div>
                         </div>
             
@@ -345,7 +345,7 @@ const Page : NextPage = ()  => {
             
                         <div className='flex flex-row flex-wrap w-full mt-5 justify-between gap-x-2 gap-y-3'>
                             <div className='mx-auto w-[80%] md:w-[94%]'>
-                              <div  onClick={updateProfile} className={`placeholder:font-semibold   border-b-2 border-beh-gray rounded-md ${ topChanged && !loading && response?.profile?.name?.length > 3 && response?.profile?.family?.length > 3  ? 'cursor-pointer bg-beh-green-light text-white ' : 'text-beh-gray-dark bg-beh-gray-light'}  w-[100%] h-[50px] flex justify-center items-center text-center`}>
+                              <div  onClick={updateProfile} className={`placeholder:font-semibold    border-b-2 border-beh-gray rounded-md ${ topChanged && !loading && response?.profile?.name?.length > 3 && response?.profile?.family?.length > 3  ? 'cursor-pointer bg-beh-green-light text-white ' : 'text-beh-gray-dark bg-beh-gray-light cursor-not-allowed'}  w-[100%] h-[50px] flex justify-center items-center text-center`}>
                                 <h1>تایید</h1>
                               </div>
                             </div>
@@ -356,7 +356,7 @@ const Page : NextPage = ()  => {
                       </div>
 
                       {/* RIGHT_BOTTOM_PART */}
-                      <div className=" w-full my-5  pt-10">
+                      {/* <div className=" w-full my-5  pt-10">
                         <div className="w-full bg-[#555555]  rounded-3xl">
 
                           <div onClick={()=>router.push('/chat')} className="cursor-pointer hover:text-beh-green-light w-full h-[70px]  text-white text-lg border-b-[5px] px-3 border-b-beh-gray-dark font-bold flex items-center">
@@ -465,12 +465,12 @@ const Page : NextPage = ()  => {
                           </div>
 
                         </div>
-                      </div>
+                      </div> */}
 
                     </div>
 
                     {/* LEFT_PART */}
-                    <div className="w-full md:w-[68%] px-2 py-10 mx-auto h-80 ">
+                    {/* <div className="w-full md:w-[68%] px-2 py-10 mx-auto h-80 ">
                       <div className="w-full">
                         <h1 className="font-bold text-lg  ">
                             درباره من
@@ -553,7 +553,7 @@ const Page : NextPage = ()  => {
 
                        </div>
                       </div>
-                    </div>
+                    </div> */}
 
 
                   </div>

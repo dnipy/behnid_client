@@ -8,6 +8,8 @@ import { ApiRequest } from '../clients/axios'
 import ErrorComponent from './alerts/error'
 import { FiXCircle } from 'react-icons/fi'
 import SuccesComponent from './alerts/succes'
+import { MdCode, MdLock, MdSecurity } from 'react-icons/md'
+import { AiFillSafetyCertificate } from 'react-icons/ai'
 
 function Navbar_v2() {
   const {isUser} = useContext(AuthContext)
@@ -15,12 +17,15 @@ function Navbar_v2() {
 
   const [isLoginOpen , setIsLoginOpen] = useState(false)
   const [isRegisterOpen , setIsRegisterOpen] = useState(false)
+  const [isResetPassOpen , setIsResetPassOpen] = useState(false)
+
 
 
   return (
     <>
-    {isLoginOpen ? <LoginModal handleLogin={setIsLoginOpen}  handleRegister={setIsRegisterOpen} /> : null}
-    {isRegisterOpen ? <RegisterModal handleLogin={setIsLoginOpen}  handleRegister={setIsRegisterOpen} /> : null}
+    {isLoginOpen ? <LoginModal handleLogin={setIsLoginOpen}  handleRegister={setIsRegisterOpen} handleReset={setIsResetPassOpen} /> : null}
+    {isRegisterOpen ? <RegisterModal handleLogin={setIsLoginOpen}  handleRegister={setIsRegisterOpen}  /> : null}
+    {isResetPassOpen ? <ResetPasswordModal handleLogin={setIsLoginOpen} handleRegister={setIsRegisterOpen} handleReset={setIsResetPassOpen} /> : null}
 
     <nav dir='rtl'>
       <div className="mx-auto mb-2 max-w-7xl px-2 sm:px-6 lg:px-8 text-g shadow-md md:shadow-none">
@@ -174,7 +179,7 @@ const LogedInComponent = ()=>{
 }
 
 
-const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAction<boolean>> ,handleLogin : React.Dispatch<React.SetStateAction<boolean>>})=>{
+const LoginModal = (props : { handleReset : React.Dispatch<React.SetStateAction<boolean>> , handleRegister :  React.Dispatch<React.SetStateAction<boolean>> ,handleLogin : React.Dispatch<React.SetStateAction<boolean>>})=>{
   const [ShowPass,setShowPass] = useState(false)
   const [fields,setFields] = useState({phone : '' , pass : ''})
   const [error, setError] = useState('');
@@ -186,6 +191,14 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
 
   const sendHandle = async()=>{
     setError('')
+    if (fields.pass.length < 8) {
+      setError('پسورد نباید کمتر از 8 رقم باشد')
+      return
+    }
+    if (fields.phone.length != 11) {
+      setError('شماره تلفن باید 11 رقم باشد')
+      return
+    }
     setloading(true)
     let fData = {phone : fields.phone ,password : fields.pass}
     console.log({fData})
@@ -266,7 +279,7 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
                 </div>
               </div>
               <div className='px-4'>
-              <input value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value})} type="number" className='h-[50px] w-full rounded-lg px-8 my-2 placeholder:text-beh-gray-light placeholder:text-lg placeholder:font-semibold placeholder:text-left ' placeholder='09121210598' dir='rtl'/>               
+              <input value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value.slice(0,11)})} type="number" className={`h-[50px] w-full rounded-lg px-8 my-2 bg-white/70 focus:bg-white placeholder:text-beh-gray placeholder:text-lg placeholder:font-semibold placeholder:text-left `} placeholder='09121210598' dir='rtl'/>               
               
               <label className="relative block">
                 <input value={fields.pass} onChange={(e)=>{
@@ -276,13 +289,13 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
                   setFields({...fields,pass : value})
 
                 }
-                } type={ShowPass ? "text" : "password"}  className='h-[50px] w-full rounded-lg px-11 my-2 placeholder:text-beh-gray-light placeholder:text-lg placeholder:font-semibold placeholder:text-left  ' placeholder='رمز عبور' dir='rtl'/>
+                } type={ShowPass ? "text" : "password"}  className='h-[50px] w-full rounded-lg px-11 my-2 bg-white/70 focus:bg-white placeholder:text-right placeholder:text-beh-gray  placeholder:text-lg placeholder:font-semibold   ' placeholder='رمز عبور' dir='rtl'/>
                 <span className="absolute inset-y-0 left-1 flex items-center pl-3 cursor-pointer " onClick={()=>setShowPass(!ShowPass)} >
-                    <BiShow className={` ${ShowPass ? 'text-black' : "text-beh-gray-light"} w-6 h-6`} />
+                    <BiShow className={` ${ShowPass ? 'text-black' : "text-beh-gray"} w-6 h-6`} />
                 </span>
               </label>
 
-              <button disabled={sendActive()} onClick={sendHandle} className={`px-10 py-2 rounded-full text-lg font-bold text-white  ${loading ? 'bg-beh-gray-dark'  : 'bg-beh-orange'} mt-1`} >ورود به حساب</button>
+              <button  onClick={sendHandle} className={`px-10 py-2 rounded-full text-lg font-bold text-white  ${loading ? 'bg-beh-gray-dark'  : 'bg-beh-orange'} mt-1`} >ورود به حساب</button>
               <div className='mt-1 text-white text-md px-3   '>
                 <h1 >
 
@@ -290,7 +303,7 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
                   &nbsp;  ثبت نام نکرده ام
                   </span>
 
-                  <span className=' col-span-1 hover:cursor-pointer text-beh-orange ' onClick={()=>{
+                  <span className=' col-span-1 hover:cursor-pointer text-beh-green-light ' onClick={()=>{
                     props.handleRegister(true)
                     props.handleLogin(false)
                   }
@@ -299,6 +312,29 @@ const LoginModal = (props : { handleRegister :  React.Dispatch<React.SetStateAct
                 
                   </span>
 
+                
+                </h1>
+              </div>
+
+              <div className='mt-1 text-white text-md px-3   '>
+                <h1 >
+
+                  <span className=' col-span-1'>
+                  &nbsp; رمز عبورم را 
+                  </span>
+
+                  <span className=' col-span-1 hover:cursor-pointer text-beh-green-light ' onClick={()=>{
+                    props.handleReset(true)
+                    props.handleRegister(false)
+                    props.handleLogin(false)
+                  }
+                  }>
+                    &nbsp;  فراموش 
+                
+                  </span>
+                  <span className=' col-span-1'>
+                  &nbsp; کرده ام
+                  </span>
                 
                 </h1>
               </div>
@@ -367,13 +403,13 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
               window.location.replace('/chat')
             },1000)
         }
-        else {
-            setError('ارور در تایید کد')
+        else if (res.data.err) {
+            setError(res.data?.err)
             console.log()
         }
     })
     .catch((err) => {
-        setError('500');
+        setError('ارور در اعتبار سنجی شماره تلفن');
     })
     .finally(() => {
         setloading(false);
@@ -427,10 +463,10 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
                 </div>
               </div>
               <div className='px-4'>
-              <input disabled={CodeSent} value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value})} type="number" className='h-[50px] w-full rounded-lg px-8 my-2 placeholder:text-beh-gray-light placeholder:text-lg placeholder:font-semibold placeholder:text-left ' placeholder='09121210598' dir='rtl'/>               
+              <input disabled={CodeSent} value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value.slice(0,11)})} type="number" className={`h-[50px] w-full rounded-lg ${!CodeSent ? 'bg-white/70 focus:bg-white placeholder:text-beh-gray' : 'placeholder:text-beh-gray-light cursor-not-allowed'}  px-8 my-2  placeholder:text-lg placeholder:font-semibold placeholder:text-left `} placeholder='09121210598' dir='rtl'/>               
               
               <label className="relative block">
-                <input type='number' disabled={!CodeSent} value={fields.code} onChange={(e)=>setFields({...fields,code : e.target.value})}   className='h-[50px] w-full rounded-lg px-11 my-2 placeholder:text-beh-gray-light placeholder:text-lg placeholder:font-semibold placeholder:text-right  ' placeholder='کد دریافت شده' dir='rtl'/>
+                <input   type='number' disabled={!CodeSent} value={fields.code} onChange={(e)=>setFields({...fields,code : e.target.value.slice(0,6)})}   className='h-[50px] w-full rounded-lg px-11 my-2 placeholder:text-beh-gray-light placeholder:text-lg placeholder:font-semibold placeholder:text-right  ' placeholder='کد دریافت شده' dir='rtl'/>
                 
               </label>
 
@@ -442,7 +478,7 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
                   &nbsp;  حساب کاربری دارم
                   </span>
 
-                  <span className=' col-span-1 hover:cursor-pointer text-beh-gray-dark lg:text-beh-orange' onClick={()=>{
+                  <span className=' col-span-1 hover:cursor-pointer text-beh-green-light' onClick={()=>{
                     props.handleLogin(true)
                     props.handleRegister(false)
                   }
@@ -465,6 +501,260 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
 }
 
 
+
+
+
+
+const ResetPasswordModal = (props : { handleReset : React.Dispatch<React.SetStateAction<boolean>> , handleRegister :  React.Dispatch<React.SetStateAction<boolean>> ,handleLogin : React.Dispatch<React.SetStateAction<boolean>>})=>{
+  const [ShowPass,setShowPass] = useState(false)
+  const [fields,setFields] = useState({phone : '' ,code : '', pass : '' , pass_confirm : ''})
+  const [CodeSent,setCodeSent] = useState(false)
+  const [error, setError] = useState('');
+  const [succes,setSucces]= useState('');
+  const [loading, setloading] = useState(false);
+  const {login} = useContext(AuthContext)
+  const router = useRouter()
+
+
+  const sendHandle = async()=>{
+    setError('')
+    setSucces('')
+    if (fields.phone.length != 11) {
+      setError('شماره تلفن باید 11 رقم باشد')
+      return
+    }
+    setloading(true)
+    let fData = {phone : fields.phone }
+    await ApiRequest
+        .post('/auth/reset-password',fData)
+        .then((res) => {
+
+            if (res.data?.msg){
+              console.log(res.data)
+              // localStorage.setItem('user-session',JSON.stringify(res?.data?.accessToken))
+              // login(res.data.accessToken)   
+              setSucces(res.data?.msg)                
+              setTimeout(() => {
+                  setCodeSent(true)
+              }, 300);
+            }
+            else if (res.data?.err) {
+                setError(res?.data?.err)
+            }
+
+        })
+        .catch((err) => {
+            setError('خطا در ارتباط با سرور');
+            console.log(err)
+        })
+        .finally(() => {
+            setloading(false);
+        })
+
+}
+
+
+
+
+  const VerifyAndUpdateHandle = async()=>{
+    setError('')
+    setSucces('')
+    if (fields.code.length != 6 ) {
+      setError('کد دریافتی باید 6 رقم باشد')
+      return
+    }
+
+    if (fields.pass.length < 8){
+      setError('رمز عبور نباید کمتر از 8 رقم باشد')
+      return
+    }
+
+    if (fields.pass != fields.pass_confirm) {
+      setError('رمز عبور و تایید رمز باید برابر باشند')
+      return
+    }
+    
+    setloading(true)
+    let fData = {
+      phone : fields.phone,
+      code : fields.code,
+      pass : fields.pass
+    }
+    await ApiRequest
+    .post('/auth/reset-password-confirm',fData)
+    .then((res) => {
+
+        if (res.data?.msg){
+          console.log(res.data)
+          // localStorage.setItem('user-session',JSON.stringify(res?.data?.accessToken))
+          // login(res.data.accessToken)   
+          setSucces(res.data?.msg)                
+          setTimeout(() => {
+              props.handleReset(false)
+              props.handleLogin(true)
+          }, 300);
+        }
+        else if (res.data?.err) {
+            setError(res?.data?.err)
+            console.log(res.data)
+        }
+
+    })
+    .catch((err) => {
+        setError('خطا در ارتباط با سرور');
+        console.log(err)
+    })
+    .finally(() => {
+        setloading(false);
+    })
+
+  }
+
+
+
+  return (
+    <>
+    {error ? <ErrorComponent message={error} handle={setError} /> : null}
+    {succes && <SuccesComponent handle={setSucces} message={succes} />}
+    
+    <div className='fixed w-screen h-screen backdrop-blur-sm bg-white/20 z-40 ' >
+      {/* BACKGROUND_PART */}
+      <div className='fixed flex w-screen h-screen justify-center items-center'>
+        <div dir='rtl' className='w-full min-h-[550px] h-[60vh] flex flex-row'>
+               <div className="basis-[54%] min-h-[550px] h-[60vh] bg-beh-gray-dark"></div>
+               <div className="basis-[46%] min-h-[550px] h-[60vh] bg-beh-orange"></div>
+        </div>
+      </div>
+
+      {/* CENTER_DATA_PART */}
+      <div className='fixed flex w-screen h-screen justify-center items-center'>
+          <div dir='rtl' className='w-full  lg:w-1/2  mx-auto h-[60vh] items-center flex justify-center'>
+            <div>
+
+            <div className='absolute scale-125 -mt-5 bg-beh-red p-[0.1rem] rounded-full cursor-pointer ' onClick={()=> props.handleReset(false)}>
+                <FiXCircle />
+              </div>
+
+              <div className=" flex flex-row gap-2 w-full  p-4 h-[100px]">
+                <div className="basis-9/12">
+                  <h1 className='font-bold text-2xl text-white'>بازیابی پسورد</h1>
+                  <h6 className='font-semibold text-sm pt-1  text-white'>شماره تماس خود را وارد کنید</h6>
+                </div>
+                <div className='basis-3/12 flex flex-row justify-center items-center' >
+                  <div className="bg-white shadow-lg w-20 h-12 rounded-md flex justify-center items-center">
+                      <BiUser className='w-8 h-8 text-beh-orange' />
+                  </div>
+                </div>
+              </div>
+              <div className='px-4'>
+              <input disabled={CodeSent} value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value.slice(0,11)})} type="number" className={`h-[50px] w-full rounded-lg px-8 my-2 ${!CodeSent ? 'bg-white/70 focus:bg-white' : 'bg-white/40'}  placeholder:text-beh-gray placeholder:text-lg placeholder:font-semibold placeholder:text-left `} placeholder='09121210598' dir='rtl'/>               
+              
+              {/* CODE  */}
+              <label className="relative gap-x-2 flex">
+                <div className='h-[50px] w-2/5 flex justify-center items-center rounded-lg px-11 my-1 '>
+                    {/* <h1 className='text-white text-lg'>
+                      کد دریافتی
+                    </h1> */}
+                    <AiFillSafetyCertificate className={` ${fields.code.length == 6 ? 'fill-beh-orange' : 'fill-white'} w-6 h-6`} />
+                </div>
+
+                <input  value={fields.code} onChange={(e)=>{
+                  let value = e.target.value
+                  value = value.replace(/[^A-Za-z0-9!@#\$%\^\&*\)\(+=._-]/ig, '')
+
+                  setFields({...fields,code : value.slice(0,6)})
+
+                }
+                } type='number' disabled={!CodeSent}  className={`h-[50px] w-3/5 rounded-lg px-11 my-2 ${CodeSent ? 'bg-white/70 focus:bg-white' : 'bg-white/40'}  placeholder:text-center placeholder:text-beh-gray  placeholder:text-lg placeholder:font-semibold   `} placeholder='کد دریافتی' dir='rtl'/>
+
+              </label>
+
+              
+              {/* PASSWORD  */}
+              <label className="relative gap-x-2 flex">
+
+                <div className='h-[50px] w-2/5 flex justify-center items-center rounded-lg px-11 my-1 '>
+                    {/* <h1 className='text-white text-lg'>
+                      رمز جدید
+                    </h1> */}
+                    <MdLock className={` ${fields.pass.length > 7 ? 'fill-beh-orange' : 'fill-white'} w-6 h-6`} />
+
+                </div>
+
+                <input  value={fields.pass} onChange={(e)=>{
+                  let value = e.target.value
+                  value = value.replace(/[^A-Za-z0-9!@#\$%\^\&*\)\(+=._-]/ig, '')
+
+                  setFields({...fields,pass : value})
+
+                }
+                } type={ShowPass ? "text" : "password"}  disabled={!CodeSent} className={`h-[50px] ${CodeSent ? 'bg-white/70 focus:bg-white' : 'bg-white/40'}  w-3/5 rounded-lg px-11 my-2   placeholder:text-beh-gray  placeholder:text-center placeholder:font-semibold   `} placeholder='رمز عبور' dir='rtl'/>
+                <span className="absolute inset-y-0 left-1 flex items-center pl-3 cursor-pointer " onClick={()=>setShowPass(!ShowPass)} >
+                    <BiShow className={` ${ShowPass ? 'text-black' : "text-beh-gray"} w-6 h-6`} />
+                </span>
+              </label>
+
+
+
+              {/* PASSWORD TWO */}
+              <label className="relative gap-x-2 flex">
+
+                <div className='h-[50px] w-2/5 flex justify-center items-center rounded-lg px-11 my-1 '>
+                    {/* <h1 className='text-white text-lg'>
+                      تکرار رمز
+                    </h1> */}
+
+                    <MdLock className={`${fields.pass_confirm.length > 7 && fields.pass_confirm == fields.pass ? 'fill-beh-orange' : 'fill-white'} w-6 h-6`} />
+
+                </div>
+
+                <input value={fields.pass_confirm} onChange={(e)=>{
+                  let value = e.target.value
+                  value = value.replace(/[^A-Za-z0-9!@#\$%\^\&*\)\(+=._-]/ig, '')
+
+                  setFields({...fields,pass_confirm : value})
+
+                }
+                } type={ShowPass ? "text" : "password"}  disabled={!CodeSent} className={`h-[50px] w-3/5 rounded-lg px-11 my-2 ${CodeSent ? 'bg-white/70 focus:bg-white' : 'bg-white/40'}   placeholder:text-beh-gray  placeholder:text-center placeholder:font-semibold   `} placeholder='تکرار رمز' dir='rtl'/>
+                <span className="absolute inset-y-0 left-1 flex items-center pl-3 cursor-pointer " onClick={()=>setShowPass(!ShowPass)} >
+                    <BiShow className={` ${ShowPass ? 'text-black' : "text-beh-gray"} w-6 h-6`} />
+                </span>
+              </label>
+
+
+
+              <button  onClick={ !CodeSent ?  fields.phone.length == 11 ? sendHandle : ()=>setError('شماره تلفن باید 11 رقم باشد و با 09 شروع شود') : VerifyAndUpdateHandle} className={`px-10 py-2 rounded-full text-lg font-bold text-white  ${loading ? 'bg-beh-gray-dark'  : 'bg-beh-orange'} mt-1`} >
+                {CodeSent ? 'تغییر رمز' : 'ارسال کد'}
+              </button>
+              <div className='mt-1 text-white text-md px-3   '>
+                <h1 >
+
+                  <span className=' col-span-1'>
+                  &nbsp; حساب کاربری دارم
+                  </span>
+
+                  <span className=' col-span-1 hover:cursor-pointer text-beh-green-light ' onClick={()=>{
+                    props.handleRegister(true)
+                    props.handleLogin(false)
+                  }
+                  }>
+                    &nbsp;  (ورود)
+                
+                  </span>
+
+                
+                </h1>
+              </div>
+
+              </div>
+            </div>
+          </div>
+      </div>
+
+    </div>
+    </>
+  )
+}
 
 
 export default Navbar_v2
