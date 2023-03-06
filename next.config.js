@@ -42,6 +42,8 @@ const nextConfig = withPWA({
     return config;
   },
   // output: 'standalone',
+  compress: true,
+  
 })
 
 module.exports = nextConfig
