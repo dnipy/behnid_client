@@ -183,7 +183,7 @@ const Page : NextPage = ()  => {
         setSucced("با موفقیت ثبت شد")
       }
       if (res.data?.err ){
-        setError('مشکلی پیش آمده است')
+        setError(res.data?.err)
       }
     }).catch(()=>{
         setError('!خطا در ارتباط با سرور . لطفا دوباره تلاش کنید')
@@ -202,7 +202,7 @@ const Page : NextPage = ()  => {
         setSucced("با موفقیت ثبت شد")
       }
       if (res.data?.err ){
-        setError('مشکلی پیش آمده است')
+        setError(res.data?.err)
       }
     }).catch(()=>{
         setError('!خطا در ارتباط با سرور . لطفا دوباره تلاش کنید')
@@ -221,7 +221,7 @@ const Page : NextPage = ()  => {
         setSucced("با موفقیت ثبت شد")
       }
       if (res.data?.err ){
-        setError('مشکلی پیش آمده است')
+        setError(res.data?.err)
       }
     }).catch(()=>{
         setError('!خطا در ارتباط با سرور . لطفا دوباره تلاش کنید')
@@ -244,7 +244,7 @@ const Page : NextPage = ()  => {
           setSucced("با موفقیت ثبت شد")
         }
         if (res.data?.err ){
-          setError('مشکلی پیش آمده است')
+          setError(res.data?.err)
         }
       }).catch(()=>{
           setError('!خطا در ارتباط با سرور . لطفا دوباره تلاش کنید')

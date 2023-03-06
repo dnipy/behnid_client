@@ -14,7 +14,7 @@ const Page : NextPage = ()  => {
 return (
   <>
 
-  <main dir="rtl" className="flex justify-center items-center h-screen">
+  <main dir="rtl" className="flex justify-center items-center ">
       <div className="w-full lg:max-w-7xl   ">
 
 

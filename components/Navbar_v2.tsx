@@ -279,7 +279,7 @@ const LoginModal = (props : { handleReset : React.Dispatch<React.SetStateAction<
                 </div>
               </div>
               <div className='px-4'>
-              <input value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value.slice(0,11)})} type="number" className={`h-[50px] w-full rounded-lg px-8 my-2 bg-white/70 focus:bg-white placeholder:text-beh-gray placeholder:text-lg placeholder:font-semibold placeholder:text-left `} placeholder='09121210598' dir='rtl'/>               
+              <input value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value.slice(0,11)})} type="number" className={`h-[50px] w-full rounded-lg px-8 my-2 bg-white/70 focus:bg-white placeholder:text-beh-gray-mid-ligth placeholder:text-lg placeholder:font-semibold placeholder:text-right `} placeholder='شماره تماس' dir='rtl'/>               
               
               <label className="relative block">
                 <input value={fields.pass} onChange={(e)=>{
@@ -463,7 +463,7 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
                 </div>
               </div>
               <div className='px-4'>
-              <input disabled={CodeSent} value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value.slice(0,11)})} type="number" className={`h-[50px] w-full rounded-lg ${!CodeSent ? 'bg-white/70 focus:bg-white placeholder:text-beh-gray' : 'placeholder:text-beh-gray-light cursor-not-allowed'}  px-8 my-2  placeholder:text-lg placeholder:font-semibold placeholder:text-left `} placeholder='09121210598' dir='rtl'/>               
+              <input disabled={CodeSent} value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value.slice(0,11)})} type="number" className={`h-[50px] w-full rounded-lg ${!CodeSent ? 'bg-white/70 focus:bg-white placeholder:text-beh-gray' : 'placeholder:text-beh-gray-light cursor-not-allowed'}  px-8 my-2  placeholder:text-lg placeholder:font-semibold placeholder:text-right `} placeholder='شماره تلفن' dir='rtl'/>               
               
               <label className="relative block">
                 <input   type='number' disabled={!CodeSent} value={fields.code} onChange={(e)=>setFields({...fields,code : e.target.value.slice(0,6)})}   className='h-[50px] w-full rounded-lg px-11 my-2 placeholder:text-beh-gray-light placeholder:text-lg placeholder:font-semibold placeholder:text-right  ' placeholder='کد دریافت شده' dir='rtl'/>
@@ -479,8 +479,8 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
                   </span>
 
                   <span className=' col-span-1 hover:cursor-pointer text-beh-green-light' onClick={()=>{
-                    props.handleLogin(true)
                     props.handleRegister(false)
+                    props.handleLogin(true)
                   }
                   }>
                     &nbsp;  (ورود)
@@ -647,7 +647,7 @@ const ResetPasswordModal = (props : { handleReset : React.Dispatch<React.SetStat
                 </div>
               </div>
               <div className='px-4'>
-              <input disabled={CodeSent} value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value.slice(0,11)})} type="number" className={`h-[50px] w-full rounded-lg px-8 my-2 ${!CodeSent ? 'bg-white/70 focus:bg-white' : 'bg-white/40'}  placeholder:text-beh-gray placeholder:text-lg placeholder:font-semibold placeholder:text-left `} placeholder='09121210598' dir='rtl'/>               
+              <input disabled={CodeSent} value={fields.phone} onChange={(e)=>setFields({...fields,phone : e.target.value.slice(0,11)})} type="number" className={`h-[50px] w-full rounded-lg px-8 my-2 ${!CodeSent ? 'bg-white/70 focus:bg-white' : 'bg-white/40'}  placeholder:text-beh-gray placeholder:text-lg placeholder:font-semibold placeholder:text-right `} placeholder='شماره تلفن' dir='rtl'/>               
               
               {/* CODE  */}
               <label className="relative gap-x-2 flex">
@@ -734,8 +734,8 @@ const ResetPasswordModal = (props : { handleReset : React.Dispatch<React.SetStat
                   </span>
 
                   <span className=' col-span-1 hover:cursor-pointer text-beh-green-light ' onClick={()=>{
-                    props.handleRegister(true)
-                    props.handleLogin(false)
+                    props.handleLogin(true)
+                    props.handleReset(false)
                   }
                   }>
                     &nbsp;  (ورود)

@@ -43,9 +43,8 @@ export const MessageListComponent = (props : {myId : number ,lastMessageSender :
           </div>
   
           <div className="flex justify-center items-center  h-full p-1">
-            <div className="w-[70px] h-[70px] rounded-full bg-beh-gray"> 
-            <img className="w-[70px] h-[70px] rounded-full " src={props.useravatar} />
-  
+            <div className="w-[70px] overflow-hidden h-[70px] rounded-full flex justify-center items-center bg-beh-gray"> 
+              {props.useravatar &&  <img width='100%' height='100%' className="max-w-[70px] max-h-[70px] w-auto h-auto relative  " alt={`عکس پروفایل ${props.username}`} src={props.useravatar} />}
             </div>
           </div>
   
