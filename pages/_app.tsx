@@ -119,7 +119,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <SocketContext.Provider value={isConnected} >
               {setupDone == false ? <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} /> : null}
               {/* <SetupProfileComponent handleClose={setSetupDone} avatar={myAvatar} /> */}
-              <Script async src="https://www.googletagmanager.com/gtag/js?id=G-TSB0519LXH" ></Script>
+              <Script strategy="afterInteractive" async src="https://www.googletagmanager.com/gtag/js?id=G-TSB0519LXH" ></Script>
               <Script
                 id='google-analytics'
                 strategy='lazyOnload'
