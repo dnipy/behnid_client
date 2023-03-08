@@ -9,17 +9,17 @@ import { I_add_products } from "../../../../types/add-products"
 import { Contacts, User } from "../../../../types/async-prisma-types"
 
 
-// type ContactListResponse = {
-//     contacts : Contacts[];
-//     founded_users : (User & {
-//         profile: {
-//             name: string;
-//             family: string;
-//         };
-//     })[]
-// }
+type ContactListResponseOrginal = {
+    contacts : Contacts[];
+    founded_users : (User & {
+        profile: {
+            name: string;
+            family: string;
+        };
+    })[]
+}
 
-type ContactListResponse = {
+type ContactListResponseSepcial = {
     users : (User & {
         profile: {
             name: string;
@@ -30,7 +30,7 @@ type ContactListResponse = {
 
 export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dispatch<React.SetStateAction<any>>  })=>{
 
-    const [response, setResponse] = useState< ContactListResponse  | null >(null);
+    const [response, setResponse] = useState< ContactListResponseOrginal  | null >(null);
     const [loading, setloading] = useState(true);
     const [error,setError] = useState('')
     const [fields,setFields] = useState({phone : '' , name : '',search : ''})
@@ -46,8 +46,8 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
           if (res.data.err) {
             setError(res.data.err)
           }
-          else {
-            setResponse(res.data as ContactListResponse);
+          else  {
+            setResponse(res.data as ContactListResponseOrginal);
             console.log(res.data)
           }
         })
@@ -91,7 +91,7 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
 
                         </div>
 
-                        {/* <div className="my-4 w-[83%] shadow-lg mx-auto h-[50px] flex justify-center items-center">
+                        <div className="my-4 w-[83%] shadow-lg mx-auto h-[50px] flex justify-center items-center">
                             <div  onClick={()=>setCreateUserOpen(true)} className="w-full h-full gap-x-2 cursor-pointer bg-beh-gray flex justify-center items-center">
                                 <div className="text-[#FFC499]">
                                     <FiUsers className="w-6 h-6" />
@@ -100,7 +100,7 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
                                     <h1 className="text-[#FFC499]">افزودن مخاطب</h1>
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
                         
                         <div className="my-2  h-[65px] flex justify-center items-center w-full">
                             <label className="relative block w-10/12">
@@ -119,12 +119,28 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
                         </div>
                         <div className="h-[25px] border-b-2 border-beh-gray-light w-full"></div>
 
-
                         {/* CITY_SELECT_PART */}
-                        <div dir="ltr" className="w-full my-1 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray h-[50vh] ">
+                        <div dir="ltr" className="w-full my-1 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray  h-[40vh] ">
                             {/* { response?.founded_users && response.founded_users.map(elm=>( */}
+                            <>
+                                    <div  dir="rtl" onClick={()=>router.push(`/chat/new-chat?id=${21}`)}  className=" cursor-pointer w-[90%] hover:bg-beh-orange hover:text-white hover:fill-white text-beh-gray duration-100 mx-auto rounded-md  h-auto min-h-[4rem] my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-y-5 gap-x-2">
+                                        <div className="max-w-[100px] lg:max-w-[150px]">
+                                            <h1 className="text-lg ">
+                                                خانم شهسواری
+                                            </h1>
+                                        </div>
+                                        <div className="flex flex-row gap-1">
+                                            <h1 className="text-sm ">
+                                                0937-631-1069
+                                                {/* {elm.phone.slice(0,4)}-{elm.phone.slice(4,7)}-{elm.phone.slice(7,11)} */}
+                                            </h1>
+                                            <BiPhone className="w-5 h-5" />
+                                        </div>
+                                    </div>
+                            </>
 
-                            { response?.users && response?.users.filter(elm=>{
+                            {/* { response?.users && response?.users.filter(elm=>{ */}
+                            { response?.founded_users && response?.founded_users?.filter(elm=>{
                                 return elm.phone.indexOf(fields.search!) !== -1
                             }).map(elm=>(
 
@@ -142,8 +158,6 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
                                             <BiPhone className="w-5 h-5" />
                                         </div>
                                     </div>
-                   
-
                                 </>
                             ))}
                         </div>
