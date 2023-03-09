@@ -149,13 +149,13 @@ function AllChats(props : {shouldBeOpened : boolean}) {
             </div>
 
             <div className='w-3/12 flex justify-center items-center'>
-              <div onClick={()=>setRemmitance(!remmitance)} className='w-full h-[40px] justify-center cursor-pointer  shadow-xl bg-beh-gray flex gap-1 items-center'>
+              <div onClick={()=>setRemmitance(!remmitance)} className='w-full h-[40px] justify-center  cursor-pointer  shadow-xl bg-beh-gray flex gap-1 items-center'>
                   <div>
-                    <BiDollar className='w-5 h-5 fill-beh-green-super-light' />
+                    <BiDollar className='w-4 h-4 mt-1 fill-beh-green-super-light' />
                   </div>
 
-                  <div className='text-beh-green-super-light' >
-                    <h1>{remmitance ? 'چت' : 'حوالات'}</h1>
+                  <div className='text-beh-green-super-light text-sm' >
+                    <h1>{remmitance ? 'چت' : 'حواله ها'}</h1>
                   </div>
               </div>
             </div>
