@@ -36,7 +36,7 @@ const Page : NextPage = ()  => {
     })
     .catch((err) => {
       setError(err);
-      router.replace('/500')
+      router.replace('خطا در ارتباط با سرور')
     })
     .finally(() => {
       setloading(false);

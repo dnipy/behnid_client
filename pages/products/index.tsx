@@ -25,7 +25,7 @@ const Page : NextPage = ()  => {
     .get(`/products/all?start=1&length=20`)
     .then((res) => {
       if (res.data.err) {
-        setError('ارور')
+        setError(res.data?.err)
       }
       else {
 
@@ -34,8 +34,8 @@ const Page : NextPage = ()  => {
       }
     })
     .catch((err) => {
-      setError(err);
-      router.replace('/500')
+      setError('خطا در ارتباط با سرور');
+      // router.replace('/500')
     })
     .finally(() => {
       setloading(false);

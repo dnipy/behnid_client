@@ -57,8 +57,8 @@ const Page : NextPage = ()  => {
               }
           })
           .catch((err) => {
-              setError(err);
-              router.replace('/500')
+              setError('خطا در اتصال به سرور');
+            //   router.replace('/500')
           })
           .finally(() => {
               setTimeout(() => {

@@ -43,6 +43,7 @@ const Page : NextPage = ()  => {
     })
     .catch((err) => {
       router.replace('/500')
+      setError('خطا در اتصال به سرور');
     })
     .finally(() => {  
       setloading(false);

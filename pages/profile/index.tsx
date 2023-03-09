@@ -148,7 +148,7 @@ const Page : NextPage = ()  => {
           })
           .catch((err) => {
               setError('خطا در اتصال به سرور');
-              router.push('/500')
+              // router.push('/500')
               console.log(err)
           })
           .finally(() => {
@@ -345,7 +345,7 @@ const Page : NextPage = ()  => {
             
                         <div className='flex flex-row flex-wrap w-full mt-5 justify-between gap-x-2 gap-y-3'>
                             <div className='mx-auto w-[80%] md:w-[94%]'>
-                              <div  onClick={updateProfile} className={`placeholder:font-semibold    border-b-2 border-beh-gray rounded-md ${ topChanged && !loading && response?.profile?.name?.length > 3 && response?.profile?.family?.length > 3  ? 'cursor-pointer bg-beh-green-light text-white ' : 'text-beh-gray-dark bg-beh-gray-light cursor-not-allowed'}  w-[100%] h-[50px] flex justify-center items-center text-center`}>
+                              <div  onClick={ topChanged && !loading && response?.profile?.name?.length > 3 && response?.profile?.family?.length > 3 ?  updateProfile  : undefined } className={`placeholder:font-semibold    border-b-2 border-beh-gray rounded-md ${ topChanged && !loading && response?.profile?.name?.length > 3 && response?.profile?.family?.length > 3  ? 'cursor-pointer bg-beh-green-light text-white ' : 'text-beh-gray-dark bg-beh-gray-light cursor-not-allowed'}  w-[100%] h-[50px] flex justify-center items-center text-center`}>
                                 <h1>تایید</h1>
                               </div>
                             </div>

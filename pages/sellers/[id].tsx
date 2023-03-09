@@ -83,7 +83,9 @@ export default function SingleSeller () {
       })
       .catch((err) => {
         console.log(err)
-        router.replace('/500')
+        // router.replace('/500')
+        setError('خطا در اتصال به سرور');
+
       })
       .finally(() => {  
         setloading(false);

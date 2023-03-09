@@ -126,12 +126,12 @@ export const ContactPickerModel = (props : { fildes : any , setFileds :React.Dis
                                     <div  dir="rtl" onClick={()=>router.push(`/chat/new-chat?id=${21}`)}  className=" cursor-pointer w-[90%] hover:bg-beh-orange hover:text-white hover:fill-white text-beh-gray duration-100 mx-auto rounded-md  h-auto min-h-[4rem] my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-y-5 gap-x-2">
                                         <div className="max-w-[100px] lg:max-w-[150px]">
                                             <h1 className="text-lg ">
-                                                خانم شهسواری
+                                                خانم شهسواریان
                                             </h1>
                                         </div>
                                         <div className="flex flex-row gap-1">
                                             <h1 className="text-sm ">
-                                                0937-631-1069
+                                                0939-282-3961
                                                 {/* {elm.phone.slice(0,4)}-{elm.phone.slice(4,7)}-{elm.phone.slice(7,11)} */}
                                             </h1>
                                             <BiPhone className="w-5 h-5" />
