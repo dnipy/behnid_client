@@ -62,6 +62,11 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
     divref.current?.scrollIntoView({ behavior: "smooth" })
   }
 
+  const scrollToBottomFast = () => {
+    divref.current?.scrollIntoView({ behavior: "auto" })
+  }
+
+
 
 //* useEffects
   // ? authorization check
@@ -71,11 +76,11 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
   },[])
 
   // ? scroll to bottom after 500ms
-  useEffect(()=>{
-    setTimeout(()=>{
-      scrollToBottom()
-    },500)
-  },[response?.message])
+  // useEffect(()=>{
+  //   setTimeout(()=>{
+  //     scrollToBottom()
+  //   },500)
+  // },[response?.message])
 
   // ? fetch chat-messages from /api/chats/chat-messages?chatID=${id}
   useEffect(()=>{
@@ -109,9 +114,9 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
 
             //SCROLL_TO_BOTTOM
             setTimeout(()=>{
-              scrollToBottom()
-            },500)
-
+              scrollToBottomFast()
+              },500)
+              
           }
         })
         .catch((err) => {
