@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { BiUser } from "react-icons/bi";
-import { I_add_products } from "../../../types/add-products";
+import { I_add_products, fetchedImages } from "../../../types/add-products";
+import { BACK_END } from "../../../clients/localStorage";
 
-export const StepTwoComponent = (props : {step : number , setStep : React.Dispatch<React.SetStateAction<number>> , fildes : I_add_products , setFileds :React.Dispatch<React.SetStateAction<I_add_products>>  })=>{
+export const StepTwoComponent = (props : { step : number , setStep : React.Dispatch<React.SetStateAction<number>> , fildes : I_add_products , setFileds :React.Dispatch<React.SetStateAction<I_add_products>> , exists_images?:fetchedImages ,setFetchedImages?: React.Dispatch<React.SetStateAction<fetchedImages>>  }  )=>{
     const inputFile = useRef<HTMLInputElement | null>(null) 
     const { fildes , setFileds } = props
 
@@ -14,6 +15,7 @@ export const StepTwoComponent = (props : {step : number , setStep : React.Dispat
     const onImageChange= (e: React.ChangeEvent<HTMLInputElement>)=>{
         if ( e.target.files &&  e.target?.files?.length > 0) {
           console.log(e.target.files)
+          props.setFetchedImages ? props.setFetchedImages({image_1 : null , image_2 : null , image_3 : null}) : null
           setFileds({...fildes, selectedImage_1 : e.target.files[0] , selectedImage_2 : e.target.files[1] ? e.target.files[1] : null , selectedImage_3 : e.target.files[2] ? e.target.files[2] : null })
         }
       }
@@ -30,7 +32,7 @@ export const StepTwoComponent = (props : {step : number , setStep : React.Dispat
                             {fildes.selectedImage_3 ? 
                                 <Image width={90} height={90}  src={URL.createObjectURL(fildes.selectedImage_3) } />
                                     :
-                                    null
+                                    props.exists_images?.image_3 ? <Image width={90} height={90}  src={BACK_END + props.exists_images?.image_3 } /> : null
                                 }
                             </div>
 
@@ -38,7 +40,8 @@ export const StepTwoComponent = (props : {step : number , setStep : React.Dispat
                             {fildes.selectedImage_2 ? 
                                 <Image width={90} height={90}  src={URL.createObjectURL(fildes.selectedImage_2) } />
                                     :
-                                    null
+                                    props.exists_images?.image_2 ? <Image width={90} height={90}  src={BACK_END + props.exists_images?.image_2 } /> : null
+                                    
                                 }
                             </div>
                         </div>
@@ -48,7 +51,8 @@ export const StepTwoComponent = (props : {step : number , setStep : React.Dispat
                                 {fildes.selectedImage_1 ? 
                                 <Image width={100} height={100}  src={URL.createObjectURL(fildes.selectedImage_1) } />
                                     :
-                                    null
+                                    props.exists_images?.image_1 ? <Image width={90} height={90}  src={BACK_END + props.exists_images?.image_1 } /> : null
+                                    
                                 }
                             </div>
                         </div>
