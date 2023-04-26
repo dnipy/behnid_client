@@ -1,6 +1,6 @@
 import { Chats, message, User } from "./async-prisma-types";
 
-export type ChatDetailes = Chats & {
+export type ChatDetailesType = Chats & {
     userOne: User & {
         profile: {
             name: string;
