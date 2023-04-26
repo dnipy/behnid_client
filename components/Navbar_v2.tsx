@@ -10,6 +10,7 @@ import { FiXCircle } from 'react-icons/fi'
 import SuccesComponent from './alerts/succes'
 import { MdCode, MdLock, MdSecurity } from 'react-icons/md'
 import { AiFillSafetyCertificate } from 'react-icons/ai'
+import ComponentLoading from './componentLoading'
 
 function Navbar_v2() {
   const {isUser} = useContext(AuthContext)
@@ -295,7 +296,9 @@ const LoginModal = (props : { handleReset : React.Dispatch<React.SetStateAction<
                 </span>
               </label>
 
-              <button  onClick={sendHandle} className={`px-10 py-2 rounded-full text-lg font-bold text-white  ${loading ? 'bg-beh-gray-dark'  : 'bg-beh-orange'} mt-1`} >ورود به حساب</button>
+              <button  onClick={loading ? ()=>{} : sendHandle} className={`px-10 py-2 rounded-full text-lg font-bold text-white   bg-beh-orange mt-1`} >
+                {loading ? <ComponentLoading/> : 'ورود به حساب'}
+              </button>
               <div className='mt-1 text-white text-md px-3   '>
                 <h1 >
 
@@ -470,7 +473,16 @@ const RegisterModal = (props : { handleRegister :  React.Dispatch<React.SetState
                 
               </label>
 
-              <button disabled={loading} onClick={fields.phone.length == 11 ? sendHandle : ()=>setError('شماره وارد شده باید 11 رقم باشد')} className={`px-10 py-2 rounded-full text-lg font-bold text-white  mt-1 ${loading ? 'bg-beh-gray-dark'  : 'bg-beh-orange'} `} >{CodeSent ? 'تایید کد' : 'ارسال کد'}</button>
+              <button disabled={loading} onClick={fields.phone.length == 11 ? sendHandle : ()=>setError('شماره وارد شده باید 11 رقم باشد')} className={`px-10 py-2 rounded-full text-lg font-bold text-white  mt-1 ${loading ? 'bg-beh-gray-dark'  : 'bg-beh-orange'} `} >
+                {
+                loading ? 
+                <ComponentLoading/>
+                :
+                <>
+                {CodeSent ? 'تایید کد' : 'ارسال کد'}
+                </>
+                }
+              </button>
               <div className='mt-1 text-white text-md px-3   '>
                 <h1 >
 
@@ -724,7 +736,9 @@ const ResetPasswordModal = (props : { handleReset : React.Dispatch<React.SetStat
 
 
               <button  onClick={ !CodeSent ?  fields.phone.length == 11 ? sendHandle : ()=>setError('شماره تلفن باید 11 رقم باشد و با 09 شروع شود') : VerifyAndUpdateHandle} className={`px-10 py-2 rounded-full text-lg font-bold text-white  ${loading ? 'bg-beh-gray-dark'  : 'bg-beh-orange'} mt-1`} >
-                {CodeSent ? 'تغییر رمز' : 'ارسال کد'}
+                {loading ? <ComponentLoading/> : <>
+                  {CodeSent ? 'تغییر رمز' : 'ارسال کد'}
+                </>}
               </button>
               <div className='mt-1 text-white text-md px-3   '>
                 <h1 >

@@ -1,11 +1,18 @@
 import React from 'react'
 import { BACK_END } from '../clients/localStorage'
+import { MiladiToShamsi } from '../utils/miladi_be_shamsi'
+import { RiSpam2Line } from 'react-icons/ri'
 
 function FreeRequestComponent( props : {title : string , id : number , username : string , recive_location : string , date : string , describe : string , avatar : string | null}) {
+
+  console.log(MiladiToShamsi(Number(props.date?.slice(0,4)) , Number(props.date?.slice(5,7)) , Number(props.date?.slice(8,10))))
+
   return (
     <div key={props.id} className=" hover:scale-105 transition-all duration-100 cursor-auto my-5 min-w-sm w-full max-w-7xl bg-white rounded-xl shadow-2xl gap-3 flex flex-col lg:flex-row p-2 ">
+    
             {/* IMAGE_PART */}
             <div className="basis-3/12 flex justify-center">
+              
               {props.avatar ? 
               <img src={`${BACK_END}${props.avatar}`} className="bg-beh-orange rounded-xl h-[180px]  w-[180px]" alt={`تصویر ${props.username} `} />
               :
@@ -15,7 +22,7 @@ function FreeRequestComponent( props : {title : string , id : number , username 
 
             {/* DESCRIBE_PART */}
             <div className="basis-9/12 flex flex-col gap-3  ">
-
+              
               <div className="font-bold text-xl">
                 <h1 className='px-5' >
 
@@ -65,7 +72,7 @@ function FreeRequestComponent( props : {title : string , id : number , username 
                     </span>
 
                     <span className=' col-span-1  '>
-                      {props.date ?  props.date : 'نامشخص'}
+                      {props.date ?  MiladiToShamsi(Number(props.date?.slice(0,4)) , Number(props.date?.slice(5,7)) , Number(props.date?.slice(8,10))) : 'نامشخص'}
                     </span>
                   </div>
                 </div>
