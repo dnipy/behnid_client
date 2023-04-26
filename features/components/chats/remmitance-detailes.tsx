@@ -5,7 +5,7 @@ import { AuthorizedApiRequest, AuthorizedApiRequestImage } from '../../../client
 import { BACK_END } from '../../../clients/localStorage'
 import NoPerson from "../../../assets/NoPerson.png"
 import ErrorComponent from '../../../components/alerts/error'
-import { ChatDetailes, ChatDetailesFields, ChatDetailesModels, sendHandle } from '../../../types/chat-datailes'
+import { ChatDetailesType, ChatDetailesFields, ChatDetailesModels, sendHandle } from '../../../types/chat-datailes'
 import { UserImageMessageComponent } from './messages/UserImageMessageComponent'
 import { SecondUserImageMessageComponent } from './messages/SecondUserImageMessageComponent'
 import { SecondUserMessageComponent } from './messages/SecondUserTextMessageComponent'
@@ -36,7 +36,7 @@ function RemmitanceDetailes(props : {shouldBeOpened : boolean}) {
 
   const [loading,setloading] = useState(false)
   const [error,setError] = useState('')
-  const [response, setResponse] = useState<ChatDetailes | null>(null);
+  const [response, setResponse] = useState<ChatDetailesType | null>(null);
 
   const [myId,setmyId] = useState<number | null >(null)
   const [userTwoID,setUserTwoID] = useState<number | null>(null)
@@ -84,7 +84,7 @@ function RemmitanceDetailes(props : {shouldBeOpened : boolean}) {
           }
           else {  
           
-            setResponse(res.data as ChatDetailes);
+            setResponse(res.data as ChatDetailesType);
             console.log({chatMessages : res.data})
             
             const user_id = Number(localStorage.getItem('user-id'))
