@@ -1262,6 +1262,11 @@
   dependencies:
     glob "7.1.7"
 
+"@next/font@^13.3.0":
+  version "13.3.0"
+  resolved "https://registry.yarnpkg.com/@next/font/-/font-13.3.0.tgz#790c5444348fad7aabbfc35a45bfc50505219725"
+  integrity sha512-xUv7VRUA2Zr6n/KJDILyv7/zGy9xKUsyQURaQqYr7lVxn0REScazwyZQzhSm+DnJoUyo+9DcFs2J3WsZXHUvQw==
+
 "@next/swc-android-arm-eabi@12.3.1":
   version "12.3.1"
   resolved "https://registry.yarnpkg.com/@next/swc-android-arm-eabi/-/swc-android-arm-eabi-12.3.1.tgz#b15ce8ad376102a3b8c0f3c017dde050a22bb1a3"
@@ -3847,6 +3852,11 @@ next-pwa@^5.6.0:
     terser-webpack-plugin "^5.3.3"
     workbox-webpack-plugin "^6.5.4"
     workbox-window "^6.5.4"
+
+next-seo@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-6.0.0.tgz#4568dc61a44dbdf5fe5ff44156cd0ff8804889a2"
+  integrity sha512-jKKt1p1z4otMA28AyeoAONixVjdYmgFCWwpEFtu+DwRHQDllVX3RjtyXbuCQiUZEfQ9rFPBpAI90vDeLZlMBdg==
 
 next@12.3.1:
   version "12.3.1"

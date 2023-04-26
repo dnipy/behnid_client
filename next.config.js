@@ -6,32 +6,16 @@ const withPWA = require("next-pwa")({
 })
 
 const nextConfig = withPWA({
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'behnid.com',
-        port: '443',
-        pathname: '/uploads/**',
-      },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3001',
-        pathname: '/uploads/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'api.behnid.com',
-        port: '443',
-        pathname: '/uploads/**',
-      },
-    ],
+  images : {
+    domains : [
+      'api.behnid.com',
+      'behnid.com'
+    ]
   },
   reactStrictMode: false,
   swcMinify: true,
   compiler : {
-    removeConsole: true,
+    removeConsole: false,
   },
   webpack(config) {
     config.module.rules.push({
