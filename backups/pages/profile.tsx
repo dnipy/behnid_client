@@ -294,7 +294,7 @@ const Page : NextPage = ()  => {
 
                         <ProfileCard title="افزودن تیکت"  describe="افزودن تیکت به سمت پشتیبانی" link="/profile/add-ticket"/> 
                         <ProfileCard title="تغییر پسورد"  describe="تغییر رمز عبور حساب کاربری" link="/profile/change-password"/> 
-                        <ProfileCard title="مخاطبین"  describe="مخاطبین ذخیره شده در بهنید" link="/chat/my-contact"/> 
+                        <ProfileCard title="مخاطبین"  describe="مخاطبین ذخیره شده در بهنید" link="/chat?id=my-contact"/> 
                         <ProfileCard title="افزودن مخاطب"  describe="اضافه کردن مخاطب در بهنید" link="/profile/add-contact"/> 
 
 
