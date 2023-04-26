@@ -17,7 +17,7 @@ export const MultiCityPickerModel = (props : { fildes : I_add_products , setFile
     
             {/* CENTER_DATA_PART */}
             <div className='fixed flex w-screen h-screen justify-center items-center'>
-                <div dir='rtl' className='w-[380px]  md:w-[600px] min-w-[370px]  mx-auto h-[70vh]  bg-white rounded-3xl overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray  '>
+                <div dir='rtl' className='w-[380px]  md:w-[600px] min-w-[370px]  mx-auto h-[85vh]  bg-white rounded-3xl overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray  '>
                     <div>
                         <div className="flex justify-between h-[60px] my-2 gap-5 items-center">
 
@@ -30,7 +30,7 @@ export const MultiCityPickerModel = (props : { fildes : I_add_products , setFile
 
                             <div>
                                 <h1 onClick={()=>setFileds({...fildes , showMultiCityPicker : false , sendArea_list : []})} className="pl-7 cursor-pointer text-xl font-bold text-beh-orange">
-                                    انصراف
+                                    حدف همه
                                 </h1>
                             </div>
 
@@ -120,7 +120,7 @@ export const MultiCityPickerModel = (props : { fildes : I_add_products , setFile
                         {/* BUTTON_PART */}
                         <div className="flex justify-around h-[60px] my-2 gap-5 items-center">
 
-                            <div onClick={()=>setFileds({...fildes,showMultiCityPicker : false , sendArea_list : []})} className=" cursor-pointer w-1/2 py-3 mr-3 rounded-md bg-beh-orange flex justify-center items-center ">
+                            <div onClick={()=>setFileds({...fildes,showMultiCityPicker : false , sendArea_list : fildes.sendArea_list})} className=" cursor-pointer w-1/2 py-3 mr-3 rounded-md bg-beh-orange flex justify-center items-center ">
                                 <h1 className="text-xl font-bold text-white">
                                     انصراف
                                 </h1>

@@ -6,7 +6,7 @@ export const MessageListComponent = (props : {myId : number ,lastMessageSender :
   const {id} = router.query
 
   return (
-      <div onClick={()=>router.push(`/chat/${props.chatid}`)} className={` ${props.chatid == Number(id) ? 'bg-beh-orange text-white rounded-lg'  : "hover:bg-beh-gray-light/10 cursor-pointer" }    hover:rounded-lg w-[90%] mx-auto h-24  border-b-2 border-beh-gray-dark flex flex-row `}>
+      <div onClick={()=>router.push(`/chat?id=${props.chatid}`)} className={` ${props.chatid == Number(id) ? 'bg-beh-orange text-white rounded-lg'  : "hover:bg-beh-gray-light/10 cursor-pointer" }    hover:rounded-lg w-[90%] mx-auto h-24  border-b-2 border-beh-gray-dark flex flex-row `}>
   
           <div className="flex justify-center items-center w-[60px]  h-full px-1">
               <div>
@@ -36,7 +36,7 @@ export const MessageListComponent = (props : {myId : number ,lastMessageSender :
               </h1>
   
               <h2 className="px-1">
-                {props.messageList.at(0)?.text  ? `${props.messageList.at(0)?.text?.slice(0,14)}...`: props.messageList.length > 0 ? ' مشاهده فایل' : 'پیامی موجود نیست'}
+                {props.messageList.at(0)?.text  ? `${props.messageList.at(0)?.text?.slice(0,14)}${props.messageList.at(0)?.text?.length! > 14 ? '...' : ''}`: props.messageList.length > 0 ? ' مشاهده فایل' : 'پیامی موجود نیست'}
               </h2>
 
             </div>

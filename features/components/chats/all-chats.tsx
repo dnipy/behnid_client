@@ -14,20 +14,14 @@ import { AuthContext } from '../../../contexts/Auth';
 import { socket } from '../../../clients/io';
 import { BsPersonFill } from 'react-icons/bs';
 import { AiFillProfile } from 'react-icons/ai';
+import { responeType } from '../../../types/chats';
+import ComponentLoading from '../../../components/componentLoading';
+import { ChatDetailesType } from '../../../types/chat-datailes';
 
-type responeType = Chats & {
-  message: message[];
-  userOne: User & {
-      profile: Profile;
-  };
-  userTwo: User & {
-      profile: Profile;
-  };
-}
 
-function AllChats(props : {shouldBeOpened : boolean}) {
 
-    const [response, setResponse] = useState<responeType[]>([]); 
+function AllChats(props : {shouldBeOpened : boolean , response :responeType[] , setResponse : React.Dispatch<React.SetStateAction<responeType[]>> , DetaileResponse: ChatDetailesType | null , setDetaileResponse: React.Dispatch<React.SetStateAction<ChatDetailesType | null>>}) {
+
     const [myId,setmyId] = useState<number | null >(null)
     const [loading, setloading] = useState(true);
     const [error, setError] = useState('');
@@ -35,6 +29,7 @@ function AllChats(props : {shouldBeOpened : boolean}) {
     const [chatListInput,setChatlistInput] = useState<string >('')
     const [remmitance,setRemmitance] = useState(false)
     const [chatType,setChatType] = useState(1)
+    const { response , setResponse } = props
     const router = useRouter()
     const {logout} = useContext(AuthContext)
     const NoImg = `${BACK_END}/uploads/chat_image_1672439444536.png`
@@ -118,7 +113,6 @@ function AllChats(props : {shouldBeOpened : boolean}) {
 
   return (
     <>
-
      {error ? <ErrorComponent handle={setError} message={error} /> : null }
      {userPickerModal && <ContactPickerModel fildes={userPickerModal} setFileds={setUserPickerModal} />}
      
@@ -226,6 +220,7 @@ function AllChats(props : {shouldBeOpened : boolean}) {
             </div>
 
             <div className="w-full flex flex-col items-center h-[55vh] mt-2 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray">
+
                 { !loading && response
                 ?
                       response?.filter((elm : responeType)=>{
@@ -251,8 +246,7 @@ function AllChats(props : {shouldBeOpened : boolean}) {
                         return <MessageListComponent myId={user_id} lastMessageSender={message?.at(0)?.senderId} lastdate={message?.at(0)?.date ? String(message?.at(0)?.date) : null } key={id} username={`${ reciver?.profile?.name ?  reciver?.profile?.name : 'کاربر'} ${reciver?.profile?.family ? reciver?.profile?.family : 'بدون نام'}`} messageList={message} chatid={id} useravatar={reciver.avatar ? `${BACK_END}${reciver.avatar}` : NoPeron.src}  />
                     }) 
                   : 
-                    <AllChatNoMessageFound />
-                }
+                    <ComponentLoading />                }
             </div>
             </div> 
             :

@@ -17,7 +17,7 @@ export const CityPickerModel = (props : { fildes : any , setFileds :React.Dispat
     
             {/* CENTER_DATA_PART */}
             <div className='fixed flex w-screen h-screen justify-center items-center'>
-                <div dir='rtl' className='w-[380px]  md:w-[600px] min-w-[370px]  mx-auto h-[70vh]  bg-white rounded-3xl overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray  '>
+                <div dir='rtl' className='w-[380px]  md:w-[600px] min-w-[370px]  mx-auto h-[85vh]  bg-white rounded-3xl overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray  '>
                     <div>
                         <div className="flex justify-between h-[60px] my-2 gap-5 items-center">
 
@@ -29,7 +29,7 @@ export const CityPickerModel = (props : { fildes : any , setFileds :React.Dispat
                             </div>
 
                             <div>
-                                <h1 onClick={()=>setFileds({...fildes , city_id : 1})} className="pl-7 text-xl font-bold text-beh-orange">
+                                <h1 onClick={()=>setFileds({...fildes , showCityPicker : false , })} className="pl-7 text-xl cursor-pointer font-bold text-beh-orange">
                                     انصراف
                                 </h1>
                             </div>

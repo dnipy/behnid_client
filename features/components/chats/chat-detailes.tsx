@@ -1,11 +1,11 @@
 import React, {  useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
-import { BiPlus, BiUser } from 'react-icons/bi'
+import { BiDetail, BiPlus, BiUser } from 'react-icons/bi'
 import { AuthorizedApiRequest, AuthorizedApiRequestImage } from '../../../clients/axios'
 import { BACK_END } from '../../../clients/localStorage'
 import NoPerson from "../../../assets/NoPerson.png"
 import ErrorComponent from '../../../components/alerts/error'
-import { ChatDetailes, ChatDetailesFields, ChatDetailesModels, sendHandle } from '../../../types/chat-datailes'
+import { ChatDetailesFields, ChatDetailesModels, ChatDetailesType, sendHandle } from '../../../types/chat-datailes'
 import { UserImageMessageComponent } from './messages/UserImageMessageComponent'
 import { SecondUserImageMessageComponent } from './messages/SecondUserImageMessageComponent'
 import { SecondUserMessageComponent } from './messages/SecondUserTextMessageComponent'
@@ -22,13 +22,16 @@ import { UserPdfMessageComponent } from './messages/UserPdfMessage'
 import { SecondUserPdfMessageComponent } from './messages/SecondUserPdfMessage'
 import Compressor from 'compressorjs'
 import { message } from '../../../types/async-prisma-types'
+import UserModal from '../user-modal'
+import {HiDotsVertical} from 'react-icons/hi'
+import { responeType } from '../../../types/chats'
 
 
 
 
 
 
-function ChatDetailes(props : {shouldBeOpened : boolean}) {
+function ChatDetailes(props : {shouldBeOpened : boolean , response: ChatDetailesType | null ,setResponse: React.Dispatch<React.SetStateAction<ChatDetailesType | null>>  ,  AllChatResponse :responeType[] , setAllChatResponse : React.Dispatch<React.SetStateAction<responeType[]>> }) {
 
 //* STATES
 
@@ -37,14 +40,14 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
 
   const [loading,setloading] = useState(false)
   const [error,setError] = useState('')
-  const [response, setResponse] = useState<ChatDetailes | null>(null);
-  const [olderMessages,setOlderMessages] = useState<ChatDetailes | null>(null);
+  const [olderMessages,setOlderMessages] = useState<ChatDetailesType | null>(null);
 
   const [myId,setmyId] = useState<number | null >(null)
   const [ userTwoID,setUserTwoID] = useState<number | null>(null)
   const [loadDone,setLoadDone] = useState(false)
   // const online = useContext(SocketContext)
   const [online ,setOnline] = useState(false)
+  const { response , setResponse , AllChatResponse , setAllChatResponse } = props
 
   const divref = useRef<any>()
   const beforeOlderRef = useRef<any>()
@@ -100,7 +103,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
             router.push('/chat')
           }
           else {  
-            const ReverseMessages = res.data as ChatDetailes
+            const ReverseMessages = res.data as ChatDetailesType
             const NewMessages = ReverseMessages?.message?.reverse()
             setResponse({...ReverseMessages , message : NewMessages});
             console.log({chatMessages : res.data})
@@ -163,10 +166,23 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                 return elm
               }) 
 
-            setResponse({...response , message  : newMessages})
+            setResponse({...response , message  : newMessages})     
+            let newChatList = AllChatResponse;
+            newChatList.map(elm=>{
+                if (elm.id === Number(id)){
+                  elm.message.forEach(msg =>{
+                    msg.hasSeen = true
+                  })
+                }
+
+                return elm
+            });
+            setAllChatResponse(newChatList)       
             // socket.emit('seen-message',{recieverId : userTwoID , chatID : Number(id) , senderID : myId})
             // console.log(newMessages)
             }
+            
+
           else {
             // console.log('not seen this time')
             setTimeout(() => {
@@ -183,6 +199,17 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
               // socket.emit('seen-message',{recieverId : userTwoID , chatID : id , senderId : myId})
               // console.log(newMessages)
               }
+              let newChatList = AllChatResponse;
+              newChatList.map(elm=>{
+                  if (elm.id === Number(id)){
+                    elm.message.forEach(msg =>{
+                      msg.hasSeen = true
+                    })
+                  }
+
+                  return elm
+              });
+              setAllChatResponse(newChatList)
               // console.log('done at second time')  
             }, 1000);
           }
@@ -213,7 +240,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
       socket.on('disconnect',()=>{
         setOnline(false)
       })
-      socket.on('resive-message',(data)=>{
+      socket.on('resive-message',(data:message)=>{
         // console.log('new-recived-msg  == '+ data)
         if (data && response?.message) {
           let NewMessages = []
@@ -236,6 +263,14 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
         else if (data && !response?.message ){
           setResponse({...response! , message : [data]})
         }
+        let newChatList = AllChatResponse;
+        newChatList.map(elm=>{
+            if (elm.id === Number(id)){
+              elm.message[0]=(data as message)
+            }
+            return elm
+        });
+        setAllChatResponse(newChatList); 
       })
 
       return () => {
@@ -271,7 +306,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
           }
           else {  
             // 
-            const ReverseMessages = res.data as ChatDetailes
+            const ReverseMessages = res.data as ChatDetailesType
             const NewMessages : message[] = []
 
             if(ReverseMessages?.message?.length == 0) {
@@ -324,7 +359,16 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
               recieverId : userTwoID,
               message  : resp.data
             }
-            socket.emit('send-message',socketData)
+            socket.emit('send-message',socketData);
+            
+            let newChatList = AllChatResponse;
+            newChatList.map(elm=>{
+                if (elm.id === Number(id)){
+                  elm.message[0]=(resp.data as message)
+                }
+                return elm
+            });
+            setAllChatResponse(newChatList); 
           }
           else {
             setError(resp.data?.err)
@@ -361,7 +405,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
         .then((resp)=>{
           if (resp.data?.msg) {
 
-            const newMessages = response?.message.map(elm=>{
+            let newMessages = response?.message.map(elm=>{
                 if (elm.id == message_id){
                   elm.text = fields.imageText!
                   return (elm)
@@ -371,8 +415,17 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                     elm
                   )
                 }
-              })
-              setResponse({...response! , message : newMessages!})
+            })
+            setResponse({...response! , message : newMessages!})
+            
+            let newChatList = AllChatResponse;
+            newChatList.map(elm=>{
+                if (elm.id === Number(id)){
+                  elm.message = newMessages!
+                }
+                return elm
+            });
+            setAllChatResponse(newChatList); 
           }
           else {
             setError('پیام ها فقط تا یک ساعت بعد از ارسال قابل تغییر هستند')
@@ -498,7 +551,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
   }
 
 
-  // * Done (with commpress)
+  // * Done (commpressed)
   const SendImage = ()=>{
 
     if (fields.imageInput){
@@ -537,6 +590,15 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                   message  : resp.data
                 }
                 socket.emit('send-message',socketData)
+
+                let newChatList = AllChatResponse;
+                newChatList.map(elm=>{
+                    if (elm.id === Number(id)){
+                      elm.message[0]=(resp.data as message)
+                    }
+                    return elm
+                });
+                setAllChatResponse(newChatList); 
               }
               else {
                 setError(resp.data?.err)
@@ -583,12 +645,21 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
         .then((resp)=>{
           // setResponse({...response! , message : [...response?.message! , resp.data]})
           if (!resp.data?.err) {
+            console.log(resp.data)
             setResponse({...response! , message : [...response?.message! , resp.data]})
             const socketData = {
               recieverId : userTwoID,
               message  : resp.data
             }
             socket.emit('send-message',socketData)
+            let newChatList = AllChatResponse;
+            newChatList.map(elm=>{
+                if (elm.id === Number(id)){
+                  elm.message[0]=(resp.data as message)
+                }
+                return elm
+            });
+            setAllChatResponse(newChatList); 
           }
           else {
             setError(resp.data?.err)
@@ -634,12 +705,21 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
         .then((resp)=>{
           // setResponse({...response! , message : [...response?.message! , resp.data]})
           if (!resp.data?.err) {
+            console.log(resp.data)
             setResponse({...response! , message : [...response?.message! , resp.data]})
             const socketData = {
               recieverId : userTwoID,
               message  : resp.data
             }
             socket.emit('send-message',socketData)
+            let newChatList = AllChatResponse;
+            newChatList.map(elm=>{
+                if (elm.id === Number(id)){
+                  elm.message[0]=(resp.data as message)
+                }
+                return elm
+            });
+            setAllChatResponse(newChatList); 
           }
           else {
             setError(resp.data?.err)
@@ -698,6 +778,10 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
       } />
 
      }
+     {
+       models.userProfileOpen &&
+        <UserModal id={response?.userTwoId != myId  ? response?.userTwoId! : response?.userOneId!} models={models} setModels={setModels}/>
+     }
      {models.fullPic && <FullPic src={models.fullPicSrc} models={models}  setModels={setModels}  />}
 
       {models.showUpdateMessage &&
@@ -736,7 +820,6 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
           </div>
       }
 
-
     {loading ?  
       <ChatLoading shouldBeOpened={props.shouldBeOpened} />
       :
@@ -749,12 +832,12 @@ function ChatDetailes(props : {shouldBeOpened : boolean}) {
                         <div className='basis-11/12 h-full flex justify-center items-center'>
                           <div className='w-[100%] sm:w-[95%] h-14 flex   rounded-2xl bg-beh-orange shadow-xl'>
                                 <div className='basis-1/12  p-2 h-full flex justify-center items-center'>
-                                  <BiUser className='fill-white w-10 h-10' />
+                                  <HiDotsVertical className='fill-white w-7 h-7 hover:cursor-pointer' />
                                 </div>
                                 <div className='w-11/12 h-full flex justify-center items-center text-center text-white  text-xl'>
-                                  <div >
+                                  <div className='cursor-pointer' onClick={()=>setModels({...models,userProfileOpen : true})} >
                                       {/* CONTACT_NAME */}
-                                      <h1 >
+                                      <h1>
                                         {
                                           response?.userTwoId != myId ? `${response?.userTwo?.profile?.name ? response?.userTwo?.profile?.name : 'کاربر'} ${response?.userTwo?.profile?.family ? response?.userTwo?.profile?.family : 'بدون نام'}` :  `${response?.userOne?.profile?.name ? response?.userOne?.profile?.name : 'کاربر'} ${response?.userOne?.profile?.family ? response?.userOne?.profile?.family : 'بدون نام'}`
                                         }
