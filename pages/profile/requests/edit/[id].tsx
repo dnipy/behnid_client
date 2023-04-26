@@ -1,25 +1,80 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { DatePicker } from "jalali-react-datepicker";
-import { ALlUnits } from '../../static/_index';
-import { UnitNameById } from '../../utils/UnitNameById';
-import { CategoryPickerModel } from '../../features/components/category_picker_any';
-import { CityPickerModel } from '../../features/components/city-picker-any';
-import SuccesComponent from '../../components/alerts/succes';
-import ErrorComponent from '../../components/alerts/error';
-import { AuthorizedApiRequest } from '../../clients/axios';
+import { ALlUnits } from '../../../../static/_index';
+import { UnitNameById } from '../../../../utils/UnitNameById';
+import { CategoryPickerModel } from '../../../../features/components/category_picker_any';
+import { CityPickerModel } from '../../../../features/components/city-picker-any';
+import SuccesComponent from '../../../../components/alerts/succes';
+import ErrorComponent from '../../../../components/alerts/error';
+import { AuthorizedApiRequest } from '../../../../clients/axios';
 import { useRouter } from 'next/router';
+import { Category, City, FreeRequests, Unit, keywordForFreeRequests } from '../../../../types/async-prisma-types';
+import { NextSeo } from 'next-seo';
 
+
+type SingleRequestsResponseType = (FreeRequests & { err? : string ; error? : string} & {
+    categorie: Category[];
+    city: City | null;
+    keywords: keywordForFreeRequests[];
+    unit: Unit | null;
+})
 
 function Requests() {
   const [error,setError] = useState('')
   const [succes,setSucces] = useState('')
   const [loading,setLoading] = useState(false)
+  const [response,setResponse] = useState<any>({})
   const [fields,setFields] = useState<any>({})
   const router = useRouter()
+  const {id} = router.query
+
+
+  useEffect(()=>{
+    if(!id){
+      return
+    }
+    setError('')
+    setLoading(true)
+    AuthorizedApiRequest
+    .get<SingleRequestsResponseType>(`/requests/single-mine?id=${id}`)
+    .then((res ) => {
+
+      if (res.data?.err || res?.data?.error) {
+        setError(res.data?.err ? res.data?.err : 'خطایی از سمت ما رخ داده است!')
+        router.replace('/profile')
+      }
+      else {
+            console.log(res.data)
+          setFields({
+            title : res.data?.name , 
+            describe : res.data?.describe,
+            quantity : res.data?.quantity, 
+            unit : res?.data?.unit?.id, 
+            city_id : res?.data?.city?.id , 
+            selectedCityName : res?.data?.city?.name,
+            cat_id : res?.data?.categorie?.at(0) ? res?.data?.categorie?.at(0)?.id : null, 
+            cat_name : res?.data?.categorie?.at(0) ? res?.data?.categorie?.at(0)?.name : null, 
+            expire_date : res?.data?.request_expire_date,
+            keywords : res?.data?.keywords
+        })
+
+        //   setFields(res.data)
+      }
+    })
+    .catch((err) => {
+      setError(err);
+      // router.replace('/404')
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+  
+},[id])
 
     const Submit = async()=>{
         setLoading(true)
         const fdata = {
+            id : id,
             name : fields.title,
             describe : fields.describe,
             quantity : fields.quantity,
@@ -30,7 +85,7 @@ function Requests() {
             expire_date : fields.expire_date
         }
 
-        AuthorizedApiRequest.post('/requests/FreeRequest',fdata)
+        AuthorizedApiRequest.post('/requests/update',fdata)
             .then(res=>{
                 if (res.data.msg){
                     setSucces('موفق')
@@ -49,6 +104,9 @@ function Requests() {
 
   return (
       <>
+    <NextSeo
+        title="ویرایش درخواست"
+      />
     {error ? <ErrorComponent handle={setError} message={error} /> : null}
     {succes ? <SuccesComponent handle={setSucces} message={succes} /> : null}
     {fields.showCityPicker ? <CityPickerModel fildes={fields} setFileds={setFields} /> : null}
@@ -86,7 +144,7 @@ function Requests() {
 
                         <div className="my-5">    
                             <h1 className="text-black text-lg py-2  font-semibold ">محل تحویل</h1>
-                            <input type="number"  onClick={()=>setFields({...fields , showCityPicker : true})}  placeholder={fields.selectedCityName ? fields.selectedCityName : 'انتخاب شهر'} className="w-full text-center  h-12 rounded-md flex items-center justify-center bg-beh-gray-dark placeholder:text-white placeholder:text-lg placeholder:font-semibold" />
+                            <input type="number" value={fields.selectedCityName}  onClick={()=>setFields({...fields , showCityPicker : true})}  placeholder={fields.selectedCityName ? fields.selectedCityName : 'انتخاب شهر'} className="w-full text-center  h-12 rounded-md flex items-center justify-center bg-beh-gray-dark placeholder:text-white placeholder:text-lg placeholder:font-semibold" />
                         </div>
 
                         <div className="my-5">    

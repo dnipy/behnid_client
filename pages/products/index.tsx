@@ -10,7 +10,7 @@ import Footer from "../../components/footer";
 import { LoadingComponent } from "../../components/loading";
 import Navbar_v2 from "../../components/Navbar_v2";
 import { MiniProduct } from "../../components/products/mini-product";
-
+import { NextSeo } from 'next-seo'
   
 const Page : NextPage = ()  => {
   const router = useRouter()
@@ -50,6 +50,9 @@ const Page : NextPage = ()  => {
     {loading ? <LoadingComponent/> : null}
     {error ? <ErrorComponent  details={'500'} /> : null}
     <Navbar_v2 />
+    <NextSeo
+      title="محصولات بهنید"
+    />
     <main className="flex justify-center min-h-screen">
       <div className="w-1/1 md:w-3/4 my-10 p-3">
 

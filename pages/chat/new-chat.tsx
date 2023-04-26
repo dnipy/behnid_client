@@ -34,11 +34,11 @@ function NewChat() {
                     }
                     else {
                         if (res.data?.id) {
-                            router.replace(`/chat/${res?.data?.id}`)
+                            router.replace(`/chat?id=${res?.data?.id}`)
                         }
                         else if (res.data?.message as Array<any>) {
                             if ((res.data.message as Array<any>).at(0)) {
-                                router.replace(`/chat/${  (res.data.message as Array<any>).at(0)?.chatID  }`)
+                                router.replace(`/chat?id=${  (res.data.message as Array<any>).at(0)?.chatID  }`)
                             }
                         }
                     }

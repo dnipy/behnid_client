@@ -112,7 +112,7 @@ const Page : NextPage = ()  => {
           <span className="text-sm text-gray-500 ">{response?.Role == 'Seller' ? 'خریدار'  : 'فروشنده'}</span>
           <div className="flex mt-4 space-x-3 md:mt-6">
               {/* <a href="#" className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 ">ارسال پیام</a> */}
-              <p onClick={()=> router.replace(`/chat/new-chat?id=${response?.authorID}`)} className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-orange-400  rounded-lg hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-blue-300 cursor-pointer ">ارسال پیام</p>
+              <p onClick={()=> router.replace(`/chat?id=new-chat?id=${response?.authorID}`)} className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-orange-400  rounded-lg hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-blue-300 cursor-pointer ">ارسال پیام</p>
           </div>
       </div>
 

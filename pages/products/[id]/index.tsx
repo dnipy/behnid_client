@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import React from "react";
+import { Dispatch, useEffect, useRef, useState } from "react";
 import {  ApiRequest, AuthorizedApiRequest } from "../../../clients/axios";
 import { BACK_END } from "../../../clients/localStorage";
 import NoPerson from '../../../assets/NoPerson.png'
@@ -10,7 +11,10 @@ import { LoadingComponent } from "../../../components/loading";
 import { City, commentsForProductsComments, keywordForProducts, OFF, packType, Product, ProductStatus, sellerProfile, Unit, User } from "../../../types/async-prisma-types";
 import { packTypeCheck } from "../../../utils/PackType";
 import Comment from "../../../components/comments";
-
+import SuccesComponent from "../../../components/alerts/succes";
+import { NextSeo } from "next-seo"
+import SpamProduct from "../../../features/components/report/spam-product";
+import { SelectedCitiesModel } from "../../../features/components/selected_cities";
 
 
 
@@ -62,8 +66,11 @@ const Page : NextPage = ()  => {
   const [comment,setComment] = useState('')
   const [response, setResponse] = useState<null | SingleProduct>(null);
   const [error, setError] = useState('');
+  const [Succes, setSucces] = useState('');
   const [unit, setUnit] = useState('')
   const [loading, setloading] = useState(true);
+  const [openSpam,setOpenSpam] = useState(false)
+  const [SelectedCityOpen,setSelectedCityOpen] = useState(false)
   const messagesEndRef = useRef<null | HTMLDivElement>(null)
 
 
@@ -107,6 +114,8 @@ const Page : NextPage = ()  => {
 
 
 
+
+
   const addComment = async()=>{ 
     if (comment.length < 15) {
       setError('نظر کوتاه است')
@@ -136,14 +145,41 @@ const Page : NextPage = ()  => {
   }
 
 
+  const saveProduct = async()=>{ 
+    setloading(true)
+    
+    await AuthorizedApiRequest.post('/profile/add-to-intresting-products', {
+      id : id,
+    }).then(res=>{
+      if (res.data?.err ) {
+        setError(res.data?.err)
+      }
+      else {
+          setSucces(res.data?.msg)
+      }
+    }).catch(e=>{
+      setError('خطا در ارتباط با سرور')
+    })
+    .finally(()=>{
+      setloading(false)
+    })
+  }
+
+
 return (
     <> 
+      <NextSeo
+      title={response?.title ? response?.title : 'محصول بهنید'}
+       />
       {loading && <LoadingComponent/>}
       {error && <ErrorComponent  message={error} handle={setError} />}
-      <main dir="rtl" className="flex justify-center">
+      {Succes && <SuccesComponent handle={setSucces} message={Succes} />}
+      {openSpam && <SpamProduct openState={openSpam} setOpenState={setOpenSpam} />}
+      {SelectedCityOpen && <SelectedCitiesModel cities={response?.sendArea ? response?.sendArea : undefined} fildes={SelectedCityOpen} setFileds={setSelectedCityOpen} />}
+       <main dir="rtl" className="flex justify-center">
         <div className="w-full lg:max-w-7xl ">
           {/* TOP_PART */}
-          <TopPart main={response?.categorie?.subCategory?.mainCatName} sub={response?.categorie?.subCategory?.name} cat={response?.categorie?.name} title={response?.title ? response?.title : ''} />
+          <TopPart setopenSpam={setOpenSpam} saveProduct={saveProduct} main={response?.categorie?.subCategory?.mainCatName} sub={response?.categorie?.subCategory?.name} cat={response?.categorie?.name} title={response?.title ? response?.title : ''} />
 
           {/* PAGE_START */}
           <div>
@@ -181,7 +217,7 @@ return (
                           </div>
                         </div>
                         
-                        <div className="w-full    text-white text-sm order-2 sm:order-1 text-center lg:px-4  lg:text-right h-[80px] flex justify-center items-center mt-1 ">
+                        <div className="w-full  text-white text-sm order-2 sm:order-1 text-center lg:px-4  lg:text-right h-[80px] flex justify-center items-center mt-1 ">
                           
                             <div className="w-full">                              
                               <div>
@@ -325,7 +361,7 @@ return (
                                   
                                 <div className=" px-8 w-full flex justify-center flex-wrap lg:justify-end items-center gap-3">
                                     <div className="order-2 lg:order-1  ">
-                                        <div className="min-w-[140px] cursor-pointer px-10 h-[40px] bg-beh-orange rounded-xl text-center text-white flex justify-center items-center">
+                                        <div onClick={()=>setSelectedCityOpen(true)} className="min-w-[140px] cursor-pointer px-10 h-[40px] bg-beh-orange rounded-xl text-center text-white flex justify-center items-center">
                                           <h1>
                                             مشاهده محدوده ارسال
                                           </h1>
@@ -368,7 +404,7 @@ return (
                                           {response?.describe}
                                       </h1>
 
-                                      <div onClick={()=> router.push(`/chat/new-chat?id=${response?.author?.userID}`)} className="w-full  text-2xl my-2 cursor-pointer font-bold bg-beh-green-super-light flex justify-center items-center text-white h-16 rounded-xl">
+                                      <div onClick={()=> router.push(`/chat?id=new-chat?id=${response?.author?.userID}`)} className="w-full  text-2xl my-2 cursor-pointer font-bold bg-beh-green-super-light flex justify-center items-center text-white h-16 rounded-xl">
                                         <h1>
                                           شروع گفت و گو
                                         </h1>
@@ -434,7 +470,7 @@ return (
 
 
 
-const TopPart = (props : {main : string | undefined , sub : string | undefined , cat : string | undefined , title : string}) => {
+const TopPart = (props : {  setopenSpam :  React.Dispatch<React.SetStateAction<boolean>>  ,saveProduct :()=>Promise<void>  , main : string | undefined , sub : string | undefined , cat : string | undefined , title : string}) => {
     return (
       <>
         <div className=" my-8 flex flex-row gap-3  w-full">
@@ -476,12 +512,21 @@ const TopPart = (props : {main : string | undefined , sub : string | undefined ,
           </h1>
         </div>
 
-        <div className="hidden  lg:basis-1/3 lg:flex h-full justify-center items-center">
-            <div className="w-[200px] cursor-pointer flex items-center text-center justify-center h-[35px] bg-beh-red text-white rounded-md">
+        <div className="hidden  gap-x-2 lg:basis-1/3 lg:flex h-full justify-center items-center">
+
+            <div onClick={props.saveProduct} className="w-[100px] my-2 cursor-pointer flex items-center text-center justify-center h-[35px] bg-beh-green-light text-white rounded-md">
+              <h1 >
+                ذخیره
+              </h1>
+            </div>
+
+            <div onClick={()=>props.setopenSpam(true)} className="w-[200px] my-2 cursor-pointer flex items-center text-center justify-center h-[35px] bg-beh-red text-white rounded-md">
               <h1 >
                 گزارش تخلف این محصول
               </h1>
             </div>
+
+
         </div>
         </div>
       </>

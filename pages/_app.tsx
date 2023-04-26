@@ -11,7 +11,7 @@ import ReduxWrapper from '../contexts/ReduxWrapper'
 import Head from 'next/head'
 import { SetupProfileComponent } from '../features/components/setup-profile-model'
 import { SocketContext } from '../contexts/socket'
-
+import { NextSeo } from 'next-seo'
 
 
 
@@ -107,12 +107,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         // }, [])
 
   return <>
-  <Head>
-    <title>
-      behnid | بهنید
-    </title>
-  </Head>
-  <div className='bg-beh-bg min-h-screen '>
+  <NextSeo
+        title="بهنید "
+        titleTemplate=" behnid | %s"
+        defaultTitle="به نید"
+        description="به نید با تجربه 16 ساله افتخار همکاری با شرکت های بزرگ در حوزه ی موادغذایی ،شوینده ،بهداشتی و نوشیدنی را دارد. همچنین افتخار ارتباط با بیش از 4000 کسب و کار ، خریدار و فروشنده عمده در کارنامه خود را دارد و با بهره گیری بیش از 20 نیروی متخصص در راه کسب سود بیشتر برای عمده فروشان تلاش می کند"
+        canonical="https://www.behnid.com/"
+  />
+
+  <div className={`  bg-beh-bg min-h-screen font-yekan `}>
     <Provider store={store}>
       <ReduxWrapper>
           <AuthContext.Provider value={authContextDefaults} >

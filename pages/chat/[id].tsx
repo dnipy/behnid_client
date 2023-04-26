@@ -3,9 +3,11 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import AllChats from "../../features/components/chats/all-chats";
 import ChatDetailes from "../../features/components/chats/chat-detailes";
+import { responeType } from "../../types/chats";
 
 
 const Page : NextPage = ()  => {
+  const [response , setResponse] = useState<responeType[]>([])
   const router = useRouter()
   useEffect(()=>{
     const data = localStorage.getItem('user-session')
@@ -22,7 +24,7 @@ return (
           <ChatDetailes shouldBeOpened={true} />
 
 
-          <AllChats shouldBeOpened={false} />
+          <AllChats response={response} setResponse={setResponse} shouldBeOpened={false} />
         </div>
 
       </div>

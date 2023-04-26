@@ -2,6 +2,8 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { ApiRequest } from "../../clients/axios";
+import ErrorComponent from "../../components/alerts/error";
+import { NextSeo } from "next-seo";
 
 const Page : NextPage = ()  => {
   const router = useRouter()
@@ -30,19 +32,22 @@ const Page : NextPage = ()  => {
 
 
     ApiRequest
-    .get(`/sellers/single?SellerID=${id}`)
+    .get(`/users/story?userID=${id}`)
     .then((res) => {        
         if (res.data.err) {
           setError(res.data.err)
           console.log(res.data.err)
         } 
+        if (res.data?.role){
+          res?.data?.role == 'Buyer' || res?.data?.role == 'Not-Found' ? router.push('/') : null
+        }
         else {
           setResponse(res.data);
           console.log(res.data)
         }
     })
     .catch((err) => {
-      router.replace('/500')
+      // router.replace('/500')
       setError('خطا در اتصال به سرور');
     })
     .finally(() => {  
@@ -52,6 +57,11 @@ const Page : NextPage = ()  => {
 },[id])
   return (
     <>
+      <NextSeo
+        title={`داستان`}
+      />
+    {error ? <ErrorComponent message={error} handle={setError} /> : null}
+
       <div className="bg-gray-900 h-screen w-screen ">
             <div className="max-w-sm  min-w-sm ml-auto mr-auto  h-screen bg-white">
                 <div className="h-20 flex ">

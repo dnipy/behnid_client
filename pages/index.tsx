@@ -11,6 +11,9 @@ import Navbar_v2 from "../components/Navbar_v2";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../contexts/Auth";
 import { useRouter } from "next/router";
+import NoImg from '../assets/NoImg.png'
+import { BsEye } from "react-icons/bs";
+import { FiUsers } from "react-icons/fi";
 
 const Page : NextPage = ()  => {
   // const {isUser} = useContext(AuthContext)
@@ -24,6 +27,11 @@ const Page : NextPage = ()  => {
       <Navbar_v2/>
       <main dir="rtl" className="flex justify-center ">
         <div className="w-full lg:max-w-7xl  min-h-screen  ">
+        
+          
+
+
+                    
           <TopImage/>
           <KnowUs/>
           {/* <IndexProducts/> */}

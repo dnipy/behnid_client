@@ -6,6 +6,7 @@ import {LoadingComponent} from "../../components/loading";
 import Navbar from "../../components/Navbar";
 import { Building } from "../../components/mid-pages/Building";
 import useAxios from "../../hooks/useAxios";
+import { NextSeo } from "next-seo";
 
 const Page : NextPage = ()  => {
 
@@ -13,6 +14,9 @@ const Page : NextPage = ()  => {
 
   return (
     <>
+    <NextSeo
+      title=" مجله بهنید"
+    />
     <Navbar />
     <main className="flex justify-center">
       <div className="w-1/1 md:w-2/3 p-3">

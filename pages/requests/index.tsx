@@ -9,6 +9,7 @@ import FreeRequestComponent from "../../components/FreeRequestComponent";
 import {LoadingComponent} from "../../components/loading";
 import Navbar from "../../components/Navbar";
 import Navbar_v2 from "../../components/Navbar_v2";
+import { NextSeo } from "next-seo";
 
 const Page : NextPage = ()  => {
   const router = useRouter()
@@ -42,6 +43,9 @@ const Page : NextPage = ()  => {
 
   return (
     <>
+    <NextSeo
+        title="درخواست ها"
+      />
     {loading ? <LoadingComponent/> : null}
     {error ? <ErrorComponent  details={'500'} /> : null}
     <Navbar_v2 />
