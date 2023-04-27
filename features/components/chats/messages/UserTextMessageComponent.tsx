@@ -16,7 +16,7 @@ export const UserMessageComponent = ( props : { date :Date ,id : number , models
                                 modal : props.models,
                                 fields : props.fields
                               })
-                            }} className='w-[70%] rounded-md sm:rounded-none sm:w-[70%] min-h-[70px]  bg-beh-gray flex flex-row gap-2'>
+                            }} className='w-[70%] rounded-xl sm:w-[70%] min-h-[40px]  bg-beh-gray flex flex-row gap-2'>
         {liked &&
               <div className="relative h-full">
                 <div className="absolute h-full ">
@@ -24,7 +24,7 @@ export const UserMessageComponent = ( props : { date :Date ,id : number , models
                 </div>
               </div>
               }
-          <div className='basis-11/12 px-2 md:px-5 py-4 h-full flex w-full text-right justify-center items-center'>
+          <div className='basis-11/12 px-2 md:px-5 py-2 h-full flex w-full text-right justify-center items-center'>
             <h1 className='text-white text-lg w-full'>
               {props.text}
             </h1>

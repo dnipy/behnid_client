@@ -28,7 +28,7 @@ const Page : NextPage = ()  => {
         setChatId(Number(id))
       }, 500);
     }
-  },[chatId])
+  },[id])
  
 
   useEffect(()=>{
@@ -44,18 +44,18 @@ const Page : NextPage = ()  => {
 
 
           <div className="bg-beh-bg flex flex-row mx-auto gap-10 px-2 min-w-[350px]  ">          
-            {/* {
+            {
               chatId 
                 ?
-                <ChatDetailes  response={DetaileResponse} setResponse={setDetaileResponse} AllChatResponse={AllChatResponse} setAllChatResponse={setAllChatResponse} shouldBeOpened={true} />
+                <ChatDetailes  response={DetaileResponse} setResponse={setDetaileResponse} AllChatResponse={AllChatResponse} setAllChatResponse={setAllChatResponse} shouldBeOpened={chatId ? true : false} />
                 : 
                 <NoChatSelected />
 
-            } */}
-                <ChatDetailes  response={DetaileResponse} setResponse={setDetaileResponse} AllChatResponse={AllChatResponse} setAllChatResponse={setAllChatResponse} shouldBeOpened={true} />
+            }
+                {/* <ChatDetailes  response={DetaileResponse} setResponse={setDetaileResponse} AllChatResponse={AllChatResponse} setAllChatResponse={setAllChatResponse} shouldBeOpened={true} /> */}
 
 
-            <AllChats response={AllChatResponse} setResponse={setAllChatResponse} DetaileResponse={DetaileResponse} setDetaileResponse={setDetaileResponse} shouldBeOpened={true} />
+            <AllChats response={AllChatResponse} setResponse={setAllChatResponse} DetaileResponse={DetaileResponse} setDetaileResponse={setDetaileResponse} shouldBeOpened={!chatId ? true : false} />
           </div>
 
         </div>

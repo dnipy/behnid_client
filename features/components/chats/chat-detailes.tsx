@@ -823,7 +823,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean , response: ChatDetailes
     {loading ?  
       <ChatLoading shouldBeOpened={props.shouldBeOpened} />
       :
-    <div         className={`h-[90vh]  md:mt-[12vh] shadow-xl mt-4 md:h-[80vh] ${props.shouldBeOpened ? 'basis-5/6 lg:basis-2/3' : 'hidden lg:block  lg:basis-2/3'}   mx-auto  bg-white rounded-3xl`}>
+    <div         className={`h-[98vh]  md:mt-[12vh] shadow-xl  md:h-[80vh] ${props.shouldBeOpened ? 'basis-full lg:basis-2/3' : 'hidden lg:block  lg:basis-2/3'}   mx-auto  bg-white rounded-3xl`}>
                 {models.modalSelectorOpen && <ModelSelector sendHandle={ModelSend} shouldBeOpened={props.shouldBeOpened} fields={fields} setFields={setFields} model={models} setModels={setModels} />}
                 <div className="w-full   ">
 
@@ -885,7 +885,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean , response: ChatDetailes
                     </div>
 
                     {/* MESSAGES_PART */}
-                    <div  className="h-[66vh] md:h-[56vh]  px-10 w-full min-w-[340px]   overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray    flex flex-row gap-4">
+                    <div  className="h-[75vh] md:h-[56vh]  px-10 w-full min-w-[340px]   overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray    flex flex-row gap-4">
                       <div className='w-full    flex-col flex gap-1 '>
                         <div  className='text-center  mb-2'>
                           {olderLoading ? 
@@ -1057,7 +1057,7 @@ function ChatDetailes(props : {shouldBeOpened : boolean , response: ChatDetailes
                           
                           <div className='w-[6.5vh] h-[6.5vh] flex justify-center items-center'>
                               <div onClick={()=>setModels({...models,modalSelectorOpen : true})} className='w-[6.25vh] cursor-pointer h-[6.25vh] bg-beh-orange rounded-full  flex justify-center items-center'>
-                                    <BiPlus className='w-[6vh] h-[6-vh] fill-white' />
+                                    <BiPlus className='w-7 h-7 fill-white' />
                               </div>    
                             </div>
                       

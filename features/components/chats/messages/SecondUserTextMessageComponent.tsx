@@ -10,7 +10,7 @@ export const SecondUserMessageComponent = (props : { date : Date, text : string 
                                 <div onDoubleClick={()=>{
                                   props.like(props.id)
                                   setliked(!liked)
-                                }} className='w-[70%] rounded-md sm:rounded-none min-h-[70px] float-left  bg-beh-green-light flex flex-row gap-2'>
+                                }} className='w-[70%] rounded-xl min-h-[40px] float-left  bg-beh-green-light flex flex-row gap-2'>
                                   
                                   {liked &&
                                   <div className="relative h-full">
@@ -20,7 +20,7 @@ export const SecondUserMessageComponent = (props : { date : Date, text : string 
                                   </div>
                                   }
 
-                                  <div className='basis-full px-2 md:px-5 py-4 h-full flex w-full text-left justify-center items-center'>
+                                  <div className='basis-full px-2 md:px-5 py-2 h-full flex w-full text-left justify-center items-center'>
                                     <h1 className='text-white text-lg w-full'>
                                         {props.text}
                                     </h1>
