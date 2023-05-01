@@ -34,11 +34,11 @@ const Page : NextPage = ()  => {
                     
           <TopImage/>
           <KnowUs/>
-          {/* <IndexProducts/> */}
+          <IndexProducts/>
           {/* {
           isUser() ? <IndexStoryBar/> : null
           } */}
-          {/* <IndexEvents/> */}
+          <IndexEvents/>
         </div>
       </main>
       <Footer/>

@@ -34,7 +34,7 @@ function IndexEvents() {
             <div className='basis-full order-1 lg:order-2 lg:basis-2/6 h-full mt-5 '>
                 <div className='w-full'>
 
-                    <img src={radar.src} alt="" className='mx-auto' />
+                    <img src={radar.src} alt="radar gif" loading='lazy' className='mx-auto' />
                     <div className='mt-10 h-[300px]'>
                         <h1 className=' col-span-1 text-4xl text-beh-gray-dark  font-bold     '>
                             &nbsp;  چیزی نیاز داری؟  &nbsp;
