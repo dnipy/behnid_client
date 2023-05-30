@@ -1,4 +1,7 @@
 export function MiladiToShamsi (gy : number , gm : number, gd : number) {
+    if (isNaN(gy) || isNaN(gm) || isNaN(gd)){
+        return 'نامشخص'
+    }
     var g_d_m, jy, jm, jd, gy2, days;
     g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
     gy2 = (gm > 2) ? (gy + 1) : gy;

@@ -21,7 +21,7 @@ export const SecondUserMessageComponent = (props : { date : Date, text : string 
                                   }
 
                                   <div className='basis-full px-2 md:px-5 py-2 h-full flex w-full text-left justify-center items-center'>
-                                    <h1 className='text-white text-lg w-full'>
+                                    <h1 className='text-white text-lg w-full h-auto break-words'>
                                         {props.text}
                                     </h1>
                                   </div>

@@ -12,6 +12,7 @@ import Head from 'next/head'
 import { SetupProfileComponent } from '../features/components/setup-profile-model'
 import { SocketContext } from '../contexts/socket'
 import { NextSeo } from 'next-seo'
+import { regSw, subscribe } from '../utils/Notification'
 
 
 
@@ -89,21 +90,30 @@ function MyApp({ Component, pageProps }: AppProps) {
         }, [isConnected])
         
 
-        // useLayoutEffect(() => {
-        //   if("serviceWorker" in navigator) {
-        //     console.log('exists')
+        // useEffect(() => {
+        //   // if("serviceWorker" in navigator) {
+        //   //   window.addEventListener("load", function () {
+        //   //    navigator.serviceWorker.register("/workers/push-notif.js").then(
+        //   //       function (registration) {
+        //   //         console.log("Service Worker registration successful with scope: ", registration.scope);
+        //   //       },
+        //   //       function (err) {
+        //   //         console.log("Service Worker registration failed: ", err);
+        //   //       }
+        //   //     );
+        //   //   });
+        //   // }
 
-        //     console.log('load event')
-        //     navigator.serviceWorker.register("/workers/push-notif.js").then(
-        //         function (registration) {
-        //           console.log("Service Worker registration successful with scope: ", registration.scope);
-        //         },
-        //         function (err) {
-        //           console.log("Service Worker registration failed: ", err);
-        //         }
-        //       );
-       
+        //   async function registerAndSubscribe () {
+        //     try {
+        //       const serviceWorkerReg = await regSw()
+        //       await subscribe(serviceWorkerReg);
+        //     } catch (error) {
+        //       console.log (error);
+        //     }
         //   }
+        //   registerAndSubscribe()
+
         // }, [])
 
   return <>

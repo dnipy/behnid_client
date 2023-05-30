@@ -25,7 +25,7 @@ export const UserMessageComponent = ( props : { date :Date ,id : number , models
               </div>
               }
           <div className='basis-11/12 px-2 md:px-5 py-2 h-full flex w-full text-right justify-center items-center'>
-            <h1 className='text-white text-lg w-full'>
+            <h1 className='text-white text-lg w-full h-auto break-words'>
               {props.text}
             </h1>
           </div>

@@ -117,11 +117,18 @@ const Page : NextPage = ()  => {
 
     <main className="flex justify-center">
 
-      <div className="w-1/1 z-[2] md:w-3/4 my-10 p-3">
+      <div dir="rtl" className="w-1/1 z-[2] md:w-3/4  p-3">
 
- 
+          <div className="flex h-auto my-2 py-4  border-b-[2px] border-gray-300 ">
+                    <div className="w-full my-auto  ">
+                      <h1 className="text-xl text-orange-500 pr-2 font-bold ">اطلاعات فروشگاه</h1>
+                    </div>
+                    <div onClick={()=> router.push(`/profile/add-product`)} className="cursor-pointer hover:scale-105 duration-100 w-[125px] h-[40px] rounded-md bg-beh-green-super-light mx-auto my-auto flex justify-center items-center" >
+                            <h1 className="text-white font-bold text-xl" >افزودن</h1>                                    
+                        </div>          </div>
 
-          <div dir="rtl" className="flex flex-wrap justify-center gap-x-1 gap-y-2">
+          <div dir="rtl" className="flex flex-wrap my-10 justify-center gap-x-1 gap-y-2">
+            
                         
           {loading == false ? response?.map((elm )=>(
             <MyMiniProduct  NotShow={NotShowProduct}  Show={ShowProduct} isShown={elm?.isShown} AuthorId={elm?.authorID} id={elm?.id} key={elm?.id} image={elm?.image} freeDelivery={elm?.freeDelivery} unitName={elm?.unitName ? elm?.unitName : ''} sendFrom={elm?.city?.name ? elm?.city?.name : ''} minOrder={elm?.minOrder} pricePerUnit={elm?.price} responseTime={'1'} DeliveryTime={elm?.deliveryTime}  avatar={elm?.author?.user?.avatar} name={elm?.author?.user?.profile?.name!} title={elm?.title}  />

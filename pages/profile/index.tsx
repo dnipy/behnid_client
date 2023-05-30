@@ -12,6 +12,8 @@ import SuccesComponent from "../../components/alerts/succes";
 import { setLoading } from "../../lib/features/loading.slice";
 import {  CityPickerModelForProfile } from "../../features/components/city-picker-any";
 import { NextSeo } from "next-seo"
+import Market from "../../assets/Market.png"
+import Behnid from '../../assets/logo-croped.png'
 
 
 const Page : NextPage = ()  => {
@@ -25,6 +27,7 @@ const Page : NextPage = ()  => {
   const [bioChanged,setBioChanged] = useState(false)
   const [city,setCity] = useState({isOpened : false , city_name : ''})
   const [succed,setSucced] = useState('')
+  const [noshop,setNoshop] = useState(false)
   const inputFile = useRef<HTMLInputElement | null>(null) 
 
   const router = useRouter()
@@ -255,6 +258,14 @@ const Page : NextPage = ()  => {
     }
   }
 
+  const sellerButtonHandle = ()=>{
+    if (response?.Role == "Seller"){
+      router.push("/profile/seller")
+    }
+    else {
+      setNoshop(true)
+    }
+  }
 
 
 //   console.log(response)
@@ -270,6 +281,8 @@ const Page : NextPage = ()  => {
         {loading && <LoadingComponent/>  }
         {IsSetingOpen && <AccuntSeting state={IsSetingOpen} handle={setIsSetingOpen} /> }
         {city.isOpened && <CityPickerModelForProfile handleSubmit={updateCity} fields={city} setFields={setCity}   /> }
+        {noshop && <NoShopModal />}
+
 
 
         <main dir="rtl" className="flex justify-center min-h-screen bg-white  ">
@@ -372,7 +385,7 @@ const Page : NextPage = ()  => {
                           </div>
 
 
-                          <div onClick={response?.Role != "Buyer" ? ()=>router.push('/profile/seller/add-story') : ()=>setError('ابتدا صفحه تنظیمات فروشگاه خود را تنظیم کنید')} className="cursor-pointer hover:text-beh-green-light w-full h-[70px]  text-white text-lg border-b-[5px] px-3 border-b-beh-gray-dark font-bold flex items-center">
+                          {/* <div onClick={response?.Role != "Buyer" ? ()=>router.push('/profile/seller/add-story') : ()=>setError('ابتدا صفحه تنظیمات فروشگاه خود را تنظیم کنید')} className="cursor-pointer hover:text-beh-green-light w-full h-[70px]  text-white text-lg border-b-[5px] px-3 border-b-beh-gray-dark font-bold flex items-center">
                               <div className="h-full w-1/3 flex justify-center items-center">
                                 <div className="w-10 h-10 text-beh-green-light">
                                   <MdScreenshot className="w-10 h-10 " />
@@ -384,7 +397,7 @@ const Page : NextPage = ()  => {
                                     افزودن استوری
                                   </h1>
                               </div>
-                          </div>
+                          </div> */}
 
 
                           <div onClick={()=>router.push('/profile/requests')} className="cursor-pointer hover:text-beh-green-light w-full h-[70px]  text-white text-lg border-b-[5px] px-3 border-b-beh-gray-dark font-bold flex items-center">
@@ -402,7 +415,7 @@ const Page : NextPage = ()  => {
                           </div>
 
 
-                          <div onClick={()=>router.push('/profile/seller')} className="cursor-pointer hover:text-beh-green-light w-full h-[70px]  text-white text-lg border-b-[5px] px-3 border-b-beh-gray-dark font-bold flex items-center">
+                          <div onClick={sellerButtonHandle} className="cursor-pointer hover:text-beh-green-light w-full h-[70px]  text-white text-lg border-b-[5px] px-3 border-b-beh-gray-dark font-bold flex items-center">
                               <div className="h-full w-1/3 flex justify-center items-center">
                                 <div className="w-10 h-10 text-beh-green-light">
                                   <MdShoppingCart className="w-10 h-10 " />
@@ -433,7 +446,7 @@ const Page : NextPage = ()  => {
 
 
 
-                          <div onClick={()=>router.push('/profile/intresting-products')} className="cursor-pointer hover:text-beh-green-light w-full h-[70px]  text-white text-lg   border-b-[5px] px-3 border-b-beh-gray-dark   font-bold flex items-center">
+                          <div onClick={()=>router.push('/profile/intresting-products')} className="cursor-pointer hover:text-beh-green-light w-full h-[70px]  text-white text-lg  px-3  font-bold flex items-center">
                               <div className="h-full w-1/3 flex justify-center items-center">
                                 <div className="w-10 h-10 text-beh-green-light">
                                   <BsHeartFill className="w-10 h-10 " />
@@ -448,7 +461,7 @@ const Page : NextPage = ()  => {
                           </div>
 
 
-                          <div onClick={()=>router.push('/profile/add-ticket')} className=" cursor-pointer hover:text-beh-green-light w-full h-[70px]  text-white text-lg  px-3  font-bold flex items-center">
+                          {/* <div onClick={()=>router.push('/profile/add-ticket')} className=" cursor-pointer hover:text-beh-green-light w-full h-[70px]  text-white text-lg  px-3  font-bold flex items-center">
                               <div className="h-full w-1/3 flex justify-center items-center">
                                 <div className="w-10 h-10 text-beh-green-light">
                                   <MdCommentBank className="w-10 h-10 " />
@@ -460,7 +473,7 @@ const Page : NextPage = ()  => {
                                       پشتیبانی
                                   </h1>
                               </div>
-                          </div>
+                          </div> */}
 
                         </div>
                       </div>
@@ -763,6 +776,37 @@ const ChangePassSeting = (props : { state? : boolean , handle :(value: React.Set
       </div>
     </div>
     </>
+  )
+}
+
+
+const NoShopModal = ()=>{
+  const router = useRouter()
+  return(
+    <div className='fixed w-screen h-screen backdrop-blur-sm bg-white/20 z-40 ' >
+    
+    {/* CENTER_DATA_PART */}
+      <div className='fixed flex w-screen h-screen justify-center items-center'>
+        <div dir='rtl' style={{backgroundImage : `url(${Market.src})`}} className='w-[380px] bg-[#f5f5f5]  md:w-[500px] shadow-2xl border-4 border-beh-orange  bg-no-repeat bg-center  mx-auto h-[70vh]  rounded-3xl overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray  '>
+           
+            <div className="w-full h-[20vh]  bg-white">
+                <img src={Behnid.src} className="w-auto mx-auto h-[20vh] " height={'140px'} width='auto' alt="" />
+            </div>
+            <div className="w-full h-[48vh] flex flex-col justify-around gap-10 items-center ">
+                <div className="w-full">
+                  <h1 className="text-3xl text-beh-orange text-center">
+                    شما فروشگاهی ندارید
+                  </h1>
+                </div>
+                <div className="w-full flex justify-center">
+                  <button onClick={()=>router.push('/profile/seller')} className="w-[250px] h-[60px] rounded-lg text-white text-2xl mx-auto my-auto bg-beh-green-super-light">
+                    ساخت فروشگاه
+                  </button>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
   )
 }
 

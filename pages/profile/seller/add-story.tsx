@@ -203,51 +203,26 @@ const Page : NextPage = ()  => {
 
                     <div ref={previewRef}  style={{backgroundImage : `url(${ selectedImage ?  URL.createObjectURL(selectedImage) : ''})` , backgroundRepeat : 'no-repeat', backgroundSize : 'cover' , backgroundPosition : 'center'}} className="w-[300px] order-2   h-full bg-beh-text-gray">
 
-                        <div className="mt-32 w-[90%] text-white text-center bg-beh-gray-dark/60 mx-auto rounded-md ">
-                            {text}
+                        <div className="h-[390px] flex justify-center items-center">
+                            <div className=" w-[90%] text-white text-center bg-beh-gray-dark/60 mx-auto rounded-md ">
+                                <p className="whitespace-pre-line">
+                                {text}    
+                                </p>
+                            </div>
                         </div>
 
 
-                        <div className="my-32 w-[90%] mx-auto ">
-                            {/* <div className=" w-[220px] h-[100px] rounded-xl cursor-pointer bg-beh-orange shadow-2xl   ">
-                                <h1 className="text-white h-[20px] font-semibold text-center">نام محصول</h1>
-                                <div className=" w-full  mt-[6px] rounded-xl h-[75px] flex flex-row bg-beh-gray">
-                                    <div className="w-[15%] h-full">
-                                       <div className="  w-full h-full">
-                                            <h1 className="rotate-90 text-beh-orange text-sm  py-6  ">
-                                                 رایگان
-                                            </h1>
-                                       </div>
-                                    </div>
-                                    <div className="w-[85%] h-full bg-white rounded-xl flex flex-row">
-                                        <div className=" w-full px-1   h-full">
-                                            <div className="w-full flex justify-between h-[25px] my-2 bg-white">
-                                                <div className="h-full w-[40%]  text-xs  pt-1">
-                                                    <h1>بارگیری</h1>
-                                                </div>
-                                                <div className="h-full w-[60%] flex justify-center items-center text-xs text-center text-white rounded-md bg-beh-orange">
-                                                    <h1>کرج</h1>
-                                                </div>
-                                            </div>
 
-                                            <div className="w-full flex justify-between h-[25px] my-2 bg-white">
-                                                <div className="h-full w-[40%] text-xs  pt-1 ">
-                                                    <h1>قیمت</h1>
-                                                </div>
-                                                <div className="h-full w-[60%] flex justify-center items-center text-xs text-center text-white rounded-md bg-beh-orange">
-                                                    <h1>2,000,000</h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <img src={NoImg.src} className="w-[75px] h-[75px] border-4 rounded-xl border-beh-gray-light" alt="" />
+                                {product.selected &&
+                                 
+                                    <div className="w-[90%] mx-auto  ">
+                                     <ProductTumbnail onClick={()=>setproduct({...product , selected : null})} width={220} city={product?.selected?.City?.name ? product?.selected?.City?.name : 'نامشخص'} freeDelivery={product?.selected?.freeDelivery ? product?.selected?.freeDelivery : false} imgSrc={product.selected.image ? `${BACK_END}${product.selected.image}` : null} name={product?.selected?.title ? product?.selected?.title : 'نامشخص'} price={product?.selected?.price ? product?.selected?.price : 'توافقی'} /> 
                                     </div>
-                                </div>
-                            </div> */}
-
-                                {product.selected && <ProductTumbnail width={220} city={product?.selected?.City?.name ? product?.selected?.City?.name : 'نامشخص'} freeDelivery={product?.selected?.freeDelivery ? product?.selected?.freeDelivery : false} imgSrc={product.selected.image ? `${BACK_END}${product.selected.image}` : null} name={product?.selected?.title ? product?.selected?.title : 'نامشخص'} price={product?.selected?.price ? product?.selected?.price : 'توافقی'} /> }  
+                                 
+                                
+                                }  
                         </div>
 
-                    </div>
 
 
                     

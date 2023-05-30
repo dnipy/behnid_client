@@ -11,6 +11,7 @@ import { LoadingComponent } from "../../components/loading";
 import Navbar_v2 from "../../components/Navbar_v2";
 import { MiniProduct } from "../../components/products/mini-product";
 import { NextSeo } from 'next-seo'
+import ComponentLoading from "../../components/componentLoading";
   
 const Page : NextPage = ()  => {
   const router = useRouter()
@@ -18,18 +19,37 @@ const Page : NextPage = ()  => {
   const [response, setResponse] = useState<any>([]);
   const [error, setError] = useState('');
   const [loading, setloading] = useState(true);
+  const [loadText, setLoadText] = useState('موارد بیشتر');
+  const [listEnd,setListEnd] = useState(false)
+  const [start,setStart] = useState(1)
 
 
   useEffect(()=>{
+    setloading(true)
     ApiRequest
-    .get(`/products/all?start=1&length=20`)
+    .get(`/products/all?start=${start}`)
     .then((res) => {
       if (res.data.err) {
         setError(res.data?.err)
       }
       else {
+        if (res.data?.length === 0) {
+          setLoadText('موردی یافت نشد')
+          // setStart(start - 10)
+          setListEnd(true)
+        }
+        else {
+          const NewData = res.data as [];
+          const Data = response as [];
 
-        setResponse(res.data);
+          NewData.forEach(elm=>{
+            Data.push(elm)
+          })
+          
+
+          setResponse(Data);
+
+        }
         console.log(res.data)
       }
     })
@@ -41,7 +61,7 @@ const Page : NextPage = ()  => {
       setloading(false);
     });
   
-},[])
+},[start])
 
 
 
@@ -65,9 +85,21 @@ const Page : NextPage = ()  => {
             <MiniProduct AuthorId={elm?.authorID} id={elm?.id} key={elm?.id} image={elm?.image} freeDelivery={elm?.freeDelivery} unitName={elm?.unitName} sendFrom={elm?.city?.name} minOrder={elm?.minOrder} pricePerUnit={elm?.price} responseTime={'1'} DeliveryTime={elm?.deliveryTime}  avatar={elm?.author?.user?.avatar} name={elm?.author?.user?.profile?.name} title={elm?.title}  />
           )) : null}
 
+
           </div>
 
         }
+        <div className="w-full my-10 ">
+          {
+          loading 
+          ? 
+          <ComponentLoading />
+          :
+          <button disabled={listEnd}  className="text-center w-full cursor-pointer py-10" onClick={()=>setStart(start+10)}>{loadText}</button>
+          }
+        </div>
+     
+
       </div>
     </main>
     <Footer/>

@@ -11,8 +11,6 @@ function ProductsTab() {
     <main dir="rtl" className="flex justify-center  ">
       <div className="w-full lg:max-w-7xl  z-[7] ">
         <div  className='p-2 md:p-5'>
-
-
             {/* ALL_REQUEST_PART */}
             <ProdutsTabComponent/>
         </div>

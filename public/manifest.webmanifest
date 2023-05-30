@@ -7,6 +7,7 @@
     "name": "behnid",
     "short_name": "behnid",
     "description": "behnid app for web",
+    "gcm_sender_id": "71562645621",
     "icons": [
         {
             "src": "/icon-192x192.png",

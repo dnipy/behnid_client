@@ -1,16 +1,19 @@
 import Image from 'next/image'
 import React, { useContext, useState } from 'react'
 import Logo from "../assets/logo.png"
-import { BiShoppingBag , BiShow, BiUser } from 'react-icons/bi'
+import { BiPulse, BiShoppingBag , BiShow, BiUser } from 'react-icons/bi'
 import { AuthContext } from '../contexts/Auth'
 import { useRouter } from 'next/router'
 import { ApiRequest } from '../clients/axios'
 import ErrorComponent from './alerts/error'
-import { FiXCircle } from 'react-icons/fi'
+import { FiInfo, FiShoppingBag, FiXCircle } from 'react-icons/fi'
 import SuccesComponent from './alerts/succes'
 import { MdCode, MdLock, MdSecurity } from 'react-icons/md'
 import { AiFillSafetyCertificate } from 'react-icons/ai'
 import ComponentLoading from './componentLoading'
+import { HiUser } from 'react-icons/hi'
+import { BsPlus } from 'react-icons/bs'
+import { UserModalMine } from '../features/components/user-modal'
 
 function Navbar_v2() {
   const {isUser} = useContext(AuthContext)
@@ -19,15 +22,17 @@ function Navbar_v2() {
   const [isLoginOpen , setIsLoginOpen] = useState(false)
   const [isRegisterOpen , setIsRegisterOpen] = useState(false)
   const [isResetPassOpen , setIsResetPassOpen] = useState(false)
+  const [isUserOpen , setIsUserOpen] = useState(false)
+
 
 
 
   return (
     <>
     {isLoginOpen ? <LoginModal handleLogin={setIsLoginOpen}  handleRegister={setIsRegisterOpen} handleReset={setIsResetPassOpen} /> : null}
+    {isUserOpen && <UserModalMine setModels={setIsUserOpen}  />}
     {isRegisterOpen ? <RegisterModal handleLogin={setIsLoginOpen}  handleRegister={setIsRegisterOpen}  /> : null}
     {isResetPassOpen ? <ResetPasswordModal handleLogin={setIsLoginOpen} handleRegister={setIsRegisterOpen} handleReset={setIsResetPassOpen} /> : null}
-
     <nav dir='rtl'>
       <div className="mx-auto mb-2 max-w-7xl px-2 sm:px-6 lg:px-8 text-g shadow-md md:shadow-none">
 
@@ -69,33 +74,60 @@ function Navbar_v2() {
         </div>
 
         {/* BOTTOM_PART  */}
-        {/* <div className=' hidden sm:block text-md '>
+        <div className=' hidden sm:block text-md '>
 
-          <div className='flex flex-row  text-beh-gray px-[6.75rem]'>
+          <div className='flex flex-row justify-between text-beh-gray px-[6.75rem]'>
 
-            <h1 className='px-3 py-1 border-l-beh-gray-light border-l-2 hover:text-beh-orange  cursor-pointer transition-all duration-100'>
+            {/* <h1 className='px-3 py-1 border-l-beh-gray-light border-l-2 hover:text-beh-orange  cursor-pointer transition-all duration-100'>
               دسته بندی ها
-            </h1>
+            </h1> */}
    
-            <h1 onClick={()=>router.push('/sellers')} className='px-3 py-1 border-l-beh-gray-light border-l-2 hover:text-beh-orange  cursor-pointer transition-all duration-100'>
-              فروشندگان
+   <div className='flex flex-row  '>
+
+            <h1 onClick={()=>router.push('/products')} className='px-6 py-1 border-l-beh-gray-light border-l-2 hover:text-beh-orange  cursor-pointer transition-all duration-100'>
+              محصولات
             </h1>
 
-            <h1 onClick={()=>router.push('/chat')} className='px-3 py-1 border-l-beh-gray-light border-l-2 hover:text-beh-orange  cursor-pointer transition-all duration-100'>
+            <h1 onClick={()=>router.push('/chat')} className='px-6 py-1 border-l-beh-gray-light border-l-2 hover:text-beh-orange  cursor-pointer transition-all duration-100'>
               پیام ها
             </h1>
 
-            <h1 onClick={()=>router.push('/requests')}  className='px-3 py-1 border-l-beh-gray-light border-l-2 hover:text-beh-orange  cursor-pointer transition-all duration-100'>
+            <h1 onClick={()=>router.push('/requests')}  className='px-6 py-1 border-l-beh-gray-light border-l-2 hover:text-beh-orange  cursor-pointer transition-all duration-100'>
               درخواست ها
             </h1>
 
-            <h1 onClick={()=>router.push('/blog')} className='px-3 py-1 border-l-beh-gray-light border-l-2 hover:text-beh-orange   cursor-pointer transition-all duration-100 '>
+            <h1 onClick={()=>router.push('/blog')} className='px-6 py-1 border-l-beh-gray-light  hover:text-beh-orange   cursor-pointer transition-all duration-100 '>
                 وبلاگ
             </h1>
+   </div>
+   
+   {isUser() ?
+   <div className='w-auto flex flex-row gap-2'>
+            <button onClick={()=>setIsUserOpen(!isUserOpen)} className='bg-beh-green-super-light text-beh-gray-dark flex flex-row gap-2 justify-center items-center w-[100px] h-[40px] shadow-md rounded-sm text-lg'>
+              <span>
+                <FiInfo />
+              </span>
+              <span>
+                صفحه من
+              </span>
+            </button>
+
+            <button onClick={()=>router.push('/profile/seller/')} className='bg-beh-orange text-white flex flex-row gap-1 justify-center items-center w-[100px] h-[40px] shadow-md rounded-sm text-lg'>
+              <span>
+                <BsPlus className='w-8 h-8' />
+              </span>
+              <span>
+                 محصول
+              </span>
+            </button>
+   </div>
+   : null
+}
+
 
           </div>
 
-        </div> */}
+        </div>
 
       </div>
     </nav>
@@ -160,9 +192,9 @@ const LogedInComponent = ()=>{
   return (
     <div> 
     {/* TOP_PART_COMPONENT  */}
-    <div className='flex flex-row  items-center ' >
-        <div className="basis-2/3">
-          <div className=' text-center hover:text-beh-red font-semibold cursor-pointer'  onClick={()=>{
+    <div className='flex flex-row gap-1  items-center ' >
+        <div className="basis-1/3">
+          <div className=' text-center pt-6  text-beh-red font-semibold cursor-pointer'  onClick={()=>{
             logout()
             window.location.replace('/')
             }}> 
@@ -170,8 +202,11 @@ const LogedInComponent = ()=>{
             &nbsp;  خروج &nbsp; 
           </div>
         </div>
+        <div className="basis-1/3 flex justify-center items-center cursor-pointer" onClick={()=>router.push('/products')}>
+          <FiShoppingBag className='w-8  h-8 text-beh-orange' />
+        </div>
         <div className="basis-1/3 flex justify-center items-center cursor-pointer" onClick={()=>router.push('/profile')}>
-          <BiUser className='w-11 h-11 ' />
+          <HiUser  className='w-9 h-9  fill-beh-gray-dark' />
         </div>
 
     </div>

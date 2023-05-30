@@ -67,9 +67,14 @@ const Page : NextPage = ()  => {
 
     <main className="flex justify-center">
       <div className="fixed z-[1] w-full h-screen flex justify-center">
-            <BsFillHeartFill className="fill-beh-orange/30 w-full h-3/4  mt-16  mx-4" />
+            <BsFillHeartFill className="fill-beh-orange/30 w-full h-3/4 mt-12  md:mt-[5rem]  mx-4" />
       </div>
-      <div className="w-1/1 z-[2] md:w-3/4 my-10 p-3">
+      <div className="w-1/1 z-[2] md:w-3/4 mb-10 mt-2 p-3">
+      <div dir="rtl" className="flex h-[50px] mb-5 ">
+                    <div className="w-full  border-b-[2px] border-gray-300 ">
+                      <h1 className="text-xl text-orange-500 pr-2 font-bold ">علاقمندی</h1>
+                    </div>             
+      </div>
 
       {response?.err ? 'ارور' :
 

@@ -15,6 +15,8 @@ import SuccesComponent from "../../../components/alerts/succes";
 import { NextSeo } from "next-seo"
 import SpamProduct from "../../../features/components/report/spam-product";
 import { SelectedCitiesModel } from "../../../features/components/selected_cities";
+import { ToRial } from "../../../utils/separate_numbers";
+import Footer from "../../../components/footer";
 
 
 
@@ -221,10 +223,10 @@ return (
                           
                             <div className="w-full">                              
                               <div>
-                                <h1>امتیاز فروشگاه : 5</h1>
+                                <h1>امتیاز فروشگاه : -</h1>
                               </div>
                               <div>
-                                <h1>مدت پاسخگویی : نامشخص</h1>
+                                <h1>مدت پاسخگویی : -</h1>
                               </div>
                             </div>
                         </div>
@@ -260,7 +262,7 @@ return (
                                         حداقل سفارش
                                       </h1>
                                       <div className="min-w-[150px] mt-1 h-[40px] text-white bg-beh-orange flex justify-center items-center rounded-xl">
-                                          <h1> {response?.minOrder}  {unit}</h1>
+                                          <h1> {response?.minOrder && ToRial(String(response?.minOrder))}  {unit}</h1>
                                         </div>
                                       </div>
 
@@ -302,7 +304,7 @@ return (
                                           قیمت هر ( {unit} )
                                       </h1>
                                       <div className="w-[150px]  text-white mt-1 h-[40px] bg-beh-orange flex justify-center items-center rounded-xl">
-                                          <h1>{response?.price ? `${response?.price} تومان` : 'توافقی'}</h1>
+                                          <h1>{response?.price ? `${ToRial(String(response?.price))} تومان` : 'توافقی'}</h1>
                                         </div>
                                       </div>
 
@@ -373,16 +375,22 @@ return (
                                       <h1 className="text-beh-gray-dark lg:text-white ">
                                         قیمت مصرف کننده
                                       </h1>
-                                      <h1 className="text-beh-orange font-bold">
-                                        {response?.customerPrice ? response?.customerPrice : '0'}
-                                      </h1>
+
+                                      <div className="w-[150px] mt-1 h-[30px] bg-white flex justify-center items-center rounded-lg">
+                                        <h1 className="text-beh-orange font-bold">
+                                          {response?.customerPrice ?ToRial(String(response?.customerPrice)) : '0'}
+                                        </h1>                                   
+                                      </div>
                                       
                                       <h1 className="pt-1 text-beh-gray-dark lg:text-white ">
-                                        قیمت فروشنده
+                                        قیمت تولید کننده
                                       </h1>
-                                      <h1 className="text-beh-orange font-bold">
-                                        {response?.producerPrice ? response.producerPrice : '0'}
-                                      </h1>
+                                      <div className="w-[150px] mt-1 h-[30px] bg-white flex justify-center items-center rounded-lg">
+                                        <h1 className="text-beh-orange font-bold">
+                                          {response?.producerPrice ? ToRial(String(response.producerPrice)) : '0'}
+                                        </h1>                         
+                                      </div>
+
                                     </div>
                                 </div>
                               </div>  
@@ -464,6 +472,7 @@ return (
             </div>
         </div>
       </main>
+      <Footer />
     </>
   )
 }  
@@ -473,7 +482,7 @@ return (
 const TopPart = (props : {  setopenSpam :  React.Dispatch<React.SetStateAction<boolean>>  ,saveProduct :()=>Promise<void>  , main : string | undefined , sub : string | undefined , cat : string | undefined , title : string}) => {
     return (
       <>
-        <div className=" my-8 flex flex-row gap-3  w-full">
+        <div className=" my-8 flex flex-row flex-wrap md:flex-nowrap gap-3  w-full">
 
         <div className="basis-full lg:basis-2/3 px-2">
         <h1 className="text-xl ">
@@ -512,7 +521,7 @@ const TopPart = (props : {  setopenSpam :  React.Dispatch<React.SetStateAction<b
           </h1>
         </div>
 
-        <div className="hidden  gap-x-2 lg:basis-1/3 lg:flex h-full justify-center items-center">
+        <div className="  gap-x-2 lg:basis-1/3 lg:flex h-full w-full flex flex-row md:block md:w-auto justify-center items-center">
 
             <div onClick={props.saveProduct} className="w-[100px] my-2 cursor-pointer flex items-center text-center justify-center h-[35px] bg-beh-green-light text-white rounded-md">
               <h1 >

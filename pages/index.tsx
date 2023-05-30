@@ -20,7 +20,7 @@ const Page : NextPage = ()  => {
   const router = useRouter()
   useEffect(()=>{
     const data = localStorage.getItem('user-session')
-    if (data) router.replace('/chat')
+    // if (data) router.replace('/chat')
 },[])
   return (
     <>

@@ -5,7 +5,7 @@ import { WholeCountry , WholeCategories } from "../../static/_index"
 import { I_add_products } from "../../types/add-products"
 
 
-export const CategoryPickerModel = (props : { fildes : any , setFileds :React.Dispatch<React.SetStateAction<any>>  })=>{
+export const CategoryPickerModel = (props : { fildes : any , setFileds :React.Dispatch<React.SetStateAction<any>> , onClick?: ()=>void  })=>{
     const [error,setError] = useState('')
     const { fildes , setFileds } = props
     const [openedCat,setOpenedCat] = useState(0)
@@ -15,7 +15,7 @@ export const CategoryPickerModel = (props : { fildes : any , setFileds :React.Di
     <>
       {error ? <ErrorComponent message={error} handle={setError} /> : null}
       
-        <div className='fixed w-screen h-screen backdrop-blur-sm bg-white/20 z-40 ' >
+        <div className='fixed w-screen h-screen backdrop-blur-sm bg-white/20 z-50 ' >
     
             {/* CENTER_DATA_PART */}
             <div className='fixed flex w-screen h-screen justify-center items-center'>
@@ -102,8 +102,14 @@ export const CategoryPickerModel = (props : { fildes : any , setFileds :React.Di
                                                                     openedCat == sub_cat.id 
                                                                         ?
                                                                             sub_cat.categories.map(cat =>(
-                                                                                <div key={cat.id} onClick={()=>{setFileds({...fildes,cat_id : cat.id, cat_name : cat.name , showCatPicker : false})
-                                                                                  console.log(fildes)} } className="w-[80%] cursor-pointer hover:text-beh-orange text-beh-gray duration-100 mx-auto rounded-md h-10 my-2 bg-beh-gray-light flex justify-center items-center px-5  gap-5">
+                                                                                <div key={cat.id} onClick={()=>{
+                                                                                    setFileds({...fildes,cat_id : cat.id, cat_name : cat.name , showCatPicker : false})
+                                                                                    setTimeout(() => {
+                                                                                        {props?.onClick && props.onClick()}
+                                                                                    }, 200);
+                                                                                    
+                                                                                    console.log(fildes)
+                                                                                  }} className="w-[80%] cursor-pointer hover:text-beh-orange text-beh-gray duration-100 mx-auto rounded-md h-10 my-2 bg-beh-gray-light flex justify-center items-center px-5  gap-5">
                                                                                     <h1 className="text-center cursor-pointer">
                                                                                         {cat.name}
                                                                                     </h1>

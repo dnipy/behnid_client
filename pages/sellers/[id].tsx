@@ -12,6 +12,8 @@ import { setLoading } from "../../lib/features/loading.slice"
 import { commentsForSellers, Profile, ratesForSellers, sellerProfile, User } from "../../types/async-prisma-types"
 import { FiSend } from "react-icons/fi"
 import { NextSeo } from "next-seo"
+import ComponentLoading from "../../components/componentLoading"
+import Footer from "../../components/footer"
 
 
 // type ResponseSingleSeller = sellerProfile & {
@@ -35,6 +37,7 @@ export default function SingleSeller () {
   const [response, setResponse] = useState<any>([]);
   const [error, setError] = useState('');
   const [loading, setloading] = useState(true);
+  const [cmloading, setCmloading] = useState(false);
   const [comment, setComment ] = useState('')
   const messagesEndRef = useRef<null | HTMLDivElement>(null)
   const {id} = router.query
@@ -125,7 +128,7 @@ export default function SingleSeller () {
         <LoadingComponent /> :
     <main dir="rtl" className="flex justify-center bg-white ">
         <div className="w-full lg:max-w-7xl absolute z-[5]">
-            <div className="flex justify-center items-center rounded-b-[150px] md:rounded-b-[200px] " style={{backgroundImage : `url(${SellerBack.src})` ,width : "100%" , height : "250px" }}></div>
+            <div className="flex justify-center items-center rounded-b-[150px] md:rounded-b-[200px] " style={{backgroundImage : `url(${response?.site_header ? BACK_END+response?.site_header :SellerBack.src})` ,width : "100%" , height : "250px" }}></div>
         </div>
         <div className="w-full lg:max-w-7xl absolute z-[6] ">
             <div className="flex justify-center items-center rounded-b-[150px] md:rounded-b-[200px] w-full h-[251px] bg-beh-gray-dark/70 z-10 " ></div>
@@ -142,7 +145,7 @@ export default function SingleSeller () {
                   <div className="w-[310px]  p-[10px] mx-auto mt-10 flex justify-center" >
                     <div className="">
 
-                      <img src={SellerBack.src} className='w-[280px] h-[280px] mx-auto' alt=""  />
+                    <img src={ response?.site_avatar ? BACK_END + response?.site_avatar :SellerBack.src} className='w-[280px] rounded-lg border-2 border-beh-orange bg-white h-[280px] mx-auto' alt=""  />
                       
                       <div className="w-[280] mx-auto h-[90px] flex flex-row">
                         <div className="w-[90px] h-[90px] p-2 flex justify-center items-center">
@@ -199,7 +202,7 @@ export default function SingleSeller () {
 
 
                 <div dir="rtl" className="flex flex-wrap justify-center  gap-x-5 gap-y-6 ">
-                {loading == false && response?.products.length > 0 ? (response?.products as Array<any>)?.map((elm :any)=>(
+                {loading == false && response?.products?.length > 0 ? (response?.products as Array<any>)?.map((elm :any)=>(
                     <MiniProduct AuthorId={elm?.userID} id={elm?.id} key={elm?.id} image={elm?.image} freeDelivery={elm?.freeDelivery} unitName={elm?.unitName} sendFrom={elm?.city?.name} minOrder={elm?.minOrder} pricePerUnit={elm?.price} responseTime={'1'} DeliveryTime={elm?.deliveryTime}  avatar={elm?.author?.user?.avatar} name={elm?.author?.user?.profile?.name} title={elm?.title}  />
                   )) : 
                     <div className="flex items-center justify-center" >
@@ -233,14 +236,18 @@ export default function SingleSeller () {
                 <div className='basis-3/5 px-8 w-full' >
                 <label className="relative block w-full">
                   <input type="text" value={comment} onChange={(e)=>setComment(e.target.value)} className='h-[100px]  w-full bg-[#636363] rounded-sm px-10 text-beh-gray-light text-3xl font-bold  placeholder:text-beh-gray-light placeholder:text-3xl ' placeholder='اینجا بنویس...' dir='rtl'/>
-                    <div className="absolute inset-y-0 left-3 lg:left-8 pt-4 cursor-pointer "  onClick={sendComment}>
-                      <span className="w-24 h-[80%] flex justify-center  items-center bg-beh-yellow">
-                        <span>
-                          <BiSend className="rotate-180 h-7 w-7 fill-white" />
-                        </span>
+                  <div className="absolute inset-y-0 left-3 lg:left-8 pt-4 cursor-pointer "  onClick={cmloading ? undefined : sendComment}>
+                      
+                       
+                      <span className="w-24 h-[80%] flex justify-center text-white  items-center bg-beh-yellow">
+                      <span>
+                            {cmloading ? <ComponentLoading /> : <BiSend className="rotate-180 h-7 w-7 fill-white" />  } 
                       </span>
+                    </span>
+                    
 
-                    </div>
+
+                  </div>
                   </label>
               </div>
             </div>
@@ -257,6 +264,7 @@ export default function SingleSeller () {
 
       </main>
         }
+        <Footer />
         </>
 
   )

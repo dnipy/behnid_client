@@ -18,7 +18,7 @@ export const StepTwoComponent = (props : { step : number , setStep : React.Dispa
           props.setFetchedImages ? props.setFetchedImages({image_1 : null , image_2 : null , image_3 : null}) : null
           setFileds({...fildes, selectedImage_1 : e.target.files[0] , selectedImage_2 : e.target.files[1] ? e.target.files[1] : null , selectedImage_3 : e.target.files[2] ? e.target.files[2] : null })
         }
-      }
+    }
 
     return(
         <div className=" h-[75vh] flex items-center ">

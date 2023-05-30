@@ -1,7 +1,10 @@
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ApiRequest } from '../../clients/axios';
 import FreeRequestComponent from '../FreeRequestComponent';
+import { AuthContext } from '../../contexts/Auth';
+import ErrorComponent from '../alerts/error';
+import WarnComponent from '../alerts/warn';
 
 
 function FreeRequestsGroup() {
@@ -30,9 +33,16 @@ function FreeRequestsGroup() {
       });
     
   },[])
+
+  const SendMsg = (id : number | string)=>{
+    const user = localStorage.getItem('user-session')
+    user ? router.push(`/chat/new-chat?id=${id}`) : setError('ابتدا وارد حساب کاربری خود شوید')
+  }
   
   
   return (
+    <>
+    {error && <WarnComponent handle={setError} message={error} />}
     <div className="basis-full order-2 lg:order-1 lg:basis-3/5 px-5 ">
 
         <div className='w-full text-right py-3  '>
@@ -53,14 +63,14 @@ function FreeRequestsGroup() {
 
         {response && page == 1 ?  
             (response as Array<any>).slice(0,3).map((elm)=>(
-                <FreeRequestComponent key={elm?.id} id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
+                <FreeRequestComponent onClick={()=>SendMsg(Number(elm?.Author?.id))} key={elm?.id} id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
             ))
         : null}
 
 
         {response && page == 2 ?  
                 (response as Array<any>).slice(3,6).map((elm)=>(
-                    <FreeRequestComponent key={elm?.id} id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
+                    <FreeRequestComponent onClick={()=>SendMsg(Number(elm?.Author?.id))} key={elm?.id} id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
                 ))
         : null}
 
@@ -98,6 +108,8 @@ function FreeRequestsGroup() {
 
 
     </div>
+    </>
+  
   )
 }
 
