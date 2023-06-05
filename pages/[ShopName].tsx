@@ -103,7 +103,7 @@ export default function SingleSeller () {
           } 
           else {
             setResponse(res.data);
-            setId(res?.data?.userID)
+            setId(res?.data?.id)
             console.log(res.data)
           }
       })
