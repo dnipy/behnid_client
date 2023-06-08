@@ -97,7 +97,7 @@ function Footer() {
             <div className='w-[440px]   my-auto flex justify-center lg:justify-end items-end h-full rounded-lg '>
             <div className='h-full  top-4 flex justify-around items-center gap-3'>
                 <div>
-                  <h1 onClick={()=>router.push('/blog')} className='pt-3 cursor-pointer hover:text-beh-orange' >
+                  <h1 onClick={()=>window.location.replace('http://blog.behnid.com/')} className='pt-3 cursor-pointer hover:text-beh-orange' >
                     وبلاگ
                   </h1>
                 </div>

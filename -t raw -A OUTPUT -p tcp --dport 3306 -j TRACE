@@ -1,0 +1,2088 @@
+-- Logs begin at Tue 2023-02-21 14:49:54 UTC, end at Tue 2023-05-30 13:23:41 UTC. --
+May 30 13:03:02 srv248019 sudo[2992757]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:03:03 srv248019 sudo[2992757]: pam_unix(sudo:session): session closed for user root
+May 30 13:03:14 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=14645 PROTO=TCP SPT=44771 DPT=9868 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:03:23 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=107.170.238.9 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=233 ID=54321 PROTO=TCP SPT=35527 DPT=1723 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:03:23 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=144.76.84.229 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=14 ID=6341 DF PROTO=UDP SPT=22486 DPT=123 LEN=16 [0m
+May 30 13:03:25 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=179.43.177.244 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=54321 PROTO=TCP SPT=45568 DPT=8000 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:03:30 srv248019 sshd[3007787]: Connection closed by 114.247.39.58 port 38948 [preauth]
+May 30 13:03:35 srv248019 sudo[3010744]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/sbin/service mysql startsudo service mysqld start[0m
+May 30 13:03:35 srv248019 sudo[3010744]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:03:35 srv248019 systemd[1]: Reloading.
+May 30 13:03:35 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:03:35 srv248019 sudo[3010744]: pam_unix(sudo:session): session closed for user root
+May 30 13:03:37 srv248019 sshd[3009816]: Received disconnect from 218.92.0.121 port 24576:11:  [preauth]
+May 30 13:03:37 srv248019 sshd[3009816]: Disconnected from 218.92.0.121 port 24576 [preauth]
+May 30 13:03:38 srv248019 sudo[3012365]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/sbin/service mysql startsudo service mysqld start[0m
+May 30 13:03:38 srv248019 sudo[3012365]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:03:38 srv248019 systemd[1]: Reloading.
+May 30 13:03:38 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:03:38 srv248019 sudo[3012365]: pam_unix(sudo:session): session closed for user root
+May 30 13:03:42 srv248019 sudo[3014873]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/sbin/service mysql startsudo service mysqld start[0m
+May 30 13:03:42 srv248019 sudo[3014873]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:03:42 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=16960 PROTO=TCP SPT=44771 DPT=5175 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:03:42 srv248019 systemd[1]: Reloading.
+May 30 13:03:43 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:03:43 srv248019 sudo[3014873]: pam_unix(sudo:session): session closed for user root
+May 30 13:03:47 srv248019 sudo[3017290]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/sbin/service mysql start[0m
+May 30 13:03:47 srv248019 sudo[3017290]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:03:49 srv248019 sudo[3017290]: pam_unix(sudo:session): session closed for user root
+May 30 13:03:57 srv248019 sudo[3022330]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/sbin/service mysqld start[0m
+May 30 13:03:57 srv248019 sudo[3022330]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:03:59 srv248019 sudo[3022330]: pam_unix(sudo:session): session closed for user root
+May 30 13:04:00 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=68 PROTO=TCP SPT=44771 DPT=1030 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:04:02 srv248019 sudo[3024596]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/sbin/service mysql start[0m
+May 30 13:04:02 srv248019 sudo[3024596]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:04:02 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=212.70.149.90 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=4523 PROTO=TCP SPT=53414 DPT=10096 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:04:04 srv248019 sudo[3024596]: pam_unix(sudo:session): session closed for user root
+May 30 13:04:06 srv248019 snapd[799]: stateengine.go:149: state ensure error: cannot open snapd info file "/snap/snapd/18357/usr/lib/snapd/info": open /snap/snapd/18357/usr/lib/snapd/info: no such file or directory
+May 30 13:04:08 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=106.75.157.197 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=231 ID=57035 PROTO=TCP SPT=58914 DPT=5061 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:04:14 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=27823 PROTO=TCP SPT=44771 DPT=3020 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:04:14 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=107.170.243.22 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=233 ID=54321 PROTO=TCP SPT=35715 DPT=9529 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:04:16 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=52319 PROTO=TCP SPT=44771 DPT=5150 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:04:17 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=18477 PROTO=TCP SPT=44771 DPT=1022 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:04:25 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=3315 PROTO=TCP SPT=44771 DPT=4321 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:04:27 srv248019 sudo[3037794]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt-get install mysql-client[0m
+May 30 13:04:27 srv248019 sudo[3037794]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:04:29 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=79.124.62.86 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=37410 PROTO=TCP SPT=58367 DPT=5555 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:04:31 srv248019 dbus-daemon[762]: [system] Activating via systemd: service name='org.freedesktop.PackageKit' unit='packagekit.service' requested by ':1.1160' (uid=0 pid=3039766 comm="/usr/bin/gdbus call --system --dest org.freedeskto" label="unconfined")
+May 30 13:04:31 srv248019 systemd[1]: Starting PackageKit Daemon...
+-- Subject: A start job for unit packagekit.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit packagekit.service has begun execution.
+-- 
+-- The job identifier is 165498.
+May 30 13:04:31 srv248019 PackageKit[3039794]: [0;38;5;245m[0;1;31m[0;38;5;245mdaemon start[0m
+May 30 13:04:31 srv248019 dbus-daemon[762]: [system] Successfully activated service 'org.freedesktop.PackageKit'
+May 30 13:04:31 srv248019 systemd[1]: Started PackageKit Daemon.
+-- Subject: A start job for unit packagekit.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit packagekit.service has finished successfully.
+-- 
+-- The job identifier is 165498.
+May 30 13:04:32 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=144.76.84.229 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=42 ID=10617 DF PROTO=UDP SPT=24534 DPT=123 LEN=16 [0m
+May 30 13:04:33 srv248019 sshd[3041151]: Received disconnect from 218.92.0.121 port 58439:11:  [preauth]
+May 30 13:04:33 srv248019 sshd[3041151]: Disconnected from 218.92.0.121 port 58439 [preauth]
+May 30 13:04:35 srv248019 sudo[3037794]: pam_unix(sudo:session): session closed for user root
+May 30 13:04:38 srv248019 sudo[3043345]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/sbin/service mysql start[0m
+May 30 13:04:38 srv248019 sudo[3043345]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:04:39 srv248019 sudo[3043345]: pam_unix(sudo:session): session closed for user root
+May 30 13:04:45 srv248019 sudo[3046887]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt-get install mysql[0m
+May 30 13:04:46 srv248019 sudo[3046887]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:04:46 srv248019 sudo[3046887]: pam_unix(sudo:session): session closed for user root
+May 30 13:04:48 srv248019 sshd[3046207]: [0;1;39m[0;1;31m[0;1;39mpam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=8.213.197.220  user=root[0m
+May 30 13:04:49 srv248019 sshd[3046207]: Failed password for root from 8.213.197.220 port 38970 ssh2
+May 30 13:04:52 srv248019 sshd[3046207]: Received disconnect from 8.213.197.220 port 38970:11: Bye Bye [preauth]
+May 30 13:04:52 srv248019 sshd[3046207]: Disconnected from authenticating user root 8.213.197.220 port 38970 [preauth]
+May 30 13:04:52 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=9768 PROTO=TCP SPT=44771 DPT=8442 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:04:55 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=65406 PROTO=TCP SPT=44771 DPT=64561 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:04:59 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=21535 PROTO=TCP SPT=44771 DPT=5033 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:05:00 srv248019 sudo[3054128]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt-get install mysql-server[0m
+May 30 13:05:00 srv248019 sudo[3054128]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:05:01 srv248019 sudo[3054128]: pam_unix(sudo:session): session closed for user root
+May 30 13:05:01 srv248019 CRON[3054461]: pam_unix(cron:session): session opened for user root by (uid=0)
+May 30 13:05:01 srv248019 CRON[3054464]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+May 30 13:05:01 srv248019 CRON[3054461]: pam_unix(cron:session): session closed for user root
+May 30 13:05:10 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=5208 PROTO=TCP SPT=44771 DPT=5059 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:05:12 srv248019 sudo[3059905]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt autoremove[0m
+May 30 13:05:12 srv248019 sudo[3059905]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:05:17 srv248019 sshd[3060000]: Received disconnect from 218.92.0.121 port 49527:11:  [preauth]
+May 30 13:05:17 srv248019 sshd[3060000]: Disconnected from 218.92.0.121 port 49527 [preauth]
+May 30 13:05:27 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=59112 PROTO=TCP SPT=44771 DPT=1344 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:05:28 srv248019 sudo[3059905]: pam_unix(sudo:session): session closed for user root
+May 30 13:05:33 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=193.93.77.107 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=52147 PROTO=TCP SPT=60000 DPT=329 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:05:33 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=19460 PROTO=TCP SPT=44771 DPT=9536 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:05:50 srv248019 sudo[3080472]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/local/bin/mysql_secure_installation[0m
+May 30 13:05:50 srv248019 sudo[3080472]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:05:57 srv248019 sshd[3083793]: Connection closed by 114.247.39.58 port 60618 [preauth]
+May 30 13:05:58 srv248019 sudo[3080472]: pam_unix(sudo:session): session closed for user root
+May 30 13:06:01 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=200.81.126.230 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=232 ID=8836 PROTO=TCP SPT=40384 DPT=8082 WINDOW=1300 RES=0x00 SYN URGP=0 [0m
+May 30 13:06:03 srv248019 sshd[3087118]: Unable to negotiate with 218.92.0.37 port 58360: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 [preauth]
+May 30 13:06:04 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=12232 PROTO=TCP SPT=44771 DPT=1003 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:06:16 srv248019 sshd[3094486]: Received disconnect from 218.92.0.121 port 13246:11:  [preauth]
+May 30 13:06:16 srv248019 sshd[3094486]: Disconnected from 218.92.0.121 port 13246 [preauth]
+May 30 13:06:17 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=18731 PROTO=TCP SPT=44771 DPT=61370 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:06:30 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=26633 PROTO=TCP SPT=44771 DPT=50301 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:06:38 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=21063 PROTO=TCP SPT=44771 DPT=1846 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:06:39 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=45589 PROTO=TCP SPT=44771 DPT=5511 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:06:48 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.50.103 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=240 ID=8630 PROTO=TCP SPT=42100 DPT=4000 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:06:51 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=51.77.85.155 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=46 ID=10089 DF PROTO=UDP SPT=30674 DPT=123 LEN=16 [0m
+May 30 13:06:55 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=604 PROTO=TCP SPT=44771 DPT=9103 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:06:57 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=5630 PROTO=TCP SPT=44771 DPT=7005 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:07:02 srv248019 sshd[3115804]: Received disconnect from 218.92.0.121 port 47527:11:  [preauth]
+May 30 13:07:02 srv248019 sshd[3115804]: Disconnected from 218.92.0.121 port 47527 [preauth]
+May 30 13:07:05 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=164.132.206.95 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=12 ID=25799 DF PROTO=UDP SPT=24568 DPT=123 LEN=16 [0m
+May 30 13:07:12 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=58049 PROTO=TCP SPT=44771 DPT=1046 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:07:14 srv248019 sshd[3122353]: [0;1;39m[0;1;31m[0;1;39mpam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=8.213.197.220  user=root[0m
+May 30 13:07:15 srv248019 systemd[1]: Reloading.
+May 30 13:07:15 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:07:16 srv248019 sshd[3122353]: Failed password for root from 8.213.197.220 port 39064 ssh2
+May 30 13:07:16 srv248019 systemd[1]: Reloading.
+May 30 13:07:16 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:07:16 srv248019 sshd[3122353]: Received disconnect from 8.213.197.220 port 39064:11: Bye Bye [preauth]
+May 30 13:07:16 srv248019 sshd[3122353]: Disconnected from authenticating user root 8.213.197.220 port 39064 [preauth]
+May 30 13:07:22 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=1806 PROTO=TCP SPT=44771 DPT=8061 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:07:23 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=185.224.128.23 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=11846 PROTO=TCP SPT=51983 DPT=5080 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:07:39 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=51.77.85.155 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=229 ID=13145 DF PROTO=UDP SPT=10226 DPT=123 LEN=16 [0m
+May 30 13:07:45 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=871 PROTO=TCP SPT=44771 DPT=6070 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:07:48 srv248019 sshd[3143278]: Received disconnect from 218.92.0.121 port 43256:11:  [preauth]
+May 30 13:07:48 srv248019 sshd[3143278]: Disconnected from 218.92.0.121 port 43256 [preauth]
+May 30 13:07:56 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=5661 PROTO=TCP SPT=44771 DPT=37586 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:08:13 srv248019 sudo[3155813]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/systemctl status mysqld[0m
+May 30 13:08:13 srv248019 sudo[3155813]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:08:14 srv248019 sudo[3155813]: pam_unix(sudo:session): session closed for user root
+May 30 13:08:18 srv248019 sudo[3159005]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/systemctl start mysqld[0m
+May 30 13:08:18 srv248019 sudo[3159005]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:08:18 srv248019 sudo[3159005]: pam_unix(sudo:session): session closed for user root
+May 30 13:08:19 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.3 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=48539 DPT=9515 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:08:20 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=144.76.84.229 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=12 ID=8433 DF PROTO=UDP SPT=8154 DPT=123 LEN=16 [0m
+May 30 13:08:21 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=144.76.84.229 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=12 ID=4051 DF PROTO=UDP SPT=8158 DPT=123 LEN=16 [0m
+May 30 13:08:22 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=144.76.84.229 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=110 ID=32185 DF PROTO=UDP SPT=14300 DPT=123 LEN=16 [0m
+May 30 13:08:22 srv248019 sudo[3161394]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/systemctl enable mysqld[0m
+May 30 13:08:22 srv248019 sudo[3161394]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:08:22 srv248019 systemd[1]: Reloading.
+May 30 13:08:23 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:08:23 srv248019 sudo[3161394]: pam_unix(sudo:session): session closed for user root
+May 30 13:08:24 srv248019 sshd[3161601]: Connection closed by 114.247.39.58 port 54054 [preauth]
+May 30 13:08:27 srv248019 sudo[3163707]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/find / -type s[0m
+May 30 13:08:27 srv248019 sudo[3163707]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:08:39 srv248019 sshd[3166639]: Received disconnect from 218.92.0.121 port 54110:11:  [preauth]
+May 30 13:08:39 srv248019 sshd[3166639]: Disconnected from 218.92.0.121 port 54110 [preauth]
+May 30 13:08:41 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=156.251.24.211 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=234 ID=53220 PROTO=TCP SPT=47047 DPT=13306 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:08:46 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=44207 PROTO=TCP SPT=44771 DPT=3060 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:08:51 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=8020 PROTO=TCP SPT=44771 DPT=5090 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:08:55 srv248019 sudo[3163707]: pam_unix(sudo:session): session closed for user root
+May 30 13:08:59 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=60196 PROTO=TCP SPT=44771 DPT=5191 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:09:05 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=57721 PROTO=TCP SPT=44771 DPT=3358 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:09:06 srv248019 snapd[799]: stateengine.go:149: state ensure error: cannot open snapd info file "/snap/snapd/18357/usr/lib/snapd/info": open /snap/snapd/18357/usr/lib/snapd/info: no such file or directory
+May 30 13:09:09 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=29945 PROTO=TCP SPT=44771 DPT=65000 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:09:13 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=20449 PROTO=TCP SPT=44771 DPT=13458 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:09:19 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=144.76.84.229 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=12 ID=30325 DF PROTO=UDP SPT=16378 DPT=123 LEN=16 [0m
+May 30 13:09:35 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=45.56.83.149 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=232 ID=54321 PROTO=TCP SPT=41272 DPT=502 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:09:39 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=78.47.165.153 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=236 ID=44491 PROTO=TCP SPT=52152 DPT=1080 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:09:42 srv248019 sshd[3199848]: [0;1;39m[0;1;31m[0;1;39mpam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=8.213.197.220  user=root[0m
+May 30 13:09:44 srv248019 sshd[3199848]: Failed password for root from 8.213.197.220 port 56880 ssh2
+May 30 13:09:44 srv248019 sshd[3199848]: Received disconnect from 8.213.197.220 port 56880:11: Bye Bye [preauth]
+May 30 13:09:44 srv248019 sshd[3199848]: Disconnected from authenticating user root 8.213.197.220 port 56880 [preauth]
+May 30 13:10:12 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=167.94.138.134 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=35 ID=57602 PROTO=TCP SPT=64066 DPT=8004 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:10:13 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=5028 PROTO=TCP SPT=44771 DPT=9753 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:10:15 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=183.136.225.5 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=106 ID=0 PROTO=TCP SPT=30988 DPT=8443 WINDOW=29200 RES=0x00 SYN URGP=0 [0m
+May 30 13:10:16 srv248019 sudo[3220145]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/chmod -R 755 /var/run/mysqld[0m
+May 30 13:10:16 srv248019 sudo[3220145]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:10:16 srv248019 sudo[3220145]: pam_unix(sudo:session): session closed for user root
+May 30 13:10:20 srv248019 sudo[3222543]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/systemctl restart mysql[0m
+May 30 13:10:20 srv248019 sudo[3222543]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:10:20 srv248019 sudo[3222543]: pam_unix(sudo:session): session closed for user root
+May 30 13:10:23 srv248019 sshd[3219057]: Received disconnect from 218.92.0.121 port 43258:11:  [preauth]
+May 30 13:10:23 srv248019 sshd[3219057]: Disconnected from 218.92.0.121 port 43258 [preauth]
+May 30 13:10:27 srv248019 sudo[3226088]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/systemctl restart mysqld[0m
+May 30 13:10:27 srv248019 sudo[3226088]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:10:27 srv248019 systemd[1]: Stopping MySQL database server...
+-- Subject: A stop job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A stop job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 165678.
+May 30 13:10:27 srv248019 systemd[1]: mysqld.service: Succeeded.
+-- Subject: Unit succeeded
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has successfully entered the 'dead' state.
+May 30 13:10:27 srv248019 systemd[1]: Stopped MySQL database server.
+-- Subject: A stop job for unit mysqld.service has finished
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A stop job for unit mysqld.service has finished.
+-- 
+-- The job identifier is 165678 and the job result is done.
+May 30 13:10:27 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Consumed 4min 19.580s CPU time.[0m
+-- Subject: Resources consumed by unit runtime
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service completed and consumed the indicated resources.
+May 30 13:10:27 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 165678.
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3226438
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [Note] InnoDB: Number of pools: 1
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [Note] InnoDB: Starting shutdown...
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:10:28 srv248019 mysqld[3226438]: 2023-05-30 13:10:28 0 [ERROR] Aborting
+May 30 13:10:28 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:10:28 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:10:28 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 165678 and the job result is failed.
+May 30 13:10:28 srv248019 sudo[3226088]: pam_unix(sudo:session): session closed for user root
+May 30 13:10:31 srv248019 PackageKit[3039794]: [0;38;5;245m[0;1;31m[0;38;5;245mdaemon quit[0m
+May 30 13:10:31 srv248019 systemd[1]: packagekit.service: Succeeded.
+-- Subject: Unit succeeded
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit packagekit.service has successfully entered the 'dead' state.
+May 30 13:10:32 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=41749 PROTO=TCP SPT=44771 DPT=8967 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:10:37 srv248019 sudo[3231107]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/systemctl enable mysqld[0m
+May 30 13:10:37 srv248019 sudo[3231107]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:10:37 srv248019 systemd[1]: Reloading.
+May 30 13:10:37 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:10:37 srv248019 sudo[3231107]: pam_unix(sudo:session): session closed for user root
+May 30 13:10:38 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.49 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=34167 DPT=5053 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:10:40 srv248019 sudo[3232969]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/systemctl start mysqld[0m
+May 30 13:10:40 srv248019 sudo[3232969]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:10:40 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 165767.
+May 30 13:10:40 srv248019 sshd[3232770]: Connection closed by 114.247.39.58 port 45744 [preauth]
+May 30 13:10:40 srv248019 mysqld[3233144]: 2023-05-30 13:10:40 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3233144
+May 30 13:10:40 srv248019 mysqld[3233144]: 2023-05-30 13:10:40 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:10:40 srv248019 mysqld[3233144]: 2023-05-30 13:10:40 0 [Note] InnoDB: Number of pools: 1
+May 30 13:10:40 srv248019 mysqld[3233144]: 2023-05-30 13:10:40 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:10:40 srv248019 mysqld[3233144]: 2023-05-30 13:10:40 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:10:40 srv248019 mysqld[3233144]: 2023-05-30 13:10:40 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:10:40 srv248019 mysqld[3233144]: 2023-05-30 13:10:40 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:10:40 srv248019 mysqld[3233144]: 2023-05-30 13:10:40 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:10:40 srv248019 mysqld[3233144]: 2023-05-30 13:10:40 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:10:40 srv248019 mysqld[3233144]: 2023-05-30 13:10:40 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:10:40 srv248019 mysqld[3233144]: 2023-05-30 13:10:40 0 [Note] InnoDB: Starting shutdown...
+May 30 13:10:41 srv248019 mysqld[3233144]: 2023-05-30 13:10:41 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:10:41 srv248019 mysqld[3233144]: 2023-05-30 13:10:41 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:10:41 srv248019 mysqld[3233144]: 2023-05-30 13:10:41 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:10:41 srv248019 mysqld[3233144]: 2023-05-30 13:10:41 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:10:41 srv248019 mysqld[3233144]: 2023-05-30 13:10:41 0 [ERROR] Aborting
+May 30 13:10:41 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:10:41 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:10:41 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 165767 and the job result is failed.
+May 30 13:10:41 srv248019 sudo[3232969]: pam_unix(sudo:session): session closed for user root
+May 30 13:10:41 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=3884 PROTO=TCP SPT=44771 DPT=9088 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:10:42 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=107.170.241.17 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=233 ID=54321 PROTO=TCP SPT=52923 DPT=9999 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:10:45 srv248019 sudo[3235432]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/systemctl status mysqld[0m
+May 30 13:10:45 srv248019 sudo[3235432]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:10:50 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=26823 PROTO=TCP SPT=44771 DPT=5002 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:10:54 srv248019 sudo[3235432]: pam_unix(sudo:session): session closed for user root
+May 30 13:10:55 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=78.47.165.153 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=236 ID=22384 PROTO=TCP SPT=52219 DPT=2080 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:10:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 165855.
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3242009
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [Note] InnoDB: Number of pools: 1
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [Note] InnoDB: Starting shutdown...
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:10:57 srv248019 mysqld[3242009]: 2023-05-30 13:10:57 0 [ERROR] Aborting
+May 30 13:10:57 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:10:57 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:10:57 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 165855 and the job result is failed.
+May 30 13:11:02 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 165943.
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3245082
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [Note] InnoDB: Number of pools: 1
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [Note] InnoDB: Starting shutdown...
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:11:03 srv248019 mysqld[3245082]: 2023-05-30 13:11:03 0 [ERROR] Aborting
+May 30 13:11:03 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:11:03 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:11:03 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 165943 and the job result is failed.
+May 30 13:11:03 srv248019 sshd[3242447]: Received disconnect from 218.92.0.121 port 18297:11:  [preauth]
+May 30 13:11:03 srv248019 sshd[3242447]: Disconnected from 218.92.0.121 port 18297 [preauth]
+May 30 13:11:03 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=14315 PROTO=TCP SPT=44771 DPT=2360 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:11:05 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=167.248.133.155 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=35 ID=28267 PROTO=TCP SPT=56582 DPT=8980 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:11:05 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=185.233.19.68 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=234 ID=54636 PROTO=TCP SPT=58914 DPT=9080 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:11:06 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.5 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=36129 DPT=12205 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:11:25 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.5 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=42833 DPT=12199 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:11:28 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=192.241.235.20 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=233 ID=54321 PROTO=TCP SPT=39366 DPT=1930 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:11:35 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.5 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=49703 DPT=12200 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:11:45 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=164.132.206.95 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=231 ID=7923 DF PROTO=UDP SPT=8156 DPT=123 LEN=16 [0m
+May 30 13:11:55 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=43.157.32.103 DST=158.255.74.170 LEN=52 TOS=0x00 PREC=0x00 TTL=44 ID=53745 DF PROTO=TCP SPT=54769 DPT=12370 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:11:56 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=78.47.165.153 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=236 ID=51231 PROTO=TCP SPT=52285 DPT=4444 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:11:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 166031.
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3274240
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [Note] InnoDB: Number of pools: 1
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [Note] InnoDB: Starting shutdown...
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:11:57 srv248019 mysqld[3274240]: 2023-05-30 13:11:57 0 [ERROR] Aborting
+May 30 13:11:57 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:11:57 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:11:57 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 166031 and the job result is failed.
+May 30 13:12:01 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=194.44.12.92 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=237 ID=63428 PROTO=TCP SPT=51231 DPT=8015 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:12:02 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 166119.
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3277525
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [Note] InnoDB: Number of pools: 1
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [Note] InnoDB: Starting shutdown...
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:12:03 srv248019 mysqld[3277525]: 2023-05-30 13:12:03 0 [ERROR] Aborting
+May 30 13:12:03 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:12:03 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:12:03 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 166119 and the job result is failed.
+May 30 13:12:06 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=162.243.149.14 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=233 ID=54321 PROTO=TCP SPT=52368 DPT=9300 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:12:07 srv248019 sshd[3278831]: [0;1;39m[0;1;31m[0;1;39mpam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=8.213.197.220  user=root[0m
+May 30 13:12:07 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=19494 PROTO=TCP SPT=44771 DPT=8478 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:12:09 srv248019 sshd[3278831]: Failed password for root from 8.213.197.220 port 41294 ssh2
+May 30 13:12:10 srv248019 sshd[3278831]: Received disconnect from 8.213.197.220 port 41294:11: Bye Bye [preauth]
+May 30 13:12:10 srv248019 sshd[3278831]: Disconnected from authenticating user root 8.213.197.220 port 41294 [preauth]
+May 30 13:12:12 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=167.94.138.148 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=35 ID=28623 PROTO=TCP SPT=41156 DPT=20020 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:12:26 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=41805 PROTO=TCP SPT=44771 DPT=59122 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:12:34 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=28397 PROTO=TCP SPT=44771 DPT=5905 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:12:39 srv248019 sudo[3297367]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt update[0m
+May 30 13:12:39 srv248019 sudo[3297367]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:12:39 srv248019 systemd[1]: Starting Update APT News...
+-- Subject: A start job for unit apt-news.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit apt-news.service has begun execution.
+-- 
+-- The job identifier is 166207.
+May 30 13:12:39 srv248019 systemd[1]: Starting Update the local ESM caches...
+-- Subject: A start job for unit esm-cache.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit esm-cache.service has begun execution.
+-- 
+-- The job identifier is 166295.
+May 30 13:12:39 srv248019 systemd[1]: apt-news.service: Succeeded.
+-- Subject: Unit succeeded
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit apt-news.service has successfully entered the 'dead' state.
+May 30 13:12:39 srv248019 systemd[1]: Finished Update APT News.
+-- Subject: A start job for unit apt-news.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit apt-news.service has finished successfully.
+-- 
+-- The job identifier is 166207.
+May 30 13:12:40 srv248019 systemd[1]: esm-cache.service: Succeeded.
+-- Subject: Unit succeeded
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit esm-cache.service has successfully entered the 'dead' state.
+May 30 13:12:40 srv248019 systemd[1]: Finished Update the local ESM caches.
+-- Subject: A start job for unit esm-cache.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit esm-cache.service has finished successfully.
+-- 
+-- The job identifier is 166295.
+May 30 13:12:42 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=15264 PROTO=TCP SPT=44771 DPT=8565 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:12:46 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=34538 PROTO=TCP SPT=44771 DPT=5092 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:12:53 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.49 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=55472 DPT=5083 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:12:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 166383.
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3308080
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [Note] InnoDB: Number of pools: 1
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [Note] InnoDB: Starting shutdown...
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:12:57 srv248019 mysqld[3308080]: 2023-05-30 13:12:57 0 [ERROR] Aborting
+May 30 13:12:57 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:12:57 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:12:57 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 166383 and the job result is failed.
+May 30 13:13:02 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 166471.
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3311352
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [Note] InnoDB: Number of pools: 1
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [Note] InnoDB: Starting shutdown...
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:13:03 srv248019 mysqld[3311352]: 2023-05-30 13:13:03 0 [ERROR] Aborting
+May 30 13:13:03 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:13:03 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:13:03 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 166471 and the job result is failed.
+May 30 13:13:05 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=17238 PROTO=TCP SPT=44771 DPT=41614 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:13:07 srv248019 sshd[3313729]: Connection closed by 114.247.39.58 port 39108 [preauth]
+May 30 13:13:09 srv248019 sudo[3297367]: pam_unix(sudo:session): session closed for user root
+May 30 13:13:13 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=144.76.84.229 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=48 ID=18235 DF PROTO=UDP SPT=22482 DPT=123 LEN=16 [0m
+May 30 13:13:19 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=56087 PROTO=TCP SPT=44771 DPT=1025 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:13:21 srv248019 sudo[3320805]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt install mysql-server[0m
+May 30 13:13:21 srv248019 sudo[3320805]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:13:22 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=79.124.62.82 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=245 PROTO=TCP SPT=57998 DPT=24103 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:13:22 srv248019 sudo[3320805]: pam_unix(sudo:session): session closed for user root
+May 30 13:13:26 srv248019 sudo[3323741]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/local/bin/mysql_secure_installation[0m
+May 30 13:13:26 srv248019 sudo[3323741]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:13:33 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=212.70.149.90 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=37676 PROTO=TCP SPT=53414 DPT=20005 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:13:37 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.49 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=40617 DPT=4602 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:13:42 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=7568 PROTO=TCP SPT=44771 DPT=34614 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:13:43 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=36257 PROTO=TCP SPT=44771 DPT=1050 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:13:45 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=11834 PROTO=TCP SPT=44771 DPT=2510 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:13:53 srv248019 sudo[3323741]: pam_unix(sudo:session): session closed for user root
+May 30 13:13:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 166559.
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3340986
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [Note] InnoDB: Number of pools: 1
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [Note] InnoDB: Starting shutdown...
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:13:57 srv248019 mysqld[3340986]: 2023-05-30 13:13:57 0 [ERROR] Aborting
+May 30 13:13:57 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:13:57 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:13:57 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 166559 and the job result is failed.
+May 30 13:14:02 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=41338 PROTO=TCP SPT=44771 DPT=60750 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:14:03 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 166647.
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3343838
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [Note] InnoDB: Number of pools: 1
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [Note] InnoDB: Starting shutdown...
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:14:03 srv248019 mysqld[3343838]: 2023-05-30 13:14:03 0 [ERROR] Aborting
+May 30 13:14:03 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:14:03 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:14:03 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 166647 and the job result is failed.
+May 30 13:14:03 srv248019 sshd[3343729]: [0;1;39m[0;1;31m[0;1;39mpam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=185.224.128.121  user=root[0m
+May 30 13:14:06 srv248019 sshd[3343729]: Failed password for root from 185.224.128.121 port 36524 ssh2
+May 30 13:14:06 srv248019 snapd[799]: stateengine.go:149: state ensure error: cannot open snapd info file "/snap/snapd/18357/usr/lib/snapd/info": open /snap/snapd/18357/usr/lib/snapd/info: no such file or directory
+May 30 13:14:08 srv248019 sshd[3343729]: Connection closed by authenticating user root 185.224.128.121 port 36524 [preauth]
+May 30 13:14:08 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=28086 PROTO=TCP SPT=44771 DPT=5025 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:14:09 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=54149 PROTO=TCP SPT=44771 DPT=5560 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:14:13 srv248019 sudo[3348802]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt install mysql-server[0m
+May 30 13:14:13 srv248019 sudo[3348802]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:14:13 srv248019 sshd[3346626]: [0;1;39m[0;1;31m[0;1;39mpam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=185.224.128.121  user=root[0m
+May 30 13:14:15 srv248019 sudo[3348802]: pam_unix(sudo:session): session closed for user root
+May 30 13:14:15 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=167.248.133.164 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=35 ID=15268 PROTO=TCP SPT=28842 DPT=9243 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:14:15 srv248019 sshd[3346626]: Failed password for root from 185.224.128.121 port 53416 ssh2
+May 30 13:14:16 srv248019 sshd[3346626]: Connection closed by authenticating user root 185.224.128.121 port 53416 [preauth]
+May 30 13:14:17 srv248019 sudo[3350815]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/systemctl start mysql.service[0m
+May 30 13:14:17 srv248019 sudo[3350815]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:14:17 srv248019 sudo[3350815]: pam_unix(sudo:session): session closed for user root
+May 30 13:14:25 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=5.160.209.211 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=243 ID=50052 PROTO=TCP SPT=48953 DPT=1433 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:14:34 srv248019 sshd[3358469]: [0;1;39m[0;1;31m[0;1;39mpam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=8.213.197.220  user=root[0m
+May 30 13:14:36 srv248019 sshd[3358469]: Failed password for root from 8.213.197.220 port 56850 ssh2
+May 30 13:14:40 srv248019 sshd[3358469]: Received disconnect from 8.213.197.220 port 56850:11: Bye Bye [preauth]
+May 30 13:14:40 srv248019 sshd[3358469]: Disconnected from authenticating user root 8.213.197.220 port 56850 [preauth]
+May 30 13:14:56 srv248019 sudo[3372629]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/chown mysql:mysql -R /var/log/mysql[0m
+May 30 13:14:56 srv248019 sudo[3372629]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:14:56 srv248019 sudo[3372629]: pam_unix(sudo:session): session closed for user root
+May 30 13:14:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 166735.
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3373044
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [Note] InnoDB: Number of pools: 1
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [Note] InnoDB: Starting shutdown...
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:14:57 srv248019 mysqld[3373044]: 2023-05-30 13:14:57 0 [ERROR] Aborting
+May 30 13:14:57 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:14:57 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:14:57 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 166735 and the job result is failed.
+May 30 13:14:59 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=36032 PROTO=TCP SPT=44771 DPT=6081 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:15:01 srv248019 CRON[3375324]: pam_unix(cron:session): session opened for user root by (uid=0)
+May 30 13:15:01 srv248019 CRON[3375325]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+May 30 13:15:01 srv248019 CRON[3375324]: pam_unix(cron:session): session closed for user root
+May 30 13:15:02 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 166823.
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3376023
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [Note] InnoDB: Number of pools: 1
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [Note] InnoDB: Starting shutdown...
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:15:03 srv248019 mysqld[3376023]: 2023-05-30 13:15:03 0 [ERROR] Aborting
+May 30 13:15:03 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:15:03 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:15:03 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 166823 and the job result is failed.
+May 30 13:15:06 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=193.163.125.36 DST=158.255.74.170 LEN=44 TOS=0x08 PREC=0x20 TTL=235 ID=36010 PROTO=TCP SPT=58079 DPT=2179 WINDOW=14600 RES=0x00 SYN URGP=0 [0m
+May 30 13:15:10 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=51.77.85.155 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=229 ID=5185 DF PROTO=UDP SPT=16350 DPT=123 LEN=16 [0m
+May 30 13:15:13 srv248019 sudo[3380981]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/systemctl start mysql.service[0m
+May 30 13:15:13 srv248019 sudo[3380981]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:15:13 srv248019 sudo[3380981]: pam_unix(sudo:session): session closed for user root
+May 30 13:15:33 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=103.140.251.122 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=236 ID=54321 PROTO=TCP SPT=47385 DPT=5555 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:15:35 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=7211 PROTO=TCP SPT=44771 DPT=2131 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:15:36 srv248019 sshd[3391709]: Connection closed by 114.247.39.58 port 60696 [preauth]
+May 30 13:15:36 srv248019 sudo[3393424]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt-get purge mysql-server mysql-client mysql-common[0m
+May 30 13:15:36 srv248019 sudo[3393424]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:15:40 srv248019 systemd[1]: Reloading.
+May 30 13:15:41 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:15:41 srv248019 systemd[1]: Starting Message of the Day...
+-- Subject: A start job for unit motd-news.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit motd-news.service has begun execution.
+-- 
+-- The job identifier is 166912.
+May 30 13:15:42 srv248019 systemd[1]: Reloading.
+May 30 13:15:42 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:15:43 srv248019 50-motd-news[3396158]:  * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+May 30 13:15:43 srv248019 50-motd-news[3396158]:    just raised the bar for easy, resilient and secure K8s cluster deployment.
+May 30 13:15:43 srv248019 50-motd-news[3396158]:    https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+May 30 13:15:43 srv248019 systemd[1]: motd-news.service: Succeeded.
+-- Subject: Unit succeeded
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit motd-news.service has successfully entered the 'dead' state.
+May 30 13:15:43 srv248019 systemd[1]: Finished Message of the Day.
+-- Subject: A start job for unit motd-news.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit motd-news.service has finished successfully.
+-- 
+-- The job identifier is 166912.
+May 30 13:15:43 srv248019 systemd[1]: Reloading.
+May 30 13:15:43 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:15:44 srv248019 systemd[1]: Reloading.
+May 30 13:15:44 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:15:45 srv248019 dbus-daemon[762]: [system] Activating via systemd: service name='org.freedesktop.PackageKit' unit='packagekit.service' requested by ':1.1166' (uid=0 pid=3397608 comm="/usr/bin/gdbus call --system --dest org.freedeskto" label="unconfined")
+May 30 13:15:45 srv248019 systemd[1]: Starting PackageKit Daemon...
+-- Subject: A start job for unit packagekit.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit packagekit.service has begun execution.
+-- 
+-- The job identifier is 167003.
+May 30 13:15:45 srv248019 PackageKit[3397657]: [0;38;5;245m[0;1;31m[0;38;5;245mdaemon start[0m
+May 30 13:15:45 srv248019 dbus-daemon[762]: [system] Successfully activated service 'org.freedesktop.PackageKit'
+May 30 13:15:45 srv248019 systemd[1]: Started PackageKit Daemon.
+-- Subject: A start job for unit packagekit.service has finished successfully
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit packagekit.service has finished successfully.
+-- 
+-- The job identifier is 167003.
+May 30 13:15:47 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=18908 PROTO=TCP SPT=44771 DPT=1300 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:15:47 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=65277 PROTO=TCP SPT=44771 DPT=5162 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:15:50 srv248019 sudo[3393424]: pam_unix(sudo:session): session closed for user root
+May 30 13:15:52 srv248019 sudo[3400389]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt-get purge mysql-server mysql-client mysql-common[0m
+May 30 13:15:52 srv248019 sudo[3400389]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:15:56 srv248019 systemd[1]: Reloading.
+May 30 13:15:56 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:15:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 167093.
+May 30 13:15:57 srv248019 mysqld[3403116]: 2023-05-30 13:15:57 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3403116
+May 30 13:15:57 srv248019 mysqld[3403116]: 2023-05-30 13:15:57 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:15:57 srv248019 mysqld[3403116]: 2023-05-30 13:15:57 0 [Note] InnoDB: Number of pools: 1
+May 30 13:15:57 srv248019 mysqld[3403116]: 2023-05-30 13:15:57 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:15:57 srv248019 mysqld[3403116]: 2023-05-30 13:15:57 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:15:57 srv248019 mysqld[3403116]: 2023-05-30 13:15:57 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:15:57 srv248019 mysqld[3403116]: 2023-05-30 13:15:57 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:15:57 srv248019 mysqld[3403116]: 2023-05-30 13:15:57 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:15:57 srv248019 mysqld[3403116]: 2023-05-30 13:15:57 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:15:57 srv248019 mysqld[3403116]: 2023-05-30 13:15:57 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:15:57 srv248019 mysqld[3403116]: 2023-05-30 13:15:57 0 [Note] InnoDB: Starting shutdown...
+May 30 13:15:58 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=46756 PROTO=TCP SPT=44771 DPT=2424 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:15:58 srv248019 systemd[1]: Reloading.
+May 30 13:15:58 srv248019 mysqld[3403116]: 2023-05-30 13:15:58 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:15:58 srv248019 mysqld[3403116]: 2023-05-30 13:15:58 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:15:58 srv248019 mysqld[3403116]: 2023-05-30 13:15:58 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:15:58 srv248019 mysqld[3403116]: 2023-05-30 13:15:58 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:15:58 srv248019 mysqld[3403116]: 2023-05-30 13:15:58 0 [ERROR] Aborting
+May 30 13:15:58 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:15:58 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:15:58 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:15:58 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 167093 and the job result is failed.
+May 30 13:15:59 srv248019 systemd[1]: Reloading.
+May 30 13:15:59 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:15:59 srv248019 systemd[1]: Reloading.
+May 30 13:16:00 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:16:03 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 167184.
+May 30 13:16:03 srv248019 mysqld[3405713]: 2023-05-30 13:16:03 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3405713
+May 30 13:16:03 srv248019 mysqld[3405713]: 2023-05-30 13:16:03 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:16:03 srv248019 mysqld[3405713]: 2023-05-30 13:16:03 0 [Note] InnoDB: Number of pools: 1
+May 30 13:16:03 srv248019 mysqld[3405713]: 2023-05-30 13:16:03 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:16:04 srv248019 mysqld[3405713]: 2023-05-30 13:16:04 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:16:04 srv248019 mysqld[3405713]: 2023-05-30 13:16:04 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:16:04 srv248019 mysqld[3405713]: 2023-05-30 13:16:04 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:16:04 srv248019 mysqld[3405713]: 2023-05-30 13:16:04 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:16:04 srv248019 mysqld[3405713]: 2023-05-30 13:16:04 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:16:04 srv248019 mysqld[3405713]: 2023-05-30 13:16:04 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:16:04 srv248019 mysqld[3405713]: 2023-05-30 13:16:04 0 [Note] InnoDB: Starting shutdown...
+May 30 13:16:04 srv248019 mysqld[3405713]: 2023-05-30 13:16:04 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:16:04 srv248019 mysqld[3405713]: 2023-05-30 13:16:04 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:16:04 srv248019 mysqld[3405713]: 2023-05-30 13:16:04 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:16:04 srv248019 mysqld[3405713]: 2023-05-30 13:16:04 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:16:04 srv248019 mysqld[3405713]: 2023-05-30 13:16:04 0 [ERROR] Aborting
+May 30 13:16:04 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:16:04 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:16:04 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 167184 and the job result is failed.
+May 30 13:16:04 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=64141 PROTO=TCP SPT=44771 DPT=50602 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:16:06 srv248019 sudo[3400389]: pam_unix(sudo:session): session closed for user root
+May 30 13:16:08 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=212.70.149.90 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=33230 PROTO=TCP SPT=53414 DPT=1432 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:16:10 srv248019 sshd[3406670]: Invalid user blank from 61.160.105.66 port 50713
+May 30 13:16:10 srv248019 sshd[3406670]: [0;1;39m[0;1;31m[0;1;39mpam_unix(sshd:auth): check pass; user unknown[0m
+May 30 13:16:10 srv248019 sshd[3406670]: [0;1;39m[0;1;31m[0;1;39mpam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=61.160.105.66[0m
+May 30 13:16:13 srv248019 sshd[3406670]: Failed password for invalid user blank from 61.160.105.66 port 50713 ssh2
+May 30 13:16:15 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.49.193 DST=158.255.74.170 LEN=29 TOS=0x10 PREC=0x00 TTL=113 ID=1119 PROTO=UDP SPT=31743 DPT=19 LEN=9 [0m
+May 30 13:16:16 srv248019 sshd[3406670]: Connection closed by invalid user blank 61.160.105.66 port 50713 [preauth]
+May 30 13:16:23 srv248019 sshd[3412363]: Invalid user blank from 111.53.66.90 port 54872
+May 30 13:16:23 srv248019 sshd[3412363]: [0;1;39m[0;1;31m[0;1;39mpam_unix(sshd:auth): check pass; user unknown[0m
+May 30 13:16:23 srv248019 sshd[3412363]: [0;1;39m[0;1;31m[0;1;39mpam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=111.53.66.90[0m
+May 30 13:16:25 srv248019 sshd[3412363]: Failed password for invalid user blank from 111.53.66.90 port 54872 ssh2
+May 30 13:16:27 srv248019 sshd[3412363]: Connection closed by invalid user blank 111.53.66.90 port 54872 [preauth]
+May 30 13:16:27 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=20373 PROTO=TCP SPT=44771 DPT=5173 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:16:29 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=39686 PROTO=TCP SPT=44771 DPT=25060 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:16:41 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=10873 PROTO=TCP SPT=44771 DPT=4890 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:16:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 167272.
+May 30 13:16:57 srv248019 mysqld[3433791]: 2023-05-30 13:16:57 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3433791
+May 30 13:16:57 srv248019 mysqld[3433791]: 2023-05-30 13:16:57 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:16:57 srv248019 mysqld[3433791]: 2023-05-30 13:16:57 0 [Note] InnoDB: Number of pools: 1
+May 30 13:16:57 srv248019 mysqld[3433791]: 2023-05-30 13:16:57 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:16:57 srv248019 mysqld[3433791]: 2023-05-30 13:16:57 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:16:57 srv248019 mysqld[3433791]: 2023-05-30 13:16:57 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:16:57 srv248019 mysqld[3433791]: 2023-05-30 13:16:57 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:16:57 srv248019 mysqld[3433791]: 2023-05-30 13:16:57 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:16:57 srv248019 mysqld[3433791]: 2023-05-30 13:16:57 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:16:57 srv248019 mysqld[3433791]: 2023-05-30 13:16:57 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:16:57 srv248019 mysqld[3433791]: 2023-05-30 13:16:57 0 [Note] InnoDB: Starting shutdown...
+May 30 13:16:58 srv248019 mysqld[3433791]: 2023-05-30 13:16:58 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:16:58 srv248019 mysqld[3433791]: 2023-05-30 13:16:58 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:16:58 srv248019 mysqld[3433791]: 2023-05-30 13:16:58 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:16:58 srv248019 mysqld[3433791]: 2023-05-30 13:16:58 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:16:58 srv248019 mysqld[3433791]: 2023-05-30 13:16:58 0 [ERROR] Aborting
+May 30 13:16:58 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:16:58 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:16:58 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 167272 and the job result is failed.
+May 30 13:17:01 srv248019 sshd[3435028]: [0;1;39m[0;1;31m[0;1;39mpam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=8.213.197.220  user=root[0m
+May 30 13:17:01 srv248019 CRON[3436243]: pam_unix(cron:session): session opened for user root by (uid=0)
+May 30 13:17:01 srv248019 CRON[3436245]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)
+May 30 13:17:01 srv248019 CRON[3436243]: pam_unix(cron:session): session closed for user root
+May 30 13:17:03 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 167360.
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3436868
+May 30 13:17:03 srv248019 sshd[3435028]: Failed password for root from 8.213.197.220 port 58914 ssh2
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [Note] InnoDB: Number of pools: 1
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [Note] InnoDB: Starting shutdown...
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:17:03 srv248019 mysqld[3436868]: 2023-05-30 13:17:03 0 [ERROR] Aborting
+May 30 13:17:03 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:17:03 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:17:03 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 167360 and the job result is failed.
+May 30 13:17:03 srv248019 sshd[3435028]: Received disconnect from 8.213.197.220 port 58914:11: Bye Bye [preauth]
+May 30 13:17:03 srv248019 sshd[3435028]: Disconnected from authenticating user root 8.213.197.220 port 58914 [preauth]
+May 30 13:17:11 srv248019 sudo[3440414]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/systemctl disable mysql[0m
+May 30 13:17:11 srv248019 sudo[3440414]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:17:11 srv248019 systemd[1]: Reloading.
+May 30 13:17:11 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:17:12 srv248019 systemd[1]: Reloading.
+May 30 13:17:12 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:17:12 srv248019 systemd[1]: Reloading.
+May 30 13:17:12 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:17:13 srv248019 sudo[3440414]: pam_unix(sudo:session): session closed for user root
+May 30 13:17:13 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=39300 PROTO=TCP SPT=44771 DPT=10034 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:17:19 srv248019 sudo[3444686]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt autoremove[0m
+May 30 13:17:19 srv248019 sudo[3444686]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:17:20 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=8706 PROTO=TCP SPT=44771 DPT=8989 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:17:20 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.49 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=51809 DPT=5089 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:17:22 srv248019 systemd[1]: Reloading.
+May 30 13:17:22 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:17:22 srv248019 /etc/init.d/mysql[3446431]: [0;1;31m[0;1;39m[0;1;31mMySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN for help.[0m
+May 30 13:17:27 srv248019 sudo[3444686]: pam_unix(sudo:session): session closed for user root
+May 30 13:17:28 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.49 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=38672 DPT=4993 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:17:37 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=9746 PROTO=TCP SPT=44771 DPT=4797 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:17:48 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=42388 PROTO=TCP SPT=44771 DPT=50060 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:17:49 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=50184 PROTO=TCP SPT=44771 DPT=15070 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:17:49 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=167.248.133.135 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=35 ID=12343 PROTO=TCP SPT=16415 DPT=2053 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:17:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 167453.
+May 30 13:17:57 srv248019 mysqld[3464711]: 2023-05-30 13:17:57 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3464711
+May 30 13:17:57 srv248019 mysqld[3464711]: 2023-05-30 13:17:57 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:17:57 srv248019 mysqld[3464711]: 2023-05-30 13:17:57 0 [Note] InnoDB: Number of pools: 1
+May 30 13:17:57 srv248019 mysqld[3464711]: 2023-05-30 13:17:57 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:17:58 srv248019 mysqld[3464711]: 2023-05-30 13:17:58 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:17:58 srv248019 mysqld[3464711]: 2023-05-30 13:17:58 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:17:58 srv248019 mysqld[3464711]: 2023-05-30 13:17:58 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:17:58 srv248019 mysqld[3464711]: 2023-05-30 13:17:58 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:17:58 srv248019 mysqld[3464711]: 2023-05-30 13:17:58 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:17:58 srv248019 mysqld[3464711]: 2023-05-30 13:17:58 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:17:58 srv248019 mysqld[3464711]: 2023-05-30 13:17:58 0 [Note] InnoDB: Starting shutdown...
+May 30 13:17:58 srv248019 mysqld[3464711]: 2023-05-30 13:17:58 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:17:58 srv248019 mysqld[3464711]: 2023-05-30 13:17:58 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:17:58 srv248019 mysqld[3464711]: 2023-05-30 13:17:58 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:17:58 srv248019 mysqld[3464711]: 2023-05-30 13:17:58 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:17:58 srv248019 mysqld[3464711]: 2023-05-30 13:17:58 0 [ERROR] Aborting
+May 30 13:17:58 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:17:58 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:17:58 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 167453 and the job result is failed.
+May 30 13:17:59 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.3 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=48000 DPT=9458 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:18:03 srv248019 sshd[3465559]: Connection closed by 114.247.39.58 port 53934 [preauth]
+May 30 13:18:03 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 167541.
+May 30 13:18:03 srv248019 mysqld[3467300]: 2023-05-30 13:18:03 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3467300
+May 30 13:18:03 srv248019 mysqld[3467300]: 2023-05-30 13:18:03 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:18:03 srv248019 mysqld[3467300]: 2023-05-30 13:18:03 0 [Note] InnoDB: Number of pools: 1
+May 30 13:18:03 srv248019 mysqld[3467300]: 2023-05-30 13:18:03 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:18:03 srv248019 mysqld[3467300]: 2023-05-30 13:18:03 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:18:03 srv248019 mysqld[3467300]: 2023-05-30 13:18:03 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:18:03 srv248019 mysqld[3467300]: 2023-05-30 13:18:03 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:18:03 srv248019 mysqld[3467300]: 2023-05-30 13:18:03 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:18:03 srv248019 mysqld[3467300]: 2023-05-30 13:18:03 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:18:03 srv248019 mysqld[3467300]: 2023-05-30 13:18:03 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:18:03 srv248019 mysqld[3467300]: 2023-05-30 13:18:03 0 [Note] InnoDB: Starting shutdown...
+May 30 13:18:04 srv248019 mysqld[3467300]: 2023-05-30 13:18:04 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:18:04 srv248019 mysqld[3467300]: 2023-05-30 13:18:04 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:18:04 srv248019 mysqld[3467300]: 2023-05-30 13:18:04 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:18:04 srv248019 mysqld[3467300]: 2023-05-30 13:18:04 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:18:04 srv248019 mysqld[3467300]: 2023-05-30 13:18:04 0 [ERROR] Aborting
+May 30 13:18:04 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:18:04 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:18:04 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 167541 and the job result is failed.
+May 30 13:18:13 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=79.124.62.78 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=50355 PROTO=TCP SPT=58287 DPT=3882 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:18:16 srv248019 sudo[3474503]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt-get remove --purge mysql*[0m
+May 30 13:18:16 srv248019 sudo[3474503]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:18:22 srv248019 systemd[1]: Reloading.
+May 30 13:18:22 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:18:23 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.3 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=54903 DPT=9488 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:18:23 srv248019 systemd[1]: Reloading.
+May 30 13:18:24 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:18:24 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=46342 PROTO=TCP SPT=44771 DPT=10000 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:18:28 srv248019 systemd[1]: Reloading.
+May 30 13:18:28 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:18:29 srv248019 systemd[1]: Reloading.
+May 30 13:18:29 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:18:32 srv248019 systemd[1]: Reloading.
+May 30 13:18:32 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:18:35 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=167.94.145.91 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=38 ID=37659 PROTO=TCP SPT=42934 DPT=3306 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:18:37 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=45.134.144.212 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=240 ID=31013 PROTO=TCP SPT=50889 DPT=3306 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:18:38 srv248019 sudo[3474503]: pam_unix(sudo:session): session closed for user root
+May 30 13:18:38 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=51322 PROTO=TCP SPT=44771 DPT=4532 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:18:43 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=23103 PROTO=TCP SPT=44771 DPT=13588 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:18:46 srv248019 sudo[3489111]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt-get purge mysql*[0m
+May 30 13:18:46 srv248019 sudo[3489111]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:18:47 srv248019 sudo[3489111]: pam_unix(sudo:session): session closed for user root
+May 30 13:18:52 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.3 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=53206 DPT=9465 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:18:55 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=5068 PROTO=TCP SPT=44771 DPT=34373 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:18:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 167635.
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3494536
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [Note] InnoDB: Number of pools: 1
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [Note] InnoDB: Starting shutdown...
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:18:57 srv248019 mysqld[3494536]: 2023-05-30 13:18:57 0 [ERROR] Aborting
+May 30 13:18:57 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:18:57 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:18:57 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 167635 and the job result is failed.
+May 30 13:18:58 srv248019 sudo[3495072]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt autoremove[0m
+May 30 13:18:58 srv248019 sudo[3495072]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:18:59 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=79.124.62.86 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=54391 PROTO=TCP SPT=58367 DPT=3392 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:19:03 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 167723.
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3497539
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [Note] InnoDB: Number of pools: 1
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [Note] InnoDB: Starting shutdown...
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:19:03 srv248019 mysqld[3497539]: 2023-05-30 13:19:03 0 [ERROR] Aborting
+May 30 13:19:04 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:19:04 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:19:04 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 167723 and the job result is failed.
+May 30 13:19:06 srv248019 snapd[799]: stateengine.go:149: state ensure error: cannot open snapd info file "/snap/snapd/18357/usr/lib/snapd/info": open /snap/snapd/18357/usr/lib/snapd/info: no such file or directory
+May 30 13:19:11 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.49 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=34186 DPT=4933 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:19:13 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=141.95.40.67 DST=158.255.74.170 LEN=483 TOS=0x00 PREC=0x00 TTL=237 ID=53117 PROTO=UDP SPT=4040 DPT=5060 LEN=463 [0m
+May 30 13:19:13 srv248019 sudo[3495072]: pam_unix(sudo:session): session closed for user root
+May 30 13:19:21 srv248019 sudo[3507244]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt-get autoclean[0m
+May 30 13:19:21 srv248019 sudo[3507244]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:19:22 srv248019 sudo[3507244]: pam_unix(sudo:session): session closed for user root
+May 30 13:19:25 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.49 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=36925 DPT=4821 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:19:27 srv248019 sudo[3510103]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt-get remove dbconfig-mysql[0m
+May 30 13:19:27 srv248019 sudo[3510103]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:19:27 srv248019 named[3727504]: client @0x7fd8fc024ab0 193.177.182.23#57397 (sl): query (cache) 'sl/ANY/IN' denied
+May 30 13:19:28 srv248019 sshd[3510458]: Unable to negotiate with 218.92.0.43 port 3722: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha1 [preauth]
+May 30 13:19:28 srv248019 sudo[3510103]: pam_unix(sudo:session): session closed for user root
+May 30 13:19:32 srv248019 sudo[3513218]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt-get dist-upgrade[0m
+May 30 13:19:32 srv248019 sudo[3513218]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:19:33 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=54924 PROTO=TCP SPT=44771 DPT=1086 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:19:40 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=20454 PROTO=TCP SPT=44771 DPT=42648 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:19:46 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=62052 PROTO=TCP SPT=44771 DPT=9110 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:19:52 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=56966 PROTO=TCP SPT=44771 DPT=3030 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:19:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 167811.
+May 30 13:19:57 srv248019 mysqld[3526316]: 2023-05-30 13:19:57 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3526316
+May 30 13:19:57 srv248019 mysqld[3526316]: 2023-05-30 13:19:57 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:19:57 srv248019 mysqld[3526316]: 2023-05-30 13:19:57 0 [Note] InnoDB: Number of pools: 1
+May 30 13:19:57 srv248019 mysqld[3526316]: 2023-05-30 13:19:57 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:19:57 srv248019 mysqld[3526316]: 2023-05-30 13:19:57 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:19:57 srv248019 mysqld[3526316]: 2023-05-30 13:19:57 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:19:57 srv248019 mysqld[3526316]: 2023-05-30 13:19:57 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:19:57 srv248019 mysqld[3526316]: 2023-05-30 13:19:57 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:19:57 srv248019 mysqld[3526316]: 2023-05-30 13:19:57 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:19:57 srv248019 mysqld[3526316]: 2023-05-30 13:19:57 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:19:57 srv248019 mysqld[3526316]: 2023-05-30 13:19:57 0 [Note] InnoDB: Starting shutdown...
+May 30 13:19:58 srv248019 mysqld[3526316]: 2023-05-30 13:19:58 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:19:58 srv248019 mysqld[3526316]: 2023-05-30 13:19:58 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:19:58 srv248019 mysqld[3526316]: 2023-05-30 13:19:58 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:19:58 srv248019 mysqld[3526316]: 2023-05-30 13:19:58 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:19:58 srv248019 mysqld[3526316]: 2023-05-30 13:19:58 0 [ERROR] Aborting
+May 30 13:19:58 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:19:58 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:19:58 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 167811 and the job result is failed.
+May 30 13:20:03 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=192.241.226.6 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=231 ID=54321 PROTO=TCP SPT=34845 DPT=11211 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:20:03 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 167899.
+May 30 13:20:03 srv248019 mysqld[3528919]: 2023-05-30 13:20:03 0 [Note] Starting MariaDB 10.6.12-MariaDB source revision 4c79e15cc3716f69c044d4287ad2160da8101cdc as process 3528919
+May 30 13:20:03 srv248019 mysqld[3528919]: 2023-05-30 13:20:03 0 [Note] InnoDB: Compressed tables use zlib 1.2.12
+May 30 13:20:03 srv248019 mysqld[3528919]: 2023-05-30 13:20:03 0 [Note] InnoDB: Number of pools: 1
+May 30 13:20:03 srv248019 mysqld[3528919]: 2023-05-30 13:20:03 0 [Note] InnoDB: Using generic crc32 instructions
+May 30 13:20:03 srv248019 mysqld[3528919]: 2023-05-30 13:20:03 0 [Note] InnoDB: Using Linux native AIO
+May 30 13:20:03 srv248019 mysqld[3528919]: 2023-05-30 13:20:03 0 [Note] InnoDB: Initializing buffer pool, total size = 134217728, chunk size = 134217728
+May 30 13:20:03 srv248019 mysqld[3528919]: 2023-05-30 13:20:03 0 [Note] InnoDB: Completed initialization of buffer pool
+May 30 13:20:03 srv248019 mysqld[3528919]: 2023-05-30 13:20:03 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=1624316,1624316
+May 30 13:20:03 srv248019 mysqld[3528919]: 2023-05-30 13:20:03 0 [ERROR] InnoDB: Missing FILE_CHECKPOINT at 1624316 between the checkpoint 1624316 and the end 1624328.
+May 30 13:20:03 srv248019 mysqld[3528919]: 2023-05-30 13:20:03 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+May 30 13:20:03 srv248019 mysqld[3528919]: 2023-05-30 13:20:03 0 [Note] InnoDB: Starting shutdown...
+May 30 13:20:04 srv248019 mysqld[3528919]: 2023-05-30 13:20:04 0 [ERROR] Plugin 'InnoDB' init function returned error.
+May 30 13:20:04 srv248019 mysqld[3528919]: 2023-05-30 13:20:04 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+May 30 13:20:04 srv248019 mysqld[3528919]: 2023-05-30 13:20:04 0 [Note] Plugin 'FEEDBACK' is disabled.
+May 30 13:20:04 srv248019 mysqld[3528919]: 2023-05-30 13:20:04 0 [ERROR] Unknown/unsupported storage engine: InnoDB
+May 30 13:20:04 srv248019 mysqld[3528919]: 2023-05-30 13:20:04 0 [ERROR] Aborting
+May 30 13:20:04 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:20:04 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:20:04 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 167899 and the job result is failed.
+May 30 13:20:06 srv248019 sudo[3513218]: pam_unix(sudo:session): session closed for user root
+May 30 13:20:10 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.27 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=60331 DPT=2525 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:20:15 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.27 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=45921 DPT=2382 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:20:23 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.3 DST=158.255.74.170 LEN=44 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=48835 DPT=9480 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:20:27 srv248019 sshd[3541031]: Connection closed by 114.247.39.58 port 47330 [preauth]
+May 30 13:20:30 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=64582 PROTO=TCP SPT=44771 DPT=7070 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:20:34 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=170.106.115.253 DST=158.255.74.170 LEN=52 TOS=0x00 PREC=0x00 TTL=41 ID=18331 DF PROTO=TCP SPT=19355 DPT=5061 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:20:49 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=16188 PROTO=TCP SPT=44771 DPT=64404 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:20:50 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=45.155.91.56 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=56838 PROTO=TCP SPT=47472 DPT=5100 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:20:55 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *UDP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=144.76.84.229 DST=158.255.74.170 LEN=36 TOS=0x00 PREC=0x00 TTL=14 ID=18893 DF PROTO=UDP SPT=28662 DPT=123 LEN=16 [0m
+May 30 13:20:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 167987.
+May 30 13:20:57 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=65507 PROTO=TCP SPT=44771 DPT=25157 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:20:57 srv248019 mysqld[3555892]: 2023-05-30 13:20:57 0 [Warning] Can't create test file /var/lib/mysql/srv248019.lower-test
+May 30 13:20:57 srv248019 mysqld[3555892]: [108B blob data]
+May 30 13:20:57 srv248019 mysqld[3555892]: 2023-05-30 13:20:57 0 [ERROR] Aborting
+May 30 13:20:57 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:20:57 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:20:57 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 167987 and the job result is failed.
+May 30 13:21:02 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 168075.
+May 30 13:21:02 srv248019 mysqld[3558538]: 2023-05-30 13:21:02 0 [Warning] Can't create test file /var/lib/mysql/srv248019.lower-test
+May 30 13:21:02 srv248019 mysqld[3558538]: [108B blob data]
+May 30 13:21:02 srv248019 mysqld[3558538]: 2023-05-30 13:21:02 0 [ERROR] Aborting
+May 30 13:21:02 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:21:02 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:21:02 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 168075 and the job result is failed.
+May 30 13:21:03 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=27095 PROTO=TCP SPT=44771 DPT=15062 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:21:17 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=57981 PROTO=TCP SPT=44771 DPT=10056 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:21:22 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=3016 PROTO=TCP SPT=44771 DPT=4381 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:21:26 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=79.124.62.86 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=56173 PROTO=TCP SPT=58367 DPT=8022 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:21:34 srv248019 sudo[3575470]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/pkill mysql[0m
+May 30 13:21:34 srv248019 sudo[3575470]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:21:34 srv248019 sudo[3575470]: pam_unix(sudo:session): session closed for user root
+May 30 13:21:38 srv248019 sudo[3577452]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/pkill mysqld[0m
+May 30 13:21:38 srv248019 sudo[3577452]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:21:38 srv248019 sudo[3577452]: pam_unix(sudo:session): session closed for user root
+May 30 13:21:52 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=94.102.61.27 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=240 ID=54321 PROTO=TCP SPT=51394 DPT=2225 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:21:52 srv248019 sudo[3585140]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt-get purge mysql-server mysql-client mysql-common[0m
+May 30 13:21:52 srv248019 sudo[3585140]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:21:54 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=57445 PROTO=TCP SPT=44771 DPT=3100 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:21:55 srv248019 sudo[3585140]: pam_unix(sudo:session): session closed for user root
+May 30 13:21:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 168163.
+May 30 13:21:57 srv248019 mysqld[3587590]: 2023-05-30 13:21:57 0 [Warning] Can't create test file /var/lib/mysql/srv248019.lower-test
+May 30 13:21:57 srv248019 mysqld[3587590]: [108B blob data]
+May 30 13:21:57 srv248019 mysqld[3587590]: 2023-05-30 13:21:57 0 [ERROR] Aborting
+May 30 13:21:57 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:21:57 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:21:57 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 168163 and the job result is failed.
+May 30 13:21:58 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=64850 PROTO=TCP SPT=44771 DPT=5182 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:22:01 srv248019 sudo[3589756]: [0;1;39m[0;1;31m[0;1;39m    root : TTY=pts/56 ; PWD=/var/www/behnid_client ; USER=root ; COMMAND=/usr/bin/apt-get install mysql-server[0m
+May 30 13:22:01 srv248019 sudo[3589756]: pam_unix(sudo:session): session opened for user root by (uid=0)
+May 30 13:22:02 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 168251.
+May 30 13:22:02 srv248019 mysqld[3590329]: 2023-05-30 13:22:02 0 [Warning] Can't create test file /var/lib/mysql/srv248019.lower-test
+May 30 13:22:02 srv248019 mysqld[3590329]: [108B blob data]
+May 30 13:22:02 srv248019 mysqld[3590329]: 2023-05-30 13:22:02 0 [ERROR] Aborting
+May 30 13:22:02 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:22:02 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:22:02 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 168251 and the job result is failed.
+May 30 13:22:04 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=80.82.70.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=240 ID=50125 PROTO=TCP SPT=60000 DPT=27017 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:22:06 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=168.80.174.2 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=235 ID=35088 PROTO=TCP SPT=44762 DPT=8888 WINDOW=63540 RES=0x00 SYN URGP=0 [0m
+May 30 13:22:16 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=52657 PROTO=TCP SPT=44771 DPT=3794 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:22:21 srv248019 /etc/init.d/mysql[3598863]: [0;1;31m[0;1;39m[0;1;31mMySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN for help.[0m
+May 30 13:22:25 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=53294 PROTO=TCP SPT=44771 DPT=5840 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:22:31 srv248019 systemd[1]: Reloading.
+May 30 13:22:31 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:22:32 srv248019 /etc/init.d/mysql[3603747]: [0;1;31m[0;1;39m[0;1;31mMySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN for help.[0m
+May 30 13:22:32 srv248019 systemd[1]: Reloading.
+May 30 13:22:32 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:22:38 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=39751 PROTO=TCP SPT=44771 DPT=9012 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:22:39 srv248019 sudo[3589756]: pam_unix(sudo:session): session closed for user root
+May 30 13:22:40 srv248019 sshd[3607394]: Connection closed by 114.247.39.58 port 38570 [preauth]
+May 30 13:22:43 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=64783 PROTO=TCP SPT=44771 DPT=45891 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:22:57 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=288 PROTO=TCP SPT=44771 DPT=2122 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:22:57 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 168342.
+May 30 13:22:57 srv248019 mysqld[3615966]: 2023-05-30 13:22:57 0 [Warning] Can't create test file /var/lib/mysql/srv248019.lower-test
+May 30 13:22:57 srv248019 mysqld[3615966]: [108B blob data]
+May 30 13:22:57 srv248019 mysqld[3615966]: 2023-05-30 13:22:57 0 [ERROR] Aborting
+May 30 13:22:57 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:22:57 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:22:57 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 168342 and the job result is failed.
+May 30 13:22:57 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=28117 PROTO=TCP SPT=44771 DPT=6181 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:23:00 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=33726 PROTO=TCP SPT=44771 DPT=1001 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:23:02 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 168430.
+May 30 13:23:04 srv248019 systemd[1]: Reloading.
+May 30 13:23:04 srv248019 mysqld[3618351]: 2023-05-30 13:23:04 0 [Warning] Can't create test file /var/lib/mysql/srv248019.lower-test
+May 30 13:23:04 srv248019 mysqld[3618351]: [108B blob data]
+May 30 13:23:04 srv248019 mysqld[3618351]: 2023-05-30 13:23:04 0 [ERROR] Aborting
+May 30 13:23:04 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:23:05 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:23:05 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:23:05 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 168430 and the job result is failed.
+May 30 13:23:06 srv248019 systemd[1]: Reloading.
+May 30 13:23:07 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:23:07 srv248019 systemd[1]: Reloading.
+May 30 13:23:07 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:23:08 srv248019 systemd[1]: Reloading.
+May 30 13:23:08 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39m/etc/systemd/system/nginx.service:11: PIDFile= references a path below legacy directory /var/run/, updating /var/run/nginx.pid → /run/nginx.pid; please update the unit file accordingly.[0m
+May 30 13:23:08 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=147.78.47.18 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=240 ID=62784 PROTO=TCP SPT=49715 DPT=3400 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:23:09 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=103.178.229.217 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=232 ID=54321 PROTO=TCP SPT=44182 DPT=5555 WINDOW=65535 RES=0x00 SYN URGP=0 [0m
+May 30 13:23:15 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=2.57.121.228 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=239 ID=19734 PROTO=TCP SPT=44771 DPT=9686 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:23:15 srv248019 systemd[1]: Starting MySQL Community Server...
+-- Subject: A start job for unit mysql.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysql.service has begun execution.
+-- 
+-- The job identifier is 168522.
+May 30 13:23:15 srv248019 mysql-systemd-start[3624185]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN for help.
+May 30 13:23:15 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysql.service: Control process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStartPre= process belonging to unit mysql.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:23:15 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysql.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysql.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:23:15 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL Community Server.[0m
+-- Subject: A start job for unit mysql.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysql.service has finished with a failure.
+-- 
+-- The job identifier is 168522 and the job result is failed.
+May 30 13:23:15 srv248019 systemd[1]: mysql.service: Scheduled restart job, restart counter is at 1.
+-- Subject: Automatic restarting of a unit has been scheduled
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- Automatic restarting of the unit mysql.service has been scheduled, as the result for
+-- the configured Restart= setting for the unit.
+May 30 13:23:15 srv248019 systemd[1]: Stopped MySQL Community Server.
+-- Subject: A stop job for unit mysql.service has finished
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A stop job for unit mysql.service has finished.
+-- 
+-- The job identifier is 168610 and the job result is done.
+May 30 13:23:16 srv248019 systemd[1]: Starting MySQL Community Server...
+-- Subject: A start job for unit mysql.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysql.service has begun execution.
+-- 
+-- The job identifier is 168610.
+May 30 13:23:16 srv248019 mysql-systemd-start[3624322]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN for help.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysql.service: Control process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStartPre= process belonging to unit mysql.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysql.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysql.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL Community Server.[0m
+-- Subject: A start job for unit mysql.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysql.service has finished with a failure.
+-- 
+-- The job identifier is 168610 and the job result is failed.
+May 30 13:23:16 srv248019 systemd[1]: mysql.service: Scheduled restart job, restart counter is at 2.
+-- Subject: Automatic restarting of a unit has been scheduled
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- Automatic restarting of the unit mysql.service has been scheduled, as the result for
+-- the configured Restart= setting for the unit.
+May 30 13:23:16 srv248019 systemd[1]: Stopped MySQL Community Server.
+-- Subject: A stop job for unit mysql.service has finished
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A stop job for unit mysql.service has finished.
+-- 
+-- The job identifier is 168698 and the job result is done.
+May 30 13:23:16 srv248019 systemd[1]: Starting MySQL Community Server...
+-- Subject: A start job for unit mysql.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysql.service has begun execution.
+-- 
+-- The job identifier is 168698.
+May 30 13:23:16 srv248019 mysql-systemd-start[3624379]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN for help.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysql.service: Control process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStartPre= process belonging to unit mysql.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysql.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysql.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL Community Server.[0m
+-- Subject: A start job for unit mysql.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysql.service has finished with a failure.
+-- 
+-- The job identifier is 168698 and the job result is failed.
+May 30 13:23:16 srv248019 systemd[1]: mysql.service: Scheduled restart job, restart counter is at 3.
+-- Subject: Automatic restarting of a unit has been scheduled
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- Automatic restarting of the unit mysql.service has been scheduled, as the result for
+-- the configured Restart= setting for the unit.
+May 30 13:23:16 srv248019 systemd[1]: Stopped MySQL Community Server.
+-- Subject: A stop job for unit mysql.service has finished
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A stop job for unit mysql.service has finished.
+-- 
+-- The job identifier is 168786 and the job result is done.
+May 30 13:23:16 srv248019 systemd[1]: Starting MySQL Community Server...
+-- Subject: A start job for unit mysql.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysql.service has begun execution.
+-- 
+-- The job identifier is 168786.
+May 30 13:23:16 srv248019 mysql-systemd-start[3624402]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN for help.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysql.service: Control process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStartPre= process belonging to unit mysql.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysql.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysql.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL Community Server.[0m
+-- Subject: A start job for unit mysql.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysql.service has finished with a failure.
+-- 
+-- The job identifier is 168786 and the job result is failed.
+May 30 13:23:16 srv248019 systemd[1]: mysql.service: Scheduled restart job, restart counter is at 4.
+-- Subject: Automatic restarting of a unit has been scheduled
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- Automatic restarting of the unit mysql.service has been scheduled, as the result for
+-- the configured Restart= setting for the unit.
+May 30 13:23:16 srv248019 systemd[1]: Stopped MySQL Community Server.
+-- Subject: A stop job for unit mysql.service has finished
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A stop job for unit mysql.service has finished.
+-- 
+-- The job identifier is 168874 and the job result is done.
+May 30 13:23:16 srv248019 systemd[1]: Starting MySQL Community Server...
+-- Subject: A start job for unit mysql.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysql.service has begun execution.
+-- 
+-- The job identifier is 168874.
+May 30 13:23:16 srv248019 mysql-systemd-start[3624403]: MySQL has been frozen to prevent damage to your system. Please see /etc/mysql/FROZEN for help.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysql.service: Control process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStartPre= process belonging to unit mysql.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysql.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysql.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL Community Server.[0m
+-- Subject: A start job for unit mysql.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysql.service has finished with a failure.
+-- 
+-- The job identifier is 168874 and the job result is failed.
+May 30 13:23:16 srv248019 systemd[1]: mysql.service: Scheduled restart job, restart counter is at 5.
+-- Subject: Automatic restarting of a unit has been scheduled
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- Automatic restarting of the unit mysql.service has been scheduled, as the result for
+-- the configured Restart= setting for the unit.
+May 30 13:23:16 srv248019 systemd[1]: Stopped MySQL Community Server.
+-- Subject: A stop job for unit mysql.service has finished
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A stop job for unit mysql.service has finished.
+-- 
+-- The job identifier is 168962 and the job result is done.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysql.service: Start request repeated too quickly.[0m
+May 30 13:23:16 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysql.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysql.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:23:16 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL Community Server.[0m
+-- Subject: A start job for unit mysql.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysql.service has finished with a failure.
+-- 
+-- The job identifier is 168962 and the job result is failed.
+May 30 13:23:24 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysql.service: Start request repeated too quickly.[0m
+May 30 13:23:24 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysql.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysql.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:23:24 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL Community Server.[0m
+-- Subject: A start job for unit mysql.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysql.service has finished with a failure.
+-- 
+-- The job identifier is 169050 and the job result is failed.
+May 30 13:23:39 srv248019 kernel: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mFirewall: *TCP_IN Blocked* IN=eth0 OUT= MAC=22:64:f0:a4:d7:77:c4:ad:34:84:db:51:08:00 SRC=212.70.149.90 DST=158.255.74.170 LEN=40 TOS=0x00 PREC=0x00 TTL=241 ID=1495 PROTO=TCP SPT=53414 DPT=54000 WINDOW=1024 RES=0x00 SYN URGP=0 [0m
+May 30 13:23:41 srv248019 systemd[1]: Starting MySQL database server...
+-- Subject: A start job for unit mysqld.service has begun execution
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has begun execution.
+-- 
+-- The job identifier is 169138.
+May 30 13:23:41 srv248019 mysqld[3636835]: 2023-05-30 13:23:41 0 [Warning] Can't create test file /var/lib/mysql/srv248019.lower-test
+May 30 13:23:41 srv248019 mysqld[3636835]: [108B blob data]
+May 30 13:23:41 srv248019 mysqld[3636835]: 2023-05-30 13:23:41 0 [ERROR] Aborting
+May 30 13:23:41 srv248019 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmysqld.service: Main process exited, code=exited, status=1/FAILURE[0m
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- An ExecStart= process belonging to unit mysqld.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 1.
+May 30 13:23:41 srv248019 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmysqld.service: Failed with result 'exit-code'.[0m
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- The unit mysqld.service has entered the 'failed' state with result 'exit-code'.
+May 30 13:23:41 srv248019 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start MySQL database server.[0m
+-- Subject: A start job for unit mysqld.service has failed
+-- Defined-By: systemd
+-- Support: http://www.ubuntu.com/support
+-- 
+-- A start job for unit mysqld.service has finished with a failure.
+-- 
+-- The job identifier is 169138 and the job result is failed.

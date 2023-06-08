@@ -12,7 +12,7 @@ import { MdCode, MdLock, MdSecurity } from 'react-icons/md'
 import { AiFillSafetyCertificate } from 'react-icons/ai'
 import ComponentLoading from './componentLoading'
 import { HiUser } from 'react-icons/hi'
-import { BsPlus } from 'react-icons/bs'
+import { BsPlus, BsWindowSidebar } from 'react-icons/bs'
 import { UserModalMine } from '../features/components/user-modal'
 
 function Navbar_v2() {
@@ -96,7 +96,7 @@ function Navbar_v2() {
               درخواست ها
             </h1>
 
-            <h1 onClick={()=>router.push('/blog')} className='px-6 py-1 border-l-beh-gray-light  hover:text-beh-orange   cursor-pointer transition-all duration-100 '>
+            <h1 onClick={()=>window.location.replace('http://blog.behnid.com/')} className='px-6 py-1 border-l-beh-gray-light  hover:text-beh-orange   cursor-pointer transition-all duration-100 '>
                 وبلاگ
             </h1>
    </div>
