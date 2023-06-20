@@ -61,11 +61,11 @@ function ProdutsTabComponent() {
 
     
     return (
-        <div className='w-full my-10  shadow-lg md:p-5 rounded-xl  flex flex-wrap flex-row gap-3 '>
+        <div className='w-full my-10  shadow-xl md:p-5 rounded-xl  flex flex-wrap flex-row gap-3 '>
     
         {/* TAB_SELECT_PART */}
-        <div className='w-full h-14 flex flex-row my-1'>
-            <div onClick={selectedTap === 1 ? undefined : ()=>setSelectedTap(1)} className={`w-1/3 ${selectedTap === 1 ? 'bg-beh-orange rounded-xl text-white' : 'cursor-pointer'}  flex justify-center items-center`}>
+        <div className='w-full h-14 shadow-lg rounded-xl flex flex-row my-1'>
+            <div onClick={selectedTap === 1 ? undefined : ()=>setSelectedTap(1)} className={`w-1/3 ${selectedTap === 1 ? 'bg-beh-orange  text-white' : 'cursor-pointer'}  rounded-r-lg flex justify-center items-center`}>
                 <div className="flex flex-row gap-x-2">
                     <div >
                         <BsCheckCircle  className='w-5 h-5 mt-1' />
@@ -75,7 +75,7 @@ function ProdutsTabComponent() {
                     </div>
                 </div>
             </div>
-            <div onClick={selectedTap === 2 ? undefined : ()=>setSelectedTap(2)} className={`w-1/3 ${selectedTap === 2 ? 'bg-beh-orange rounded-xl text-white' : 'cursor-pointer'}  flex justify-center items-center`}>
+            <div onClick={selectedTap === 2 ? undefined : ()=>setSelectedTap(2)} className={`w-1/3 ${selectedTap === 2 ? 'bg-beh-orange  text-white' : 'cursor-pointer'}   flex justify-center items-center`}>
                 <div className="flex flex-row gap-x-2">
                     <div >
                         <MdOutlineNotInterested  className='w-5 h-5 mt-1' />
@@ -85,7 +85,7 @@ function ProdutsTabComponent() {
                     </div>
                 </div>
             </div>
-            <div onClick={selectedTap === 3 ? undefined : ()=>setSelectedTap(3)} className={`w-1/3 ${selectedTap === 3 ? 'bg-beh-orange rounded-xl text-white' : 'cursor-pointer'}  flex justify-center items-center`}>
+            <div onClick={selectedTap === 3 ? undefined : ()=>setSelectedTap(3)} className={`w-1/3 ${selectedTap === 3 ? 'bg-beh-orange  text-white' : 'cursor-pointer'}  rounded-l-lg flex justify-center items-center`}>
                 <div className="flex flex-row gap-x-2">
                     <div >
                         <AiOutlineClockCircle  className='w-5 h-5 mt-1' />

@@ -10,7 +10,7 @@ import {  IntrestingMiniProduct } from "../../components/products/mini-product";
 import { City, Product, User } from "../../types/async-prisma-types";
 import { NextSeo } from "next-seo";
 
-export type savedProducts ={err : string | null} & (Product &  {
+export type savedProducts = (Product &  {
   city: City | null;
   author: {
       user: User & {
@@ -76,8 +76,6 @@ const Page : NextPage = ()  => {
                     </div>             
       </div>
 
-      {response?.err ? 'ارور' :
-
 
           <div dir="rtl" className="flex flex-wrap justify-center gap-x-1 gap-y-2">
                         
@@ -87,7 +85,7 @@ const Page : NextPage = ()  => {
 
           </div>
 
-        }
+        
       </div>
     </main>
   </>

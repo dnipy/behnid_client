@@ -81,7 +81,7 @@ const Page : NextPage = ()  => {
                         
                         {  response && response?.length > 0 ?  
         (response as Array<any>).map((elm)=>(
-            <FreeRequestComponent  key={elm?.id} id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
+            <FreeRequestComponent onClick={()=>router.push(`/chat/new-chat?id=${elm?.Author?.id}`)}  key={elm?.id} id={elm?.id} username={elm?.Author?.profile?.name ? elm?.Author?.profile?.name : "کاربر بدون نام"} describe={elm?.describe} date={elm?.request_expire_date} recive_location={elm?.city?.name } title={elm?.name} avatar={elm?.Author?.avatar} />
         ))
       :
           null

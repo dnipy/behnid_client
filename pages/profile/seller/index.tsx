@@ -349,7 +349,7 @@ const onOptionalImagesChange= (e: React.ChangeEvent<HTMLInputElement>)=>{
 
 
 const updateShopCat = async()=>{
-  if (fields.cat_id && fields.cat_name) {
+  if (fields.cat_id) {
   setloading(true)
   setError('')
   AuthorizedApiRequest.post('/sellers/add-cat',{cat_list : [{id : fields.cat_id}]})

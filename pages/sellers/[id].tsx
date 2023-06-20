@@ -49,7 +49,7 @@ export default function SingleSeller () {
 
   const sendComment = async()=>{
       console.log('send comment ==> comment length = ' + comment.length)
-      if (comment.length < 15) {
+      if (comment.length < 3) {
         setError('نظر کوتاه است')
         return
       }

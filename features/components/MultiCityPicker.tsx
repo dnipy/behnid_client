@@ -36,7 +36,7 @@ export const MultiCityPickerModel = (props : { fildes : I_add_products , setFile
 
                         </div>
 
-                        <div className="my-2 h-[70px] p-2 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray flex gap-x-6 gap-y-4 flex-wrap">
+                        <div className={`my-2 ${fildes.sendArea_list.length > 0 ? 'h-[70px] block' : 'hidden'}  p-2 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray flex gap-x-6 gap-y-4 flex-wrap`}>
                             {fildes.sendArea_list.map(elm=>(
                                 <div key={elm.id} onClick={()=>setFileds({...fildes , sendArea_list : fildes.sendArea_list.filter(item=>item.name != elm.name)})} className="border-2 border-beh-orange rounded-full text-beh-orange h-8 cursor-pointer px-3">
                                     {elm.name}
@@ -44,7 +44,7 @@ export const MultiCityPickerModel = (props : { fildes : I_add_products , setFile
                             ))}
                         </div>
                         
-                        <div className="my-2 h-[65px] flex justify-center items-center w-full">
+                        {/* <div className="my-2 h-[65px] flex justify-center items-center w-full">
                             <label className="relative block w-10/12">
                                 <input type="text" className='h-[60px] w-full bg-beh-gray-light rounded-sm px-10 placeholder:text-beh-gray-dark placeholder:text-lg ' placeholder='جست و جو در شهر ها' dir='rtl'/>
                                 <span className="absolute inset-y-0 right-3 flex items-center pl-3" >
@@ -56,12 +56,12 @@ export const MultiCityPickerModel = (props : { fildes : I_add_products , setFile
                                     </svg>
                                 </span>
                             </label>
-                        </div>
+                        </div> */}
                         <div className="h-[25px] border-b-2 border-beh-gray-light w-full"></div>
 
 
                         {/* CITY_SELECT_PART */}
-                        <div dir="ltr" className="w-full my-1 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray h-[45vh] border-b-2 border-beh-gray-light">
+                        <div dir="ltr" className={`w-full ${fildes.sendArea_list.length > 0 ? 'h-[45vh]' : 'h-[59vh]'} my-1 overflow-y-auto scrollbar-thumb-beh-orange scrollbar-thin scrollbar-track-beh-gray  border-b-2 border-beh-gray-light`}>
                             {WholeCountry.map(elm=>(
                                 <>
                                     <div key={elm.id} dir="rtl" onClick={()=>{

@@ -4,26 +4,26 @@ import icon from '../../assets/icon.png'
 
 function KnowUs() {
   return (
-    <div className="w-[95%] min-h-[400px] bg-beh-orange mr-auto ml-auto rounded-lg my-3 flex flex-wrap">
+    <div className="w-[95%]  bg-beh-orange mr-auto ml-auto rounded-lg my-3 flex flex-wrap">
 
 
 
-    <div className="w-64 md:w-1/3 mr-auto ml-auto  flex flex-wrap justify-center items-center">
+    <div className="w-64 md:w-1/3 mr-auto ml-auto order-2  flex flex-wrap justify-center items-center">
         <div className='min-h-full mt-3 md:mt-0 flex items-center'>
           <div className="hover:scale-110 transition-all duration-150  ">
-            <Image  alt='know-us'   width='250px' height='250px'  src={icon}  />
+            <Image  alt='know-us'   width='200px' height='200px'  src={icon}  />
           </div>
         </div>
    
     </div>
 
 
-    <div className="w-[40rem] mr-auto ml-auto md:w-2/3 h-full p-10">
+    <div className="w-[40rem] mr-auto ml-auto order-1 md:w-2/3 h-full p-10">
         <h1 className="text-white font-bold text-4xl ">
           <span className="text-black">ما</span>
           <span> رو بشناس </span>
         </h1>
-        <p className="text-white  text-lg leading-loose pt-2">
+        <p className="text-white  text-[14px] leading-loose pt-2">
         به نید با تجربه 16 ساله افتخار همکاری با شرکت های بزرگ در حوزه ی موادغذایی ،شوینده ،بهداشتی و نوشیدنی را دارد.
  همچنین افتخار ارتباط با بیش از 4000 کسب و کار ، خریدار و فروشنده عمده در کارنامه خود را دارد و با بهره گیری بیش از 20 نیروی متخصص در راه کسب سود بیشتر برای عمده فروشان تلاش می کند  
 اعتبار به نید همه ی این 4000 کسب وکاری است که به ما اعتماد داشته و خوش نامی ما را جار زده اند  

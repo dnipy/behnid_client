@@ -21,18 +21,18 @@ export const StepFiveComponent = (props : { send : () => Promise<void>, step : n
                     <div className="my-3">    
                     
                         <h1 className="text-black text-lg  font-semibold text-center">قیمت مصرف کننده *</h1>
-                        <input value={fildes.price} onChange={(e)=>setFileds({...fildes,price : e.target.valueAsNumber})}  type="number" placeholder="20,000" className="w-full text-center  h-10 rounded-md flex items-center justify-center bg-beh-gray-dark placeholder:text-white placeholder:text-lg placeholder:font-semibold" />
+                        <input value={fildes.price} onChange={(e)=>setFileds({...fildes,price : e.target.valueAsNumber})}  type="number" placeholder="0" className="w-full text-center  h-10 rounded-md flex items-center justify-center bg-beh-gray-dark placeholder:text-beh-gray-light text-white placeholder:font-normal font-semibold placeholder:text-lg " />
                     </div>
 
                     <div className="my-3">    
                         <h1 className="text-black text-lg  font-semibold text-center">قیمت تولید کننده *</h1>
-                        <input value={fildes.producerPrice} onChange={(e)=>setFileds({...fildes,producerPrice : e.target.valueAsNumber})} type="number" placeholder="18,000" className="w-full text-center  h-10 rounded-md flex items-center justify-center bg-beh-gray-dark placeholder:text-white placeholder:text-lg placeholder:font-semibold" />
+                        <input value={fildes.producerPrice} onChange={(e)=>setFileds({...fildes,producerPrice : e.target.valueAsNumber})} type="number" placeholder="0" className="w-full text-center  h-10 rounded-md flex items-center justify-center bg-beh-gray-dark placeholder:text-beh-gray-light text-white placeholder:font-normal font-semibold placeholder:text-lg " />
                     </div>
 
 
                     <div className="my-3">    
                         <h1 className="text-black text-lg  font-semibold text-center">قیمت هر {UnitNameById(fildes.unit ? fildes.unit :1)} برای شما *</h1>
-                        <input  value={fildes.customerPrice} onChange={(e)=>setFileds({...fildes,customerPrice : e.target.valueAsNumber})}  type="number" placeholder="120,000" className="w-full text-center  h-10 rounded-md flex items-center justify-center bg-beh-orange placeholder:text-white placeholder:text-lg placeholder:font-semibold" />
+                        <input  value={fildes.customerPrice} onChange={(e)=>setFileds({...fildes,customerPrice : e.target.valueAsNumber})}  type="number" placeholder="0" className="w-full text-center  h-10 rounded-md flex items-center justify-center bg-beh-orange placeholder:text-beh-gray-light text-white placeholder:text-lg placeholder:font-normal" />
                     </div>
 
                     <div className="my-3 flex justify-around">   
@@ -54,8 +54,8 @@ export const StepFiveComponent = (props : { send : () => Promise<void>, step : n
 
                         <div>
                             <div className='flex gap-2'>
-                                <input checked={fildes.add_story} onChange={()=>setFileds({...fildes , add_story : !fildes.add_story})}  type="checkbox" className='w-5 mt-1 h-5' />
-                            <h1>افزودن به استوری</h1>
+                                {/* <input checked={fildes.add_story} onChange={()=>setFileds({...fildes , add_story : !fildes.add_story})}  type="checkbox" className='w-5 mt-1 h-5' />
+                            <h1>افزودن به استوری</h1> */}
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ export const StepFiveComponent = (props : { send : () => Promise<void>, step : n
                     </div>
                 </div>
 
-                <h1 className="text-black text-lg   py-2 font-bold text-center">تخفیف</h1>
+                {/* <h1 className="text-black text-lg   py-2 font-bold text-center">تخفیف</h1>
                 <div className="flex flex-row items-center justify-around gap-2 h-12 p-2">
                     <div className="basis-2/12 text-center">
                         <h1>در هر </h1>
@@ -91,7 +91,7 @@ export const StepFiveComponent = (props : { send : () => Promise<void>, step : n
                     </div>
 
 
-                </div>
+                </div> */}
 
 
 

@@ -3,7 +3,7 @@ import header from "../../assets/header.jpg"
 
 
 
-function TopImage() {
+function  TopImage() {
   return (
     <div className="flex justify-center items-center " style={{backgroundImage : `url(${header.src})` ,width : "100%" , height : "461px" }}>
               {/* <Image src={IndexImg} /> */}

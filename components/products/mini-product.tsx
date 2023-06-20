@@ -166,7 +166,7 @@ export const MiniProduct = (props : I_MiniProduct)=>{
                     </div>
 
                     <div className="w-[200px] h-[40px] ">
-                        <div onClick={()=> router.push(`/chat?id=new-chat?id=${props.AuthorId}`)} className="cursor-pointer  hover:scale-105 w-[185px] h-[40px] rounded-md bg-beh-green-super-light mx-auto my-auto flex justify-center items-center" >
+                        <div onClick={()=> router.push(`/chat/new-chat?id=${props.AuthorId}`)} className="cursor-pointer  hover:scale-105 w-[185px] h-[40px] rounded-md bg-beh-green-super-light mx-auto my-auto flex justify-center items-center" >
                             <h1 className="text-white font-bold text-xl" >شروع گفت و گو</h1>                                    
                         </div>
                     </div>
@@ -330,11 +330,14 @@ export const IntrestingMiniProduct = (props : I_IntrestingMiniProduct)=>{
             setReTry(res.data?.err)
           }
           else {
+            console.log(res.data)
             //   setSucces(res.data?.msg)
             const NewIntrestList = product
-            NewIntrestList?.splice(NewIntrestList?.findIndex(e =>(e.id === productId)),1)
-            console.log(NewIntrestList)
-            setProducts(NewIntrestList)
+            NewIntrestList?.splice(NewIntrestList?.findIndex(e =>(e.id === productId)),1) 
+            console.log(product?.filter(elm=>elm.id !== productId))
+            setTimeout(() => {
+                setProducts(product ? product?.filter(elm=>elm.id !== productId) : null)
+            }, 300);
           }
         }).catch(e=>{
           setReTry(true)

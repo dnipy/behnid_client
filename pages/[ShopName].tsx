@@ -53,7 +53,7 @@ export default function SingleSeller () {
         return
       }
       else {
-        if (comment.length < 15) {
+        if (comment.length < 3) {
           setError('نظر کوتاه است')
           return
         }

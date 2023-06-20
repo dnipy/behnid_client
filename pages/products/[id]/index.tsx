@@ -119,7 +119,7 @@ const Page : NextPage = ()  => {
 
 
   const addComment = async()=>{ 
-    if (comment.length < 15) {
+    if (comment.length < 3) {
       setError('نظر کوتاه است')
       return
     }
