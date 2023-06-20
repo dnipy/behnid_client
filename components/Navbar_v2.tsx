@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React, { useContext, useState } from 'react'
-import Logo from "../assets/logo.png"
-import { BiPulse, BiShoppingBag , BiShow, BiUser } from 'react-icons/bi'
+import Logo from "../assets/logo-croped.png"
+import { BiShoppingBag , BiShow, BiUser } from 'react-icons/bi'
 import { AuthContext } from '../contexts/Auth'
 import { useRouter } from 'next/router'
 import { ApiRequest } from '../clients/axios'
@@ -41,7 +41,7 @@ function Navbar_v2() {
 
           {/* Image-part  */}
           <div className='basis:1/2  md:basis-1/5 flex justify-center items-center cursor-pointer' onClick={()=> router.push('/')}>
-              <Image  src={Logo} height='160' width='160' layout='fixed' alt='بهنید' />
+              <Image  src={Logo} height='51' width='105.8' layout='fixed' alt='بهنید' />
           </div> 
 
           {/* search-part  */}
@@ -112,7 +112,7 @@ function Navbar_v2() {
               </span>
             </button>
 
-            <button onClick={()=>router.push('/profile/seller/')} className='bg-beh-orange text-white flex flex-row gap-1 justify-center items-center w-[100px] h-[40px] shadow-md rounded-sm text-lg'>
+            <button onClick={()=>router.push('/profile/add-product')} className='bg-beh-orange text-white flex flex-row gap-1 justify-center items-center w-[100px] h-[40px] shadow-md rounded-sm text-lg'>
               <span>
                 <BsPlus className='w-8 h-8' />
               </span>
