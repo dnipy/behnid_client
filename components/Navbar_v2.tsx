@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React, { useContext, useState } from 'react'
-import Logo from "../assets/logo-croped.png"
+import Logo from "../assets/logo.png"
 import { BiPulse, BiShoppingBag , BiShow, BiUser } from 'react-icons/bi'
 import { AuthContext } from '../contexts/Auth'
 import { useRouter } from 'next/router'
@@ -41,7 +41,7 @@ function Navbar_v2() {
 
           {/* Image-part  */}
           <div className='basis:1/2  md:basis-1/5 flex justify-center items-center cursor-pointer' onClick={()=> router.push('/')}>
-              <Image  src={Logo}  width={`105.8`} height={`51`} layout='fixed' alt='بهنید' />
+              <Image  src={Logo} height='160' width='160' layout='fixed' alt='بهنید' />
           </div> 
 
           {/* search-part  */}
@@ -96,7 +96,7 @@ function Navbar_v2() {
               درخواست ها
             </h1>
 
-            <h1 onClick={()=>window.location.replace('http://blog.behnid.com')} className='px-6 py-1 border-l-beh-gray-light  hover:text-beh-orange   cursor-pointer transition-all duration-100 '>
+            <h1 onClick={()=>window.location.replace('http://blog.behnid.com/')} className='px-6 py-1 border-l-beh-gray-light  hover:text-beh-orange   cursor-pointer transition-all duration-100 '>
                 وبلاگ
             </h1>
    </div>
@@ -112,7 +112,7 @@ function Navbar_v2() {
               </span>
             </button>
 
-            <button onClick={()=>router.push('/profile/add-product')} className='bg-beh-orange text-white flex flex-row gap-1 justify-center items-center w-[100px] h-[40px] shadow-md rounded-sm text-lg'>
+            <button onClick={()=>router.push('/profile/seller/')} className='bg-beh-orange text-white flex flex-row gap-1 justify-center items-center w-[100px] h-[40px] shadow-md rounded-sm text-lg'>
               <span>
                 <BsPlus className='w-8 h-8' />
               </span>
