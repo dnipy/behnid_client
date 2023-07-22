@@ -150,7 +150,7 @@ function SetupShop(props:{cat?:string , gallery?: boolean , logo?:boolean , bann
       })
       .catch((err) => {
           console.log(err)
-          // setError('خطا هنگام بروزرسانی گالری')
+          // setError('خطا هنگام بروزرسانی گالری')  
       })
       .finally(() => {
           setFields({...fields,optional_picsLoading : false})
