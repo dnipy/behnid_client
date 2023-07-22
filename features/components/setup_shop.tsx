@@ -66,18 +66,16 @@ function SetupShop(props:{cat?:string , gallery?: boolean , logo?:boolean , bann
             if (res.data?.err) {
                 setError(res.data.err)
             }
-            else {
+            else {  
               setTimeout(() => {
                 setFields({ ...fields , logoLoading : false , logo : e.target?.files![0] , logoDone : true })
               }, 200);
-              // console.log(fields.optional_pics)
-              // console.log(e.target?.files![0])
               console.log(res)
             }
         })
         .catch((err) => {
             console.log(err)
-            setError('خطا هنگام بروزرسانی لوگو')
+            // setError('خطا هنگام بروزرسانی لوگو')
         })
         .finally(() => {
             setFields({...fields,logoLoading : false})
@@ -111,7 +109,7 @@ function SetupShop(props:{cat?:string , gallery?: boolean , logo?:boolean , bann
       })
       .catch((err) => {
           console.log(err)
-          setError('خطا هنگام بروزرسانی بنر')
+          // setError('خطا هنگام بروزرسانی بنر')
       })
       .finally(() => {
           setFields({...fields,bannerLoading : false})
@@ -152,7 +150,7 @@ function SetupShop(props:{cat?:string , gallery?: boolean , logo?:boolean , bann
       })
       .catch((err) => {
           console.log(err)
-          setError('خطا هنگام بروزرسانی گالری')
+          // setError('خطا هنگام بروزرسانی گالری')
       })
       .finally(() => {
           setFields({...fields,optional_picsLoading : false})

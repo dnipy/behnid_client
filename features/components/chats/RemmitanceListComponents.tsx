@@ -14,7 +14,15 @@ export const RemmitanceListComponent = (props : { pdf : string | null , messageI
   // console.log(props.lastdate.toString() , {GY, GM,GD})
 
   return (
-      <div onClick={()=>router.push(`/chat?id=${props.chatid}`)} className={` hover:bg-beh-gray-light/10 cursor-pointer     hover:rounded-lg w-[90%] mx-auto h-24  border-b-2 border-beh-gray-dark flex flex-row `}>
+      <div onClick={ props.img ?
+        ()=>{
+          router.push(`https://api.behnid.com${props.img}`)
+        }
+        :
+        ()=>{
+          router.push(`https://api.behnid.com${props.pdf}`)
+        }
+        } className={` hover:bg-beh-gray-light/10 cursor-pointer     hover:rounded-lg w-[90%] mx-auto h-24  border-b-2 border-beh-gray-dark flex flex-row `}>
   
           <div className="flex justify-center items-center w-[80px]  h-full px-1">
             
