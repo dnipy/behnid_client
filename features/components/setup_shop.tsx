@@ -7,7 +7,7 @@ import { CategoryPickerModel } from './category_picker_any'
 import { AuthorizedApiRequest, AuthorizedApiRequestImage } from '../../clients/axios'
 import { useRouter } from 'next/router'
 
-function SetupShop(props:{cat?:string , gallery?: boolean , logo?:boolean , banner?:boolean , onClick?: ()=>void}) {
+function SetupShop(props:{cat?:string , gallery?: boolean , logo?:boolean , banner?:boolean , onClick?: ()=>void , is_multi?:boolean}) {
     const [error,setError] = useState('')
     const [response,setResponse] = useState<string | null>(null)
     const [loading,setLoading] = useState(false)
@@ -197,7 +197,7 @@ function SetupShop(props:{cat?:string , gallery?: boolean , logo?:boolean , bann
   return (
     <>
     {error && <ErrorComponent handle={setError} message={error} />}
-    {fields.showCatPicker && <CategoryPickerModel onClick={props.onClick ? props.onClick : undefined} fildes={fields} setFileds={setFields} />}
+    {fields.showCatPicker && <CategoryPickerModel is_multi={props.is_multi} onClick={props.onClick ? props.onClick : undefined} fildes={fields} setFileds={setFields} />}
     <div className='fixed w-screen h-screen backdrop-blur-sm bg-white/20 z-40 ' >
     
     {/* CENTER_DATA_PART */}

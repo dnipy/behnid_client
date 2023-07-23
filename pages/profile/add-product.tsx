@@ -108,6 +108,7 @@ const Page : NextPage = ()  => {
 
     if (!body.cat_id  || !body.producerPrice || !body.price || !body.customerPrice || body.describe.length < 30 || !body.title ){
         setError("فیلد های دارای * اجباری هستند")
+        setloading(false)
         return
     }
 

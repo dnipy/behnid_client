@@ -8,7 +8,7 @@ const ApiRequest = axios.create({
     baseURL: `${BACK_END}/api`,
     // baseURL: `http://localhost:3001/api`,
     withCredentials : true,
-    timeout: 15000,
+    // timeout: 15000,
     headers: {
         // 'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ const AuthorizedApiRequest = axios.create({
     baseURL: `${BACK_END}/api`,
     // baseURL: `http://localhost:3001/api`,
     withCredentials : true,
-    timeout: 15000,
+    // timeout: 15000,
     headers: {
         'Authorization': `bearer ${usersession as string}`,
         // 'Access-Control-Allow-Origin': '*',
@@ -33,7 +33,7 @@ const AuthorizedApiRequestImage = axios.create({
     baseURL: `${BACK_END}/api`,
     // baseURL: `http://localhost:3001/api`,
     withCredentials : true,
-    timeout: 20000,
+    // timeout: 20000,
     headers: {
         'Authorization': `bearer ${usersession as string}` ,
         "Content-Type" : "multipart/form-data",

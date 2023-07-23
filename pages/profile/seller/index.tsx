@@ -220,8 +220,9 @@ const onOptionalImagesChange= (e: React.ChangeEvent<HTMLInputElement>)=>{
                   if (res.data?.data?.cityName) {
                     setCity({...city , city_name : res.data?.data?.cityName })
                   }
-                  if (res.data?.data?.sellerProfile?.ActivityCategory[0]?.id) {
-                    setFields({...fields , cat_id : res.data?.data?.sellerProfile?.ActivityCategory[0]?.id , cat_name : res.data?.data?.sellerProfile?.ActivityCategory[0]?.name })
+                  if (res.data?.data?.sellerProfile?.ActivityCategory[0]?.subCategory?.mainCategory?.id) {
+                    console.log(res.data?.data?.sellerProfile?.ActivityCategory[0]?.subCategory?.mainCategory?.id)
+                    setFields({...fields , cat_id : res.data?.data?.sellerProfile?.ActivityCategory[0]?.subCategory?.mainCategory?.id , cat_name : res.data?.data?.sellerProfile?.ActivityCategory[0]?.subCategory?.mainCategory?.name })
                   }
                   if (res.data?.data?.Role === "Seller"){
                     setSetupModal(false)
@@ -349,10 +350,11 @@ const onOptionalImagesChange= (e: React.ChangeEvent<HTMLInputElement>)=>{
 
 
 const updateShopCat = async()=>{
-  if (fields.cat_id) {
+  if (fields.cat_id && fields.cat_name ) {
   setloading(true)
   setError('')
-  AuthorizedApiRequest.post('/sellers/add-cat',{cat_list : [{id : fields.cat_id}]})
+  const body = [{id : fields.cat_id}]
+  AuthorizedApiRequest.post('/sellers/add-cat',{cat_list : body})
   .then((res)=>{
     console.log(res.data)
     if (res.data?.msg) {
@@ -368,6 +370,7 @@ const updateShopCat = async()=>{
     setloading(false)
     setResponse({...response ,sellerProfile : { ...response?.sellerProfile , shopNameChanged : false }, })
   })
+
 }
 else {
   setError("دسته بندی انتخاب نشده است")
@@ -386,8 +389,8 @@ else {
         {error && <ErrorComponent handle={setError} message={error} />  }
         {succed && <SuccesComponent handle={setSucced} message={succed} /> }
         {loading && <LoadingComponent/>  }
-        {fields.showCatPicker && <CategoryPickerModel onClick={updateShopCat} fildes={fields} setFileds={setFields} />}
-        {setupModal && <SetupShop onClick={updateShopCat} banner={response?.sellerProfile?.site_header && true} gallery={response?.sellerProfile?.site_optional_1 && true} logo={response?.sellerProfile?.site_avatar && true}  cat={response?.sellerProfile?.cat ? response?.sellerProfile?.cat : ''} />}
+        {fields.showCatPicker && <CategoryPickerModel is_multi={true} onClick={updateShopCat} fildes={fields} setFileds={setFields} />}
+        {setupModal && <SetupShop is_multi={true} onClick={updateShopCat} banner={response?.sellerProfile?.site_header && true} gallery={response?.sellerProfile?.site_optional_1 && true} logo={response?.sellerProfile?.site_avatar && true}  cat={response?.sellerProfile?.cat ? response?.sellerProfile?.cat : ''} />}
         {shopNotAccepted && <ShopNotAcceptedYetModal  state={shopNotAccepted} setState={setshopNotAccepted} />} 
         {shopRejected && <ShopRejectedModal setUp={setSetupModal}  state={shopRejected} setState={setshopRejected} />} 
 

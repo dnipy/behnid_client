@@ -5,7 +5,7 @@ import { WholeCountry , WholeCategories } from "../../static/_index"
 import { I_add_products } from "../../types/add-products"
 
 
-export const CategoryPickerModel = (props : { fildes : any , setFileds :React.Dispatch<React.SetStateAction<any>> , onClick?: ()=>void  })=>{
+export const CategoryPickerModel = (props : {fildes : any , setFileds :React.Dispatch<React.SetStateAction<any>> , onClick?: ()=>void , is_multi? : boolean })=>{
     const [error,setError] = useState('')
     const { fildes , setFileds } = props
     const [openedCat,setOpenedCat] = useState(0)
@@ -63,13 +63,23 @@ export const CategoryPickerModel = (props : { fildes : any , setFileds :React.Di
                             {WholeCategories.map(elm=>(
                                 <>
                                     <div key={elm.id} dir="rtl" onClick={()=>{
-                                        if (openedSubCat != elm.id) {
-                                            setOpenedSubCat(elm.id)
-                                        }
+                                        console.log({elm})
+                                        if (props?.is_multi == true) {
+                                                setFileds((prev : any)=>({...prev,cat_id : elm.id, cat_name : elm.name , showCatPicker : false,}))
+                                                console.log({cat_id : elm.id, cat_name : elm.name})
+                                                    setTimeout(() => {
+                                                        {props?.onClick && props.onClick()}
+                                                    }, 3000);
+                                                }
                                         else {
-                                            setOpenedSubCat(0)
+
+                                            if (openedSubCat != elm.id) {
+                                                setOpenedSubCat(elm.id)
+                                            }
+                                            else {
+                                                setOpenedSubCat(0)
+                                            }
                                         }
-                                        
 
                                         }} className="w-[90%] cursor-pointer hover:text-beh-orange text-beh-gray duration-100 mx-auto rounded-md h-10 my-2 bg-beh-gray-light flex justify-between items-center px-5  gap-5">
                                         <div>
