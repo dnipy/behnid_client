@@ -182,9 +182,9 @@ const AcceptedComponent = (props : {id : number , name : string , describe : str
             <div onClick={()=>router.push(`/profile/requests/edit/${props.id}`)} className='w-[90%] cursor-pointer h-10 my-2 mx-auto rounded-xl bg-beh-yellow flex justify-center items-center'>
                 <BiEdit className='fill-white w-7 h-7' />
             </div>
-            <div onClick={()=>router.push(`/requests/${props.id}`)} className='w-[90%] h-10 my-2 mx-auto rounded-xl cursor-pointer bg-beh-green-light flex justify-center items-center'>
+            {/* <div onClick={()=>router.push(`/requests/${props.id}`)} className='w-[90%] h-10 my-2 mx-auto rounded-xl cursor-pointer bg-beh-green-light flex justify-center items-center'>
                 <BsEye className='fill-white w-7 h-7' />
-            </div>
+            </div> */}
         </div>
 
     </div>
